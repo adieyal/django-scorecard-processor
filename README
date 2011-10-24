@@ -1,0 +1,31 @@
+Input validation and form creation
+- Using XForms
+- Generic data store?
+-- Project (e.g. IHP results), Question, Data Series (2010 results, 2011 results), Grouping in Series (e.g. country), Value, Version (might enter data multiple times, might need to keep versioned data in a series).
+- Questions have validations - what kind of value is acceptable, what isn't?
+- Questions have annotations
+
+Transformation and Annotation
+- May be simple of complex
+May chop data vertically (one set of question response)
+May chop horizontally - One question across data sets
+May translate a raw value, or a derived value
+Traverse dependency tree.
+
+Indicator - tick / cross etc. based on whether output data crosses thresholds.
+
+Output
+- 
+
+Reporting from output data
+- 
+
+
+From the other side:
+This is a wizard that starts with the:
+- Goals and targets people want to achieve
+- The actions taken to achieve those goals
+
+Steps through how to collect relevant data, and how to transform that into goals and targets
+
+The mapping may be simple or complex. Re-Action can be a partner in stepping through the process, and helping people identify what is needed.
