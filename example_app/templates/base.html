@@ -8,6 +8,7 @@
           <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/screen.css"/>
         {% endblock %}
         <style>
+          body {padding-top:60px}
           {% block style_block %}{% endblock %}
         </style>
     </head>
@@ -18,36 +19,35 @@
         {% endblock %}
       </style>
       <![endif]-->
-      <div id="content_wrapper">
-        {% block header_outer %}
-            <div id="header">
-              <div id="header_inner">
-                {% block header %}
-                  <a id="header_link_home" href="/" title="Home">Home</a>
-                {% endblock %}
-                <div class="clear"></div>
-              </div>
-            </div>
-        {% endblock %}
+      <div class="topbar">
+        <div class="topbar-inner">
+          <div class="container-fluid">
+            <a class="brand" href="#">Scorecard Processor</a>
 
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+            </ul>
+            {% if user.is_authenticated %}
+              <p class="pull-right">Logged in as <a href="#">{{user.username}}</a></p>
+            {% else %}
+              <p class="pull-right"><a href="">Log in</a></p>
+            {% endif %}
+
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid">
         {% block before_content %}
         {% endblock %}
 
+        <div class="sidebar">
+            {% block sidebar %}{% endblock %}
+        </div>
         {% block content_outer %}
-            <div id="content">
+            <div class="content">
                 {% block content %}{% endblock %}
             </div>
-        {% endblock %}
-      </div>
-
-      <div id="footer_wrapper">
-        {% block footer_outer %}
-          <div id="footer">
-            <div id="footer_inner">
-              {% block footer %}
-              {% endblock %}
-            </div>
-          </div>
         {% endblock %}
       </div>
       {% block page_bottom %}

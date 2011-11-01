@@ -1,0 +1,7 @@
+*pyc
+/test/
+pip-log.txt
+*swp
+example_app/testing.db
+example_app/debugging.log
+/data/
