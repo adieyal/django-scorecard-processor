@@ -1,7 +1,33 @@
 {% extends 'base.html' %}
+{% block head_title %}Home{% endblock %}
 {% block sidebar %}
 <div class="well">
-  <p>Nerd festival x 2</p>
+  <h5>Input</h5>
+  <ul>
+    <li><a href="">Enter data</a></li>
+    <li><a href="">My data</a></li>
+    <li><a href="">Create a form</a></li>
+  </ul>
+  <h5>Raw Data</h5>
+  <ul>
+    <li><a href="">All entries</a><br />
+      Data groups:
+      <ul>
+        <li><a href="">Years</a></li>
+        <li><a href="">Countries</a></li>
+        <li><a href="">Organisations</a></li>
+        <li><a href="">Respondants</a></li>
+      </ul>
+    </li>
+  </ul>
+  <h5>Reports / data output</h5>
+  <ul>
+    <li><a href="">Create report</a></li>
+    <li><a href="">Edit reports</a></li>
+    <li><a href="">View report data</a></li>
+    <li><a href="">Export data</a></li>
+  </ul>
+
 </div>
 {% endblock %}
 {% block content %}
