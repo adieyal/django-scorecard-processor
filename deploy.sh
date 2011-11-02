@@ -6,6 +6,7 @@ rm /tmp/example_app/scorecard_processor
 cp -R django-scorecard-processor/scorecard_processor /tmp/example_app/
 cd /tmp/example_app/
 epio upload
-rm -rf /tmp/example_app/
 epio django syncdb
 epio django migrate
+cd -
+rm -rf /tmp/example_app/
