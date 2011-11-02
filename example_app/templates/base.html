@@ -28,7 +28,7 @@
               <li class="active"><a href="#">Home</a></li>
             </ul>
             {% if user.is_authenticated %}
-              <p class="pull-right">Logged in as <a href="#">{{user.username}}</a></p>
+              <p class="pull-right">Logged in as <a href="#">{{user.username}}</a>{% if user.is_staff %} (<a href="/admin/">admin</a>){% endif %}</p>
             {% else %}
               <p class="pull-right"><a href="">Log in</a></p>
             {% endif %}
