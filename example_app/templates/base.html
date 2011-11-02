@@ -12,7 +12,7 @@
           {% block style_block %}{% endblock %}
         </style>
     </head>
-    <body id="{% block body_id %}{% endblock %}" class="{% block body_classes %}{% if user.profile.newbie %}newbie{% endif %}{% endblock %}">
+    <body id="{% block body_id %}{% endblock %}" class="{% block body_classes %}{% endblock %}">
       <!--[if IE]>
       <style type="text/css">
         {% block IE_style %}
@@ -26,9 +26,10 @@
 
             <ul class="nav">
               <li class="active"><a href="#">Home</a></li>
+              {% if user.is_staff %}<li><a href="/admin/">Manage app</a></li>{% endif %}
             </ul>
             {% if user.is_authenticated %}
-              <p class="pull-right">Logged in as <a href="#">{{user.username}}</a>{% if user.is_staff %} (<a href="/admin/">admin</a>){% endif %}</p>
+              <p class="pull-right"><a href="#">Logged in as {{user.get_full_name|default:user.username}}</a></p>
             {% else %}
               <p class="pull-right"><a href="{% url django.contrib.auth.views.login %}">Log in</a></p>
             {% endif %}
