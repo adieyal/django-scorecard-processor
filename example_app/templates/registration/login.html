@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block head_title %}Log in{% endblock %}
+{% block content %}
+<style>
+  form input {width:270px}
+</style>
+<div class="container">
+  <form method="POST" class="form-stacked">
+    <div class="well span5 offset2">
+      <h2>AUTHORIZE yourself</h2>
+      {% csrf_token %}
+      {{form.as_p}}
+      <br />
+      <button class="offset3 btn primary large"  type="submit">Log in</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
