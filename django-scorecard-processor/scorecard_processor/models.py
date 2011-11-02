@@ -1,42 +1,58 @@
+from django.db import models
+from django.contrib.auth.models import User
 from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
 
 class DataSeries(models.Model):
-    name = models.CharField()
+    name = models.CharField(max_length=100)
+    group = models.CharField(max_length=50,choices=(('Country','country'),('Year','year')))
 
 class Survey(models.Model):
-    name = models.CharField()
-    project = models.ForeignKey(Project)
-    data_series = ManytoManyField(DataSeries) #Country, Year, Agency
+    name = models.CharField(max_length=100)
+    data_series = models.ManyToManyField(DataSeries) #Country, Year, Agency
 
 class Question(models.Model):
     survey = models.ForeignKey(Survey)
-    identifier = models.CharField #1, 2a, 2b
+    identifier = models.CharField(max_length=10) #1, 2a, 2b
     question = models.TextField()
 
     def get_value(self, data_series=[], responseset_set=[]):
         return ''
+
+class Entity(models.Model):
+    """
+    An entity / organisation
+    """
+    name = models.CharField(max_length=100) 
 
 class ResponseSet(models.Model):
     survey = models.ForeignKey(Survey)
     respondant = models.ForeignKey(User)
     submission_date = models.DateTimeField(auto_now_add=True)
     entity = models.ForeignKey(Entity)
-    data_series = ManytoManyField(DataSeries) #Country, Year, Agency
+    data_series = models.ManyToManyField(DataSeries) #Country, Year, Agency
     
 class Response(models.Model):
     question = models.ForeignKey(Question)
     response_set = models.ForeignKey(ResponseSet)
-    value = models.CharField()
-    valid = models.BooleanField #Has this been validated, and is a valid entry?
+    value = models.TextField()
+    valid = models.BooleanField(default=False) #Has this been validated, and is a valid entry?
     comment = models.TextField()
+    # May have multiple responses saved / history / current version
+
+class TransformationGroup(models.Model):
+    """Could have multiple transformations grouped for the same 'output', e.g.
+    government score card, Country scorecard, 2011 scorecard"""
+    name = models.CharField(max_length=50)
+    survey = models.ForeignKey(Survey)
 
 class Transition(models.Model):
-    method = models.CharField()
-    data_series = models.ManyToManyField(DataSeries)
-    results_by_data_series = models.BooleanField()
-    results_by_respondant = models.BooleanField()
-    result_fold_function = models.CharField()
+    """Methods are grouped by how they slice data 
+    - per ResponseSet
+    - per DataSet
+    """
+    method = models.CharField(max_length=50) 
+    limit_data_series = models.ManyToManyField(DataSeries) # none means no filter, adding some in filters outputs
 
     def get_values(self, response_set, data_series):
         """ Outputs a value from the transition, applying the method to the
@@ -52,7 +68,5 @@ class TransitionArgument(models.Model):
     instance_content_type = models.ForeignKey(ContentType)
     instance_id = models.PositiveIntegerField()
     instance = generic.GenericForeignKey('sender_content_type', 'sender_id')
-
-    
 
 # transition('add_values', Question(1), DataSeries(2011), DataSeries(South Africa)).get_values()
