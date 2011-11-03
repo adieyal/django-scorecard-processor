@@ -6,6 +6,8 @@ from django.contrib.contenttypes.models import ContentType
 class DataSeries(models.Model):
     name = models.CharField(max_length=100)
     group = models.CharField(max_length=50,choices=(('Country','country'),('Year','year')))
+    class Meta:
+        verbose_name_plural = 'Data Series'
 
 class Entity(models.Model):
     """
