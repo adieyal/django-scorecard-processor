@@ -1,10 +1,24 @@
 from django.contrib import admin
 from models import  DataSeries, Entity, Survey, Question, ResponseSet, Response, Scorecard, Operation, OperationArgument
+from django.forms.models import BaseInlineFormSet 
 
-admin.site.register(Survey)
-admin.site.register(Question)
-admin.site.register(ResponseSet)
-admin.site.register(Response)
+class QuestionInline(admin.StackedInline):
+    model = Question
+
+class SurveyAdmin(admin.ModelAdmin):
+    model = Survey
+    inlines = [QuestionInline]
+
+class ResponseInline(admin.StackedInline):
+    model = Response
+
+class ResponseSetAdmin(admin.ModelAdmin):
+    model = ResponseSet
+    inlines = [ResponseInline]
+
+
+admin.site.register(Survey, SurveyAdmin)
+admin.site.register(ResponseSet, ResponseSetAdmin)
 
 admin.site.register(Scorecard)
 admin.site.register(Operation)
