@@ -9,16 +9,24 @@ class DataSeries(models.Model):
     class Meta:
         verbose_name_plural = 'Data Series'
 
+    def __unicode__(self):
+        return "%s: %s" % (self.group, self.name)
+
 class Entity(models.Model):
     """
     An entity / organisation
     """
     name = models.CharField(max_length=100) 
 
+    def __unicode__(self):
+        return "Entity: %s" % (self.name)
+
 
 class Survey(models.Model):
     name = models.CharField(max_length=100)
     data_series = models.ManyToManyField(DataSeries) #Country, Year, Agency
+    def __unicode__(self):
+        return "Survey: %s" % (self.name)
 
 class Question(models.Model):
     survey = models.ForeignKey(Survey)
@@ -28,6 +36,9 @@ class Question(models.Model):
     def get_value(self, data_series=[], responseset_set=[]):
         return ''
 
+    def __unicode__(self):
+        return "Question: %s. %s" % (self.identifier, self.question)
+
 class ResponseSet(models.Model):
     """ Survey::ResponseSet, Question::Response """
     survey = models.ForeignKey(Survey)
@@ -35,6 +46,9 @@ class ResponseSet(models.Model):
     submission_date = models.DateTimeField(auto_now_add=True)
     entity = models.ForeignKey(Entity)
     data_series = models.ManyToManyField(DataSeries) #Country, Year, Agency
+
+    def __unicode__(self):
+        return "ResponseSet for %s about %s" % (self.survey, entity)
     
 class Response(models.Model):
     question = models.ForeignKey(Question)
@@ -52,6 +66,8 @@ class Scorecard(models.Model):
     government score card, Country scorecard, 2011 scorecard"""
     name = models.CharField(max_length=50)
     survey = models.ForeignKey(Survey)
+    def __unicode__(self):
+        return "Scorecard: %s" % (self.name)
 
 class Operation(models.Model):
     """Methods are grouped by how they slice data 
