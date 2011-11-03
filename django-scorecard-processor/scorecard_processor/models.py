@@ -48,7 +48,7 @@ class ResponseSet(models.Model):
     data_series = models.ManyToManyField(DataSeries) #Country, Year, Agency
 
     def __unicode__(self):
-        return "ResponseSet for %s about %s" % (self.survey, entity)
+        return "ResponseSet for %s about %s" % (self.survey, self.entity)
     
 class Response(models.Model):
     question = models.ForeignKey(Question)
