@@ -24,6 +24,8 @@ class Operation(models.Model):
     - per ResponseSet
     - per DataSet
     """
+    #TODO: validate number of arguments
+    #TODO: validate argument positions
     scorecard = models.ForeignKey(Scorecard)
     method = models.CharField(max_length=50, choices=plugins.plugins_as_choices()) 
     limit_data_series = models.ManyToManyField(DataSeries) # none means no filter, adding some in filters outputs
@@ -34,13 +36,19 @@ class Operation(models.Model):
     def get_values(self, response_set, data_series):
         """ Outputs a value from the operation, applying the method to the
         arguments"""
-        return ''
+        
+
+    @property
+    def method_instance(self):
+        if not getattr(self,'_method_instance',None):
+            self._method_instance = get_plugin(self.method).plugin(self)
+        return self._method_instance
 
 class OperationArgument(models.Model):
     """Arguments need to be ordered and they may be specific question
     responses, or outputs from transitions""" 
 
-    order = models.IntegerField()
+    position = models.IntegerField(default=1)
     operation = models.ForeignKey(Operation)
     instance_content_type = models.ForeignKey(ContentType)
     instance_id = models.PositiveIntegerField()
@@ -48,6 +56,5 @@ class OperationArgument(models.Model):
 
     class Meta:
         app_label = "scorecard_processor"
-        ordering = ('order',)
-
-# transition('add_values', Question(1), DataSeries(2011), DataSeries(South Africa)).get_values()
+        ordering = ('position',)
+        unique_together = ('position','operation')

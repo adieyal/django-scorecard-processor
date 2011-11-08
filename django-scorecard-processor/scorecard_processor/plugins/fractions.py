@@ -3,24 +3,21 @@ from register import register
 
 class NumDenomPlugin(base.Plugin):
     name = 'Fraction'
-    def process(self):
-        #den = _sum_values([q for q in qs if q.question_number==denomq], selector)
-        #num = _sum_values([q for q in qs if q.question_number==numq], selector)
+    argument_list = ['numerator', 'denominator']
 
-        #if den in [NA_STR, None] or num in [NA_STR, None]:
-        #    return den
-        #ratio = NA_STR
-        #if den > 0: ratio = num / den * 100
-        #return ratio
-        return []
+    def process_item(self, arguments):
+        #TODO: handle NotApplicable
+        ratio = arguments.denominator.get_value()
+        if ratio > 0:
+            ratio = arguments.numerator.get_value() / arguments.denominator.get_value() * 100
+        return ratio
 
 class OneMinusNumDenomPlugin(NumDenomPlugin):
     name = 'One minus fraction'
-    def process(self):
-        #ratio = calc_numdenom(qs, agency_or_country, selector, numq, denomq)
-        #ratio = 100 - ratio if ratio not in [NA_STR, None] else ratio
-        #return ratio
-        return []
+    def process_item(self, arguments):
+        result = super(OneMinusNumDenomPlugin,self).process(arguments) 
+        if result:
+            return 100 - result
 
-register('Agency Indicator','num_denom',NumDenomPlugin)
-register('Agency Indicator','one_minus_num_denom',OneMinusNumDenomPlugin)
+register('Scorecard operations','num_denom',NumDenomPlugin)
+register('Scorecard operations','one_minus_num_denom',OneMinusNumDenomPlugin)

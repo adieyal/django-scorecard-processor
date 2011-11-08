@@ -9,5 +9,8 @@ def register(plugin_type, name, klass):
 def plugins_as_choices():
     choices = defaultdict(list)
     for name, plugin in plugins_register.items():
-        choices[plugin.category].append((plugin.name, name)) #TODO: Add nicer name in plugin?
+        choices[plugin.category].append((name, plugin.plugin.name)) #TODO: Add nicer name in plugin?
     return choices.items()
+
+def get_plugin(name):
+    return plugins_register[name]
