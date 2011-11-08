@@ -27,6 +27,7 @@ class Indicator(models.Model):
     """
     #TODO: validate number of arguments
     #TODO: validate argument positions
+    #TODO: operations should be chained? e.g. div(sum(Q1),sum(Q2)) vs. NumDenom(Q1,Q2)
     scorecard = models.ForeignKey(Scorecard)
     operation = models.CharField(max_length=50, choices=plugins.plugins_as_choices()) 
     identifier = models.CharField(max_length=25)
@@ -50,7 +51,7 @@ class OperationArgument(models.Model):
     responses, or outputs from transitions""" 
 
     position = models.IntegerField(default=1)
-    operation = models.ForeignKey(Operation)
+    operation = models.ForeignKey(Indicator)
     instance_content_type = models.ForeignKey(ContentType)
     instance_id = models.PositiveIntegerField()
     instance = generic.GenericForeignKey('sender_content_type', 'sender_id')
@@ -63,8 +64,8 @@ class OperationArgument(models.Model):
 
 class ReportRun(models.Model):
     scorecard = models.ForeignKey(Scorecard)
-    data_series_source = models.ManyToManyField(DataSeries, blank=True)
-    aggregate_on = models.ForeignKeyField(DataSeries, blank=True, null=True)
+    data_series_source = models.ManyToManyField(DataSeries, blank=True, related_name='report_data_source_set')
+    aggregate_on = models.ForeignKey(DataSeries, blank=True, null=True, related_name='report_aggregate_set')
     aggregate_by_entity = models.BooleanField(default=False)
 
     class Meta:
