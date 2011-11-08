@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
 from inputs import Survey
-from meta import DataSeries
+from meta import DataSeries, Project
 
 from scorecard_processor import plugins
 
@@ -11,6 +11,7 @@ class Scorecard(models.Model):
     """Could have multiple transformations grouped for the same 'output', e.g.
     government score card, Country scorecard, 2011 scorecard"""
     name = models.CharField(max_length=50)
+    project = models.ForeignKey(Project)
     survey = models.ForeignKey(Survey)
 
     class Meta:
@@ -28,8 +29,7 @@ class Indicator(models.Model):
     #TODO: validate argument positions
     scorecard = models.ForeignKey(Scorecard)
     operation = models.CharField(max_length=50, choices=plugins.plugins_as_choices()) 
-    identifier = models.CharField()
-    limit_data_series = models.ManyToManyField(DataSeries) # none means no filter, adding some in filters outputs
+    identifier = models.CharField(max_length=25)
 
     class Meta:
         app_label = "scorecard_processor"
@@ -60,3 +60,13 @@ class OperationArgument(models.Model):
         app_label = "scorecard_processor"
         ordering = ('position',)
         unique_together = ('position','operation')
+
+class ReportRun(models.Model):
+    scorecard = models.ForeignKey(Scorecard)
+    data_series_source = models.ManyToManyField(DataSeries, blank=True)
+    aggregate_on = models.ForeignKeyField(DataSeries, blank=True, null=True)
+    aggregate_by_entity = models.BooleanField(default=False)
+
+    class Meta:
+        app_label = "scorecard_processor"
+
