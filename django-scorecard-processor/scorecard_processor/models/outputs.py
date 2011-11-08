@@ -19,7 +19,7 @@ class Scorecard(models.Model):
     def __unicode__(self):
         return "Scorecard: %s" % (self.name)
 
-class Operation(models.Model):
+class Indicator(models.Model):
     """Methods are grouped by how they slice data 
     - per ResponseSet
     - per DataSet
@@ -27,7 +27,8 @@ class Operation(models.Model):
     #TODO: validate number of arguments
     #TODO: validate argument positions
     scorecard = models.ForeignKey(Scorecard)
-    method = models.CharField(max_length=50, choices=plugins.plugins_as_choices()) 
+    operation = models.CharField(max_length=50, choices=plugins.plugins_as_choices()) 
+    identifier = models.CharField()
     limit_data_series = models.ManyToManyField(DataSeries) # none means no filter, adding some in filters outputs
 
     class Meta:
@@ -53,6 +54,7 @@ class OperationArgument(models.Model):
     instance_content_type = models.ForeignKey(ContentType)
     instance_id = models.PositiveIntegerField()
     instance = generic.GenericForeignKey('sender_content_type', 'sender_id')
+    #argument / sub-type / how to tease out value
 
     class Meta:
         app_label = "scorecard_processor"
