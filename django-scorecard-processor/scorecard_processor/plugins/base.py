@@ -1,5 +1,6 @@
 from register import register
 class Plugin:
+    name = "Dummy plugin"
     def __init__(self, operation):
         self.operation = operation
 
