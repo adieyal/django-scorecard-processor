@@ -16,8 +16,8 @@ class Question(models.Model):
     survey = models.ForeignKey(Survey)
     identifier = models.CharField(max_length=10) #1, 2a, 2b
     question = models.TextField()
-    # render_widget
-    # validation_class
+    widget = models.CharField(max_length=30, default='text')
+    validator = models.CharField(max_length=30, default='anything')
 
     class Meta:
         app_label = "scorecard_processor"
