@@ -55,7 +55,7 @@ class OperationArgument(models.Model):
     instance_content_type = models.ForeignKey(ContentType)
     instance_id = models.PositiveIntegerField()
     instance = generic.GenericForeignKey('sender_content_type', 'sender_id')
-    #argument / sub-type / how to tease out value
+    argument_extractor = models.CharField(max_length=30, default='value') #argument / sub-type / how to tease out value. Based on instance type...
 
     class Meta:
         app_label = "scorecard_processor"
