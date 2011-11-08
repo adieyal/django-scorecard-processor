@@ -48,5 +48,6 @@ class OperationArgument(models.Model):
 
     class Meta:
         app_label = "scorecard_processor"
+        ordering = ('order',)
 
 # transition('add_values', Question(1), DataSeries(2011), DataSeries(South Africa)).get_values()
