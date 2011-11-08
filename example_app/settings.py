@@ -87,6 +87,10 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    #External deps
+    'south',
+
+    #Internal django deps
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
