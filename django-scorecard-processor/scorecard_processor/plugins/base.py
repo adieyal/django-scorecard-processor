@@ -6,4 +6,7 @@ class Plugin:
     def process(self):
         raise NotImplementedError 
 
+    def num_arguments():
+        return 2
+
 register('dummy','dummy',Plugin)

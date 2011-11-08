@@ -44,6 +44,7 @@ class Response(models.Model):
     question = models.ForeignKey(Question)
     response_set = models.ForeignKey(ResponseSet)
     value = models.TextField() #Probably should be a cerial field
+    baseline = models.TextField(blank=True, null=True) #Probably should be a cerial field
     comment = models.TextField()
     submission_date = models.DateTimeField(auto_now_add=True)
 
