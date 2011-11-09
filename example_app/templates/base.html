@@ -25,7 +25,8 @@
             <a class="brand" href="#">Scorecard Processor</a>
 
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
+              <li class="active"><a href="/">Home</a></li>
+              <li class="active"><a href="{% url scorecard_index %}">Scorecards</a></li>
               {% if user.is_staff %}<li><a href="/admin/">Manage app</a></li>{% endif %}
             </ul>
             {% if user.is_authenticated %}
@@ -38,6 +39,7 @@
         </div>
       </div>
 
+      {% block fluid_content_outer %}
       <div class="container-fluid">
         {% block before_content %}
         {% endblock %}
@@ -51,6 +53,7 @@
             </div>
         {% endblock %}
       </div>
+      {% endblock %}
       {% block page_bottom %}
         {% block script_bottom %}
           <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>

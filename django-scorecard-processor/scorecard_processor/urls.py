@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from models import Entity
 
 urlpatterns = patterns('scorecard_processor.views',
-    (r'^$', 'index'),
+    url(r'^$', 'index', name="scorecard_index"),
     url(r'^entity/$', #TODO:limit entities to the ones a user account can access
         login_required(object_list), 
         {'queryset':Entity.objects.all()},

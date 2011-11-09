@@ -9,7 +9,7 @@ urlpatterns = patterns('',
     # Example:
     # (r'^example_app/', include('example_app.foo.urls')),
     (r'^$', direct_to_template, {'template':'index.html'}),
-    (r'^account/', include('django.contrib.auth.urls')),
+    (r'^accounts/', include('django.contrib.auth.urls')),
     (r'^scorecard/', include('scorecard_processor.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
