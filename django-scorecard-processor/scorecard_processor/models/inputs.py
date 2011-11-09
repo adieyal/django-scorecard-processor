@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
 from meta import DataSeries, Entity
 
 class Survey(models.Model):
@@ -21,6 +22,7 @@ class Question(models.Model):
 
     class Meta:
         app_label = "scorecard_processor"
+        unique_together = ('survey','identifier')
 
     def get_value(self, data_series=[], responseset_set=[]):
         return ''
@@ -51,8 +53,13 @@ class Response(models.Model):
     submission_date = models.DateTimeField(auto_now_add=True)
 
     valid = models.BooleanField(default=False) #Has this been validated, and is a valid entry?
-    current = models.BooleanField(default=False) #Is this response the current 'active' response for this question
+    current = models.BooleanField(default=True) #Is this response the current 'active' response for this question
 
     class Meta:
         app_label = "scorecard_processor"
 
+def invalidate_old_responses(sender, instance, **kwargs):
+    if instance.current:
+        instance.responseset.response_set.exclude(pk=instance.pk).filter(question=instance.question).update(current=False)
+
+post_save.connect(invalidate_old_responses, sender=Response, dispatch_uid="scorecard_processor.invalidate_responses")
