@@ -49,7 +49,7 @@ class Response(models.Model):
     response_set = models.ForeignKey(ResponseSet)
     value = models.TextField() #Probably should be a cerial field
     baseline = models.TextField(blank=True, null=True) #Probably should be a cerial field
-    comment = models.TextField()
+    comment = models.TextField(blank=True, null=True) #Possibly move this out?
     submission_date = models.DateTimeField(auto_now_add=True)
 
     valid = models.BooleanField(default=False) #Has this been validated, and is a valid entry?
