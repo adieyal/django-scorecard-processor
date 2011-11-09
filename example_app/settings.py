@@ -89,6 +89,7 @@ TEMPLATE_DIRS = (
 INSTALLED_APPS = (
     #External deps
     'south',
+    'bootstrap',
 
     #Internal django deps
     'django.contrib.auth',

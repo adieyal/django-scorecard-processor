@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block head_title %}Entity selection{% endblock %}
+{% block content %}
+  <div class="container">
+    <div class="content">
+      <div class="page-header">
+        <h1>Choose an entity</h1>
+      </div>
+      <div class="row">
+        <div class="span14">
+          <ul>
+          {% for entity in object_list %}
+            <li><a href="{{entity.get_absolute_url}}">{{entity}}</a></li>
+          {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

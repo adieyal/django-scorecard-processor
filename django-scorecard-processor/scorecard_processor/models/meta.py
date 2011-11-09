@@ -30,5 +30,9 @@ class Entity(models.Model):
     class Meta:
         app_label = "scorecard_processor"
 
+    @models.permalink
+    def get_absolute_url(self):
+        return ('show_entity',str(self.pk))
+
     def __unicode__(self):
         return "Entity: %s" % (self.name)

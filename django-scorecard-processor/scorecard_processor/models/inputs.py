@@ -61,6 +61,6 @@ class Response(models.Model):
 
 def invalidate_old_responses(sender, instance, **kwargs):
     if instance.current:
-        instance.responseset.response_set.exclude(pk=instance.pk).filter(question=instance.question).update(current=False)
+        instance.response_set.response_set.exclude(pk=instance.pk).filter(question=instance.question).update(current=False)
 
 post_save.connect(invalidate_old_responses, sender=Response, dispatch_uid="scorecard_processor.invalidate_responses")

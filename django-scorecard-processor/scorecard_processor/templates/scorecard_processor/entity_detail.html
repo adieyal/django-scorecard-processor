@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block head_title %}Entity selection{% endblock %}
+{% block content %}
+  <div class="container">
+    <div class="content">
+      <div class="page-header">
+        <h1>{{object.name}} <small>Choose a survey</small></h1>
+      </div>
+      <div class="row">
+        <div class="span14">
+          <ul>
+          {% for survey in object.project.survey_set.all %}
+            <li><a href="{% url survey_response object.pk, survey.pk %}">{{survey.name}}</a></li>
+          {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
