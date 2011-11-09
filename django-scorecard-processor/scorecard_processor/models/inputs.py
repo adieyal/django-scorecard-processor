@@ -1,10 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
-from meta import DataSeries, Entity
+from meta import DataSeries, Entity, Project
 
 class Survey(models.Model):
     name = models.CharField(max_length=100)
+    project = models.ForeignKey(Project)
     data_series = models.ManyToManyField(DataSeries) #Country, Year, Agency
 
     class Meta:
