@@ -25,7 +25,7 @@ def show_survey(request, object_id, survey_id):
         if form.is_valid():
             form.save()
     else:
-        form = form(survey=survey, instance=None)
+        form = form(survey=survey, instance=response)
 
     return render_to_response('scorecard_processor/respond/survey.html',{'entity':entity,'survey':survey, 'form':form},RequestContext(request))
 

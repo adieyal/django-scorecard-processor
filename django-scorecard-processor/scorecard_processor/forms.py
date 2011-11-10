@@ -13,9 +13,15 @@ class QuestionForm(BootstrapForm):
         super(QuestionForm, self).__init__(*args, **kwargs)
 
         for question in self.survey.question_set.all():
-            self.fields[question.identifier] = forms.CharField(
+            self.fields['q_%s' % question.pk] = forms.CharField(
                         label=question.question
             )
+
+        self.initial.update(dict([
+                ('q_%s' % response.question.pk, response.value) 
+                for response in self.instance.response_set.filter(current=True)
+            ]))
+            
         #TODO: group question fields
         self.layout = (Fieldset("Default",*[key for key in self.fields.keys()]),)
           
@@ -24,7 +30,7 @@ class QuestionForm(BootstrapForm):
         if not self.instance.pk:
             self.instance.save()
         for question in self.survey.question_set.all():
-            value = self.cleaned_data[question.identifier]
+            value = self.cleaned_data['q_%s' % question.pk]
             # Only create a new 'response' if the existing response is
             # different
             self.instance.response_set.get_or_create(

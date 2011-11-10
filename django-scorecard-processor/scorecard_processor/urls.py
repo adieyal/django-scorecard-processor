@@ -16,6 +16,7 @@ urlpatterns = patterns('scorecard_processor.views',
         {'queryset':Entity.objects.all()}, 
         name="show_entity"
     ),
-    url(r'^entity/(?P<object_id>\d+)/survey/(?P<survey_id>\d+)/$','show_survey',name="survey_response"),
+    #TODO: should be keyed off response set id, since an entity might respond multiple times
+    url(r'^entity/(?P<object_id>\d+)/survey/(?P<survey_id>\d+)/add/$','edit_survey',name="survey_response"),
 )
 
