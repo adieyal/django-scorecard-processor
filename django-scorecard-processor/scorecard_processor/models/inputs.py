@@ -50,7 +50,7 @@ class ResponseSet(models.Model):
 class Response(models.Model):
     question = models.ForeignKey(Question)
     response_set = models.ForeignKey(ResponseSet)
-    value = JSONField() #Probably should be a cerial field
+    value = JSONField() 
     comment = models.TextField(blank=True, null=True) #Possibly move this out?
     submission_date = models.DateTimeField(auto_now_add=True)
 
