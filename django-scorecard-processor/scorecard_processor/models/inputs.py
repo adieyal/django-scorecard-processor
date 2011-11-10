@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from meta import DataSeries, Entity, Project
 
+from cerial import JSONField
+
 class Survey(models.Model):
     name = models.CharField(max_length=100)
     project = models.ForeignKey(Project)
@@ -48,8 +50,7 @@ class ResponseSet(models.Model):
 class Response(models.Model):
     question = models.ForeignKey(Question)
     response_set = models.ForeignKey(ResponseSet)
-    value = models.TextField() #Probably should be a cerial field
-    baseline = models.TextField(blank=True, null=True) #Probably should be a cerial field
+    value = JSONField() #Probably should be a cerial field
     comment = models.TextField(blank=True, null=True) #Possibly move this out?
     submission_date = models.DateTimeField(auto_now_add=True)
 
