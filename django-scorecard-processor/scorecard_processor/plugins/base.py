@@ -1,7 +1,15 @@
 from collections import namedtuple
 from register import register
 
+
+class QuestionValidationPlugin:
+    pass
+
+class QuestionWidget:
+    pass
+
 class ProcessPlugin:
+    """ A plugin to process input data """
     name = "Dummy plugin"
     argument_list = ['a','b']
 
