@@ -1,6 +1,18 @@
 from collections import namedtuple
 from register import register
 
+class Value:
+    def __init__(self, item, extractor_class=None):
+        if extractor_class:
+            self.value = self.extractor_class(item)
+        else:
+            self.value = item
+
+    def get_value():
+        try:
+            return self.value.get_value()
+        except AttributeError:
+            return self.value
 
 class QuestionValidationPlugin:
     pass
