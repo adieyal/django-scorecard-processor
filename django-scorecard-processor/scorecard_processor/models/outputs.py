@@ -29,7 +29,7 @@ class Indicator(models.Model):
     #TODO: validate argument positions
     #TODO: operations should be chained? e.g. div(sum(Q1),sum(Q2)) vs. NumDenom(Q1,Q2)
     scorecard = models.ForeignKey(Scorecard)
-    operation = models.CharField(max_length=50, choices=plugins.plugins_as_choices()) 
+    operation = models.CharField(max_length=50, choices=plugins.process_plugins_as_choices()) 
     identifier = models.CharField(max_length=25)
 
     class Meta:

@@ -10,7 +10,7 @@ def index(request):
     return render_to_response('scorecard_processor/index.html',{},RequestContext(request))
 
 @login_required
-def show_survey(request, object_id, survey_id):
+def edit_survey(request, object_id, survey_id):
     survey = get_object_or_404(Survey, pk=survey_id)
     entity = get_object_or_404(Entity, pk=object_id)
     form = QuestionForm

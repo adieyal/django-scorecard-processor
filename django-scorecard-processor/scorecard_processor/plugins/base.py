@@ -1,7 +1,7 @@
 from collections import namedtuple
 from register import register
 
-class Plugin:
+class ProcessPlugin:
     name = "Dummy plugin"
     argument_list = ['a','b']
 
@@ -29,3 +29,5 @@ class Plugin:
     def num_arguments(self):
         return 2
 
+class DataExtractorPlugin:
+    pass
