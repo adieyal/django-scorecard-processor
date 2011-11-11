@@ -15,7 +15,7 @@ class NavNode(Node):
     def render(self, context):
         url = self.url_node.render(context)
         classes = ""
-        if context['request'].path == url:
+        if context['request'].path.startswith(url):
             classes = 'active'
         return """
             <li class="%s">
