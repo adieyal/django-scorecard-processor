@@ -4,13 +4,13 @@
   <div class="container">
     <div class="content">
       <div class="page-header">
-        <h1>{{object.name}} <small>Choose a survey</small></h1>
+        <h1>{{object.name}} <small>manage surveys</small></h1>
       </div>
       <div class="row">
         <div class="span14">
           <ul>
           {% for survey in object.survey_set.all %}
-            <li><a href="{% url survey_response object.pk, survey.pk %}">{{survey.name}}</a></li>
+            <li>{{survey.name}}</li>
           {% endfor %}
           </ul>
         </div>
