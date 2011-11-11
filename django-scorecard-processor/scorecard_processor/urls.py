@@ -6,6 +6,7 @@ from models import Entity
 
 urlpatterns = patterns('scorecard_processor.views',
     url(r'^$', 'index', name="scorecard_index"),
+    url(r'^$', 'index', name="project_list"),
     url(r'^entity/$', #TODO:limit entities to the ones a user account can access
         login_required(object_list), 
         {'queryset':Entity.objects.all()},

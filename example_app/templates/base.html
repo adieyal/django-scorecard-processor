@@ -22,11 +22,12 @@
       <div class="topbar">
         <div class="topbar-inner">
           <div class="container-fluid">
-            <a class="brand" href="#">Scorecard Processor</a>
+            <a class="brand" href="/">Scorecard Processor</a>
 
             <ul class="nav">
-              <li class="active"><a href="/">Home</a></li>
-              <li class="active"><a href="{% url scorecard_index %}">Scorecards</a></li>
+              {% load nav %}
+              {% nav_url project_list "Projects and Surveys" %}
+              {% nav_url entity_list "Your responses" %}
               {% if user.is_staff %}<li><a href="/admin/">Manage app</a></li>{% endif %}
             </ul>
             {% if user.is_authenticated %}
