@@ -4,6 +4,11 @@ class Project(models.Model):
     name = models.CharField(max_length=100) 
     class Meta:
         app_label = "scorecard_processor"
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('show_project',str(self.pk))
+
     def __unicode__(self):
         return "Project: %s" % (self.name)
 
