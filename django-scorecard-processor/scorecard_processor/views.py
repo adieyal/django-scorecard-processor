@@ -26,8 +26,7 @@ def add_survey(request, object_id, survey_id):
             return HttpResponseRedirect(responseset.get_absolute_url())
     else:
         form = form(instance = instance)
-    return
-    render_to_response('scorecard_processor/respond/add_survey.html',{'survey':survey, 'entity':entity, 'form':form},RequestContext(request))
+    return render_to_response('scorecard_processor/respond/add_survey.html',{'survey':survey, 'entity':entity, 'form':form},RequestContext(request))
 
 @login_required
 def edit_survey(request, object_id, responseset_id):
