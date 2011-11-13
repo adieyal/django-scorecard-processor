@@ -1,6 +1,6 @@
 from django import forms
 from bootstrap.forms import *
-from models.inputs import ResponseSet
+from models.inputs import ResponseSet, Response
 
 class QuestionForm(BootstrapForm):
     #TODO: save responses / switch to save even if invalid
@@ -33,9 +33,24 @@ class QuestionForm(BootstrapForm):
             value = self.cleaned_data['q_%s' % question.pk]
             # Only create a new 'response' if the existing response is
             # different
-            self.instance.response_set.get_or_create(
-                question = question,
-                value = value,
-                valid = True,
-                current = True
-            )
+            try:
+                instance = self.instance.response_set.get(
+                    question = question,
+                    current = True
+                )
+            except Response.DoesNotExist:
+                instance = None
+
+            if instance and instance.value != value:
+                instance = None
+
+            if not instance:
+                instance = Response(
+                    response_set = self.instance,
+                    question = question,
+                    value = value,
+                    valid = True,
+                    current = True
+                )
+                instance.save()
+
