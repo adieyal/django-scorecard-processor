@@ -1,38 +1,11 @@
 {% extends 'base.html' %}
 {% block head_title %}Home{% endblock %}
 {% block sidebar %}
-<div class="well">
-  <h5>Input</h5>
-  <ul>
-    <li><a href="">Enter data</a></li>
-    <li><a href="">My data</a></li>
-    <li><a href="">Create a form</a></li>
-  </ul>
-  <h5>Raw Data</h5>
-  <ul>
-    <li><a href="">All entries</a><br />
-      Data groups:
-      <ul>
-        <li><a href="">Years</a></li>
-        <li><a href="">Countries</a></li>
-        <li><a href="">Organisations</a></li>
-        <li><a href="">Respondants</a></li>
-      </ul>
-    </li>
-  </ul>
-  <h5>Reports / data output</h5>
-  <ul>
-    <li><a href="">Create report</a></li>
-    <li><a href="">Edit reports</a></li>
-    <li><a href="">View report data</a></li>
-    <li><a href="">Export data</a></li>
-  </ul>
-
-</div>
 {% endblock %}
 {% block content %}
 <div class="hero-unit">
-  <h1>Example app using scorecard power</h1>
-  <p>This is a demo to explore the generic tool for working with scorecard data. Right now none of the menus work, but if you log in you can look at the data model</p>
+  <h1>Example to explore scorecards</h1>
+  <p>If you are a person who administers surveys and data collection <a href="/scorecard/project/">click here</a></p>
+  <p>If you are an organisation responding to a survey, <a href="/scorecard/entity/">click here</a></p>
 </div>
 {% endblock %}
