@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block head_title %}Entity selection{% endblock %}
+{% block script_bottom %}
+{{block.super}}
+<script type="text/javascript">
+  if(document.location.hash) {
+    $('li[name='+document.location.hash.replace('#','')+']').addClass("alert-message");
+  }
+</script>
+{% endblock %}
+{% block fluid_content_outer %}
+  <div class="container">
+    <div class="content">
+      <div class="page-header">
+        <h1>Survey Responses <small>for {{object.name}}</small></h1>
+      </div>
+      <div class="row">
+        <div class="span14">
+          <h2>Respond to a survey</h2>
+          <ul>
+          {% for survey in object.project.survey_set.all %}
+            <li><a href="{% url survey_response object.pk, survey.pk %}">{{survey.name}}</a></li>
+          {% endfor %}
+          </ul>
+          {% with object.responseset_set.all.select_related as responsesets %}
+            {% if responsesets %}
+              <h2>Edit existing survey responses <small>ordered by last update</small></h2>
+              <ul>
+              {% for responseset in responsesets %}
+                <li name="responseset_{{responseset.pk}}"><a href="{{responseset.get_absolute_url}}">{{responseset.survey.name}}</a> <strong>last update:</strong> {{responseset.last_update}} <strong>data series:</strong> {% for series in responseset.data_series.all %}{{series.name}}{% if forloop.revcounter0 %}, {% endif %}{% endfor %}</li>
+              {% endfor %}
+              </ul>
+            {% endif %}
+          {% endwith %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
