@@ -29,7 +29,8 @@ urlpatterns = patterns('scorecard_processor.views',
         {'queryset':entity_qs}, 
         name="show_entity"
     ),
-    #TODO: should be keyed off response set id, since an entity might respond multiple times
-    url(r'^entity/(?P<object_id>\d+)/survey/(?P<survey_id>\d+)/add/$','edit_survey',name="survey_response"),
+    url(r'^entity/(?P<object_id>\d+)/survey/add/(?P<survey_id>\d+)/$','add_survey',name="survey_response"),
+    #TODO: urls for responses per survey
+    url(r'^entity/(?P<object_id>\d+)/response/(?P<responseset_id>\d+)/edit/$','edit_survey',name="survey_response_edit"),
 )
 

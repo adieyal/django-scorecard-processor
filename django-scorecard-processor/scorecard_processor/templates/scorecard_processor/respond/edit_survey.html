@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block head_title %}Response to {{survey.name}} for {{entity.name}}{% endblock %}
+{% block fluid_content_outer %}
+  <div class="container">
+    <div class="content">
+      <div class="page-header">
+        <h1>{{survey.name}} <small>for {{entity.name}}</small></h1>
+      </div>
+      <div class="row">
+        <div class="span14">
+          <form method="POST">
+            {% csrf_token %}
+            {{form}}
+            <div class="actions">
+                <button type="submit" class="btn primary">Submit</button> &nbsp;
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

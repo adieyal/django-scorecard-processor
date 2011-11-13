@@ -33,6 +33,7 @@ class Question(models.Model):
     def __unicode__(self):
         return "Question: %s. %s" % (self.identifier, self.question)
 
+#TODO: enforce requirement of certain kinds of data series (e.g. country, year, etc.)
 class ResponseSet(models.Model):
     """ Survey::ResponseSet, Question::Response """
     survey = models.ForeignKey(Survey)
@@ -44,6 +45,11 @@ class ResponseSet(models.Model):
 
     class Meta:
         app_label = "scorecard_processor"
+
+
+    @models.permalink
+    def get_absolute_url(self):
+      return ('survey_response_edit',(str(self.entity.pk),str(self.pk)))
 
     def __unicode__(self):
         return "ResponseSet for %s about %s" % (self.survey, self.entity)

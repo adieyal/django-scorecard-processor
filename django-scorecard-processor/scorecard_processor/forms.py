@@ -2,9 +2,17 @@ from django import forms
 from bootstrap.forms import *
 from models.inputs import ResponseSet, Response
 
+class ResponseSetForm(forms.ModelForm):
+    #TODO: Make django-bootstrap support modelforms
+    # https://github.com/earle/django-bootstrap/issues/3
+    class Meta:
+        model = ResponseSet
+        exclude = ('survey','entity','submission_date','last_update','respondant')
+
 class QuestionForm(BootstrapForm):
     #TODO: save responses / switch to save even if invalid
     #TODO: load initial values from self.instance into form fields
+    #TODO: take a user object to save with each field update
         
     model = ResponseSet
     def __init__(self, *args, **kwargs):

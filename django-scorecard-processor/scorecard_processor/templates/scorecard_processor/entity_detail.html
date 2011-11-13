@@ -8,11 +8,22 @@
       </div>
       <div class="row">
         <div class="span14">
+          <h2>Add new data</h2>
           <ul>
           {% for survey in object.project.survey_set.all %}
             <li><a href="{% url survey_response object.pk, survey.pk %}">{{survey.name}}</a></li>
           {% endfor %}
           </ul>
+          {% with object.responseset_set.all.select_related as responsesets %}
+            {% if responsesets %}
+              <h2>Add new data</h2>
+              <ul>
+              {% for responseset in responsesets %}
+                <li><a href="{{responseset.get_absolute_url}}">{{responseset.survey.name}}</a> <strong>last update:</strong> {{responseset.last_update}} <strong>data series:</strong> {% for series in responseset.data_series.all %}{{series.name}}, {% endfor %}</li>
+              {% endfor %}
+              </ul>
+            {% endif %}
+          {% endwith %}
         </div>
       </div>
     </div>
