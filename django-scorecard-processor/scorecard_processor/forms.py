@@ -22,7 +22,8 @@ class QuestionForm(BootstrapForm):
 
         for question in self.survey.question_set.all():
             self.fields['q_%s' % question.pk] = forms.CharField(
-                        label=question.question
+                        label=question.question,
+                        help_text=question.help_text
             )
 
         self.initial.update(dict([

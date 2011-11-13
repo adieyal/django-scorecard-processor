@@ -20,6 +20,7 @@ class Question(models.Model):
     survey = models.ForeignKey(Survey)
     identifier = models.CharField(max_length=10) #1, 2a, 2b
     question = models.TextField()
+    help_text = models.TextField(blank=True, null=True)
     widget = models.CharField(max_length=30, default='text')
     validator = models.CharField(max_length=30, default='anything')
 
