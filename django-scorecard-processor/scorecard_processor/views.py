@@ -23,6 +23,7 @@ def add_survey(request, object_id, survey_id):
         form = form(request.POST, instance = instance)
         if form.is_valid():
             responseset = form.save()
+            #TODO: check that there isn't already a response for the given data series, if there is, return that instead
             return HttpResponseRedirect(responseset.get_absolute_url())
     else:
         form = form(instance = instance)
