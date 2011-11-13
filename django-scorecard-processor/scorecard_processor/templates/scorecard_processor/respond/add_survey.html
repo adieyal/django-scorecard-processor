@@ -4,14 +4,28 @@
   <div class="container">
     <div class="content">
       <div class="page-header">
-        <h1>New response to {{survey.name}} <small>for {{entity.name}}</small></h1>
+        <h1>New response to {{survey.name}} <small>for <a href="{{entity.get_absolute_url}}">{{entity.name}}</a></small></h1>
       </div>
       <div class="row">
         <div class="span14">
           <h2>Please select the relevant data series</h2>
           <form method="POST">
             {% csrf_token %}
-            {{form}}
+            {% regroup survey.project.dataseries_set.all by get_group_display as things %}
+            <fieldset>
+            {% for series in things %}
+            <div class="clearfix">
+              <label>{{series.grouper}}</label>
+              <div class="input">
+                <select name="data_series">
+                  {% for item in series.list %}
+                    <option value="{{item.pk}}">{{item.name}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            {% endfor %}
+            </fieldset>
             <div class="actions">
                 <button type="submit" class="btn primary">Submit</button> &nbsp;
             </div>
