@@ -7,10 +7,44 @@
         <h1>{{object.name}} <small>manage surveys</small></h1>
       </div>
       <div class="row">
+        <div class="span7">
+          <h3>Data Series <a class="btn small" href="/admin/scorecared_processor/dataseries/add/">+</a></h3>
+            {% regroup object.dataseries_set.all by get_group_display as things %}
+            {% for series in things %}
+            <dl>
+              <dt class="label {% if series.grouper == "Country" %}notice{% endif %}">{{series.grouper}}</dt>
+              <dd>
+                {% for item in series.list %}
+                  {{item.name}}{% if forloop.revcounter0 %}, {% endif %}
+                {% endfor %}
+              </dd>
+            </dl>
+            {% endfor %}
+            <p>You can <a href="/admin/scorecard_processor/dataseries/">manage</a> the data series</p>
+            <p>Later you will be able to group/view response sets by the data series they belong in, and compile reports using those groupings</p>
+        </div>
+        <div class="span7">
+          <h3>Surveys <a class="btn small" href="/admin/scorecared_processor/survey/add/">+</a></h3>
+            
+            <ul>
+            {% for survey in object.survey_set.all %}
+              <li><a href="{{survey.get_absolute_url}}">{{survey.name}}</a></li>
+            {% endfor %}
+            </ul>
+          <h3>Scorecard <a class="btn small" href="/admin/scorecared_processor/scorecard/add/">+</a></h3>
+            <ul>
+            {% for scorecard in object.scorecard_set.all %}
+              <li><a href="{{scorecard.get_absolute_url}}">{{scorecard.name}}</a></li>
+            {% endfor %}
+            </ul>
+        </div>
+      </div>
+      <div class="row">
         <div class="span14">
+          <h3>Entities <a class="btn small" href="/admin/scorecared_processor/entity/add/">+</a></h3>
           <ul>
-          {% for survey in object.survey_set.all %}
-            <li>{{survey.name}}</li>
+          {% for entity in object.entity_set.all %}
+            <li>{{entity.name}} - <a href="{{entity.get_absolute_url}}">survey responses</a> | <a href="/admin/scorecard_processor/entity/{{entity.pk}}/">edit entity</a></li>
           {% endfor %}
           </ul>
         </div>
