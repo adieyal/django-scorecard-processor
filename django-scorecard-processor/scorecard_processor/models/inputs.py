@@ -37,7 +37,8 @@ class ResponseSet(models.Model):
     """ Survey::ResponseSet, Question::Response """
     survey = models.ForeignKey(Survey)
     respondant = models.ForeignKey(User)
-    submission_date = models.DateTimeField(auto_now_add=True)
+    submission_date = models.DateTimeField(auto_now_add = True)
+    last_update = models.DateTimeField(auto_now_add = True)
     entity = models.ForeignKey(Entity)
     data_series = models.ManyToManyField(DataSeries) #Country, Year, Agency
 
@@ -63,5 +64,8 @@ class Response(models.Model):
 def invalidate_old_responses(sender, instance, **kwargs):
     if instance.current:
         instance.response_set.response_set.exclude(pk=instance.pk).filter(question=instance.question).update(current=False)
+        if instance.submission_date > instance.response_set.last_update:
+            instance.response_set.last_update = instance.submission_date
+            instance.response_set.save()
 
 post_save.connect(invalidate_old_responses, sender=Response, dispatch_uid="scorecard_processor.invalidate_responses")
