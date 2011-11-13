@@ -32,7 +32,7 @@ class QuestionForm(BootstrapForm):
             ]))
             
         #TODO: group question fields
-        self.layout = (Fieldset("Default",*[key for key in self.fields.keys()]),)
+        self.layout = (Fieldset("Monetary aid",*[key for key in self.fields.keys()]),)
           
 
     def save(self):
