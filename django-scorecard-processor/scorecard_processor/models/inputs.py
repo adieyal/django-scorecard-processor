@@ -45,6 +45,7 @@ class ResponseSet(models.Model):
 
     class Meta:
         app_label = "scorecard_processor"
+        ordering = ('-last_update',)
 
 
     @models.permalink
