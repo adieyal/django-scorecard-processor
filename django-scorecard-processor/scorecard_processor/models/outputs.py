@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.query import QuerySet
 from django.contrib.auth.models import User
 from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
@@ -73,7 +74,9 @@ class OperationArgument(models.Model):
         unique_together = ('position','operation')
 
     def get_values(self, data_series, aggregate_on = None):
-        return self.instance.get_values(data_series, aggregate_on)
+        response = self.instance.get_values(data_series, aggregate_on)
+        if isinstance(response, QuerySet):
+            return [item.get_value() for item in response]
         
 
 class ReportRun(models.Model):

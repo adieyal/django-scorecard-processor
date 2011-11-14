@@ -31,7 +31,10 @@ class ProcessPlugin:
     def get_arguments(self):
         if not getattr(self,'_arguments',None):
             ArgumentTuple = namedtuple('ArgumentTuple',self.argument_list)
-            self._arguments = ArgumentTuple(*[argument.get_values(self.data_series, self.aggregate_on) for argument in self.operation.operationargument_set.all()])
+            arguments = []
+            for argument in self.operation.operationargument_set.all():
+                arguments.append(argument)
+            self._arguments = ArgumentTuple(*arguments)
         return self._arguments
 
     def process(self):
