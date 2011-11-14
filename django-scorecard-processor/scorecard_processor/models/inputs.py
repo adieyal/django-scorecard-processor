@@ -58,7 +58,7 @@ class ResponseSet(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-      return ('survey_response_edit',(str(self.entity.pk),str(self.pk)))
+        return ('survey_response_edit',(str(self.entity.pk),str(self.pk)))
 
     def __unicode__(self):
         return "ResponseSet for %s about %s" % (self.survey, self.entity)
@@ -77,7 +77,9 @@ class Response(models.Model):
         app_label = "scorecard_processor"
 
     def get_value(self):
-        return self.value
+        #TODO: should read something like question.get_validator()(self.value).get_value()
+        #This method should output the value cast to the kind of value this field is
+        return unicode(self.value)
 
 def invalidate_old_responses(sender, instance, **kwargs):
     if instance.current:

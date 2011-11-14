@@ -50,7 +50,7 @@ class QuestionForm(BootstrapForm):
             except Response.DoesNotExist:
                 instance = None
 
-            if instance and instance.value != value:
+            if instance and instance.get_value() != value:
                 instance = None
 
             if not instance:

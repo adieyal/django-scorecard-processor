@@ -1,7 +1,7 @@
 from scorecard_processor.plugins import base, register
 
 def sum_values(x, y):
-    return x + y
+    return float(x) + float(y)
 
 class NumDenomPlugin(base.ProcessPlugin):
     name = 'Divide(Sum(Argument 1), Sum(Argument 2))'
@@ -14,8 +14,8 @@ class NumDenomPlugin(base.ProcessPlugin):
             return 0
         return base.Value(100 * (
                 reduce(sum_values, numerator) /
-                float(reduce(sum_values,denominator)
-            )))
+                reduce(sum_values,denominator)
+            ))
 
 class OneMinusNumDenomPlugin(NumDenomPlugin):
     name = '100 - Divide(Sum(Argument 1), Sum(Argument 2))'
