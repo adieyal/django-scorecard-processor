@@ -42,7 +42,7 @@ class Operation(models.Model):
     scorecard = models.ForeignKey(Scorecard)
     operation = models.CharField(max_length=50, choices=plugins.process_plugins_as_choices()) 
     identifier = models.CharField(max_length=25)
-    configuration = JSONField(null=True) #For the case of creating check mark outputs
+    configuration = JSONField(null=True, blank=True) #For the case of creating check mark outputs
     indicator = models.BooleanField(default=False, help_text="Is this an output operation, or a pre-cursor to output?")
 
     class Meta:
