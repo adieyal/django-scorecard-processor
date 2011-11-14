@@ -1,6 +1,7 @@
 from scorecard_processor.plugins import base, register
 
 def sum_values(x, y):
+    print(x,y)
     return x + y.get_value()
 
 class NumDenomPlugin(base.ProcessPlugin):
@@ -11,7 +12,7 @@ class NumDenomPlugin(base.ProcessPlugin):
         #TODO: handle NotApplicable
         return base.Value(100 * (
                 reduce(sum_values,self.get_arguments().numerator.get_values()) /
-                reduce(sum_values,self.get_arguments().denominator.get_values()
+                float(reduce(sum_values,self.get_arguments().denominator.get_values())
             )))
 
 class OneMinusNumDenomPlugin(NumDenomPlugin):
