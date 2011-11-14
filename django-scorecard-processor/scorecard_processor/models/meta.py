@@ -12,18 +12,27 @@ class Project(models.Model):
     def __unicode__(self):
         return "Project: %s" % (self.name)
 
+class DataSeriesGroup(models.Model):
+    name = models.CharField(max_length=30,primary_key=True)
+    project = models.ForeignKey(Project)
+    class Meta:
+        ordering = ('name',)
+        app_label = "scorecard_processor"
+
+    def __unicode__(self):
+        return self.name
+
 class DataSeries(models.Model):
     name = models.CharField(max_length=100)
-    #TODO: split this into a table
-    project = models.ForeignKey(Project)
-    group = models.CharField(max_length=50,choices=(('country','Country'),('month','Month'),('year','Year')))
+    group = models.ForeignKey(DataSeriesGroup)
+
     class Meta:
         verbose_name_plural = 'Data Series'
         ordering = ('-group','-name')
         app_label = "scorecard_processor"
 
     def __unicode__(self):
-        return "%s: %s" % (self.group, self.name)
+        return "%s: %s" % (self.group.pk, self.name)
 
 class Entity(models.Model):
     """

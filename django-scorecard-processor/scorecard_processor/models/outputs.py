@@ -16,7 +16,6 @@ class Scorecard(models.Model):
     government score card, Country scorecard, 2011 scorecard"""
     name = models.CharField(max_length=50)
     project = models.ForeignKey(Project)
-    survey = models.ForeignKey(Survey)
 
     class Meta:
         app_label = "scorecard_processor"
@@ -24,13 +23,13 @@ class Scorecard(models.Model):
     def __unicode__(self):
         return "Scorecard: %s" % (self.name)
 
-    def get_values(self, data_series):
+    def get_values(self, responsesets, group_by = None):
         result = {}
         #TODO: this is going to break with hierachy
         for indicator in self.indicator_set.all():
-            result[indicator.identifier] = indicator.get_values(data_series)
+            result[indicator.identifier] = indicator.get_values(responsesets)
 
-class Indicator(models.Model):
+class Operation(models.Model):
     """Methods are grouped by how they slice data 
     - per ResponseSet
     - per DataSet
@@ -43,18 +42,19 @@ class Indicator(models.Model):
     operation = models.CharField(max_length=50, choices=plugins.process_plugins_as_choices()) 
     identifier = models.CharField(max_length=25)
     configuration = JSONField(null=True) #For the case of creating check mark outputs
+    indicator = models.BooleanField(default=False, help_text="Is this an output operation, or a pre-cursor to output?")
 
     class Meta:
         app_label = "scorecard_processor"
 
     def __init__(self, *args, **kwargs):
-        super(Indicator,self).__init__(*args, **kwargs)
+        super(Operation,self).__init__(*args, **kwargs)
         self.plugin = plugins.register.get_process_plugin(self.operation).plugin
 
-    def get_values(self, data_series):
+    def get_values(self, responsesets):
         """ Outputs a value from the operation, applying the method to the
         arguments"""
-        return self.plugin(self, data_series).process()
+        return self.plugin(self, responsesets).process()
 
         
 class OperationArgument(models.Model):
@@ -62,7 +62,7 @@ class OperationArgument(models.Model):
     responses, or outputs from transitions""" 
 
     position = models.IntegerField(default=1)
-    operation = models.ForeignKey(Indicator)
+    operation = models.ForeignKey(Operation)
     instance_content_type = models.ForeignKey(ContentType)
     instance_id = models.PositiveIntegerField()
     instance = generic.GenericForeignKey('instance_content_type', 'instance_id')
@@ -73,18 +73,24 @@ class OperationArgument(models.Model):
         ordering = ('position',)
         unique_together = ('position','operation')
 
-    def get_values(self, data_series):
-        response = self.instance.get_values(data_series)
+    def get_values(self, responsesets, group_by=None):
+        response = self.instance.get_values(responsesets)
         if isinstance(response, QuerySet):
             return [item.get_value() for item in response]
         
 
 class ReportRun(models.Model):
     scorecard = models.ForeignKey(Scorecard)
-    data_series_source = models.ManyToManyField(DataSeries, blank=True, related_name='report_data_source_set')
+    source_data = JSONField() #Field which can be resolved to a list or queryset of ResponseSets
     aggregate_on = models.ForeignKey(DataSeries, blank=True, null=True, related_name='report_aggregate_set')
     aggregate_by_entity = models.BooleanField(default=False)
 
     class Meta:
         app_label = "scorecard_processor"
 
+    def get_responsesets(self):
+        source_data = {
+            'survey__project__pk':self.scorecard.project.pk, #limit results to the current project
+        }
+        source_data.update(self.source_data)
+        return ResponseSet.objects.filter(**source_data).only('pk')

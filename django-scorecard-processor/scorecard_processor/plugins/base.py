@@ -31,15 +31,15 @@ class ProcessPlugin:
     name = "Dummy plugin"
     argument_list = ['a','b']
 
-    def __init__(self, operation, data_series):
-        self.operation, self.data_series  = operation, data_series
+    def __init__(self, operation, responsesets):
+        self.operation, self.responsesets  = operation, responsesets
 
     def get_arguments(self):
         if not getattr(self,'_arguments',None):
             ArgumentTuple = namedtuple('ArgumentTuple',self.argument_list)
             arguments = []
             for argument in self.operation.operationargument_set.all():
-                arguments.append(Value(argument.get_values(self.data_series)))
+                arguments.append(Value(argument.get_values(self.responsesets)))
             self._arguments = ArgumentTuple(*arguments)
         return self._arguments
 

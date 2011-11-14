@@ -1,14 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
-from meta import DataSeries, Entity, Project
+from meta import DataSeries, DataSeriesGroup, Entity, Project
 
 from cerial import JSONField
 
 class Survey(models.Model):
     name = models.CharField(max_length=100)
     project = models.ForeignKey(Project)
-    data_series = models.ManyToManyField(DataSeries) #Country, Year, Agency
+    data_series_groups = models.ManyToManyField(DataSeriesGroup) 
 
     class Meta:
         app_label = "scorecard_processor"
@@ -36,8 +36,8 @@ class Question(models.Model):
     def get_absolute_url(self):
       return ('show_survey_question',(str(self.survey.project.pk),str(self.survey.pk),str(self.pk)))
 
-    def get_values(self, data_series):
-        return self.response_set.filter(response_set__data_series__in=data_series)
+    def get_values(self, responsesets):
+        return self.response_set.filter(response_set__in=responsesets)
 
     def __unicode__(self):
         return "Question: %s. %s" % (self.identifier, self.question)
