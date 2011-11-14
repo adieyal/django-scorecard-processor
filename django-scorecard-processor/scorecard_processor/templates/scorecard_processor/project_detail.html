@@ -8,10 +8,10 @@
       </div>
       <div class="row">
         <div class="span7">
-          <h3>Data Series <a class="btn small" href="/admin/scorecard_processor/dataseries/add/">+</a></h3>
+          <h3>Data Series <a class="btn small" href="/admin/scorecard_processor/dataseriesgroup/add/">+</a></h3>
             {% for series in object.dataseriesgroup_set.select_related %}
             <dl>
-              <dt class="label {% if series.name == "Country" %}notice{% endif %}">{{series.name}}</dt>
+              <dt class="label {% if series.name == "Country" %}notice{% endif %}">{{series.name}} <a class="" href="/admin/scorecard_processor/dataseriesgroup/{{series.pk}}/">edit</a></dt>
               <dd>
                 {% for item in series.dataseries_set.all %}
                   {{item.name}}{% if forloop.revcounter0 %}, {% endif %}
@@ -19,8 +19,6 @@
               </dd>
             </dl>
             {% endfor %}
-            <p>You can <a href="/admin/scorecard_processor/dataseries/">manage</a> the data series</p>
-            <p>Later you will be able to group/view response sets by the data series they belong in, and compile reports using those groupings</p>
         </div>
         <div class="span7">
           <h3>Surveys <a class="btn small" href="/admin/scorecard_processor/survey/add/">+</a></h3>
