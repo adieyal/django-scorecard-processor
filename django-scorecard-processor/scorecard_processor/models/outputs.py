@@ -23,6 +23,12 @@ class Scorecard(models.Model):
     def __unicode__(self):
         return "Scorecard: %s" % (self.name)
 
+    def get_values(self, data_series, aggregate_on):
+        result = {}
+        #TODO: this is going to break with hierachy
+        for indicator in self.indicator_set.all():
+            result[indicator.identifier] = indicator.get_values(data_series, aggregate_on)
+
 class Indicator(models.Model):
     """Methods are grouped by how they slice data 
     - per ResponseSet
@@ -31,6 +37,7 @@ class Indicator(models.Model):
     #TODO: validate number of arguments
     #TODO: validate argument positions
     #TODO: operations should be chained? e.g. div(sum(Q1),sum(Q2)) vs. NumDenom(Q1,Q2)
+    #TODO: rework as django-mptt?
     scorecard = models.ForeignKey(Scorecard)
     operation = models.CharField(max_length=50, choices=plugins.process_plugins_as_choices()) 
     identifier = models.CharField(max_length=25)
@@ -39,16 +46,16 @@ class Indicator(models.Model):
     class Meta:
         app_label = "scorecard_processor"
 
+    def __init__(self, *args, **kwargs):
+        super(Indicator,self).__init__(*args, **kwargs)
+        self.plugin = plugins.register.get_process_plugin(self.operation).plugin
+
     def get_values(self, data_series, aggregate_on = None):
         """ Outputs a value from the operation, applying the method to the
         arguments"""
-        
-    @property
-    def method_instance(self):
-        if not getattr(self,'_method_instance',None):
-            self._method_instance = get_plugin(self.method).plugin(self)
-        return self._method_instance
+        return self.plugin(self, data_series, aggregate_on).process()
 
+        
 class OperationArgument(models.Model):
     """Arguments need to be ordered and they may be specific question
     responses, or outputs from transitions""" 
@@ -57,7 +64,7 @@ class OperationArgument(models.Model):
     operation = models.ForeignKey(Indicator)
     instance_content_type = models.ForeignKey(ContentType)
     instance_id = models.PositiveIntegerField()
-    instance = generic.GenericForeignKey('sender_content_type', 'sender_id')
+    instance = generic.GenericForeignKey('instance_content_type', 'instance_id')
     argument_extractor = models.CharField(max_length=30, default='value') #argument / sub-type / how to tease out value. Based on instance type...
 
     class Meta:
@@ -66,6 +73,7 @@ class OperationArgument(models.Model):
         unique_together = ('position','operation')
 
     def get_values(self, data_series, aggregate_on = None):
+        return self.instance.get_values(data_series, aggregate_on)
         
 
 class ReportRun(models.Model):

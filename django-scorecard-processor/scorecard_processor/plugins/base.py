@@ -25,10 +25,14 @@ class ProcessPlugin:
     name = "Dummy plugin"
     argument_list = ['a','b']
 
-    def __init__(self, operation):
-        self.operation = operation
-        if self.operation.operationargument_set.count() == self.num_arguments:
-            self.ArgumentTuple = namedtuple('ArgumentTuple',self.argument_list)
+    def __init__(self, operation, data_series, aggregate_on):
+        self.operation, self.data_series, self.aggregate_on = operation, data_series, aggregate_on
+
+    def get_arguments(self):
+        if not getattr(self,'_arguments',None):
+            ArgumentTuple = namedtuple('ArgumentTuple',self.argument_list)
+            self._arguments = ArgumentTuple(*[argument.get_values(self.data_series, self.aggregate_on) for argument in self.operation.operationargument_set.all()])
+        return self._arguments
 
     def process(self):
         raise NotImplementedError 

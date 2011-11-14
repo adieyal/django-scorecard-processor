@@ -36,8 +36,8 @@ class Question(models.Model):
     def get_absolute_url(self):
       return ('show_survey_question',(str(self.survey.project.pk),str(self.survey.pk),str(self.pk)))
 
-    def get_value(self, data_series=[], responseset_set=[]):
-        return ''
+    def get_values(self, data_series, aggregate_on = None):
+        return self.response_set.filter(response_set__data_series__in=data_series)
 
     def __unicode__(self):
         return "Question: %s. %s" % (self.identifier, self.question)
@@ -76,6 +76,9 @@ class Response(models.Model):
 
     class Meta:
         app_label = "scorecard_processor"
+
+    def get_value(self):
+        return self.value
 
 def invalidate_old_responses(sender, instance, **kwargs):
     if instance.current:

@@ -10,8 +10,8 @@ class NumDenomPlugin(base.ProcessPlugin):
     def process(self):
         #TODO: handle NotApplicable
         return base.Value(100 * (
-                reduce(sum_values,arguments.numerator.get_value()) /
-                reduce(sum_values,arguments.denominator.get_value()
+                reduce(sum_values,self.get_arguments().numerator.get_values()) /
+                reduce(sum_values,self.get_arguments().denominator.get_values()
             )))
 
 class OneMinusNumDenomPlugin(NumDenomPlugin):
@@ -19,7 +19,7 @@ class OneMinusNumDenomPlugin(NumDenomPlugin):
     def process(self, arguments):
         result = super(OneMinusNumDenomPlugin,self).process(arguments) 
         if result:
-            return base.Value(100 - result.get_value())
+            return base.Value(100 - result.get_values())
 
 register.register('process','Unweighted operations','num_denom',NumDenomPlugin)
 register.register('process','Unweighted operations','one_minus_num_denom',OneMinusNumDenomPlugin)
