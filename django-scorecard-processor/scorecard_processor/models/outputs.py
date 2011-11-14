@@ -24,11 +24,11 @@ class Scorecard(models.Model):
     def __unicode__(self):
         return "Scorecard: %s" % (self.name)
 
-    def get_values(self, data_series, aggregate_on):
+    def get_values(self, data_series):
         result = {}
         #TODO: this is going to break with hierachy
         for indicator in self.indicator_set.all():
-            result[indicator.identifier] = indicator.get_values(data_series, aggregate_on)
+            result[indicator.identifier] = indicator.get_values(data_series)
 
 class Indicator(models.Model):
     """Methods are grouped by how they slice data 
@@ -51,10 +51,10 @@ class Indicator(models.Model):
         super(Indicator,self).__init__(*args, **kwargs)
         self.plugin = plugins.register.get_process_plugin(self.operation).plugin
 
-    def get_values(self, data_series, aggregate_on = None):
+    def get_values(self, data_series):
         """ Outputs a value from the operation, applying the method to the
         arguments"""
-        return self.plugin(self, data_series, aggregate_on).process()
+        return self.plugin(self, data_series).process()
 
         
 class OperationArgument(models.Model):
@@ -73,8 +73,8 @@ class OperationArgument(models.Model):
         ordering = ('position',)
         unique_together = ('position','operation')
 
-    def get_values(self, data_series, aggregate_on = None):
-        response = self.instance.get_values(data_series, aggregate_on)
+    def get_values(self, data_series):
+        response = self.instance.get_values(data_series)
         if isinstance(response, QuerySet):
             return [item.get_value() for item in response]
         

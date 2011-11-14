@@ -36,7 +36,7 @@ class Question(models.Model):
     def get_absolute_url(self):
       return ('show_survey_question',(str(self.survey.project.pk),str(self.survey.pk),str(self.pk)))
 
-    def get_values(self, data_series, aggregate_on = None):
+    def get_values(self, data_series):
         return self.response_set.filter(response_set__data_series__in=data_series)
 
     def __unicode__(self):
