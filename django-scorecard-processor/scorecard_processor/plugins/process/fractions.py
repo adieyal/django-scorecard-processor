@@ -1,8 +1,7 @@
 from scorecard_processor.plugins import base, register
 
 def sum_values(x, y):
-    print(x,y)
-    return x + y.get_value()
+    return x + y
 
 class NumDenomPlugin(base.ProcessPlugin):
     name = 'Divide(Sum(Argument 1), Sum(Argument 2))'
