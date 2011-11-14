@@ -37,12 +37,12 @@ class Question(models.Model):
       return ('show_survey_question',(str(self.survey.project.pk),str(self.survey.pk),str(self.pk)))
 
     def get_values(self, responsesets):
-        return self.response_set.filter(response_set__in=responsesets)
+        return self.response_set.filter(response_set__in=responsesets, current=True)
 
     def __unicode__(self):
         return "Question: %s. %s" % (self.identifier, self.question)
 
-#TODO: enforce requirement of certain kinds of data series (e.g. country, year, etc.)
+#TODO: enforce requirement of members of survey.data_series_groups
 class ResponseSet(models.Model):
     """ Survey::ResponseSet, Question::Response """
     survey = models.ForeignKey(Survey)

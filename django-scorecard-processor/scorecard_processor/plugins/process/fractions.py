@@ -8,10 +8,13 @@ class NumDenomPlugin(base.ProcessPlugin):
     argument_list = ['numerator', 'denominator']
 
     def process(self):
-        #TODO: handle NotApplicable
+        numerator = self.get_arguments().numerator.get_values()
+        denominator = self.get_arguments().denominator.get_values()
+        if numerator == [] or denominator == []:
+            return 0
         return base.Value(100 * (
-                reduce(sum_values,self.get_arguments().numerator.get_values()) /
-                float(reduce(sum_values,self.get_arguments().denominator.get_values())
+                reduce(sum_values, numerator) /
+                float(reduce(sum_values,denominator)
             )))
 
 class OneMinusNumDenomPlugin(NumDenomPlugin):
