@@ -8,7 +8,13 @@ class Value:
         else:
             self.value = item
 
-    def get_value():
+    def get_value(self):
+        try:
+            return self.value.get_value()
+        except AttributeError:
+            return self.value
+
+    def get_values(self):
         try:
             return self.value.get_value()
         except AttributeError:
@@ -33,7 +39,7 @@ class ProcessPlugin:
             ArgumentTuple = namedtuple('ArgumentTuple',self.argument_list)
             arguments = []
             for argument in self.operation.operationargument_set.all():
-                arguments.append(argument)
+                arguments.append(Value(argument.get_values(self.data_series, self.aggregate_on)))
             self._arguments = ArgumentTuple(*arguments)
         return self._arguments
 
