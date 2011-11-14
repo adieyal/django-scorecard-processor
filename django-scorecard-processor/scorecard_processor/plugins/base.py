@@ -8,6 +8,12 @@ class Value:
         else:
             self.value = item
 
+    def __repr__(self):
+        return repr(self.value)
+
+    def __unicode__(self):
+        return unicode(self.value)
+
     def get_value(self):
         try:
             return self.value.get_value()
