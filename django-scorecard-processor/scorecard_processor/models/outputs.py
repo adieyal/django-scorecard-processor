@@ -2,6 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
+
+from cerial import JSONField
+
 from inputs import Survey
 from meta import DataSeries, Project
 
@@ -31,15 +34,15 @@ class Indicator(models.Model):
     scorecard = models.ForeignKey(Scorecard)
     operation = models.CharField(max_length=50, choices=plugins.process_plugins_as_choices()) 
     identifier = models.CharField(max_length=25)
+    configuration = JSONField(null=True) #For the case of creating check mark outputs
 
     class Meta:
         app_label = "scorecard_processor"
 
-    def get_values(self, response_set, data_series):
+    def get_values(self, data_series, aggregate_on = None):
         """ Outputs a value from the operation, applying the method to the
         arguments"""
         
-
     @property
     def method_instance(self):
         if not getattr(self,'_method_instance',None):
@@ -61,6 +64,9 @@ class OperationArgument(models.Model):
         app_label = "scorecard_processor"
         ordering = ('position',)
         unique_together = ('position','operation')
+
+    def get_values(self, data_series, aggregate_on = None):
+        
 
 class ReportRun(models.Model):
     scorecard = models.ForeignKey(Scorecard)
