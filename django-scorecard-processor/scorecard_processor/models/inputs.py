@@ -13,6 +13,10 @@ class Survey(models.Model):
     class Meta:
         app_label = "scorecard_processor"
 
+    @models.permalink
+    def get_absolute_url(self):
+      return ('show_survey',(str(self.project.pk),str(self.pk)))
+
     def __unicode__(self):
         return "Survey: %s" % (self.name)
 
@@ -27,6 +31,10 @@ class Question(models.Model):
     class Meta:
         app_label = "scorecard_processor"
         unique_together = ('survey','identifier')
+
+    @models.permalink
+    def get_absolute_url(self):
+      return ('show_survey_question',(str(self.survey.project.pk),str(self.survey.pk),str(self.pk)))
 
     def get_value(self, data_series=[], responseset_set=[]):
         return ''

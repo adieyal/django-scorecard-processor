@@ -1,37 +1,26 @@
 {% extends 'base.html' %}
-{% block head_title %}Entity selection{% endblock %}
+{% block head_title %}Edit Survey: {{object.name}}{% endblock %}
 {% block script_bottom %}
 {{block.super}}
-<script type="text/javascript">
-  if(document.location.hash) {
-    $('li[name='+document.location.hash.replace('#','')+']').addClass("alert-message");
-  }
-</script>
 {% endblock %}
 {% block fluid_content_outer %}
   <div class="container">
     <div class="content">
       <div class="page-header">
-        <h1>Survey Responses <small>for {{object.name}}</small></h1>
+        <h1>Edit: {{object.name}} <small>from <a href="{{object.project.get_absolute_url}}">{{object.project.name}}</a></small></h1>
       </div>
       <div class="row">
-        <div class="span14">
-          <h2>Respond to a survey</h2>
-          <ul>
-          {% for survey in object.project.survey_set.all %}
-            <li><a href="{% url survey_response object.pk, survey.pk %}">{{survey.name}}</a></li>
+        <div class="span7">
+          <h2>Questions <a class="btn small" title="Add a question" href="/admin/scorecard_processor/survey/{{object.pk}}/">+</a></h2>
+          {% for question in object.question_set.all %}
+            <div class="question">
+              <h4>{{question.identifier}}. {{question.question}} <small><a href="">edit</a></small></h4>
+              <p>{{question.help_text}}</p>
+              <p><small>Rendered as: {{question.widget}}, validator: {{question.validator}}</small></p>
+            </div>
           {% endfor %}
-          </ul>
-          {% with object.responseset_set.all.select_related as responsesets %}
-            {% if responsesets %}
-              <h2>Edit existing survey responses <small>ordered by last update</small></h2>
-              <ul>
-              {% for responseset in responsesets %}
-                <li name="responseset_{{responseset.pk}}"><a href="{{responseset.get_absolute_url}}">{{responseset.survey.name}}</a> <strong>last update:</strong> {{responseset.last_update}} <strong>data series:</strong> {% for series in responseset.data_series.all %}{{series.name}}{% if forloop.revcounter0 %}, {% endif %}{% endfor %}</li>
-              {% endfor %}
-              </ul>
-            {% endif %}
-          {% endwith %}
+        </div>
+        <div class="span7">
         </div>
       </div>
     </div>

@@ -2,10 +2,11 @@ from django.conf.urls.defaults import *
 from django.views.generic.list_detail import object_list, object_detail
 from django.contrib.auth.decorators import login_required
 
-from models import Entity, Project, Survey
+from models import Entity, Project, Survey, Question
 entity_qs = Entity.objects.all()
 project_qs = Project.objects.all()
 survey_qs = Survey.objects.all()
+question_qs = Question.objects.all()
 
 urlpatterns = patterns('scorecard_processor.views',
     url(r'^$', 'index', name="scorecard_index"),
@@ -25,7 +26,12 @@ urlpatterns = patterns('scorecard_processor.views',
     url(r'^project/(\d+)/survey/(?P<object_id>\d+)/$', 
         login_required(object_detail),
         {'queryset': survey_qs}, 
-        name="show_project"
+        name="show_survey"
+    ),
+    url(r'^project/(\d+)/survey/(\d+)/(?P<object_id>\d+)/$', 
+        login_required(object_detail),
+        {'queryset': question_qs}, 
+        name="show_survey_question"
     ),
 
 
