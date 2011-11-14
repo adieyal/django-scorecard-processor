@@ -56,7 +56,6 @@ class ResponseSet(models.Model):
         app_label = "scorecard_processor"
         ordering = ('-last_update',)
 
-
     @models.permalink
     def get_absolute_url(self):
       return ('survey_response_edit',(str(self.entity.pk),str(self.pk)))

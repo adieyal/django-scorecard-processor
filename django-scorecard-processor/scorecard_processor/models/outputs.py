@@ -6,8 +6,8 @@ from django.contrib.contenttypes.models import ContentType
 
 from cerial import JSONField
 
-from inputs import Survey
-from meta import DataSeries, Project
+from inputs import Survey, ResponseSet
+from meta import DataSeriesGroup, Project
 
 from scorecard_processor import plugins
 
@@ -26,8 +26,9 @@ class Scorecard(models.Model):
     def get_values(self, responsesets, group_by = None):
         result = {}
         #TODO: this is going to break with hierachy
-        for indicator in self.indicator_set.all():
+        for indicator in self.operation_set.filter(indicator=True):
             result[indicator.identifier] = indicator.get_values(responsesets)
+        return result
 
 class Operation(models.Model):
     """Methods are grouped by how they slice data 
@@ -78,11 +79,10 @@ class OperationArgument(models.Model):
         if isinstance(response, QuerySet):
             return [item.get_value() for item in response]
         
-
 class ReportRun(models.Model):
     scorecard = models.ForeignKey(Scorecard)
     source_data = JSONField() #Field which can be resolved to a list or queryset of ResponseSets
-    aggregate_on = models.ForeignKey(DataSeries, blank=True, null=True, related_name='report_aggregate_set')
+    aggregate_on = models.ForeignKey(DataSeriesGroup, blank=True, null=True)
     aggregate_by_entity = models.BooleanField(default=False)
 
     class Meta:
@@ -93,4 +93,22 @@ class ReportRun(models.Model):
             'survey__project__pk':self.scorecard.project.pk, #limit results to the current project
         }
         source_data.update(self.source_data)
-        return ResponseSet.objects.filter(**source_data).only('pk')
+        qs = ResponseSet.objects.filter(**source_data).only('id')
+        rs_dict = {}
+        if self.aggregate_by_entity:
+            for entity in self.scorecard.project.entity_set.all():
+                e_qs = qs.filter(entity=entity)
+                if e_qs.count():
+                    rs_dict[entity] = e_qs
+        else:
+            for dataseries in self.aggregate_on.dataseries_set.all():
+                ds_qs = qs.filter(data_series=dataseries)
+                if ds_qs.count():
+                    rs_dict[dataseries] = ds_qs
+        return rs_dict
+
+    def run(self):
+        results = {}
+        for key, qs in self.get_responsesets().items():
+            results[key] = self.scorecard.get_values(qs)
+        return results

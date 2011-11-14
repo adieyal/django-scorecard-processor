@@ -7,7 +7,7 @@
         <h1>{{object.name}} <small>manage surveys</small></h1>
       </div>
       <div class="row">
-        <div class="span7">
+        <div class="span6">
           <h3>Data Series <a class="btn small" href="/admin/scorecard_processor/dataseriesgroup/add/">+</a></h3>
             {% for series in object.dataseriesgroup_set.select_related %}
             <dl>
@@ -20,7 +20,7 @@
             </dl>
             {% endfor %}
         </div>
-        <div class="span7">
+        <div class="span8 well">
           <h3>Surveys <a class="btn small" href="/admin/scorecard_processor/survey/add/">+</a></h3>
             
             <ul>
@@ -28,12 +28,24 @@
               <li><a href="{{survey.get_absolute_url}}">{{survey.name}}</a></li>
             {% endfor %}
             </ul>
-          <h3>Scorecard <a class="btn small" href="/admin/scorecard_processor/scorecard/add/">+</a></h3>
-            <ul>
-            {% for scorecard in object.scorecard_set.all %}
-              <li><a href="{{scorecard.get_absolute_url}}">{{scorecard.name}}</a></li>
-            {% endfor %}
-            </ul>
+            <div class="row">
+              <div class="span4"> 
+                <h3>Scorecards <a class="btn small" href="/admin/scorecard_processor/scorecard/add/">+</a></h3>
+                  <ul>
+                  {% for scorecard in object.scorecard_set.all %}
+                    <li><a href="{{scorecard.get_absolute_url}}">{{scorecard.name}}</a></li>
+                  {% endfor %}
+                  </ul>
+              </div>
+              <div class="span4"> 
+                <h3>Reports <a class="btn small" href="/admin/scorecard_processor/reportrun/add/">+</a></h3>
+                  <ul>
+                  {% for report in object.reportrun_set.all %}
+                    <li><a href="{{report.get_absolute_url}}">{{report.name}}</a></li>
+                  {% endfor %}
+                  </ul>
+              </div>
+            </div>
         </div>
       </div>
       <div class="row">
