@@ -9,12 +9,11 @@
       <div class="row">
         <div class="span7">
           <h3>Data Series <a class="btn small" href="/admin/scorecard_processor/dataseries/add/">+</a></h3>
-            {% regroup object.dataseries_set.all by get_group_display as things %}
-            {% for series in things %}
+            {% for series in object.dataseriesgroup_set.select_related %}
             <dl>
-              <dt class="label {% if series.grouper == "Country" %}notice{% endif %}">{{series.grouper}}</dt>
+              <dt class="label {% if series.name == "Country" %}notice{% endif %}">{{series.name}}</dt>
               <dd>
-                {% for item in series.list %}
+                {% for item in series.dataseries_set.all %}
                   {{item.name}}{% if forloop.revcounter0 %}, {% endif %}
                 {% endfor %}
               </dd>
