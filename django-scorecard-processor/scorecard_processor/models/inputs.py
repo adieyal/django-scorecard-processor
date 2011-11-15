@@ -37,6 +37,10 @@ class Question(models.Model):
     def get_absolute_url(self):
       return ('show_survey_question',(str(self.survey.project.pk),str(self.survey.pk),str(self.pk)))
 
+    @staticmethod
+    def autocomplete_search_fields():
+        return ("question__icontains", "identifier__icontains")
+
     def get_values(self, responsesets):
         return self.response_set.filter(response_set__in=responsesets, current=True)
 

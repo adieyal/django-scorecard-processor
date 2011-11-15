@@ -42,11 +42,10 @@ class OperationArgumentInline(admin.StackedInline):
     model = OperationArgument
     form = ArgumentForm
     related_lookup_fields = {
-         'generic': [['instance_content_type', 'instance_object_id']],
+         'generic': [['instance_content_type', 'instance_id']],
     }
     sortable_field_name = "position"
     extra = 0
-    classes = ('collapse open',)
 
     def get_formset(self, request, obj = None,**kwargs):
         if obj:
@@ -65,6 +64,7 @@ class OperationArgumentInline(admin.StackedInline):
 
 class OperationAdmin(admin.ModelAdmin):
     model = Operation
+    list_filter = ('scorecard',)
     inlines = [OperationArgumentInline]
     classes = ('collapse open',)
 
