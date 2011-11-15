@@ -59,4 +59,4 @@ class Entity(models.Model):
         return ('show_entity',str(self.pk))
 
     def __unicode__(self):
-        return "%s: %s" % (self.entity_type.pk.capitalize, self.name)
+        return "%s: %s" % (self.entity_type.pk.capitalize(), self.name)
