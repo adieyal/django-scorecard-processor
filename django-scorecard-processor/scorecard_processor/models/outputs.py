@@ -23,12 +23,20 @@ class Scorecard(models.Model):
     def __unicode__(self):
         return "Scorecard: %s" % (self.name)
 
+    @models.permalink
+    def get_absolute_url(self):
+        return ('show_scorecard',(str(self.project.pk),str(self.pk)))
+
     def get_values(self, responsesets, group_by = None):
         result = {}
         #TODO: this is going to break with hierachy
         for indicator in self.operation_set.filter(indicator=True):
             result[indicator.identifier] = indicator.get_values(responsesets)
         return result
+
+class OperationManager(models.Manager):
+    def indicators(self):
+        return self.filter(indicator=True)
 
 class Operation(models.Model):
     """Methods are grouped by how they slice data 
@@ -40,10 +48,12 @@ class Operation(models.Model):
     #TODO: operations should be chained? e.g. div(sum(Q1),sum(Q2)) vs. NumDenom(Q1,Q2)
     #TODO: rework as django-mptt?
     scorecard = models.ForeignKey(Scorecard)
-    operation = models.CharField(max_length=50, choices=plugins.process_plugins_as_choices()) 
-    identifier = models.CharField(max_length=25)
+    operation = models.CharField(max_length=50, choices=plugins.process_plugins_as_choices(), help_text="How should this data be processed") 
+    identifier = models.CharField(max_length=25, help_text="A short identifier for the operation, e.g. budget_spend, 1G")
+    description = models.CharField(max_length=200, help_text="Descriptive name for this indicator e.g. Portion of budget spent(%), Total amount spent ($m)")
     configuration = JSONField(null=True, blank=True) #For the case of creating check mark outputs
     indicator = models.BooleanField(default=False, help_text="Is this an output operation, or a pre-cursor to output?")
+    objects = OperationManager()
 
     class Meta:
         app_label = "scorecard_processor"
@@ -52,6 +62,8 @@ class Operation(models.Model):
         super(Operation,self).__init__(*args, **kwargs)
         if self.operation:
             self.plugin = plugins.register.get_process_plugin(self.operation).plugin
+        else:
+            self.plugin = None
 
     def __unicode__(self):
         return "%s: %s" % (self.identifier, self.get_operation_display())
@@ -66,7 +78,7 @@ class OperationArgument(models.Model):
     """Arguments need to be ordered and they may be specific question
     responses, or outputs from transitions""" 
 
-    position = models.IntegerField(default=1)
+    position = models.IntegerField(default=0, db_index=True)
     operation = models.ForeignKey(Operation)
     instance_content_type = models.ForeignKey(ContentType)
     instance_id = models.PositiveIntegerField()
@@ -78,13 +90,16 @@ class OperationArgument(models.Model):
         ordering = ('position',)
         unique_together = ('position','operation')
 
+    def __unicode__(self):
+        return u"%s: %s" % (self.operation.plugin.argument_list[self.position], self.instance) 
+
     def get_values(self, responsesets, group_by=None):
         response = self.instance.get_values(responsesets)
         if isinstance(response, QuerySet):
             return [item.get_value() for item in response]
         
 class ReportRun(models.Model):
-    project = models.ForeignKey(Project)
+    scorecard = models.ForeignKey(Scorecard)
     name = models.CharField(max_length=200)
     description = models.TextField(blank=True, null=True)
     source_data = JSONField() #Field which can be resolved to a list or queryset of ResponseSets
@@ -96,17 +111,17 @@ class ReportRun(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('show_report',(str(self.project.pk),str(self.pk)))
+        return ('show_report',(str(self.scorecard.project.pk),str(self.pk)))
 
     def get_responsesets(self):
         source_data = {
-            'survey__project__pk':self.project.pk, #limit results to the current project
+            'survey__project__pk':self.scorecard.project.pk, #limit results to the current project
         }
         source_data.update(self.source_data)
         qs = ResponseSet.objects.filter(**source_data).only('id')
         rs_dict = {}
         if self.aggregate_by_entity:
-            for entity in self.project.entity_set.all():
+            for entity in self.scorecard.project.entity_set.all():
                 e_qs = qs.filter(entity=entity)
                 if e_qs.count():
                     rs_dict[entity] = e_qs

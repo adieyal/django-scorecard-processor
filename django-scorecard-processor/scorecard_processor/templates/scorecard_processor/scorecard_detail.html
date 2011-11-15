@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block head_title %}Scorecard - {{object.name}}{% endblock %}
+{% block fluid_content_outer %}
+  <div class="container">
+    <div class="content">
+      <div class="page-header">
+        <h1>{{object.name}} <small>from <a href="{{object.project.get_absolute_url}}">{{object.project.name}}</a></small></h1>
+      </div>
+      <div class="row">
+        <div class="span11">
+          <h2>Operations</h2>
+          <dl>
+            {% for operation in object.operation_set.indicators %}
+              <dt>{{operation.identifier}} - {{operation.description}}</dt>
+              <dd>
+                {{operation.get_operation_display}}
+                <ul>
+                {%for argument in operation.operationargument_set.all%}
+                  <li>{{argument}}</li>
+                {% endfor %}
+                </ul>
+              </dd>
+            {% endfor %}
+          </dl>
+        </div>
+        <div class="span5">
+          <h2>Related reports</h2>
+          <ul>
+            {% for report in object.reportrun_set.all %}
+              <li><a href="{{report.get_absolute_url}}">{{report.name}}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

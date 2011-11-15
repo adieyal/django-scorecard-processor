@@ -4,7 +4,7 @@
   <div class="container">
     <div class="content">
       <div class="page-header">
-        <h1>{{object.name}} results <small>from <a href="{{object.project.get_absolute_url}}">{{object.project.name}}</a></small></h1>
+        <h1>{{object.name}} <small>from <a href="{{object.scorecard.project.get_absolute_url}}">{{object.scorecard.project.name}}</a></small></h1>
       </div>
       <div class="row">
         <div class="span7">
@@ -22,20 +22,7 @@
           {% endfor %}
         </div>
         <div class="span7">
-          <h2>Report output</h2>
-          <dl>
-          {% for key, result in object.run.items %}
-            <dt>{{key.name}}<dt>
-            <dd>
-              <dl>
-                {% for k,v in result.items %}
-                  <dt>{{k}}</dt>
-                  <dd>{{v}}</dd>
-                {% endfor %}
-              </dl>
-            </dd>
-          {% endfor %}
-          </dl>
+          <h2><a href="run/">View report online</a></h2>
         </div>
       </div>
     </div>

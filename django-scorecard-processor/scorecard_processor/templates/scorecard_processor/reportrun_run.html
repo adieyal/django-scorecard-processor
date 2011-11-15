@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block head_title %}Report results - {{object.name}}{% endblock %}
+{% block fluid_content_outer %}
+  <div class="container">
+    <div class="content">
+      <div class="page-header">
+        <h1><a href="{{object.get_absolute_url}}">{{object.name}}</a> results <small>from <a href="{{object.scorecard.project.get_absolute_url}}">{{object.scorecard.project.name}}</a></small></h1>
+      </div>
+      <div class="row">
+        <div class="span14">
+          <h2>Report output</h2>
+          <dl>
+          {% for key, result in object.run.items %}
+            <dt>{{key.name}}<dt>
+            <dd>
+              <dl>
+                {% for k,v in result.items %}
+                  <dt>{{k}}</dt>
+                  <dd>{{v}}</dd>
+                {% endfor %}
+              </dl>
+            </dd>
+          {% endfor %}
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

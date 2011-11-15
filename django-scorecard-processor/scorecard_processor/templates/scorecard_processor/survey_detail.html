@@ -11,10 +11,10 @@
       </div>
       <div class="row">
         <div class="span7">
-          <h2>Questions <a class="btn small" title="Add a question" href="/admin/scorecard_processor/survey/{{object.pk}}/">+</a></h2>
+          <h2>Questions <a class="btn small" title="Add a question" href="/admin/scorecard_processor/survey/{{object.pk}}/">edit</a></h2>
           {% for question in object.question_set.all %}
             <div class="question">
-              <h4>{{question.identifier}}. {{question.question}} <small><a href="">edit</a></small></h4>
+              <h4>{{question.identifier}}. {{question.question}} <small></small></h4>
               <p>{{question.help_text}}</p>
               <p><small>Rendered as: {{question.widget}}, validator: {{question.validator}}</small></p>
             </div>

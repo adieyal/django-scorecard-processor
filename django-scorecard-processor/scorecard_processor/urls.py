@@ -1,5 +1,6 @@
 from django.conf.urls.defaults import *
 from django.views.generic.list_detail import object_list, object_detail
+from django.views.generic.create_update import create_object, update_object
 from django.contrib.auth.decorators import login_required
 
 from models import Entity, Project, Survey, Question, Scorecard, ReportRun
@@ -14,7 +15,8 @@ urlpatterns = patterns('scorecard_processor.views',
     url(r'^$', 'index', name="scorecard_index"),
 
 #Projects, surveys and scorecards
-    url(r'^project/$', #TODO:limit entities to the ones a user account can access
+#TODO:limit entities to the ones a user account can access
+    url(r'^project/$', 
         login_required(object_list), 
         {'queryset':project_qs},
         name="project_list"
@@ -30,11 +32,6 @@ urlpatterns = patterns('scorecard_processor.views',
         {'queryset': survey_qs}, 
         name="show_survey"
     ),
-    url(r'^project/(\d+)/survey/(\d+)/(?P<object_id>\d+)/$', 
-        login_required(object_detail),
-        {'queryset': question_qs}, 
-        name="show_survey_question"
-    ),
 
     url(r'^project/(\d+)/scorecard/(?P<object_id>\d+)/$',
         login_required(object_detail),
@@ -46,6 +43,11 @@ urlpatterns = patterns('scorecard_processor.views',
         login_required(object_detail),
         {'queryset': reportrun_qs}, 
         name="show_report"
+    ),
+    url(r'^project/(\d+)/report/(?P<object_id>\d+)/run/$',
+        login_required(object_detail),
+        {'queryset': reportrun_qs,'template_name':'scorecard_processor/reportrun_run.html'}, 
+        name="run_report"
     ),
 
 

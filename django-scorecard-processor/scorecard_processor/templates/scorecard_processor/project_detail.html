@@ -29,19 +29,18 @@
             {% endfor %}
             </ul>
             <div class="row">
-              <div class="span4"> 
+              <div class="span8"> 
                 <h3>Scorecards <a class="btn small" href="/admin/scorecard_processor/scorecard/add/">+</a></h3>
                   <ul>
                   {% for scorecard in object.scorecard_set.all %}
-                    <li><a href="{{scorecard.get_absolute_url}}">{{scorecard.name}}</a></li>
-                  {% endfor %}
-                  </ul>
-              </div>
-              <div class="span4"> 
-                <h3>Reports <a class="btn small" href="/admin/scorecard_processor/reportrun/add/">+</a></h3>
-                  <ul>
-                  {% for report in object.reportrun_set.all %}
-                    <li><a href="{{report.get_absolute_url}}">{{report.name}}</a></li>
+                    <li><a href="{{scorecard.get_absolute_url}}">{{scorecard.name}}</a><br />
+                    Reports: 
+                    <ul>
+                    {% for report in scorecard.reportrun_set.all %}
+                      <li><a href="{{report.get_absolute_url}}">{{report.name}}</a> (<a href="{{report.get_absolute_url}}run/">view output</a>)</li>
+                    {% endfor %}
+                    </ul>
+                    </li>
                   {% endfor %}
                   </ul>
               </div>
