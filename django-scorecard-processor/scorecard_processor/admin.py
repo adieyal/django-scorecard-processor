@@ -57,7 +57,6 @@ class OperationArgumentInline(admin.StackedInline):
             parent = getattr(self,'parent_obj',None)
             if not parent:
                 self.max_num = 0
-                print('sdfsdf')
         return super(OperationArgumentInline,self).get_formset(request, obj=obj, **kwargs)
 
     def get_form_field(self):
