@@ -59,8 +59,13 @@ class OperationArgumentInline(admin.StackedInline):
                 self.max_num = 0
         return super(OperationArgumentInline,self).get_formset(request, obj=obj, **kwargs)
 
-    def get_form_field(self):
-        pass
+    def formfield_for_foreignkey(self, db_field, request=None, **kwargs):
+        field = super(OperationArgumentInline, self).formfield_for_foreignkey(db_field, request, **kwargs)
+        if db_field.name == 'instance_content_type':
+            if getattr(self,'parent_obj',None):
+                field.queryset = field.queryset.filter(name__in=['question','operation'])
+        return field
+
 
 class OperationAdmin(admin.ModelAdmin):
     model = Operation
