@@ -31,6 +31,7 @@ class Question(models.Model):
     class Meta:
         app_label = "scorecard_processor"
         unique_together = ('survey','identifier')
+        ordering = ('identifier',)
 
     @models.permalink
     def get_absolute_url(self):
