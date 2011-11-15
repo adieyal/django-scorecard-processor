@@ -34,11 +34,21 @@ class DataSeries(models.Model):
     def __unicode__(self):
         return "%s: %s" % (self.group.pk, self.name)
 
+class EntityType(models.Model):
+    name = models.CharField(max_length=30,primary_key=True)
+    plural = models.CharField(max_length=30)
+    project = models.ForeignKey(Project)
+    class Meta:
+        app_label = "scorecard_processor"
+    def __unicode__(self):
+        return "%s / %s" % (self.name, self.plural)
+
 class Entity(models.Model):
     """
     An entity / organisation
     """
     name = models.CharField(max_length=100) 
+    entity_type = models.ForeignKey(EntityType)
     project = models.ForeignKey(Project)
 
     class Meta:
@@ -49,4 +59,4 @@ class Entity(models.Model):
         return ('show_entity',str(self.pk))
 
     def __unicode__(self):
-        return "Entity: %s" % (self.name)
+        return "%s: %s" % (self.entity_type.pk.capitalize, self.name)

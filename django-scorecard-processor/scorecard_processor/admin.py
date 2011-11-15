@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import  DataSeries, DataSeriesGroup, Entity, Survey, Question, ResponseSet, Response, Scorecard, Operation, OperationArgument, Project, ReportRun
+from models import  DataSeries, DataSeriesGroup, Entity, EntityType, Survey, Question, ResponseSet, Response, Scorecard, Operation, OperationArgument, Project, ReportRun
 from django.forms.models import BaseInlineFormSet 
 
 class QuestionInline(admin.StackedInline):
@@ -36,4 +36,5 @@ admin.site.register(OperationArgument)
 
 admin.site.register(DataSeriesGroup, DataSeriesGroupAdmin)
 admin.site.register(Entity)
+admin.site.register(EntityType)
 admin.site.register(Project)
