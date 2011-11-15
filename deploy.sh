@@ -10,3 +10,4 @@ epio django syncdb -- --noinput
 epio django migrate
 cd -
 rm -rf /tmp/example_app/
+curl http://ihpscorecard.ep.io > /dev/null
