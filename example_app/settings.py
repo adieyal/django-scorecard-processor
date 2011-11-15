@@ -56,11 +56,13 @@ MEDIA_ROOT = ''
 MEDIA_URL = '/uploads/'
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'static/'
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/media/'
+#ADMIN_MEDIA_PREFIX = '/media/'
+ADMIN_MEDIA_PREFIX = STATIC_URL + "grappelli/"
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'ibn+k=3xv*#n%34t0z*2l0_*lgi6hlu5$b2v9__7u(bmoaogep'
@@ -114,6 +116,8 @@ INSTALLED_APPS = (
     'sample',
 
     # Uncomment the next line to enable the admin:
+    "django.contrib.staticfiles",
+    "grappelli",
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',

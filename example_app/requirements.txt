@@ -1,3 +1,4 @@
 -e git://github.com/earle/django-bootstrap.git#egg=bootstrap
 south
 -e git://github.com/bradwhittington/django-cerial.git#egg=cerial
+django-grappelli

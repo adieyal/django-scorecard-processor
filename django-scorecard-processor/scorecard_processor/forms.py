@@ -1,6 +1,7 @@
 from django import forms
 from bootstrap.forms import *
 from models.inputs import ResponseSet, Response
+from models.outputs import OperationArgument
 
 class ResponseSetForm(forms.ModelForm):
     #TODO: Make django-bootstrap support modelforms
@@ -8,6 +9,16 @@ class ResponseSetForm(forms.ModelForm):
     class Meta:
         model = ResponseSet
         exclude = ('survey','entity','submission_date','last_update','respondant')
+
+class ArgumentForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(ArgumentForm, self).__init__(*args, **kwargs)
+        # key should be your sortable-field - in your exaple it's *index*
+        self.fields['position'].widget = forms.HiddenInput()
+        self.fields['position'].label = ''
+
+    class Meta:
+        model = OperationArgument
 
 class QuestionForm(BootstrapForm):
     #TODO: save responses / switch to save even if invalid

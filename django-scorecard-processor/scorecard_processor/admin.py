@@ -31,10 +31,41 @@ admin.site.register(ResponseSet, ResponseSetAdmin)
 
 admin.site.register(Scorecard)
 admin.site.register(ReportRun)
-admin.site.register(Operation)
-admin.site.register(OperationArgument)
 
 admin.site.register(DataSeriesGroup, DataSeriesGroupAdmin)
 admin.site.register(Entity)
 admin.site.register(EntityType)
 admin.site.register(Project)
+
+from forms import ArgumentForm
+class OperationArgumentInline(admin.StackedInline):
+    model = OperationArgument
+    form = ArgumentForm
+    related_lookup_fields = {
+         'generic': [['instance_content_type', 'instance_object_id']],
+    }
+    sortable_field_name = "position"
+    extra = 0
+    classes = ('collapse open',)
+
+    def get_formset(self, request, obj = None,**kwargs):
+        if obj:
+            self.parent_obj = obj
+            self.max_num = len(obj.plugin.argument_list)
+            self.extra=self.max_num - obj.operationargument_set.count()
+        else:
+            parent = getattr(self,'parent_obj',None)
+            if not parent:
+                self.max_num = 0
+                print('sdfsdf')
+        return super(OperationArgumentInline,self).get_formset(request, obj=obj, **kwargs)
+
+    def get_form_field(self):
+        pass
+
+class OperationAdmin(admin.ModelAdmin):
+    model = Operation
+    inlines = [OperationArgumentInline]
+    classes = ('collapse open',)
+
+admin.site.register(Operation, OperationAdmin)
