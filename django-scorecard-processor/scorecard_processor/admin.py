@@ -29,6 +29,7 @@ class ResponseSetAdmin(admin.ModelAdmin):
 admin.site.register(Survey, SurveyAdmin)
 admin.site.register(ResponseSet, ResponseSetAdmin)
 
+admin.site.register(Question)
 admin.site.register(Scorecard)
 admin.site.register(ReportRun)
 
