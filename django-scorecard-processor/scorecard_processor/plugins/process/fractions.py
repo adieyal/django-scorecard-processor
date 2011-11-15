@@ -19,8 +19,8 @@ class NumDenomPlugin(base.ProcessPlugin):
 
 class OneMinusNumDenomPlugin(NumDenomPlugin):
     name = '100 - Divide(Sum(Argument 1), Sum(Argument 2))'
-    def process(self, arguments):
-        result = super(OneMinusNumDenomPlugin,self).process(arguments) 
+    def process(self):
+        result = super(OneMinusNumDenomPlugin,self).process() 
         if result:
             return base.Value(100 - result.get_values())
 
