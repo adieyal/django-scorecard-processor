@@ -1,20 +1,20 @@
 from scorecard_processor.plugins import base, register
 
 def sum_values(x, y):
-    return float(x) + float(y)
+    return x + y
 
 class NumDenomPlugin(base.ProcessPlugin):
     name = 'Divide(Sum(Argument 1), Sum(Argument 2))'
     argument_list = ['numerator', 'denominator']
 
     def process(self):
-        numerator = self.get_arguments().numerator.get_values()
-        denominator = self.get_arguments().denominator.get_values()
+        numerator = [float(x) for x in self.get_arguments().numerator.get_values()]
+        denominator = [float(x) for x in self.get_arguments().denominator.get_values()]
         if numerator == [] or denominator == []:
             return 0
         return base.Value(100 * (
                 reduce(sum_values, numerator) /
-                reduce(sum_values,denominator)
+                reduce(sum_values, denominator)
             ))
 
 class OneMinusNumDenomPlugin(NumDenomPlugin):

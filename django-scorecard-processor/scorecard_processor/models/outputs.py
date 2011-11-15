@@ -50,7 +50,11 @@ class Operation(models.Model):
 
     def __init__(self, *args, **kwargs):
         super(Operation,self).__init__(*args, **kwargs)
-        self.plugin = plugins.register.get_process_plugin(self.operation).plugin
+        if self.operation:
+            self.plugin = plugins.register.get_process_plugin(self.operation).plugin
+
+    def __unicode__(self):
+        return "%s: %s" % (self.identifier, self.get_operation_display())
 
     def get_values(self, responsesets):
         """ Outputs a value from the operation, applying the method to the
@@ -80,7 +84,9 @@ class OperationArgument(models.Model):
             return [item.get_value() for item in response]
         
 class ReportRun(models.Model):
-    scorecard = models.ForeignKey(Scorecard)
+    project = models.ForeignKey(Project)
+    name = models.CharField(max_length=200)
+    description = models.TextField(blank=True, null=True)
     source_data = JSONField() #Field which can be resolved to a list or queryset of ResponseSets
     aggregate_on = models.ForeignKey(DataSeriesGroup, blank=True, null=True)
     aggregate_by_entity = models.BooleanField(default=False)
@@ -88,15 +94,19 @@ class ReportRun(models.Model):
     class Meta:
         app_label = "scorecard_processor"
 
+    @models.permalink
+    def get_absolute_url(self):
+        return ('show_report',(str(self.project.pk),str(self.pk)))
+
     def get_responsesets(self):
         source_data = {
-            'survey__project__pk':self.scorecard.project.pk, #limit results to the current project
+            'survey__project__pk':self.project.pk, #limit results to the current project
         }
         source_data.update(self.source_data)
         qs = ResponseSet.objects.filter(**source_data).only('id')
         rs_dict = {}
         if self.aggregate_by_entity:
-            for entity in self.scorecard.project.entity_set.all():
+            for entity in self.project.entity_set.all():
                 e_qs = qs.filter(entity=entity)
                 if e_qs.count():
                     rs_dict[entity] = e_qs
@@ -109,6 +119,8 @@ class ReportRun(models.Model):
 
     def run(self):
         results = {}
+        #TODO: don't hardcore... figure out how to get scorecard data
+        scorecard = Scorecard.objects.get(pk=1)
         for key, qs in self.get_responsesets().items():
-            results[key] = self.scorecard.get_values(qs)
+            results[key] = scorecard.get_values(qs)
         return results
