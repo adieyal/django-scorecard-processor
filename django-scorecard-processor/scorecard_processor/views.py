@@ -3,11 +3,19 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404
 from django.contrib.auth.decorators import login_required
 
-from models import ResponseSet, Survey, Entity
+from models import ResponseSet, Survey, Entity, ReportRun
 from forms import QuestionForm, ResponseSetForm
 
 def index(request):
     return render_to_response('scorecard_processor/index.html',{},RequestContext(request))
+
+def run_report(request, object_id):
+    obj = get_object_or_404(ReportRun, pk=object_id)
+    return render_to_response(
+        'scorecard_processor/reportrun_run.html',
+        {'object':obj, 'report':obj.run()},
+        RequestContext(request)
+    )
 
 @login_required
 def add_survey(request, object_id, survey_id):

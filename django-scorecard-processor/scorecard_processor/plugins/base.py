@@ -1,7 +1,7 @@
 from collections import namedtuple
 from register import register
 
-class Value:
+class Value(object):
     def __init__(self, item, extractor_class=None):
         if extractor_class:
             self.value = self.extractor_class(item)
@@ -26,13 +26,13 @@ class Value:
         except AttributeError:
             return self.value
 
-class QuestionValidationPlugin:
+class QuestionValidationPlugin(object):
     pass
 
-class QuestionWidget:
+class QuestionWidget(object):
     pass
 
-class ProcessPlugin:
+class ProcessPlugin(object):
     """ A plugin to process input data """
     name = "Dummy plugin"
     argument_list = ['a','b']
@@ -55,6 +55,6 @@ class ProcessPlugin:
     def num_arguments(self):
         return 2
 
-class DataExtractorPlugin:
+class DataExtractorPlugin(object):
     def get_value(self):
         raise NotImplementedError

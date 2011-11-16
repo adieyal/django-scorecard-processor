@@ -45,8 +45,7 @@ urlpatterns = patterns('scorecard_processor.views',
         name="show_report"
     ),
     url(r'^project/(\d+)/report/(?P<object_id>\d+)/run/$',
-        login_required(object_detail),
-        {'queryset': reportrun_qs,'template_name':'scorecard_processor/reportrun_run.html'}, 
+        "run_report",
         name="run_report"
     ),
 

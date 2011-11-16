@@ -8,7 +8,7 @@
       </div>
           <h2>Report output</h2>
           <table>
-          {% for key, result in object.run.items %}
+          {% for key, result in report.items %}
             {% if forloop.counter0 == 0 %}
               <tr>
                 <th>{{key.data_type}}</th>

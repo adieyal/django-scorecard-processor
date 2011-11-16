@@ -21,7 +21,7 @@ class OneMinusNumDenomPlugin(NumDenomPlugin):
     name = '100 - Divide(Sum(Argument 1), Sum(Argument 2))'
     def process(self):
         result = super(OneMinusNumDenomPlugin,self).process() 
-        if result:
+        if result is not None:
             return base.Value(100 - result.get_values())
         return result
 
