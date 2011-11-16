@@ -11,7 +11,7 @@
           <h2>Report output</h2>
           <dl>
           {% for key, result in object.run.items %}
-            <dt>{{key.name}}<dt>
+            <dt>{{key.name}} - {{key.description}}<dt>
             <dd>
               <dl>
                 {% for k,v in result.items %}
