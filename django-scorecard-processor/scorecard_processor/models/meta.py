@@ -19,6 +19,7 @@ class DataSeriesGroup(models.Model):
         ordering = ('name',)
         app_label = "scorecard_processor"
 
+
     def __unicode__(self):
         return self.name
 
@@ -30,6 +31,10 @@ class DataSeries(models.Model):
         verbose_name_plural = 'Data Series'
         ordering = ('-group','-name')
         app_label = "scorecard_processor"
+
+    @property
+    def data_type(self):
+        return self.group.pk
 
     def __unicode__(self):
         return "%s: %s" % (self.group.pk, self.name)
@@ -53,6 +58,10 @@ class Entity(models.Model):
 
     class Meta:
         app_label = "scorecard_processor"
+
+    @property
+    def data_type(self):
+        return self.entity_type.pk
 
     @models.permalink
     def get_absolute_url(self):

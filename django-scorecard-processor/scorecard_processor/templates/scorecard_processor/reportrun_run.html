@@ -1,29 +1,30 @@
 {% extends 'base.html' %}
 {% block head_title %}Report results - {{object.name}}{% endblock %}
 {% block fluid_content_outer %}
-  <div class="container">
+  <div class="fluid-container">
     <div class="content">
       <div class="page-header">
         <h1><a href="{{object.get_absolute_url}}">{{object.name}}</a> results <small>from <a href="{{object.scorecard.project.get_absolute_url}}">{{object.scorecard.project.name}}</a></small></h1>
       </div>
-      <div class="row">
-        <div class="span14">
           <h2>Report output</h2>
-          <dl>
+          <table>
           {% for key, result in object.run.items %}
-            <dt>{{key.name}} - {{key.description}}<dt>
-            <dd>
-              <dl>
-                {% for k,v in result.items %}
-                  <dt>{{k}}</dt>
-                  <dd>{{v}}</dd>
+            {% if forloop.counter0 == 0 %}
+              <tr>
+                <th>{{key.data_type}}</th>
+                {% for k in result.keys %}
+                  <th>{{k.identifier}} - {{k.description}}</th>
                 {% endfor %}
-              </dl>
-            </dd>
+              </tr>
+            {% endif %}
+            <tr>
+            <th>{{key.name}} <th>
+            {% for v in result.values %}
+                  <td>{{v}}</td>
+            {% endfor %}
+            </tr>
           {% endfor %}
-          </dl>
-        </div>
-      </div>
+          </table>
     </div>
   </div>
 {% endblock %}

@@ -31,7 +31,7 @@ class Scorecard(models.Model):
         result = {}
         #TODO: this is going to break with hierachy
         for indicator in self.operation_set.filter(indicator=True):
-            result[indicator.identifier] = indicator.get_values(responsesets)
+            result[indicator] = indicator.get_values(responsesets)
         return result
 
 class OperationManager(models.Manager):

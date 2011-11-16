@@ -23,6 +23,7 @@ class OneMinusNumDenomPlugin(NumDenomPlugin):
         result = super(OneMinusNumDenomPlugin,self).process() 
         if result:
             return base.Value(100 - result.get_values())
+        return result
 
 register.register('process','Unweighted operations','num_denom',NumDenomPlugin)
 register.register('process','Unweighted operations','one_minus_num_denom',OneMinusNumDenomPlugin)
