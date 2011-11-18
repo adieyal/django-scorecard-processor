@@ -20,8 +20,15 @@ class Survey(models.Model):
     def __unicode__(self):
         return "Survey: %s" % (self.name)
 
+class QuestionGroup(models.Model):
+    survey = models.ForeignKey(Survey)
+    identifier = models.CharField(max_length=10) #1, 2a, 2b
+    name = models.CharField(max_length=100)
+    help_text = models.TextField(blank=True, null=True)
+
 class Question(models.Model):
     survey = models.ForeignKey(Survey)
+    group = models.ForeignKey(QuestionGroup, null=True, blank=True)
     identifier = models.CharField(max_length=10) #1, 2a, 2b
     question = models.TextField()
     help_text = models.TextField(blank=True, null=True)
