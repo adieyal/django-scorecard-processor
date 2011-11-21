@@ -101,9 +101,6 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
-    #External deps
-    'south',
-    'bootstrap',
 
     #Internal django deps
     'django.contrib.auth',
@@ -121,4 +118,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    
+    #External deps
+    'south',
+    'bootstrap',
 )

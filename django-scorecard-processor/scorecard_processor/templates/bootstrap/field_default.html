@@ -1,0 +1,11 @@
+{% load klass %}
+<div class="clearfix{% if errors %} error{% endif %}">
+    {{ label }}
+    <div class="input input_{{field|klass}}">
+        {{ bf }}
+        {% if errors %}
+        <span class="help-inline">{{ errors }}</span>
+        {% endif %}
+        <span class="help-block">{{ help_text }}</span>
+    </div>
+</div> <!-- /clearfix -->
