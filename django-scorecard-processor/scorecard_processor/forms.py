@@ -4,6 +4,7 @@ from django import forms
 from bootstrap.forms import *
 from models.inputs import ResponseSet, Response
 from models.outputs import OperationArgument
+from plugins import register
 
 
 class QuestionFieldset(Fieldset):
@@ -32,7 +33,6 @@ class ArgumentForm(forms.ModelForm):
 
 class QuestionForm(BootstrapForm):
     #TODO: save responses / switch to save even if invalid
-    #TODO: load initial values from self.instance into form fields
     #TODO: take a user object to save with each field update
         
     model = ResponseSet
@@ -44,7 +44,8 @@ class QuestionForm(BootstrapForm):
         general = []
 
         for question in self.survey.question_set.all():
-            self.fields['q_%s' % question.pk] = forms.CharField(
+            field = register.get_input_plugin(question.widget).plugin
+            self.fields['q_%s' % question.pk] = field(
                         label='%s. %s' % (question.identifier,question.question),
                         help_text=question.help_text
             )

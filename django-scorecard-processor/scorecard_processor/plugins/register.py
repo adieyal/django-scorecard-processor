@@ -1,4 +1,5 @@
 from collections import defaultdict, namedtuple
+from django.forms import CharField
 
 plugins_register = {'input':{},'process':{},'output':{}}
 
@@ -27,5 +28,5 @@ def get_output_plugin(name):
 def get_process_plugin(name):
     return plugins_register['process'][name]
 
-def get_input_plugin(name):
-    return plugins_register['input'][name]
+def get_input_plugin(name, default=PluginTuple('choice',CharField)):
+    return plugins_register['input'].get(name, default)
