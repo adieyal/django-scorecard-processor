@@ -29,4 +29,5 @@ def get_process_plugin(name):
     return plugins_register['process'][name]
 
 def get_input_plugin(name, default=PluginTuple('choice',CharField)):
-    return plugins_register['input'].get(name, default)
+    plugin = plugins_register['input'].get(name, default)
+    return plugin

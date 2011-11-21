@@ -38,6 +38,7 @@ class Question(models.Model):
     help_text = models.TextField(blank=True, null=True)
     widget = models.CharField(max_length=30, default='text')
     validator = models.CharField(max_length=30, default='anything')
+    request_baseline = models.BooleanField(default=True)
 
     class Meta:
         app_label = "scorecard_processor"
@@ -79,7 +80,6 @@ class Response(models.Model):
     question = models.ForeignKey(Question)
     response_set = models.ForeignKey(ResponseSet)
     value = JSONField() 
-    comment = models.TextField(blank=True, null=True) #Possibly move this out?
     submission_date = models.DateTimeField(auto_now_add=True)
 
     valid = models.BooleanField(default=False) #Has this been validated, and is a valid entry?
