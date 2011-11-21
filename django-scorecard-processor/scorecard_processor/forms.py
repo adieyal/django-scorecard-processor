@@ -1,7 +1,17 @@
+from collections import defaultdict
+
 from django import forms
 from bootstrap.forms import *
 from models.inputs import ResponseSet, Response
 from models.outputs import OperationArgument
+
+
+class QuestionFieldset(Fieldset):
+    def __init__(self, question_group, *fields):
+        self.legend_html = question_group and ('<legend>%s</legend>' % question_group.name) or ''
+        if question_group and question_group.help_text:
+            self.legend_html += "<p>%s</p>" % question_group.help_text
+        self.fields = fields
 
 class ResponseSetForm(forms.ModelForm):
     #TODO: Make django-bootstrap support modelforms
@@ -30,21 +40,28 @@ class QuestionForm(BootstrapForm):
         self.survey = kwargs.pop('survey')
         self.instance = kwargs.pop('instance')
         super(QuestionForm, self).__init__(*args, **kwargs)
+        fieldsets = defaultdict(list)
+        general = []
 
         for question in self.survey.question_set.all():
             self.fields['q_%s' % question.pk] = forms.CharField(
                         label='%s. %s' % (question.identifier,question.question),
                         help_text=question.help_text
             )
+            if question.group:
+                fieldsets[question.group].append('q_%s' % question.pk)
+            else:
+                general.append('q_%s' % question.pk)
 
         self.initial.update(dict([
                 ('q_%s' % response.question.pk, response.value) 
                 for response in self.instance.response_set.filter(current=True)
             ]))
             
-        #TODO: group question fields
-        self.layout = (Fieldset("Monetary aid",*[key for key in self.fields.keys()]),)
-          
+        self.layout = [QuestionFieldset(key,*value) for key, value in fieldsets.items()]
+
+        if general:
+            self.layout.append(Fieldset('',*general))
 
     def save(self):
         if not self.instance.pk:

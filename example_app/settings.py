@@ -56,7 +56,7 @@ MEDIA_ROOT = ''
 MEDIA_URL = '/uploads/'
 
 STATIC_URL = '/static/'
-STATIC_ROOT = 'static/'
+STATIC_ROOT = ''
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.

@@ -25,6 +25,8 @@ class QuestionGroup(models.Model):
     identifier = models.CharField(max_length=10) #1, 2a, 2b
     name = models.CharField(max_length=100)
     help_text = models.TextField(blank=True, null=True)
+    class Meta:
+        app_label = "scorecard_processor"
 
 class Question(models.Model):
     survey = models.ForeignKey(Survey)

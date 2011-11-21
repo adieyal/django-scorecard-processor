@@ -7,3 +7,7 @@ DATABASES = {
     }
 }
 
+STATICFILES_DIRS = (
+    'static/',
+)
+
