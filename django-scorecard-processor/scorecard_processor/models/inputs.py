@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from meta import DataSeries, DataSeriesGroup, Entity, Project
+from scorecard_processor import plugins
 
 from cerial import JSONField
 
@@ -36,7 +37,7 @@ class Question(models.Model):
     identifier = models.CharField(max_length=10) #1, 2a, 2b
     question = models.TextField()
     help_text = models.TextField(blank=True, null=True)
-    widget = models.CharField(max_length=30, default='text')
+    widget = models.CharField(max_length=30, default='text', choices=plugins.input_plugins_as_choices())
     validator = models.CharField(max_length=30, default='anything')
     request_baseline = models.BooleanField(default=True)
 
