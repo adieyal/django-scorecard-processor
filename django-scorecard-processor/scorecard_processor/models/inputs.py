@@ -27,6 +27,8 @@ class QuestionGroup(models.Model):
     help_text = models.TextField(blank=True, null=True)
     class Meta:
         app_label = "scorecard_processor"
+    def __unicode__(self):
+        return "%s: %s" % (self.identifier, self.name)
 
 class Question(models.Model):
     survey = models.ForeignKey(Survey)
