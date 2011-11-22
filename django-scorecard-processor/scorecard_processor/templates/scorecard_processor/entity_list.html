@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block head_title %}Entity selection{% endblock %}
 {% block fluid_content_outer %}
+  {% regroup object_list by entity_type.plural as entity_list %}
   <div class="container">
     <div class="content">
       <div class="page-header">
@@ -8,11 +9,14 @@
       </div>
       <div class="row">
         <div class="span14">
-          <ul>
-          {% for entity in object_list %}
-            <li><a href="{{entity.get_absolute_url}}">{{entity}}</a></li>
+          {% for entity_type in entity_list %}
+            <h2>{{entity_type.grouper|capfirst}}</h2>
+            <ul>
+            {% for entity in entity_type.list %}
+              <li><a href="{{entity.get_absolute_url}}">{{entity}}</a></li>
+            {% endfor %}
+            </ul>
           {% endfor %}
-          </ul>
         </div>
       </div>
     </div>

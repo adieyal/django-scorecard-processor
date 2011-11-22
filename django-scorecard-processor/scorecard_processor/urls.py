@@ -4,7 +4,7 @@ from django.views.generic.create_update import create_object, update_object
 from django.contrib.auth.decorators import login_required
 
 from models import Entity, Project, Survey, Question, Scorecard, ReportRun
-entity_qs = Entity.objects.all()
+entity_qs = Entity.objects.all().select_related('entity_type')
 project_qs = Project.objects.all()
 survey_qs = Survey.objects.all()
 question_qs = Question.objects.all()

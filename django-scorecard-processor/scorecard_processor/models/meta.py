@@ -70,4 +70,6 @@ class Entity(models.Model):
         return ('show_entity',str(self.pk))
 
     def __unicode__(self):
+        if self.abbreviation:
+            return "%s: %s (%s)" % (self.entity_type.pk.capitalize(), self.name, self.abbreviation)
         return "%s: %s" % (self.entity_type.pk.capitalize(), self.name)
