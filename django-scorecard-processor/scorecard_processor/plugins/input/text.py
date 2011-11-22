@@ -5,6 +5,14 @@ class TextBoxField(CharField):
     widget = Textarea
     name = "Long text field"
 
+    def widget_attrs(self, *args, **kwargs):
+        attrs = super(TextBoxField,self).widget_attrs(*args, **kwargs)
+        if not attrs:
+            attrs = {}
+        attrs['class'] = attrs.get('class','')+' xxlarge'
+        return attrs
+            
+
 class TextField(CharField):
     name = "Short text field"
 
