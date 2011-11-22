@@ -7,7 +7,7 @@ class Project(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('show_project',str(self.pk))
+        return ('show_project',[str(self.pk)])
 
     def __unicode__(self):
         return "Project: %s" % (self.name)
@@ -67,7 +67,7 @@ class Entity(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('show_entity',str(self.pk))
+        return ('show_entity',(str(self.pk),))
 
     def __unicode__(self):
         if self.abbreviation:
