@@ -10,6 +10,8 @@ class TextBoxField(CharField):
         if not attrs:
             attrs = {}
         attrs['class'] = attrs.get('class','')+' xxlarge'
+        if 'rows' not in attrs:
+            attrs['rows'] = 3
         return attrs
             
 
