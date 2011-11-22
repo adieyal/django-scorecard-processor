@@ -53,11 +53,13 @@ class Entity(models.Model):
     An entity / organisation
     """
     name = models.CharField(max_length=100) 
+    abbreviation = models.CharField(max_length=30, blank=True, null=True)
     entity_type = models.ForeignKey(EntityType)
     project = models.ForeignKey(Project)
 
     class Meta:
         app_label = "scorecard_processor"
+        unique_together = (('name','project'),)
 
     @property
     def data_type(self):

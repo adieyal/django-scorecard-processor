@@ -1,0 +1,6 @@
+{"pk": null, "model": "scorecard_processor.entity", "fields": {"project": 1, "name": "ECGBS", "entity_type":"GBS"}},
+{"pk": null, "model": "scorecard_processor.entity", "fields": {"project": 1, "name": "NetherlandsGBS", "entity_type":"GBS"}},
+{"pk": null, "model": "scorecard_processor.entity", "fields": {"project": 1, "name": "NorwayGBS", "entity_type":"GBS"}},
+{"pk": null, "model": "scorecard_processor.entity", "fields": {"project": 1, "name": "SpainGBS", "entity_type":"GBS"}},
+{"pk": null, "model": "scorecard_processor.entity", "fields": {"project": 1, "name": "SwedenGBS", "entity_type":"GBS"}},
+{"pk": null, "model": "scorecard_processor.entity", "fields": {"project": 1, "name": "UKGBS", "entity_type":"GBS"}}
