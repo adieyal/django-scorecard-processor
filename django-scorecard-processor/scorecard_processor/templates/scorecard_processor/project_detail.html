@@ -13,7 +13,7 @@
             <dl>
               <dt class="label {% if series.name == "Country" %}notice{% endif %}">{{series.name}} <a class="" href="/admin/scorecard_processor/dataseriesgroup/{{series.pk}}/">edit</a></dt>
               <dd>
-                {% for item in series.dataseries_set.all %}
+                {% for item in series.get_dataseries %}
                   {{item.name}}{% if forloop.revcounter0 %}, {% endif %}
                 {% endfor %}
               </dd>
@@ -48,15 +48,20 @@
         </div>
       </div>
       <div class="row">
-        <div class="span14">
           <h3>Entities <a class="btn small" href="/admin/scorecard_processor/entity/add/">+</a></h3>
-          <ul>
-          {% for entity in object.entity_set.all %}
-            <li>{{entity.name}} - <a href="{{entity.get_absolute_url}}">survey responses</a> | <a href="/admin/scorecard_processor/entity/{{entity.pk}}/">edit entity</a></li>
+          {% regroup object.entity_set.all by entity_type.plural as entity_list %}
+          {% for entity_type in entity_list %}
+          <div class="span7">
+            <h2>{{entity_type.grouper|capfirst}}</h2>
+            <ul>
+            {% for entity in entity_type.list %}
+              <li><a href="{{entity.get_absolute_url}}">{% if entity.abbreviation %}{{entity.abbreviation}} - {% endif %}{{entity.name}}</a></li>
+            {% endfor %}
+            </ul>
+          </div>
           {% endfor %}
-          </ul>
+
         </div>
-      </div>
     </div>
   </div>
 {% endblock %}

@@ -15,9 +15,16 @@ class Project(models.Model):
 class DataSeriesGroup(models.Model):
     name = models.CharField(max_length=30,primary_key=True)
     project = models.ForeignKey(Project)
+    reverse_ordering = models.BooleanField(default=False)
     class Meta:
         ordering = ('name',)
         app_label = "scorecard_processor"
+
+    def get_dataseries(self):
+        qs = self.dataseries_set.all()
+        if self.reverse_ordering:
+            qs = qs.order_by('-name')
+        return qs
 
 
     def __unicode__(self):
@@ -29,7 +36,7 @@ class DataSeries(models.Model):
 
     class Meta:
         verbose_name_plural = 'Data Series'
-        ordering = ('-group','-name')
+        ordering = ('-group','name')
         app_label = "scorecard_processor"
 
     @property

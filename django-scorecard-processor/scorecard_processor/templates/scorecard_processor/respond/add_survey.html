@@ -17,7 +17,7 @@
               <label>{{dataseriesgroup.name}}</label>
               <div class="input">
                 <select name="data_series">
-                  {% for item in dataseriesgroup.dataseries_set.all %}
+                  {% for item in dataseriesgroup.get_dataseries %}
                     <option value="{{item.pk}}">{{item.name}}</option>
                   {% endfor %}
                 </select>
