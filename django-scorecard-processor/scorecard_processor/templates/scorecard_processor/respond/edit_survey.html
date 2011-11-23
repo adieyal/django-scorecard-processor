@@ -1,22 +1,37 @@
 {% extends 'base.html' %}
 {% block head_title %}Response to {{survey.name}} for {{entity.name}}{% endblock %}
+{% block script_bottom %}
+{{block.super}}
+<script type="text/javascript">
+  $('fieldset').addClass('row');
+  $('fieldset legend').addClass('span5');
+  $('fieldset .legend').addClass('span5');
+  $('fieldset .fields').addClass('span10');
+  $('fieldset .fields label .question').addClass('span9');
+</script>
+<style>
+  .legend.span5 {clear:left}
+  .fields.span10 {float:right}
+  label .identifier, label .question {display:block;float:left;margin-left:0}
+  label .identifier {margin-right:0.5em;}
+  .form-stacked .clearfix div.input {clear:left;padding:5px 0 20px 20px}
+  .input .currency {margin-right:0.5em;}
+</style>
+{% endblock %}
+
 {% block fluid_content_outer %}
   <div class="container">
     <div class="content">
       <div class="page-header">
         <h1>{{survey.name}} <small>for <a href="{{entity.get_absolute_url}}">{{entity.name}}</a> - {% for series in responseset.data_series.all %}{{series.name}}{% if forloop.revcounter0 %}, {% endif %}{% endfor %}</small></h1>
       </div>
-      <div class="row">
-        <div class="span14">
-          <form method="POST" class="form-stacked">
-            {% csrf_token %}
-            {{form}}
-            <div class="actions">
-                <button type="submit" class="btn primary">Submit</button> &nbsp;
-            </div>
-          </form>
-        </div>
-      </div>
+      <form method="POST" class="form-stacked">
+         {% csrf_token %}
+         {{form}}
+         <div class="actions">
+            <button type="submit" class="btn primary">Submit</button> &nbsp;
+         </div>
+      </form>
     </div>
   </div>
 {% endblock %}

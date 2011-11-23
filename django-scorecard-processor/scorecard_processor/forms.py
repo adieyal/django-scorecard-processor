@@ -11,8 +11,11 @@ class QuestionFieldset(Fieldset):
     def __init__(self, question_group, *fields):
         self.legend_html = question_group and ('<legend>%s</legend>' % question_group.name) or ''
         if question_group and question_group.help_text:
-            self.legend_html += "<p>%s</p>" % question_group.help_text
+            self.legend_html += "<p class='legend'>%s</p>" % question_group.help_text
         self.fields = fields
+
+    def as_html(self, form):
+        return u"<fieldset>%s<div class='fields'>%s</div></fieldset>" % (self.legend_html, form.render_fields(self.fields), )
 
 class ResponseSetForm(forms.ModelForm):
     #TODO: Make django-bootstrap support modelforms
@@ -46,7 +49,8 @@ class QuestionForm(BootstrapForm):
         for question in self.survey.question_set.all():
             field = register.get_input_plugin(question.widget).plugin
             self.fields['q_%s' % question.pk] = field(
-                        label='%s. %s' % (question.identifier,question.question),
+                        label="""<span class="identifier">%s.</span> 
+                                <span class="question">%s</span>""" % (question.identifier,question.question),
                         help_text=question.help_text
             )
             if question.group:
