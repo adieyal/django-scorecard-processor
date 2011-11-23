@@ -11,6 +11,16 @@ class SurveyAdmin(admin.ModelAdmin):
     model = Survey
     inlines = [QuestionInline]
 
+class QuestionAdmin(admin.ModelAdmin):
+    model = Question
+    list_display = ('__unicode__','survey')
+    list_filter = ('survey',)
+
+class QuestionGroupAdmin(admin.ModelAdmin):
+    model = QuestionGroup
+    list_display = ('__unicode__','survey')
+    list_filter = ('survey',)
+
 class DataSeriesInline(admin.TabularInline):
     model = DataSeries
 
@@ -31,8 +41,8 @@ class ResponseSetAdmin(admin.ModelAdmin):
 admin.site.register(Survey, SurveyAdmin)
 admin.site.register(ResponseSet, ResponseSetAdmin)
 
-admin.site.register(QuestionGroup)
-admin.site.register(Question)
+admin.site.register(QuestionGroup, QuestionGroupAdmin)
+admin.site.register(Question, QuestionAdmin)
 admin.site.register(Scorecard)
 admin.site.register(ReportRun)
 
