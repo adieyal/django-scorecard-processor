@@ -8,16 +8,16 @@
         <h1>Choose an entity <small>These would be linked to a user's account</small></h1>
       </div>
       <div class="row">
-        <div class="span14">
           {% for entity_type in entity_list %}
+          <div class="span7">
             <h2>{{entity_type.grouper|capfirst}}</h2>
             <ul>
             {% for entity in entity_type.list %}
               <li><a href="{{entity.get_absolute_url}}">{% if entity.abbreviation %}{{entity.abbreviation}} - {% endif %}{{entity.name}}</a></li>
             {% endfor %}
             </ul>
+          </div>
           {% endfor %}
-        </div>
       </div>
     </div>
   </div>
