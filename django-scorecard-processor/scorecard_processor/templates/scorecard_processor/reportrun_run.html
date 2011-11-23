@@ -20,7 +20,7 @@
             <tr>
             <th>{{key.name}}</th>
             {% for v in result.values %}
-                  <td>{{v}}</td>
+                  <td>{{v|linebreaks}}</td>
             {% endfor %}
             </tr>
           {% endfor %}
