@@ -23,13 +23,14 @@ class Survey(models.Model):
 
 class QuestionGroup(models.Model):
     survey = models.ForeignKey(Survey)
-    identifier = models.CharField(max_length=10) #1, 2a, 2b
     name = models.CharField(max_length=100)
+    ordering = models.IntegerField(default=1)
     help_text = models.TextField(blank=True, null=True)
     class Meta:
         app_label = "scorecard_processor"
+        ordering = ('ordering','name')
     def __unicode__(self):
-        return "%s: %s" % (self.identifier, self.name)
+        return "%s" % self.name
 
 class Question(models.Model):
     survey = models.ForeignKey(Survey)
@@ -44,7 +45,7 @@ class Question(models.Model):
     class Meta:
         app_label = "scorecard_processor"
         unique_together = ('survey','identifier')
-        ordering = ('identifier',)
+        ordering = ('group','identifier',)
 
     @models.permalink
     def get_absolute_url(self):
