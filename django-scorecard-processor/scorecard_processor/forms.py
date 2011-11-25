@@ -1,4 +1,7 @@
-from collections import defaultdict
+try:
+    from collections import OrderedDict
+except ImportError:
+    from lib.collections import OrderedDict
 
 from django import forms
 from bootstrap.forms import *
@@ -12,7 +15,10 @@ class QuestionFieldset(Fieldset):
         self.legend_html = question_group and ('<legend>%s</legend>' % question_group.name) or ''
         if question_group and question_group.help_text:
             self.legend_html += "<p class='legend'>%s</p>" % question_group.help_text
-        self.fields = fields
+        self.fields = list(fields)
+
+    def add_field(self, field):
+        self.fields.append(field)
 
     def as_html(self, form):
         return u"<fieldset>%s<div class='fields'>%s</div></fieldset>" % (self.legend_html, form.render_fields(self.fields), )
@@ -43,30 +49,37 @@ class QuestionForm(BootstrapForm):
         self.survey = kwargs.pop('survey')
         self.instance = kwargs.pop('instance')
         super(QuestionForm, self).__init__(*args, **kwargs)
-        fieldsets = defaultdict(list)
+        fieldsets = OrderedDict()
         general = []
+        self.layout = []
 
-        for question in self.survey.question_set.all():
-            field = register.get_input_plugin(question.widget).plugin
-            self.fields['q_%s' % question.pk] = field(
-                        label="""<span class="identifier">%s.</span> 
-                                <span class="question">%s</span>""" % (question.identifier,question.question),
-                        help_text=question.help_text
-            )
-            if question.group:
-                fieldsets[question.group].append('q_%s' % question.pk)
-            else:
-                general.append('q_%s' % question.pk)
+        for group in self.survey.questiongroup_set.all().select_related('question'):
+            fieldset = QuestionFieldset(group)
+            for question in group.question_set.all():
+                self.add_field_from_question(question)
+                fieldset.add_field('q_%s' % question.pk)
+            self.layout.append(fieldset)
+
+        general = self.survey.question_set.filter(group=None)
+        if general:
+            questions = []
+            for question in general:
+                self.add_field_from_question(question)
+                questions.append('q_%s' % question.pk)
+            self.layout.append(Fieldset('',*questions))
 
         self.initial.update(dict([
                 ('q_%s' % response.question.pk, response.value) 
                 for response in self.instance.response_set.filter(current=True)
             ]))
             
-        self.layout = [QuestionFieldset(key,*value) for key, value in fieldsets.items()]
-
-        if general:
-            self.layout.append(Fieldset('',*general))
+    def add_field_from_question(self, question):
+        field = register.get_input_plugin(question.widget).plugin
+        self.fields['q_%s' % question.pk] = field(
+                    label="""<span class="identifier">%s.</span> 
+                            <span class="question">%s</span>""" % (question.identifier,question.question),
+                    help_text=question.help_text
+        )
 
     def save(self):
         if not self.instance.pk:
