@@ -39,6 +39,8 @@ class Command(BaseCommand):
 
                     if not group_help:
                         group_help = measure
+                    if not measure:
+                        measure = group_help
                     exploded = measure.split(' ')
 
                     if exploded[0] == 'Number' and exploded[1] == 'of':
@@ -65,9 +67,6 @@ class Command(BaseCommand):
                         sup = None
 
                     print("\n\n%s\n%s" % (group_name,group_help))
-                    if not group_name:
-                        group_name = group_help
-                        group_help = ''
                     group = survey.questiongroup_set.create(
                                 name = group_name,
                                 ordering = order, 

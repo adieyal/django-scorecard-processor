@@ -23,7 +23,7 @@ class Survey(models.Model):
 
 class QuestionGroup(models.Model):
     survey = models.ForeignKey(Survey)
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=200)
     ordering = models.IntegerField(default=1)
     help_text = models.TextField(blank=True, null=True)
     class Meta:
