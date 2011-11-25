@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
-from meta import DataSeries, DataSeriesGroup, Entity, Project
+from meta import DataSeries, DataSeriesGroup, Entity, EntityType, Project
 from scorecard_processor import plugins
 
 from cerial import JSONField
@@ -10,6 +10,7 @@ class Survey(models.Model):
     name = models.CharField(max_length=100)
     project = models.ForeignKey(Project)
     data_series_groups = models.ManyToManyField(DataSeriesGroup) 
+    entity_types = models.ManyToManyField(EntityType)
 
     class Meta:
         app_label = "scorecard_processor"
