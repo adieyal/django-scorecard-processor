@@ -65,6 +65,9 @@ class Command(BaseCommand):
                         sup = None
 
                     print("\n\n%s\n%s" % (group_name,group_help))
+                    if not group_name:
+                        group_name = group_help
+                        group_help = ''
                     group = survey.questiongroup_set.create(
                                 name = group_name,
                                 ordering = order, 
