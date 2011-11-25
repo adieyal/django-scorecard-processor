@@ -10,12 +10,18 @@ class Command(BaseCommand):
         make_option('--name',
             dest='name',
             help='Give the survey a name'),
+        make_option('--verbose',
+            dest='verbose',
+            default=False,
+            action='store_true',
+            help='verbose_output'),
         )
     output_transaction = True
 
     def handle(self, *args, **options):
         survey_file = csv.reader(open(args[0],'rb'))
         name = options['name']
+        verbose = options['verbose']
         if not name:
             raise CommandError("Require a name for the survey")
         
@@ -37,7 +43,7 @@ class Command(BaseCommand):
                     measure = row[1]
                     group_help = row[2]
 
-                    if not group_help:
+                    if not group_help or group_help == 'None':
                         group_help = measure
                     if not measure:
                         measure = group_help
@@ -56,17 +62,19 @@ class Command(BaseCommand):
                         group_name = group_name[0:-3]
 
                     if sup:
-                        print('%s Supplemental: %s' % (last_identifier,sup))
+                        if verbose:
+                            print('%s Supplemental: %s' % (last_identifier,sup))
                         group.question_set.create(
                             survey=survey,
                             identifier='%s_sup' % last_identifier,
                             question="Supplemental information",
-                            help_text=sup, 
+                            help_text=sup.replace('<',''), 
                             widget="textbox"
                         )
                         sup = None
 
-                    print("\n\n%s\n%s" % (group_name,group_help))
+                    if verbose:
+                        print("\n\n%s\n%s" % (group_name,group_help))
                     group = survey.questiongroup_set.create(
                                 name = group_name,
                                 ordering = order, 
@@ -96,8 +104,9 @@ class Command(BaseCommand):
                     widget = 'date'
 
                 
-                print('%s. %s' % (identifier,question))
-                print('%s: %s' % (widget,baseline))
+                if verbose:
+                    print('%s. %s' % (identifier,question))
+                    print('%s: %s' % (widget,baseline))
                 group.question_set.create(survey=survey, identifier=identifier, question=question, widget=widget)
 
                 try:
@@ -106,7 +115,8 @@ class Command(BaseCommand):
                     new_sup = None 
                 if new_sup:
                     if sup:
-                        print('%s Supplemental: %s' % (identifier,sup))
+                        if verbose:
+                            print('%s Supplemental: %s' % (identifier,sup))
                         group.question_set.create(
                             survey=survey,
                             identifier='%s_sup' % last_identifier,

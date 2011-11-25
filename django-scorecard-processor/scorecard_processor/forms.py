@@ -1,8 +1,3 @@
-try:
-    from collections import OrderedDict
-except ImportError:
-    from lib.collections import OrderedDict
-
 from django import forms
 from bootstrap.forms import *
 from models.inputs import ResponseSet, Response
@@ -49,7 +44,6 @@ class QuestionForm(BootstrapForm):
         self.survey = kwargs.pop('survey')
         self.instance = kwargs.pop('instance')
         super(QuestionForm, self).__init__(*args, **kwargs)
-        fieldsets = OrderedDict()
         general = []
         self.layout = []
 
