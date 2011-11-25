@@ -6,6 +6,7 @@ class YesNoNAField(ChoiceField):
     def __init__(self, *args, **kwargs):
         super(YesNoNAField,self).__init__(*args,**kwargs)
         self.choices = (
+                ('',''),
                 ('yes','Yes'),
                 ('no','No'),
                 ('n/a','n/a'),
