@@ -84,7 +84,7 @@ class Command(BaseCommand):
                     pass
                 else:
                     widget = 'integer'
-                if 'USD' in question or 'How much' in question:
+                if 'USD' in question or 'how much' in question.lower():
                     widget = 'fixed_currency'
                 if baseline.lower() in ['yes','no']:
                     widget = 'yes_no_na_choice'
