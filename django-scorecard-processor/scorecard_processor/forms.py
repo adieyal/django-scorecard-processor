@@ -25,6 +25,21 @@ class ResponseSetForm(forms.ModelForm):
         model = ResponseSet
         exclude = ('survey','entity','submission_date','last_update','respondant')
 
+    def save(self, *args, **kwargs):
+        commit = kwargs.get('commit',True)
+        kwargs['commit'] = False
+        instance = super(ResponseSetForm, self).save(*args,**kwargs)
+        try:
+            response = self.Meta.model.objects.get(survey=instance.survey, data_series__exact=self.cleaned_data['data_series'])
+        except self.Meta.model.DoesNotExist:
+            pass
+        else:
+            return response
+        if commit:
+            instance.save()
+            self.save_m2m()
+        return instance
+
 class ArgumentForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(ArgumentForm, self).__init__(*args, **kwargs)
@@ -72,7 +87,8 @@ class QuestionForm(BootstrapForm):
         self.fields['q_%s' % question.pk] = field(
                     label="""<span class="identifier">%s.</span> 
                             <span class="question">%s</span>""" % (question.identifier,question.question),
-                    help_text=question.help_text
+                    help_text=question.help_text,
+                    required=False
         )
 
     def save(self):
@@ -89,6 +105,9 @@ class QuestionForm(BootstrapForm):
                 )
             except Response.DoesNotExist:
                 instance = None
+
+            if not value and not instance:
+                continue
 
             if instance and instance.get_value() != value:
                 instance = None
