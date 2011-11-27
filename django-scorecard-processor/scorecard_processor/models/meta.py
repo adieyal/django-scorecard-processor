@@ -13,9 +13,14 @@ class Project(models.Model):
         return "Project: %s" % (self.name)
 
 class DataSeriesGroup(models.Model):
+    """
+    QUESTION - what is the rationale behind this model? Is it simply to add a label to a responseset so that you can retrieve related questionnaires e.g. "Get all the surveys from 2009"?
+    """
     name = models.CharField(max_length=30,primary_key=True)
     project = models.ForeignKey(Project)
+    "QUESTION - this seems like a strange field to store? Why doesn't the user simply specify the data series in the correct order? "
     reverse_ordering = models.BooleanField(default=False)
+
     class Meta:
         ordering = ('name',)
         app_label = "scorecard_processor"
@@ -59,7 +64,15 @@ class Entity(models.Model):
     """
     An entity / organisation
     """
+
+    """
+    QUESTION - what is the purpose of an entity? Is it a type of organisation that may complete a questionnaire? or does it simply define the set of surveys that need to be completed by a particular entity type?
+    """
     name = models.CharField(max_length=100) 
+
+    """
+    QUESTION - how does this field get used?
+    """
     abbreviation = models.CharField(max_length=30, blank=True, null=True)
     entity_type = models.ForeignKey(EntityType)
     project = models.ForeignKey(Project)

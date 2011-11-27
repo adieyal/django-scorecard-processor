@@ -28,6 +28,9 @@ class Scorecard(models.Model):
         return ('show_scorecard',(str(self.project.pk),str(self.pk)))
 
     def get_values(self, responsesets, group_by = None):
+        """
+        QUESTION - does this code work? I can't follow it
+        """
         result = {}
         #TODO: this is going to break with hierachy
         for indicator in self.operation_set.filter(indicator=True):

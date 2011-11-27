@@ -37,10 +37,20 @@ class Question(models.Model):
     survey = models.ForeignKey(Survey)
     group = models.ForeignKey(QuestionGroup, null=True, blank=True)
     identifier = models.CharField(max_length=10) #1, 2a, 2b
+    """
+    QUESTION - You should be wary of translations - all text - especially question should be translatable
+    """
     question = models.TextField()
+    """
+    QUESTION - Same as above
+    """
     help_text = models.TextField(blank=True, null=True)
     widget = models.CharField(max_length=30, default='text', choices=plugins.input_plugins_as_choices())
     validator = models.CharField(max_length=30, default='anything')
+
+    """
+    QUESTION - I'm guessing that a true here means that the question requests a baseline value in addition to the current value. Don't you think you're making assumptions here about how the questionnaire will be structured? Shouldn't this rather be dealt with in the widget? In other words, have a baseline family of widgets which include a question about the baseline. These would be defined as plugins - possibly in an optional application.
+    """
     request_baseline = models.BooleanField(default=True)
 
     class Meta:
@@ -66,6 +76,8 @@ class ResponseSet(models.Model):
     submission_date = models.DateTimeField(auto_now_add = True)
     last_update = models.DateTimeField(auto_now_add = True)
     entity = models.ForeignKey(Entity)
+
+    # QUESTION - I'm not fully groking the data_series concept but from what I think I understand it seems wweird that every responseset needs to specify all dataseries. I see a dataseries as a coordinate in particular dimension (dataseriesgroup) but some dimensions might not be relevant to this survey.
     data_series = models.ManyToManyField(DataSeries) #Country, Year, Agency
 
     class Meta:
@@ -86,6 +98,8 @@ class Response(models.Model):
     submission_date = models.DateTimeField(auto_now_add=True)
 
     valid = models.BooleanField(default=False) #Has this been validated, and is a valid entry?
+
+    # QUESTION - can I have multiple responses for a particular question? Does the application store a history of response?
     current = models.BooleanField(default=True) #Is this response the current 'active' response for this question
 
     class Meta:
