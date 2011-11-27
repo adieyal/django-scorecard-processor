@@ -2,3 +2,4 @@
 south
 -e git://github.com/bradwhittington/django-cerial.git#egg=cerial
 django-grappelli
+Django==1.3.1
