@@ -1,4 +1,5 @@
 from django import forms
+from django.db.models import Q
 from bootstrap.forms import *
 from models.inputs import ResponseSet, Response
 from models.outputs import OperationArgument
@@ -25,15 +26,23 @@ class ResponseSetForm(forms.ModelForm):
         model = ResponseSet
         exclude = ('survey','entity','submission_date','last_update','respondant')
 
+    def _get_responseset(self, survey, data_series):
+        qs = self.Meta.model.objects.filter(survey=survey)
+        #response = self.Meta.model.objects.get(survey=instance.survey, data_series__exact=self.cleaned_data['data_series'])
+        for ds in data_series:
+            qs = qs.filter(data_series=ds)
+        try:
+            response = qs.get()
+        except self.Meta.model.DoesNotExist:
+            response = None
+        return response
+
     def save(self, *args, **kwargs):
         commit = kwargs.get('commit',True)
         kwargs['commit'] = False
         instance = super(ResponseSetForm, self).save(*args,**kwargs)
-        try:
-            response = self.Meta.model.objects.get(survey=instance.survey, data_series__exact=self.cleaned_data['data_series'])
-        except self.Meta.model.DoesNotExist:
-            pass
-        else:
+        response = self._get_responseset(instance.survey, self.cleaned_data['data_series'])
+        if response:
             return response
         if commit:
             instance.save()
