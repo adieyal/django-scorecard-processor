@@ -48,7 +48,11 @@ def edit_survey(request, object_id, responseset_id):
         form = form(request.POST, survey=survey, instance=responseset)#, user=request.user)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('%s#responseset_%s' % (responseset.entity.get_absolute_url(), responseset.pk))
+            next_section = request.POST.get('next')
+            if next_section:
+                return HttpResponseRedirect('%s#%s' % (responseset.get_absolute_url(), next_section))
+            else:
+                return HttpResponseRedirect('%s#responseset_%s' % (responseset.entity.get_absolute_url(), responseset.pk))
     else:
         form = form(survey=survey, instance=responseset)
 

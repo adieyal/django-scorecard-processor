@@ -4,10 +4,45 @@
 {{block.super}}
 <script type="text/javascript">
   $('fieldset').addClass('row');
-  $('fieldset legend').addClass('span5');
-  $('fieldset .legend').addClass('span5');
-  $('fieldset .fields').addClass('span10');
+  $('fieldset legend').addClass('span12');
+  $('fieldset .legend').addClass('span12');
+  $('fieldset .fields').addClass('span12');
   $('fieldset .fields label .question').addClass('span9');
+  var list = $('<ul class="pills span4"></ul>')
+  $('.form').before(list);
+  var save = $('.actions');
+  save.removeClass('actions');
+  save.addClass('pull-right');
+  var tab_length = $('.tab').length;
+  var next = '#'+$('div.tab')[0].id;
+  if (window.location.hash) {next = window.location.hash;}
+  if ($('.error').length) {
+    next = '#'+$($('.error')[0]).parents('div.tab').attr('id');
+  }
+  $('button').live('click', function(e) {$('#next').attr('value',$(e.currentTarget).parents('div.tab').next('div.tab').attr('id')); });
+  $('.tab').each(function(i,e) {
+    var id = $(e).attr('id');
+    var classes = ''
+    item = $('<li><a href="#'+id+'">'+$('legend',e).html()+'</a></li>');
+    list.append(item);
+    var new_save = save.clone();
+    if (i+1 == tab_length) {
+      $('button',new_save).html('Save');
+    } else {
+      $('button',new_save).attr('value',id);
+    }
+    new_save.appendTo(e);
+    if ('#'+id == next) {
+        $(e).addClass('active');
+        $(item).addClass('active');
+    }
+  })
+  save.hide();
+  list.tabs();
+  $('.pills').bind('change', function (e) {
+    //window.console.log($(e.target).attr('href')) // activated tab
+    $('#next').attr('value','');
+  })
 </script>
 <style>
   .legend.span5 {clear:left}
@@ -26,11 +61,14 @@
         <h1>{{survey.name}} <small>for <a href="{{entity.get_absolute_url}}">{{entity.name}}</a> - {% for series in responseset.data_series.all %}{{series.name}}{% if forloop.revcounter0 %}, {% endif %}{% endfor %}</small></h1>
       </div>
       <form method="POST" class="form-stacked">
-         {% csrf_token %}
-         {{form}}
-         <div class="actions">
-            <button type="submit" class="btn primary">Submit</button> &nbsp;
-         </div>
+          {% csrf_token %}
+          <div class="form pill-content">
+            {{form}}
+          </div>
+          <input type="hidden" id="next" name="next" value="" />
+          <div class="actions">
+              <button type="submit" class="btn primary large" name="button">Next</button> &nbsp;
+          </div>
       </form>
     </div>
   </div>

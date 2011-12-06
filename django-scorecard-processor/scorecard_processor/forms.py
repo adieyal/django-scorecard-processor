@@ -1,5 +1,6 @@
 from django import forms
 from django.db.models import Q
+from django.template.defaultfilters import slugify
 from bootstrap.forms import *
 from models.inputs import ResponseSet, Response
 from models.outputs import OperationArgument
@@ -9,6 +10,10 @@ from plugins import register
 class QuestionFieldset(Fieldset):
     def __init__(self, question_group, *fields):
         self.legend_html = question_group and ('<legend>%s</legend>' % question_group.name) or ''
+        self.div_id = question_group and slugify(question_group.name);
+        if not self.div_id:
+            self.div_id = 'general'
+        
         if question_group and question_group.help_text:
             self.legend_html += "<p class='legend'>%s</p>" % question_group.help_text
         self.fields = list(fields)
@@ -17,7 +22,7 @@ class QuestionFieldset(Fieldset):
         self.fields.append(field)
 
     def as_html(self, form):
-        return u"<fieldset>%s<div class='fields'>%s</div></fieldset>" % (self.legend_html, form.render_fields(self.fields), )
+        return u"<div class='tab' id='%s'><fieldset>%s<div class='fields'>%s</div></fieldset></div>" % (self.div_id, self.legend_html, form.render_fields(self.fields))
 
 class ResponseSetForm(forms.ModelForm):
     #TODO: Make django-bootstrap support modelforms
