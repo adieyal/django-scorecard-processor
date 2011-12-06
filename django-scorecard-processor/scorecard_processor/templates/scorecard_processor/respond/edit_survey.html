@@ -40,8 +40,10 @@
   save.hide();
   list.tabs();
   $('.pills').bind('change', function (e) {
-    //window.console.log($(e.target).attr('href')) // activated tab
-    $('#next').attr('value','');
+    //window.console.log() // activated tab
+    var href=$(e.target).attr('href');
+    $('#next').attr('value',href.substring(1));
+    $('form').submit();
   })
 </script>
 <style>
