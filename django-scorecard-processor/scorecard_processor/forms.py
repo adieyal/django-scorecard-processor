@@ -10,7 +10,7 @@ from plugins import register
 class QuestionFieldset(Fieldset):
     def __init__(self, question_group, *fields):
         self.legend_html = question_group and ('<legend>%s</legend>' % question_group.name) or ''
-        self.div_id = question_group and slugify(question_group.name);
+        self.div_id = question_group and 'qg_'+slugify(question_group.pk);
         if not self.div_id:
             self.div_id = 'general'
         
