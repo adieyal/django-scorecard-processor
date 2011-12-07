@@ -4,6 +4,7 @@ from optparse import make_option
 import csv
 from scorecard_processor import models
 import sys
+from datetime import datetime, timedelta
 
 class Command(BaseCommand):
     args = '<filename.json>'
@@ -15,9 +16,11 @@ class Command(BaseCommand):
             action='store_true',
             help='flush_output'),
         )
-    output_transaction = True
+    output_transaction = False
 
     def handle(self, *args, **options):
+        now = datetime.now()
+        the_future = datetime.now()+timedelta(days=4)
         flush = options['flush']
         survey_file = open(args[0],'rb')
         user = models.User.objects.get(pk=1)
@@ -78,14 +81,15 @@ class Command(BaseCommand):
                                             rs.data_series.add(c,y)
                                             sys.stdout.write('*')
                                         rs = responsesets[y]
+                                    rs.last_update=the_future #Trick the post_save trigger
                                     r = models.Response(
                                         response_set=rs,
                                         question=q,
                                         valid=True,
                                         current=True,
-                                        value=''
                                     )
                                     r.value = v
+                                    r.submission_date = now
                                     r.save()
                                     sys.stdout.write('.')
                                     if flush:
@@ -98,13 +102,13 @@ class Command(BaseCommand):
                                         question=q,
                                         valid=True,
                                         current=True,
-                                        value=''
+                                        value='',
                                     )
                                     r.value = comment
-                                    #r.save()
+                                    r.submission_date = now
+                                    r.save()
                                     sys.stdout.write('!')
                                     if flush:
                                         sys.stdout.flush()
                                     comment = None
-                                    
                     print('  %s' % country)

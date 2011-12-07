@@ -98,7 +98,7 @@ class Response(models.Model):
 
 def invalidate_old_responses(sender, instance, **kwargs):
     if instance.current:
-        instance.response_set.response_set.exclude(pk=instance.pk).filter(question=instance.question).update(current=False)
+        instance.response_set.response_set.filter(question=instance.question, current=True).exclude(pk=instance.pk).update(current=False)
         if instance.submission_date > instance.response_set.last_update:
             instance.response_set.last_update = instance.submission_date
             instance.response_set.save()
