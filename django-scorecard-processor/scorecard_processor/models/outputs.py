@@ -7,7 +7,7 @@ from django.contrib.contenttypes.models import ContentType
 from cerial import JSONField
 
 from inputs import Survey, ResponseSet
-from meta import DataSeriesGroup, Project
+from meta import DataSeriesGroup, DataSeries, Project, Entity, EntityType
 
 from scorecard_processor import plugins
 
@@ -98,13 +98,35 @@ class OperationArgument(models.Model):
         if isinstance(response, QuerySet):
             return [item.get_value() for item in response]
         
+"""
+
+Scorecard from 2010 submissions from South Africa, Nigeria, Somalia
+    aggregated by country
+
+Scorecard for 2009 submissions from South Africa, for USAID, WHO
+    aggregated by entity
+
+Scorecard for 2009 and 2010 for all countries
+    aggregated by entity
+
+"""
+
+class ReportRunError(Exception):
+    pass
+
 class ReportRun(models.Model):
     scorecard = models.ForeignKey(Scorecard)
     name = models.CharField(max_length=200)
     description = models.TextField(blank=True, null=True)
-    source_data = JSONField() #Field which can be resolved to a list or queryset of ResponseSets
+
+    #Need one or both methods of aggregation
     aggregate_on = models.ForeignKey(DataSeriesGroup, blank=True, null=True)
     aggregate_by_entity = models.BooleanField(default=False)
+
+    #Optional filters for underlying responsesets
+    limit_to_dataseries = models.ManyToManyField(DataSeries, blank=True, null=True) #Optionally limit to dataseries
+    limit_to_entity = models.ManyToManyField(Entity, blank=True, null=True) #Optionally limit to entities
+    limit_to_entitytype = models.ManyToManyField(EntityType, blank=True, null=True) #Optionally limit to entity types
 
     class Meta:
         app_label = "scorecard_processor"
@@ -114,22 +136,39 @@ class ReportRun(models.Model):
         return ('show_report',(str(self.scorecard.project.pk),str(self.pk)))
 
     def get_responsesets(self):
-        source_data = {
-            'survey__project__pk':self.scorecard.project.pk, #limit results to the current project
-        }
-        source_data.update(self.source_data)
-        qs = ResponseSet.objects.filter(**source_data).only('id')
+        if not self.aggregate_by_entity and not self.aggregate_on:
+            raise ReportRunError("No aggregation mode selected")
+
+        qs = ResponseSet.objects.filter(survey__project__pk=self.scorecard.project.pk)
+
+        for ds in limit_to_dataseries.all():
+            qs = qs.filter(data_series=ds)
+
+        for e in limit_to_entity.all():
+            qs = qs.filter(entity=e)
+
+        for et in limit_to_entitytype.all():
+            qs = qs.filter(entity__entity_type=et)
+
+        qs = qs.only('id')
         rs_dict = {}
-        if self.aggregate_by_entity:
+
+        if self.aggregate_on:
+            for dataseries in self.aggregate_on.dataseries_set.all():
+                ds_qs = qs.filter(data_series=dataseries)
+                if ds_qs.count():
+                    if self.aggregate_by_entity:
+                        for entity in self.scorecard.project.entity_set.all():
+                            e_qs = ds_qs.filter(entity=entity)
+                            if e_qs.count():
+                                rs_dict[(entity,dataseries)] = e_qs
+                    else:
+                        rs_dict[dataseries] = ds_qs
+        else:
             for entity in self.scorecard.project.entity_set.all():
                 e_qs = qs.filter(entity=entity)
                 if e_qs.count():
                     rs_dict[entity] = e_qs
-        else:
-            for dataseries in self.aggregate_on.dataseries_set.all():
-                ds_qs = qs.filter(data_series=dataseries)
-                if ds_qs.count():
-                    rs_dict[dataseries] = ds_qs
         return rs_dict
 
     def run(self):
@@ -139,3 +178,4 @@ class ReportRun(models.Model):
         for key, qs in self.get_responsesets().items():
             results[key] = scorecard.get_values(qs)
         return results
+
