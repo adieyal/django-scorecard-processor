@@ -1,36 +1,10 @@
 from collections import namedtuple
 from register import register
-
-VECTOR = 'vector'
-SCALAR = 'scalar'
+from types import Vector, Scalar, Value
 
 class PluginError(Exception):
     pass
 
-class Value(object):
-    def __init__(self, item, extractor_class=None):
-        if extractor_class:
-            self.value = self.extractor_class(item)
-        else:
-            self.value = item
-
-    def __repr__(self):
-        return repr(self.value)
-
-    def __unicode__(self):
-        return unicode(self.value)
-
-    def get_value(self):
-        try:
-            return self.value.get_value()
-        except AttributeError:
-            return self.value
-
-    def get_values(self):
-        try:
-            return self.value.get_value()
-        except AttributeError:
-            return self.value
 
 class QuestionValidationPlugin(object):
     pass
@@ -47,7 +21,7 @@ class ProcessPlugin(object):
 
     def __init__(self, operation, responsesets):
         self.operation, self.responsesets  = operation, responsesets
-        if self.input_type not in (VECTOR,SCALAR) or self.output_type not in (VECTOR, SCALAR):
+        if isinstance(self.input_type, Value)  or isinstance(self.output_type, Value):
             raise PluginError("Plugin is missing input or output type")
 
     def get_arguments(self):

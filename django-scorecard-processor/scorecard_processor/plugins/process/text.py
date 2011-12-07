@@ -6,10 +6,10 @@ def sum_values(x, y):
 class Concat(base.ProcessPlugin):
     name = 'Concatenate responses'
     argument_list = ['response']
-    input_type = base.VECTOR
-    output_type = base.SCALAR
+    input_type = base.Vector
+    output_type = base.Scalar
 
     def process(self):
-        return base.Value("\n\n".join(self.get_arguments().response.get_values()))
+        return self.output_type("\n\n".join(self.get_arguments().response.get_values()))
 
 register.register('process','Text','concat',Concat)
