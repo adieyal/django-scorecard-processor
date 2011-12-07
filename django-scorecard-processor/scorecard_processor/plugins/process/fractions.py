@@ -6,6 +6,8 @@ def sum_values(x, y):
 class NumDenomPlugin(base.ProcessPlugin):
     name = 'Divide(Sum(Argument 1), Sum(Argument 2))'
     argument_list = ['numerator', 'denominator']
+    input_type = base.VECTOR
+    output_type = base.SCALAR
 
     def process(self):
         numerator = [float(x) for x in self.get_arguments().numerator.get_values()]

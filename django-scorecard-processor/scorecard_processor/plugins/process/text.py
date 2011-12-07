@@ -6,6 +6,8 @@ def sum_values(x, y):
 class Concat(base.ProcessPlugin):
     name = 'Concatenate responses'
     argument_list = ['response']
+    input_type = base.VECTOR
+    output_type = base.SCALAR
 
     def process(self):
         return base.Value("\n\n".join(self.get_arguments().response.get_values()))

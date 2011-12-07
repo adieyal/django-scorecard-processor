@@ -1,6 +1,12 @@
 from collections import namedtuple
 from register import register
 
+VECTOR = 'vector'
+SCALAR = 'scalar'
+
+class PluginError(Exception):
+    pass
+
 class Value(object):
     def __init__(self, item, extractor_class=None):
         if extractor_class:
@@ -36,9 +42,13 @@ class ProcessPlugin(object):
     """ A plugin to process input data """
     name = "Dummy plugin"
     argument_list = ['a','b']
+    input_type = None
+    output_type = None
 
     def __init__(self, operation, responsesets):
         self.operation, self.responsesets  = operation, responsesets
+        if self.input_type not in (VECTOR,SCALAR) or self.output_type not in (VECTOR, SCALAR):
+            raise PluginError("Plugin is missing input or output type")
 
     def get_arguments(self):
         if not getattr(self,'_arguments',None):
