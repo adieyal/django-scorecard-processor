@@ -11,6 +11,8 @@ question_qs = Question.objects.all()
 scorecard_qs = Scorecard.objects.all()
 reportrun_qs = ReportRun.objects.all()
 
+from views import SurveyResponses
+
 urlpatterns = patterns('scorecard_processor.views',
     url(r'^$', 'index', name="scorecard_index"),
 
@@ -31,6 +33,21 @@ urlpatterns = patterns('scorecard_processor.views',
         login_required(object_detail),
         {'queryset': survey_qs}, 
         name="show_survey"
+    ),
+
+    url(r'^project/(\d+)/survey/(?P<object_id>\d+)/responses/$', 
+        login_required(SurveyResponses.as_view()),
+        name="show_survey_responses"
+    ),
+
+    url(r'^project/(\d+)/survey/(?P<object_id>\d+)/responses/series/(?P<series>[\w\ ]+)/$', 
+        login_required(SurveyResponses.as_view()),
+        name="show_survey_responses_series"
+    ),
+
+    url(r'^project/(\d+)/survey/(?P<object_id>\d+)/responses/entity/(?P<entity>\d+)/$', 
+        login_required(SurveyResponses.as_view()),
+        name="show_survey_responses_entity"
     ),
 
     url(r'^project/(\d+)/scorecard/(?P<object_id>\d+)/$',

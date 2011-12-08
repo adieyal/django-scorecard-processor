@@ -25,7 +25,7 @@
             
             <ul>
             {% for survey in object.survey_set.all %}
-              <li><a href="{{survey.get_absolute_url}}">{{survey.name}}</a></li>
+              <li><a href="{{survey.get_absolute_url}}">{{survey.name}}</a> (<a href="{{survey.get_absolute_url}}responses/">view responses</a>)</li>
             {% endfor %}
             </ul>
             <div class="row">

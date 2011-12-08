@@ -78,6 +78,13 @@ class ResponseSet(models.Model):
 
     def __unicode__(self):
         return "ResponseSet for %s about %s" % (self.survey, self.entity)
+
+    def get_responses(self):
+        data = []
+        responses = dict([(r.question,r) for r in self.response_set.filter(current=True)])
+        for question in self.survey.question_set.all():
+            data.append((question, responses.get(question))) 
+        return data
     
 class Response(models.Model):
     question = models.ForeignKey(Question)
@@ -94,7 +101,7 @@ class Response(models.Model):
     def get_value(self):
         #TODO: should read something like question.get_validator()(self.value).get_value()
         #This method should output the value cast to the kind of value this field is
-        return unicode(self.value)
+        return self.value.get('value')
 
 def invalidate_old_responses(sender, instance, **kwargs):
     if instance.current:

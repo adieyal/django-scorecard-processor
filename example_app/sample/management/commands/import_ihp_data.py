@@ -22,6 +22,11 @@ class Command(BaseCommand):
         now = datetime.now()
         the_future = datetime.now()+timedelta(days=4)
         flush = options['flush']
+        reformat = {
+            'Yes':'yes',
+            'No':'no',
+            'N/A':'n/a',
+        }
         survey_file = open(args[0],'rb')
         user = models.User.objects.get(pk=1)
         data = simplejson.loads(survey_file.read())
@@ -88,7 +93,7 @@ class Command(BaseCommand):
                                         valid=True,
                                         current=True,
                                     )
-                                    r.value = v
+                                    r.value = {'value':reformat.get(v,v)}
                                     r.submission_date = now
                                     r.save()
                                     sys.stdout.write('.')
@@ -104,7 +109,7 @@ class Command(BaseCommand):
                                         current=True,
                                         value='',
                                     )
-                                    r.value = comment
+                                    r.value = {'value':comment}
                                     r.submission_date = now
                                     r.save()
                                     sys.stdout.write('!')

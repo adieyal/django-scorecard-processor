@@ -1,13 +1,41 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404
+from django.views.generic import DetailView, ListView
 from django.contrib.auth.decorators import login_required
 
-from models import ResponseSet, Survey, Entity, ReportRun
+from models import ResponseSet, Survey, Entity, ReportRun, DataSeries
 from forms import QuestionForm, ResponseSetForm
 
 def index(request):
     return render_to_response('scorecard_processor/index.html',{},RequestContext(request))
+
+#################################################################
+# Managing reporting, surveys etc.
+#################################################################
+
+class SurveyResponses(ListView):
+    paginate_by = 20
+    def get_queryset(self):
+        self.survey = get_object_or_404(Survey, pk=self.kwargs['object_id'])
+        qs = ResponseSet.objects.filter(survey=self.survey).select_related('entity').order_by('entity__name')
+        self.series = self.kwargs.get('series')
+        if self.series:
+            qs = qs.filter(data_series__name=self.series)
+        self.entity = self.kwargs.get('entity')
+        if self.entity:
+            self.entity = get_object_or_404(Entity, pk=self.entity)
+            qs = qs.filter(entity=self.entity)
+        self.count = qs.count()
+        return qs
+
+    def get_context_data(self, **kwargs):
+        context = super(SurveyResponses,self).get_context_data(**kwargs)
+        context['survey'] = self.survey
+        context['count'] = self.count
+        context['series'] = self.series
+        context['entity'] = self.entity
+        return context
 
 def run_report(request, object_id):
     obj = get_object_or_404(ReportRun, pk=object_id)
@@ -16,6 +44,11 @@ def run_report(request, object_id):
         {'object':obj, 'report':obj.run()},
         RequestContext(request)
     )
+
+
+#################################################################
+# User response section
+#################################################################
 
 @login_required
 def add_survey(request, object_id, survey_id):

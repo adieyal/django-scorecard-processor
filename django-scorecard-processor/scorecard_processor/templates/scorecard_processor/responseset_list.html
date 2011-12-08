@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block head_title %}{{survey}}{% endblock %}
+{% block script_bottom %}
+{{block.super}}
+<script type="text/javascript">
+  $('[rel=popover]').popover();
+</script>
+{% endblock %}
+{% block fluid_content_outer %}
+  <div class="fluid-container">
+    <div class="content">
+      <div class="page-header">
+        <h1>Responses: {{survey.name}} <small>from <a href="{{survey.project.get_absolute_url}}">{{survey.project.name}}</a></small></h1>
+      </div>
+      <div class="span5">
+        Found <strong>{{count}} result{{count|pluralize}}</strong>
+        {% if entity %} for <strong>{{entity.name}}</strong> (<a href="../../">show all</a>){% endif %}
+        {% if series %} for <strong>{{series}}</strong> (<a href="../../">show all</a>){% endif %}
+        <br />
+        Displaying 20 per page
+      </div>
+      {% include '_pagination.html' %}
+      <table class="zebra-striped bordered-table">
+        <thead>
+          <tr>
+            <th>
+              <div style="width:120px">Entity</div>
+            </th>
+            <th>
+              <div style="width:120px">Series</div>
+            </th>
+            {% for question in survey.question_set.all %}
+              <th title="{{question.question}}" rel="popover" data-content="{{question.help_text}}"><div style="{% if "text" in question.widget %}min-width:150px{% endif %}" >{{question.identifier}}</div></th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+      {% for responseset in object_list %}
+        <tr>
+          <th>
+            <div>{{responseset.entity.entity_type.pk}}: <a href="{% url show_survey_responses_entity survey.project.pk survey.pk responseset.entity.pk %}">{{responseset.entity.name}}</a></div>
+          </th>
+          <th>
+            <div>{% for series in responseset.data_series.all %}<a href="{% url show_survey_responses_series survey.project.pk survey.pk series.name %}">{{series.name}}</a>{% if forloop.revcounter0 %}, {% endif %}{% endfor %}</div>
+          </th>
+          {% for question, response in responseset.get_responses %}
+            <td><span title="{{question.question}}" data-content="{{response.get_value}}" rel="popover" data-placement="below">{{response.get_value|truncatewords:5}}</td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}
