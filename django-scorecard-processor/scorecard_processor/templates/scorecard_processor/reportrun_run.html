@@ -7,20 +7,20 @@
         <h1><a href="{{object.get_absolute_url}}">{{object.name}}</a> results <small>from <a href="{{object.scorecard.project.get_absolute_url}}">{{object.scorecard.project.name}}</a></small></h1>
       </div>
           <h2>Report output</h2>
-          <table>
+          <table style="width:auto" class="bordered-table zebra-striped condensed-table">
           {% for key, result in report.items %}
             {% if forloop.counter0 == 0 %}
               <tr>
-                <th>{{key.data_type}}</th>
+                <th>{% if key.data_type %}{{key.data_type}}{% else %}{% for k in key %}{{k.data_type}}{% if forloop.revcounter0 %}, {% endif %}{% endfor %}{% endif %}</th>
                 {% for k in result.keys %}
-                  <th>{{k.identifier}} - {{k.description}}</th>
+                  <th title="{{k.description}}">{{k.identifier}}</th>
                 {% endfor %}
               </tr>
             {% endif %}
             <tr>
-            <th>{{key.name}}</th>
+            <th>{% if key.name %}{{key.name}}{% else %}{% for k in key %}{{k.name}}{% if forloop.revcounter0 %}, {% endif %}{% endfor %}{% endif %}</th>
             {% for v in result.values %}
-                  <td>{{v|linebreaksbr}}</td>
+                  <td>{% if v %}{{v|linebreaksbr}}{% endif %}</td>
             {% endfor %}
             </tr>
           {% endfor %}

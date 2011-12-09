@@ -29,7 +29,8 @@ class ProcessPlugin(object):
             ArgumentTuple = namedtuple('ArgumentTuple',self.argument_list)
             arguments = []
             for argument in self.operation.operationargument_set.all():
-                arguments.append(Value(argument.get_values(self.responsesets)))
+                arg = argument.get_data(self.responsesets)
+                arguments.append(arg)
             self._arguments = ArgumentTuple(*arguments)
         return self._arguments
 

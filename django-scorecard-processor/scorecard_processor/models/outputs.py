@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models.query import QuerySet
+from django.db.models.query import QuerySet, Q
 from django.contrib.auth.models import User
 from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
@@ -31,7 +31,7 @@ class Scorecard(models.Model):
         result = {}
         #TODO: this is going to break with hierachy
         for indicator in self.operation_set.filter(indicator=True):
-            result[indicator] = indicator.get_values(responsesets)
+            result[indicator] = indicator.get_data(responsesets)
         return result
 
 class OperationManager(models.Manager):
@@ -68,7 +68,7 @@ class Operation(models.Model):
     def __unicode__(self):
         return "%s: %s" % (self.identifier, self.get_operation_display())
 
-    def get_values(self, responsesets):
+    def get_data(self, responsesets):
         """ Outputs a value from the operation, applying the method to the
         arguments"""
         return self.plugin(self, responsesets).process()
@@ -93,10 +93,12 @@ class OperationArgument(models.Model):
     def __unicode__(self):
         return u"%s: %s" % (self.operation.plugin.argument_list[self.position], self.instance) 
 
-    def get_values(self, responsesets, group_by=None):
-        response = self.instance.get_values(responsesets)
+    def get_data(self, responsesets, group_by=None):
+        response = self.instance.get_data(responsesets)
         if isinstance(response, QuerySet):
-            return [item.get_value() for item in response]
+            response = plugins.Vector([item.get_value() for item in response])
+        return response
+
         
 """
 
@@ -140,15 +142,15 @@ class ReportRun(models.Model):
             raise ReportRunError("No aggregation mode selected")
 
         qs = ResponseSet.objects.filter(survey__project__pk=self.scorecard.project.pk)
+        
+        if self.limit_to_dataseries.count():
+            qs = qs.filter(data_series__in=self.limit_to_dataseries.all())
 
-        for ds in limit_to_dataseries.all():
-            qs = qs.filter(data_series=ds)
+        if self.limit_to_entity.count():
+            qs = qs.filter(entity__in=self.limit_to_entity.all())
 
-        for e in limit_to_entity.all():
-            qs = qs.filter(entity=e)
-
-        for et in limit_to_entitytype.all():
-            qs = qs.filter(entity__entity_type=et)
+        if self.limit_to_entitytype.count():
+            qs = qs.filter(entity__entity_type__in=self.limit_to_entitytype.all())
 
         qs = qs.only('id')
         rs_dict = {}

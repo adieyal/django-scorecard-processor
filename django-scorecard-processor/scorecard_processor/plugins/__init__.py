@@ -1,4 +1,5 @@
 from register import input_plugins_as_choices, output_plugins_as_choices, process_plugins_as_choices
+from base import Scalar, Vector
 import os
 
 base_dir = os.path.dirname(__file__)

@@ -5,6 +5,7 @@ import csv
 from scorecard_processor import models
 import sys
 from datetime import datetime, timedelta
+import decimal
 
 class Command(BaseCommand):
     args = '<filename.json>'
@@ -87,18 +88,39 @@ class Command(BaseCommand):
                                             sys.stdout.write('*')
                                         rs = responsesets[y]
                                     rs.last_update=the_future #Trick the post_save trigger
-                                    r = models.Response(
-                                        response_set=rs,
-                                        question=q,
-                                        valid=True,
-                                        current=True,
-                                    )
-                                    r.value = {'value':reformat.get(v,v)}
-                                    r.submission_date = now
-                                    r.save()
-                                    sys.stdout.write('.')
-                                    if flush:
-                                        sys.stdout.flush()
+                                    #TODO: rather use the plugin to get the right type here
+                                    if q.widget == 'yes_no_na_choice':
+                                        v = reformat.get(v,v) 
+
+                                    if q.widget.startswith('rating'):
+                                        try:
+                                            v = decimal.Decimal(v) 
+                                        except decimal.InvalidOperation:
+                                            sys.stdout.write(':[%s]' % v)
+                                            v = None
+
+                                    if q.widget=='fixed_currency':
+                                        if len(v.split(',')[-1]) > 2:
+                                            v = v.replace(',','')
+                                        try:
+                                            v = decimal.Decimal(v.replace(' ','')) 
+                                        except decimal.InvalidOperation:
+                                            sys.stdout.write(':(%s)' % v)
+                                            v = None
+                                    if v != None:
+                                        r = models.Response(
+                                            response_set=rs,
+                                            question=q,
+                                            valid=True,
+                                            current=True,
+                                        )
+
+                                        r.value = {'value':v}
+                                        r.submission_date = now
+                                        r.save()
+                                        sys.stdout.write('.')
+                                        if flush:
+                                            sys.stdout.flush()
                             if comment:
                                 q = survey.questions.get('%s_sup' % question)
                                 if q:
