@@ -55,7 +55,6 @@ def add_survey(request, object_id, survey_id):
     survey = get_object_or_404(Survey, pk=survey_id)
     entity = get_object_or_404(Entity, pk=object_id)
     instance = ResponseSet(
-                    respondant=request.user, 
                     survey=survey,
                     entity=entity
                 )
@@ -78,7 +77,7 @@ def edit_survey(request, object_id, responseset_id):
     form = QuestionForm
     
     if request.POST:
-        form = form(request.POST, survey=survey, instance=responseset)#, user=request.user)
+        form = form(request.POST, survey=survey, instance=responseset, user=request.user)
         if form.is_valid():
             form.save()
             next_section = request.POST.get('next')
@@ -87,7 +86,7 @@ def edit_survey(request, object_id, responseset_id):
             else:
                 return HttpResponseRedirect('%s#responseset_%s' % (responseset.entity.get_absolute_url(), responseset.pk))
     else:
-        form = form(survey=survey, instance=responseset)
+        form = form(survey=survey, instance=responseset, user=request.user)
 
     return render_to_response('scorecard_processor/respond/edit_survey.html',{'responseset':responseset,'entity':entity,'survey':survey, 'form':form},RequestContext(request))
 

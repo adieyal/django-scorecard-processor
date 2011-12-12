@@ -62,7 +62,6 @@ class Question(models.Model):
 class ResponseSet(models.Model):
     """ Survey::ResponseSet, Question::Response """
     survey = models.ForeignKey(Survey)
-    respondant = models.ForeignKey(User)
     submission_date = models.DateTimeField(auto_now_add = True)
     last_update = models.DateTimeField(auto_now_add = True)
     entity = models.ForeignKey(Entity)
@@ -89,6 +88,8 @@ class ResponseSet(models.Model):
 class Response(models.Model):
     question = models.ForeignKey(Question)
     response_set = models.ForeignKey(ResponseSet)
+    respondant = models.ForeignKey(User)
+
     value = JSONField() 
     submission_date = models.DateTimeField(auto_now_add=True)
 

@@ -72,6 +72,7 @@ class QuestionForm(BootstrapForm):
     def __init__(self, *args, **kwargs):
         self.survey = kwargs.pop('survey')
         self.instance = kwargs.pop('instance')
+        self.user = kwargs.pop('user')
         super(QuestionForm, self).__init__(*args, **kwargs)
         general = []
         self.layout = []
@@ -129,6 +130,7 @@ class QuestionForm(BootstrapForm):
             if not instance:
                 instance = Response(
                     response_set = self.instance,
+                    respondant = self.user,
                     question = question,
                     valid = True,
                     current = True
