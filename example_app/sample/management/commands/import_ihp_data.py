@@ -72,14 +72,12 @@ class Command(BaseCommand):
                                         sys.stdout.write('^')
                                         try:
                                             responsesets[y] = models.ResponseSet.objects.filter(data_series=c).get(
-                                                                    respondant = user,
                                                                     survey = survey,
                                                                     entity = a,
                                                                     data_series = y
                                                                     )
                                         except models.ResponseSet.DoesNotExist:
                                             rs = responsesets[y] = models.ResponseSet(
-                                                                    respondant = user,
                                                                     survey = survey,
                                                                     entity = a,
                                                             )
@@ -110,6 +108,7 @@ class Command(BaseCommand):
                                     if v != None:
                                         r = models.Response(
                                             response_set=rs,
+                                            respondant=user,
                                             question=q,
                                             valid=True,
                                             current=True,
@@ -126,6 +125,7 @@ class Command(BaseCommand):
                                 if q:
                                     r = models.Response(
                                         response_set=rs,
+                                        respondant=user,
                                         question=q,
                                         valid=True,
                                         current=True,

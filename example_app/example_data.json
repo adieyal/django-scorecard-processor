@@ -1924,10 +1924,10 @@
     "fields": {
       "indicator": true, 
       "configuration": "", 
-      "description": "Unweighted aid spend (%)", 
+      "description": "2DPa", 
       "scorecard": 1, 
-      "operation": "num_denom", 
-      "identifier": "U1"
+      "operation": "one_minus_num_denom", 
+      "identifier": "2DPa"
     }
   }, 
   {
@@ -1936,10 +1936,10 @@
     "fields": {
       "indicator": true, 
       "configuration": "", 
-      "description": "Is this percentage good enough", 
+      "description": "2DPb", 
       "scorecard": 1, 
-      "operation": "rating", 
-      "identifier": "Good"
+      "operation": "one_minus_num_denom", 
+      "identifier": "2DPb"
     }
   }, 
   {
@@ -1957,10 +1957,10 @@
     "pk": 3, 
     "model": "scorecard_processor.operationargument", 
     "fields": {
-      "instance_id": 1, 
+      "instance_id": 7, 
       "position": 0, 
       "operation": 2, 
-      "instance_content_type": 19, 
+      "instance_content_type": 15, 
       "argument_extractor": "value"
     }
   }, 
@@ -1976,14 +1976,25 @@
     }
   }, 
   {
+    "pk": 4, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 6, 
+      "position": 1, 
+      "operation": 2, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
     "pk": 1, 
     "model": "scorecard_processor.reportrun", 
     "fields": {
       "aggregate_on": "Country", 
-      "name": "Zing", 
+      "name": "Agency performance", 
       "limit_to_entity": [], 
       "limit_to_entitytype": [], 
-      "aggregate_by_entity": false, 
+      "aggregate_by_entity": true, 
       "scorecard": 1, 
       "limit_to_dataseries": [
         9
