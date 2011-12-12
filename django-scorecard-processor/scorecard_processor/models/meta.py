@@ -21,7 +21,7 @@ class DataSeriesGroup(models.Model):
         app_label = "scorecard_processor"
 
     def get_dataseries(self):
-        qs = self.dataseries_set.all()
+        qs = self.dataseries_set.filter(visible=True)
         if self.reverse_ordering:
             qs = qs.order_by('-name')
         return qs
@@ -33,6 +33,7 @@ class DataSeriesGroup(models.Model):
 class DataSeries(models.Model):
     name = models.CharField(max_length=100)
     group = models.ForeignKey(DataSeriesGroup)
+    visible = models.BooleanField(default=True)
 
     class Meta:
         verbose_name_plural = 'Data Series'

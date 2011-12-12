@@ -13,16 +13,22 @@
             {% csrf_token %}
             <fieldset>
             {% for dataseriesgroup in survey.project.dataseriesgroup_set.all.select_related %}
-            <div class="clearfix">
-              <label>{{dataseriesgroup.name}}</label>
-              <div class="input">
-                <select name="data_series">
-                  {% for item in dataseriesgroup.get_dataseries %}
-                    <option value="{{item.pk}}">{{item.name}}</option>
-                  {% endfor %}
-                </select>
-              </div>
-            </div>
+              {% with dataseriesgroup.get_dataseries as dataseries %}
+              {% if dataseries.count == 1 %}
+                <input type="hidden" value="{{dataseries.0.pk}}" />
+              {% else %}
+                <div class="clearfix">
+                  <label>{{dataseriesgroup.name}}</label>
+                  <div class="input">
+                      <select name="data_series">
+                        {% for item in dataseries %}
+                          <option value="{{item.pk}}">{{item.name}}</option>
+                        {% endfor %}
+                      </select>
+                  </div>
+                </div>
+               {% endif %}
+               {% endwith %}
             {% endfor %}
             </fieldset>
             <div class="actions">
