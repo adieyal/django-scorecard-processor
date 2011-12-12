@@ -130,9 +130,9 @@ class QuestionForm(BootstrapForm):
                 instance = Response(
                     response_set = self.instance,
                     question = question,
-                    value = value,
                     valid = True,
                     current = True
                 )
+                instance.value = {'value':value}
                 instance.save()
 
