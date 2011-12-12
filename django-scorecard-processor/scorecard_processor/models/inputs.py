@@ -53,7 +53,7 @@ class Question(models.Model):
       return ('show_survey_question',(str(self.survey.project.pk),str(self.survey.pk),str(self.pk)))
 
     def get_data(self, responsesets):
-        return self.response_set.filter(response_set__in=responsesets, current=True).select_related('response_set')
+        return self.response_set.filter(response_set__in=responsesets, current=True)
 
     def __unicode__(self):
         return "Question: %s. %s" % (self.identifier, self.question)

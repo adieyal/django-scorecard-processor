@@ -92,7 +92,7 @@ class QuestionForm(BootstrapForm):
             self.layout.append(Fieldset('',*questions))
 
         self.initial.update(dict([
-                ('q_%s' % response.question.pk, response.value) 
+                ('q_%s' % response.question.pk, response.get_value()) 
                 for response in self.instance.response_set.filter(current=True)
             ]))
             
