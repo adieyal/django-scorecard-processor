@@ -1,4 +1,5 @@
 from scorecard_processor.plugins import base, register
+from collections import namedtuple
 import decimal
 
 def sum_values(x, y):
@@ -11,8 +12,37 @@ class NumDenomPlugin(base.ProcessPlugin):
     output_type = base.Scalar
 
     def process(self):
-        numerator = [float(x) for x in self.get_arguments().numerator.get_values()]
-        denominator = [float(x) for x in self.get_arguments().denominator.get_values()]
+        """ First test if the arguments come from the same survey, if they do,
+        pair responses together, and filter out if it is missing
+        numerator/denominator """
+        arg1, arg2 = self.operation.operationargument_set.all()
+        
+        try:
+            pair_values = arg1.instance.survey == arg2.instance.survey
+        except AttributeError:
+            pair_values = False
+
+        numerator = []
+        denominator = []
+
+        if pair_values:
+            filter_responses = {}
+            for response in self.get_arguments().numerator.get_values():
+                filter_responses[response.response_set.pk] = filter_responses.get(response.response_set.pk,{})
+                filter_responses[response.response_set.pk]['num'] = response.get_value()
+
+            for response in self.get_arguments().denominator.get_values():
+                if response.response_set.pk in filter_responses:
+                    filter_responses[response.response_set.pk]['denom'] = response.get_value()
+            
+            for frac in filter_responses.values():
+                if 'num' in frac and 'denom' in frac:
+                    numerator.append(float(frac['num']))
+                    denominator.append(float(frac['denom']))
+        else:
+            numerator = [float(x.get_value()) for x in self.get_arguments().numerator.get_values()]
+            denominator = [float(x.get_value()) for x in self.get_arguments().denominator.get_values()]
+
         if numerator == [] or denominator == []:
             return None
         numerator = decimal.Decimal(str(reduce(sum_values, numerator)))
