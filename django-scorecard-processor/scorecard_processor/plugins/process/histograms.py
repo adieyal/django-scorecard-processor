@@ -10,4 +10,4 @@ class Count(base.ProcessPlugin):
         values = self.get_arguments().items.get_values()
         return self.output_type(len(values))
 
-register.register('process','Count','count_items',Rating)
+register.register('process','Count','count_items',Count)
