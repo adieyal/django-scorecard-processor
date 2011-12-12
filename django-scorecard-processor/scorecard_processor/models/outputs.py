@@ -1,10 +1,12 @@
+from datetime import datetime, timedelta
+
 from django.db import models
 from django.db.models.query import QuerySet, Q
 from django.contrib.auth.models import User
 from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
 
-from cerial import JSONField
+from cerial import PickleField, JSONField
 
 from inputs import Survey, ResponseSet
 from meta import DataSeriesGroup, DataSeries, Project, Entity, EntityType
@@ -71,7 +73,16 @@ class Operation(models.Model):
     def get_data(self, responsesets):
         """ Outputs a value from the operation, applying the method to the
         arguments"""
-        return self.plugin(self, responsesets).process()
+        fetched_rs = [rs for rs in responsesets]
+        key = reduce(lambda x,y: x^y, [rs.pk for rs in fetched_rs])
+        latest = fetched_rs[0].last_update
+        try:
+            result = get_cached_result(self, data_hash = key, latest_item = latest)
+        except NoCachedResult:
+            result = self.plugin(self, responsesets).process()
+            set_cached_result(self, data_hash = key, latest_item = latest, data=result)
+        return result
+
 
         
 class OperationArgument(models.Model):
@@ -93,7 +104,7 @@ class OperationArgument(models.Model):
     def __unicode__(self):
         return u"%s: %s" % (self.operation.plugin.argument_list[self.position], self.instance) 
 
-    def get_data(self, responsesets, group_by=None):
+    def get_data(self, responsesets, latest=None):
         response = self.instance.get_data(responsesets)
         if isinstance(response, QuerySet):
             response = plugins.Vector(response)
@@ -152,7 +163,7 @@ class ReportRun(models.Model):
         if self.limit_to_entitytype.count():
             qs = qs.filter(entity__entity_type__in=self.limit_to_entitytype.all())
 
-        qs = qs.only('id')
+        qs = qs.only('id','last_update')
         rs_dict = {}
 
         if self.aggregate_on:
@@ -181,3 +192,34 @@ class ReportRun(models.Model):
             results[key] = scorecard.get_values(qs)
         return results
 
+def default_expires(*args, **kwargs):
+    return datetime.now() + timedelta(days=5)
+
+class CachedResult(models.Model):
+    operation = models.ForeignKey(Operation)
+
+    data_hash = models.IntegerField(db_index=True)
+    data = PickleField()
+
+    latest_item = models.DateTimeField()
+    expires = models.DateTimeField(default=default_expires)
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        app_label = "scorecard_processor"
+
+class NoCachedResult(Exception):
+    pass
+
+def get_cached_result(operation, data_hash, latest_item):
+    result = None
+    try:
+        result = operation.cachedresult_set.get(data_hash = data_hash, latest_item = latest_item).data
+    except CachedResult.DoesNotExist:
+        raise NoCachedResult
+    return result
+
+def set_cached_result(operation, data_hash, latest_item, data):
+    cache = operation.cachedresult_set.create(data_hash = data_hash, latest_item = latest_item)
+    cache.data = data
+    cache.save()
