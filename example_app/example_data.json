@@ -15,6 +15,14 @@
     }
   }, 
   {
+    "pk": "Data collection year", 
+    "model": "scorecard_processor.dataseriesgroup", 
+    "fields": {
+      "project": 1, 
+      "reverse_ordering": false
+    }
+  }, 
+  {
     "pk": "Year", 
     "model": "scorecard_processor.dataseriesgroup", 
     "fields": {
@@ -68,6 +76,30 @@
     "fields": {
       "group": "Year", 
       "name": "2011"
+    }
+  }, 
+  {
+    "pk": 21, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "group": "Data collection year", 
+      "name": "2011"
+    }
+  }, 
+  {
+    "pk": 22, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "group": "Data collection year", 
+      "name": "2012"
+    }
+  }, 
+  {
+    "pk": 20, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "group": "Data collection year", 
+      "name": "Baseline"
     }
   }, 
   {
@@ -1997,7 +2029,7 @@
       "aggregate_by_entity": true, 
       "scorecard": 1, 
       "limit_to_dataseries": [
-        9
+        20
       ], 
       "description": ""
     }

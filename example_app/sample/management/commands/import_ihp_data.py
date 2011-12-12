@@ -33,6 +33,7 @@ class Command(BaseCommand):
         data = simplejson.loads(survey_file.read())
         countries = dict([(country.name, country) for country in models.DataSeriesGroup.objects.get(name="Country").dataseries_set.all()])
         years = dict([(y.name, y) for y in models.DataSeriesGroup.objects.get(name="Year").dataseries_set.all()])
+        collections = dict([(c.name, c) for c in models.DataSeriesGroup.objects.get(name="Data collection year").dataseries_set.all()])
         government_survey = models.Survey.objects.get(name="Survey for Government")
         government_survey.questions = dict([(q.identifier, q) for q in government_survey.question_set.all()])
         agency_survey = models.Survey.objects.get(name="Survey for Agencies")
@@ -63,28 +64,29 @@ class Command(BaseCommand):
                         if question:
                             comment = comment or value['comment']
                             q = survey.questions.get(question)
-                            for response in [value['baseline'], value['latest']]:
+                            for collection, response in [('Baseline',value['baseline']), ('2011',value['latest'])]:
                                 year, v = response
                                 y = years.get(year,years.get('2007'))
+                                col = collections.get(collection,collections.get('2007'))
                                 if y and v:
-                                    rs = responsesets.get(y)
+                                    rs = responsesets.get((col,y))
                                     if not rs:
                                         sys.stdout.write('^')
                                         try:
-                                            responsesets[y] = models.ResponseSet.objects.filter(data_series=c).get(
+                                            responsesets[(col,y)] = models.ResponseSet.objects.filter(data_series=c).filter(data_series=col).get(
                                                                     survey = survey,
                                                                     entity = a,
                                                                     data_series = y
                                                                     )
                                         except models.ResponseSet.DoesNotExist:
-                                            rs = responsesets[y] = models.ResponseSet(
+                                            rs = responsesets[(col,y)] = models.ResponseSet(
                                                                     survey = survey,
                                                                     entity = a,
                                                             )
                                             rs.save()
-                                            rs.data_series.add(c,y)
+                                            rs.data_series.add(col,c,y)
                                             sys.stdout.write('*')
-                                        rs = responsesets[y]
+                                        rs = responsesets[(col,y)]
                                     rs.last_update=the_future #Trick the post_save trigger
                                     #TODO: rather use the plugin to get the right type here
                                     if q.widget == 'yes_no_na_choice':
