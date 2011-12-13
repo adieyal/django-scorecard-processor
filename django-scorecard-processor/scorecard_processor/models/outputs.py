@@ -30,10 +30,10 @@ class Scorecard(models.Model):
         return ('show_scorecard',(str(self.project.pk),str(self.pk)))
 
     def get_values(self, responsesets, group_by = None):
-        result = {}
+        result = []
         #TODO: this is going to break with hierachy
         for indicator in self.operation_set.filter(indicator=True):
-            result[indicator] = indicator.get_data(responsesets)
+            result.append((indicator, indicator.get_data(responsesets)))
         return result
 
 class OperationManager(models.Manager):
@@ -59,6 +59,7 @@ class Operation(models.Model):
 
     class Meta:
         app_label = "scorecard_processor"
+        ordering = ('identifier',)
 
     def __init__(self, *args, **kwargs):
         super(Operation,self).__init__(*args, **kwargs)

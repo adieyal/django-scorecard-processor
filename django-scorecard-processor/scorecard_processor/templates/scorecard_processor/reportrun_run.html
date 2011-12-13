@@ -12,14 +12,14 @@
             {% if forloop.counter0 == 0 %}
               <tr>
                 <th>{% if key.data_type %}{{key.data_type}}{% else %}{% for k in key %}{{k.data_type}}{% if forloop.revcounter0 %}, {% endif %}{% endfor %}{% endif %}</th>
-                {% for k in result.keys %}
+                {% for k, v in result %}
                   <th title="{{k.description}}">{{k.identifier}}</th>
                 {% endfor %}
               </tr>
             {% endif %}
             <tr>
             <th>{% if key.name %}{{key.name}}{% else %}{% for k in key %}{{k.name}}{% if forloop.revcounter0 %}, {% endif %}{% endfor %}{% endif %}</th>
-            {% for v in result.values %}
+            {% for i,v in result %}
                   <td>{% if v %}{{v|linebreaksbr}}{% endif %}</td>
             {% endfor %}
             </tr>
