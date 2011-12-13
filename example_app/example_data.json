@@ -1992,8 +1992,56 @@
       "configuration": "", 
       "description": "2DPb", 
       "scorecard": 1, 
-      "operation": "one_minus_num_denom", 
+      "operation": "num_denom", 
       "identifier": "2DPb"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "Signed an IHP+ country compact ", 
+      "scorecard": 1, 
+      "operation": "keyword_frequency", 
+      "identifier": "1DP"
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "2DPc", 
+      "scorecard": 1, 
+      "operation": "num_denom", 
+      "identifier": "2DPc"
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "3DP", 
+      "scorecard": 1, 
+      "operation": "num_denom", 
+      "identifier": "3DP"
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "4DP", 
+      "scorecard": 1, 
+      "operation": "num_denom", 
+      "identifier": "4DP"
     }
   }, 
   {
@@ -2019,6 +2067,50 @@
     }
   }, 
   {
+    "pk": 5, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 1, 
+      "position": 0, 
+      "operation": 3, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 10, 
+      "position": 0, 
+      "operation": 4, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 13, 
+      "position": 0, 
+      "operation": 5, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 16, 
+      "position": 0, 
+      "operation": 6, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
     "pk": 2, 
     "model": "scorecard_processor.operationargument", 
     "fields": {
@@ -2036,6 +2128,39 @@
       "instance_id": 6, 
       "position": 1, 
       "operation": 2, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 9, 
+      "position": 1, 
+      "operation": 4, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 12, 
+      "position": 1, 
+      "operation": 5, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 15, 
+      "position": 1, 
+      "operation": 6, 
       "instance_content_type": 15, 
       "argument_extractor": "value"
     }
