@@ -7,22 +7,54 @@
         <h1><a href="{{object.get_absolute_url}}">{{object.name}}</a> results <small>from <a href="{{object.scorecard.project.get_absolute_url}}">{{object.scorecard.project.name}}</a></small></h1>
       </div>
           <h2>Report output</h2>
-          <table style="width:auto" class="bordered-table zebra-striped condensed-table">
           {% for key, result in report.items %}
-            {% if forloop.counter0 == 0 %}
-              <tr>
-                <th>{% if key.data_type %}{{key.data_type}}{% else %}{% for k in key %}{{k.data_type}}{% if forloop.revcounter0 %}, {% endif %}{% endfor %}{% endif %}</th>
-                {% for k, v in result %}
-                  <th title="{{k.description}}">{{k.identifier}}</th>
+            {% with result.get_values as inner_result %}
+              {% if inner_result %}
+                <table style="width:auto" class="bordered-table zebra-striped condensed-table">
+                <caption>{{key.name}}</caption>
+                {% for item in inner_result %}
+                  {% if forloop.counter0 == 0 %}
+                    <tr>
+                      <th></th>
+                      {% for k, v in item.1 %}
+                        <th title="{{k.description}}">{{k.identifier}}</th>
+                      {% endfor %}
+                    </tr>
+                  {% endif %}
+                  <tr>
+                  <th>{{item.0.name}}</th>
+                  {% for k,v in item.1 %}
+                        <td>{% if v %}{{v|linebreaksbr}}{% endif %}</td>
+                  {% endfor %}
+                  </tr>
                 {% endfor %}
-              </tr>
-            {% endif %}
-            <tr>
-            <th>{% if key.name %}{{key.name}}{% else %}{% for k in key %}{{k.name}}{% if forloop.revcounter0 %}, {% endif %}{% endfor %}{% endif %}</th>
-            {% for i,v in result %}
-                  <td>{% if v %}{{v|linebreaksbr}}{% endif %}</td>
-            {% endfor %}
-            </tr>
+                </table>
+
+              {% else %}
+                {% if forloop.counter0 == 0 %}
+                  <table style="width:auto" class="bordered-table zebra-striped condensed-table">
+                    <thead>
+                      <tr>
+                        <th>{% if key.data_type %}{{key.data_type}}{% else %}{% for k in key %}{{k.data_type}}{% if forloop.revcounter0 %}, {% endif %}{% endfor %}{% endif %}</th>
+                        {% for k, v in result %}
+                          <th title="{{k.description}}">{{k.identifier}}</th>
+                        {% endfor %}
+                      </tr>
+                    </thead>
+                    <tbody>
+                {% endif %}
+                <tr>
+                  <th>{{key.name}}</th>
+                  {% for i,v in result %}
+                        <td>{% if v %}{{v|linebreaksbr}}{% endif %}</td>
+                  {% endfor %}
+                </tr>
+                {% if forloop.last %}
+                  </tbody>
+                  </table>
+                {% endif %}
+              {% endif %}
+            {% endwith %}
           {% endfor %}
           </table>
     </div>

@@ -175,7 +175,8 @@ class ReportRun(models.Model):
                         for entity in self.scorecard.project.entity_set.all():
                             e_qs = ds_qs.filter(entity=entity)
                             if e_qs.count():
-                                rs_dict[(entity,dataseries)] = e_qs
+                                rs_dict[entity] = rs_dict.get(entity, {})
+                                rs_dict[entity][dataseries] = e_qs
                     else:
                         rs_dict[dataseries] = ds_qs
         else:
@@ -190,7 +191,10 @@ class ReportRun(models.Model):
         #TODO: don't hardcore... figure out how to get scorecard data
         scorecard = Scorecard.objects.get(pk=1)
         for key, qs in self.get_responsesets().items():
-            results[key] = scorecard.get_values(qs)
+            if isinstance(qs, QuerySet):
+                results[key] = scorecard.get_values(qs)
+            else:
+                results[key] = plugins.Vector([(k, scorecard.get_values(q)) for k,q in qs.items()])
         return results
 
 def default_expires(*args, **kwargs):
