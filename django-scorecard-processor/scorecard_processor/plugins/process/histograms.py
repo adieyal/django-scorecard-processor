@@ -18,7 +18,7 @@ class CountValue(Count):
         count = len(items)
         if count == 0:
             return None
-        count_values = len(filter(lambda x: x.lower() == key,items))
+        count_values = len(filter(lambda x: x.get_value().lower() == self.key,items))
         return self.output_type(count_values / count * 100)
 
 
