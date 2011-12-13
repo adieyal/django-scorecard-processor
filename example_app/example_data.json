@@ -2047,7 +2047,9 @@
       "aggregate_on": "Country", 
       "name": "Agency performance", 
       "limit_to_entity": [], 
-      "limit_to_entitytype": [], 
+      "limit_to_entitytype": [
+        "agency"
+      ], 
       "aggregate_by_entity": true, 
       "scorecard": 1, 
       "limit_to_dataseries": [
