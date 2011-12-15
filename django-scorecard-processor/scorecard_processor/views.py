@@ -37,6 +37,7 @@ class SurveyResponses(ListView):
         context['entity'] = self.entity
         return context
 
+@login_required
 def run_report(request, object_id):
     obj = get_object_or_404(ReportRun, pk=object_id)
     return render_to_response(
