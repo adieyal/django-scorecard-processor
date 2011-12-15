@@ -2261,12 +2261,48 @@
     "model": "scorecard_processor.reportrun", 
     "fields": {
       "aggregate_on": "Country", 
-      "name": "Agency performance", 
+      "name": "Disaggregated Agency performance (Baseline)", 
       "limit_to_entity": [], 
       "limit_to_entitytype": [
         "agency"
       ], 
       "aggregate_by_entity": true, 
+      "scorecard": 1, 
+      "limit_to_dataseries": [
+        20
+      ], 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "scorecard_processor.reportrun", 
+    "fields": {
+      "aggregate_on": null, 
+      "name": "Aggregated agency scorecard", 
+      "limit_to_entity": [], 
+      "limit_to_entitytype": [
+        "agency"
+      ], 
+      "aggregate_by_entity": true, 
+      "scorecard": 1, 
+      "limit_to_dataseries": [
+        20
+      ], 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "scorecard_processor.reportrun", 
+    "fields": {
+      "aggregate_on": "Country", 
+      "name": "Aggregated country indicators ", 
+      "limit_to_entity": [], 
+      "limit_to_entitytype": [
+        "agency"
+      ], 
+      "aggregate_by_entity": false, 
       "scorecard": 1, 
       "limit_to_dataseries": [
         20
