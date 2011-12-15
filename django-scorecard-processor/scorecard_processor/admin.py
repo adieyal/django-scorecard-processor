@@ -30,6 +30,11 @@ class DataSeriesGroupAdmin(admin.ModelAdmin):
     list_filter = ('project',)
     inlines = [DataSeriesInline]
 
+class ReportRunAdmin(admin.ModelAdmin):
+    model = ReportRun
+    list_display = ('name', 'scorecard','aggregate_by_entity')
+    list_filter = ('scorecard',)
+
 class ResponseInline(admin.StackedInline):
     model = Response
 
@@ -44,7 +49,7 @@ admin.site.register(ResponseSet, ResponseSetAdmin)
 admin.site.register(QuestionGroup, QuestionGroupAdmin)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Scorecard)
-admin.site.register(ReportRun)
+admin.site.register(ReportRun, ReportRunAdmin)
 
 admin.site.register(DataSeriesGroup, DataSeriesGroupAdmin)
 admin.site.register(Entity)

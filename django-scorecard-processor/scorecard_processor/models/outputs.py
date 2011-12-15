@@ -145,6 +145,9 @@ class ReportRun(models.Model):
     class Meta:
         app_label = "scorecard_processor"
 
+    def __unicode__(self):
+        return self.name
+
     @models.permalink
     def get_absolute_url(self):
         return ('show_report',(str(self.scorecard.project.pk),str(self.pk)))
