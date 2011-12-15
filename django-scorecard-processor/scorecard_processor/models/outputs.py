@@ -188,7 +188,7 @@ class ReportRun(models.Model):
         else:
             rs_dict = defaultdict(list) 
             for rs in qs:
-                rs_dict[entity].append(rs)
+                rs_dict[rs.entity].append(rs)
         return rs_dict
 
     def run(self):

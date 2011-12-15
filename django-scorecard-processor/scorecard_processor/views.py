@@ -41,7 +41,6 @@ class SurveyResponses(ListView):
 def run_report(request, object_id):
     obj = get_object_or_404(ReportRun, pk=object_id)
     result = obj.run()
-    print(result)
     return render_to_response(
         'scorecard_processor/reportrun_run.html',
         {'object':obj, 'report':result},

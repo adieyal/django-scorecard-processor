@@ -28,12 +28,12 @@ class NumDenomPlugin(base.ProcessPlugin):
         if pair_values:
             filter_responses = {}
             for response in self.get_arguments().numerator.get_values():
-                filter_responses[response.response_set.pk] = filter_responses.get(response.response_set.pk,{})
-                filter_responses[response.response_set.pk]['num'] = response.get_value()
+                filter_responses[response.response_set_id] = filter_responses.get(response.response_set_id,{})
+                filter_responses[response.response_set_id]['num'] = response.get_value()
 
             for response in self.get_arguments().denominator.get_values():
-                if response.response_set.pk in filter_responses:
-                    filter_responses[response.response_set.pk]['denom'] = response.get_value()
+                if response.response_set_id in filter_responses:
+                    filter_responses[response.response_set_id]['denom'] = response.get_value()
             
             for frac in filter_responses.values():
                 if 'num' in frac and 'denom' in frac:
