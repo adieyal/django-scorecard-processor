@@ -74,6 +74,15 @@ class Operation(models.Model):
         else:
             self.plugin = None
 
+    def get_arguments(self):
+        if not hasattr(self,'_get_arguments'):
+            self._get_arguments = []
+            for argument in self.operationargument_set.all():
+                #In django 1.4 this can change to prefetch_related('instance')
+                argument.instance
+                self._get_arguments.append(argument)
+        return self._get_arguments
+
     def __unicode__(self):
         return "%s: %s" % (self.identifier, self.get_operation_display())
 
@@ -187,7 +196,7 @@ class ReportRun(models.Model):
                         rs_dict[dataseries] = ds_qs
         else:
             rs_dict = defaultdict(list) 
-            for rs in qs:
+            for rs in qs.select_related('entity'):
                 rs_dict[rs.entity].append(rs)
         return rs_dict
 
@@ -197,15 +206,15 @@ class ReportRun(models.Model):
             if isinstance(qs, QuerySet):
                 results[key] = self.scorecard.get_values(qs)
             else:
-                if len(qs) == 0:
-                    results[key] = plugins.Vector([])
-                    continue
+                if isinstance(qs, list):
+                    if len(qs) == 0:
+                        results[key] = plugins.Vector([])
+                        continue
+                    if isinstance(qs[0], ResponseSet):
+                        results[key] = self.scorecard.get_values(qs)
+                        continue
 
-                if isinstance(qs[0], ResponseSet):
-                    results[key] = self.scorecard.get_values(qs)
-                    continue
-
-                results[key] = plugins.Vector([(k, self.scorecard.get_values(q)) for k,q in qs])
+                results[key] = plugins.Vector([(k, self.scorecard.get_values(q)) for k,q in qs.items()])
         return results
 
 def default_expires(*args, **kwargs):

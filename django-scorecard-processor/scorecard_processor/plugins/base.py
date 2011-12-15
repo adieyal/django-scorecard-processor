@@ -28,7 +28,7 @@ class ProcessPlugin(object):
         if not getattr(self,'_arguments',None):
             ArgumentTuple = namedtuple('ArgumentTuple',self.argument_list)
             arguments = []
-            for argument in self.operation.operationargument_set.all():
+            for argument in self.operation.get_arguments():
                 arg = argument.get_data(self.responsesets)
                 arguments.append(arg)
             self._arguments = ArgumentTuple(*arguments)

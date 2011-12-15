@@ -15,10 +15,10 @@ class NumDenomPlugin(base.ProcessPlugin):
         """ First test if the arguments come from the same survey, if they do,
         pair responses together, and filter out if it is missing
         numerator/denominator """
-        arg1, arg2 = self.operation.operationargument_set.all()
+        arg1, arg2 = self.operation.get_arguments()
         
         try:
-            pair_values = arg1.instance.survey == arg2.instance.survey
+            pair_values = arg1.instance.survey_id == arg2.instance.survey_id
         except AttributeError:
             pair_values = False
 
