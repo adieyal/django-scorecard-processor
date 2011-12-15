@@ -1,5 +1,7 @@
 from datetime import datetime, timedelta
+from collections import defaultdict
 
+from django.core.cache import cache
 from django.db import models
 from django.db.models.query import QuerySet, Q
 from django.contrib.auth.models import User
@@ -31,9 +33,13 @@ class Scorecard(models.Model):
 
     def get_values(self, responsesets, group_by = None):
         result = []
-        #TODO: this is going to break with hierachy
-        for indicator in self.operation_set.filter(indicator=True):
+
+        if not hasattr(self,'indicators'):
+            self.indicators = self.operation_set.filter(indicator=True)
+
+        for indicator in self.indicators:
             result.append((indicator, indicator.get_data(responsesets)))
+
         return result
 
 class OperationManager(models.Manager):
@@ -71,17 +77,19 @@ class Operation(models.Model):
     def __unicode__(self):
         return "%s: %s" % (self.identifier, self.get_operation_display())
 
-    def get_data(self, responsesets):
+    def get_data(self, responsesets, getter=None, setter=None):
         """ Outputs a value from the operation, applying the method to the
         arguments"""
         fetched_rs = [rs for rs in responsesets]
         key = reduce(lambda x,y: x^y, [rs.pk for rs in fetched_rs])
         latest = fetched_rs[0].last_update
+
         try:
-            result = get_cached_result(self, data_hash = key, latest_item = latest)
+            result = result_get(self, data_hash = key, latest_item = latest)
         except NoCachedResult:
             result = self.plugin(self, responsesets).process()
-            set_cached_result(self, data_hash = key, latest_item = latest, data=result)
+            result_set(self, data_hash = key, latest_item = latest, data=result)
+
         return result
 
 
@@ -156,7 +164,7 @@ class ReportRun(models.Model):
         if not self.aggregate_by_entity and not self.aggregate_on:
             raise ReportRunError("No aggregation mode selected")
 
-        qs = ResponseSet.objects.filter(survey__project__pk=self.scorecard.project.pk)
+        qs = ResponseSet.objects.filter(survey__project__pk=self.scorecard.project_id)
         
         if self.limit_to_dataseries.count():
             qs = qs.filter(data_series__in=self.limit_to_dataseries.all())
@@ -167,67 +175,48 @@ class ReportRun(models.Model):
         if self.limit_to_entitytype.count():
             qs = qs.filter(entity__entity_type__in=self.limit_to_entitytype.all())
 
-        qs = qs.only('id','last_update')
-        rs_dict = {}
-
         if self.aggregate_on:
+            rs_dict = defaultdict(lambda: defaultdict(list)) 
             for dataseries in self.aggregate_on.dataseries_set.all():
                 ds_qs = qs.filter(data_series=dataseries)
                 if ds_qs.count():
                     if self.aggregate_by_entity:
-                        for entity in self.scorecard.project.entity_set.all():
-                            e_qs = ds_qs.filter(entity=entity)
-                            if e_qs.count():
-                                rs_dict[entity] = rs_dict.get(entity, {})
-                                rs_dict[entity][dataseries] = e_qs
+                        for rs in ds_qs.select_related('entity'):
+                            rs_dict[rs.entity][dataseries].append(rs)
                     else:
                         rs_dict[dataseries] = ds_qs
         else:
-            for entity in self.scorecard.project.entity_set.all():
-                e_qs = qs.filter(entity=entity)
-                if e_qs.count():
-                    rs_dict[entity] = e_qs
+            rs_dict = defaultdict(list) 
+            for rs in qs:
+                rs_dict[entity].append(rs)
         return rs_dict
 
     def run(self):
         results = {}
-        #TODO: don't hardcore... figure out how to get scorecard data
-        scorecard = Scorecard.objects.get(pk=1)
         for key, qs in self.get_responsesets().items():
             if isinstance(qs, QuerySet):
-                results[key] = scorecard.get_values(qs)
+                results[key] = self.scorecard.get_values(qs,)
             else:
-                results[key] = plugins.Vector([(k, scorecard.get_values(q)) for k,q in qs.items()])
+                results[key] = plugins.Vector([(k, self.scorecard.get_values(q)) for k,q in qs.items()])
         return results
 
 def default_expires(*args, **kwargs):
     return datetime.now() + timedelta(days=5)
 
-class CachedResult(models.Model):
-    operation = models.ForeignKey(Operation)
-
-    data_hash = models.IntegerField(db_index=True)
-    data = PickleField()
-
-    latest_item = models.DateTimeField()
-    expires = models.DateTimeField(default=default_expires)
-    created = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        app_label = "scorecard_processor"
-
 class NoCachedResult(Exception):
     pass
 
-def get_cached_result(operation, data_hash, latest_item):
-    result = None
-    try:
-        result = operation.cachedresult_set.get(data_hash = data_hash, latest_item = latest_item).data
-    except CachedResult.DoesNotExist:
+def result_get(operation, data_hash, latest_item):
+    latest_item = str(latest_item).replace(':','').replace(' ','').replace('.','')
+    result_test = cache.get('%s_%s_%s_set' % (operation.pk, data_hash, latest_item))
+    if result_test:
+        result = cache.get('%s_%s_%s' % (operation.pk, data_hash, latest_item))
+    else:
         raise NoCachedResult
     return result
 
-def set_cached_result(operation, data_hash, latest_item, data):
-    cache = operation.cachedresult_set.create(data_hash = data_hash, latest_item = latest_item)
-    cache.data = data
-    cache.save()
+def result_set(operation, data_hash, latest_item, data):
+    latest_item = str(latest_item).replace(':','').replace(' ','').replace('.','')
+    cache.set('%s_%s_%s_set' % (operation.pk, data_hash, latest_item), True)
+    cache.set('%s_%s_%s' % (operation.pk, data_hash, latest_item), data)
+
