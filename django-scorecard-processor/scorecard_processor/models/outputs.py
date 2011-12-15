@@ -195,9 +195,17 @@ class ReportRun(models.Model):
         results = {}
         for key, qs in self.get_responsesets().items():
             if isinstance(qs, QuerySet):
-                results[key] = self.scorecard.get_values(qs,)
+                results[key] = self.scorecard.get_values(qs)
             else:
-                results[key] = plugins.Vector([(k, self.scorecard.get_values(q)) for k,q in qs.items()])
+                if len(qs) == 0:
+                    results[key] = plugins.Vector([])
+                    continue
+
+                if isinstance(qs[0], ResponseSet):
+                    results[key] = self.scorecard.get_values(qs)
+                    continue
+
+                results[key] = plugins.Vector([(k, self.scorecard.get_values(q)) for k,q in qs])
         return results
 
 def default_expires(*args, **kwargs):
