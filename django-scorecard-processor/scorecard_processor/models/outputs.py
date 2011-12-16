@@ -151,13 +151,15 @@ class ReportRun(models.Model):
     description = models.TextField(blank=True, null=True)
 
     #Need one or both methods of aggregation
-    aggregate_on = models.ForeignKey(DataSeriesGroup, blank=True, null=True)
-    aggregate_by_entity = models.BooleanField(default=False)
+    aggregate_on = models.ForeignKey(DataSeriesGroup, blank=True, null=True, help_text="Y axis grouping/aggregation of results")
+    aggregate_by_entity = models.BooleanField(default=False, help_text="Group Y axis by the entity that submitted the data")
+
+    compare_series = models.ForeignKey(DataSeriesGroup, blank=True, null=True, related_name="indicator_series_set", help_text="(optional) Group results per indicator by data series in this group")
 
     #Optional filters for underlying responsesets
-    limit_to_dataseries = models.ManyToManyField(DataSeries, blank=True, null=True) #Optionally limit to dataseries
-    limit_to_entity = models.ManyToManyField(Entity, blank=True, null=True) #Optionally limit to entities
-    limit_to_entitytype = models.ManyToManyField(EntityType, blank=True, null=True) #Optionally limit to entity types
+    limit_to_dataseries = models.ManyToManyField(DataSeries, blank=True, null=True, help_text="(optional) Limit which responses are used as raw data, based on the data series they belong to") #Optionally limit to dataseries
+    limit_to_entity = models.ManyToManyField(Entity, blank=True, null=True, help_text="(optional) Limit which entities are reported on") #Optionally limit to entities
+    limit_to_entitytype = models.ManyToManyField(EntityType, blank=True, null=True, help_text="(optional) Limit which types of entities are used for raw data") #Optionally limit to entity types
 
     class Meta:
         app_label = "scorecard_processor"
