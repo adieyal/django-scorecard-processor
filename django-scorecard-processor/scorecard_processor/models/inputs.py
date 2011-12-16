@@ -53,7 +53,7 @@ class Question(models.Model):
       return ('show_survey_question',(str(self.survey.project.pk),str(self.survey.pk),str(self.pk)))
 
     def get_data(self, responsesets):
-        return self.response_set.filter(response_set__in=responsesets, current=True)
+        return filter(lambda x: x!=None, [rs.get_response(self) for rs in responsesets])
 
     def __unicode__(self):
         return "Question: %s. %s" % (self.identifier, self.question)
@@ -80,10 +80,15 @@ class ResponseSet(models.Model):
 
     def get_responses(self):
         data = []
-        responses = dict([(r.question,r) for r in self.response_set.filter(current=True)])
+        responses = dict([(r.question,r) for r in self.response_set.filter(current=True).select_related('question')])
         for question in self.survey.question_set.all():
             data.append((question, responses.get(question))) 
         return data
+
+    def get_response(self, question):
+        if not hasattr(self, '_responses'):
+            self._responses = dict([(rs.question_id,rs) for rs in self.response_set.filter(current=True)])
+        return self._responses.get(question.pk)
     
 class Response(models.Model):
     question = models.ForeignKey(Question)

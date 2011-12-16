@@ -134,8 +134,8 @@ class OperationArgument(models.Model):
 
     def get_data(self, responsesets, latest=None):
         response = self.instance.get_data(responsesets)
-        if isinstance(response, QuerySet):
-            response = plugins.Vector(response.select_related('response_set'))
+        if isinstance(response, list):
+            response = plugins.Vector(response)
         return response
 
         
@@ -204,10 +204,14 @@ class ReportRun(models.Model):
         if not self.aggregate_by_entity and not self.aggregate_on:
             raise ReportRunError("No aggregation mode selected")
 
-        qs = ResponseSet.objects.filter(survey__project__pk=self.scorecard.project_id).select_related('entity')
+        qs = ResponseSet.objects.filter(survey__project__pk=self.scorecard.project_id).select_related('entity','survey')
+
+        result_sets = None
         
         if self.limit_to_dataseries.count():
             qs = qs.filter(data_series__in=self.limit_to_dataseries.all())
+            if self.compare_series:
+                result_sets = [ds for ds in self.limit_to_dataseries.filter(group=self.compare_series)] or None
 
         if self.limit_to_entity.count():
             qs = qs.filter(entity__in=self.limit_to_entity.all())
@@ -215,8 +219,7 @@ class ReportRun(models.Model):
         if self.limit_to_entitytype.count():
             qs = qs.filter(entity__entity_type__in=self.limit_to_entitytype.all())
 
-        result_sets = None
-        if self.compare_series:
+        if not result_sets and self.compare_series:
             result_sets = [ds for ds in self.compare_series.dataseries_set.all()]
 
         if self.aggregate_on:
@@ -230,7 +233,7 @@ class ReportRun(models.Model):
                     else:
                         rs_dict[dataseries] = split_sets(result_sets, ds_qs)
         else:
-            rs_dict = split_sets(result_sets, ds_qs, split_entities=True)
+            rs_dict = split_sets(result_sets, qs, split_entities=True)
         """
         returns (aggregate_on):
         {
