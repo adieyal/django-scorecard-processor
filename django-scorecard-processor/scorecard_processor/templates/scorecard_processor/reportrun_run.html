@@ -7,6 +7,9 @@
 </script>
 {% endblock %}
 {% block fluid_content_outer %}
+  <style>
+    caption {font-size:large;text-align:left;margin:10px 0}
+  </style>
   <div class="fluid-container">
     <div class="content">
       <div class="page-header">
@@ -22,7 +25,7 @@
                   {% if forloop.counter0 == 0 %}
                     <tr>
                       <tr>
-                        <th rowspan=2 valign=bottom>{% if key.data_type %}{{key.data_type}}{% else %}{% for k in key %}{{k.data_type}}{% if forloop.revcounter0 %}, {% endif %}{% endfor %}{% endif %}</th>
+                        <th rowspan=2 style="vertical-align:bottom">{% if item.0.data_type %}{{item.0.data_type}}{% else %}{% for k in item.0 %}{{k.data_type}}{% if forloop.revcounter0 %}, {% endif %}{% endfor %}{% endif %}</th>
                         {% for k, v in item.1 %}
                             <th title="{{k.description}}" colspan="{{v|length}}" style="text-align:center">{{k.identifier}}</th>
                         {% endfor %}
