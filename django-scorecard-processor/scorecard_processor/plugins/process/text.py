@@ -10,6 +10,6 @@ class Concat(base.ProcessPlugin):
     output_type = base.Scalar
 
     def process(self):
-        return self.output_type("\n\n".join(self.get_arguments().response.get_values()))
+        return self.output_type("\n\n".join([v.get_value() for v in self.get_arguments().response.get_values()]))
 
 register.register('process','Text','concat',Concat)
