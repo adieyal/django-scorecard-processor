@@ -93,11 +93,14 @@ class Operation(models.Model):
         key = reduce(lambda x,y: x^y, [rs.pk for rs in fetched_rs])
         latest = fetched_rs[0].last_update
 
-        try:
-            result = result_get(self, data_hash = key, latest_item = latest)
-        except NoCachedResult:
+        if self.plugin.allow_cache:
+            try:
+                result = result_get(self, data_hash = key, latest_item = latest)
+            except NoCachedResult:
+                result = self.plugin(self, responsesets).process()
+                result_set(self, data_hash = key, latest_item = latest, data=result)
+        else:
             result = self.plugin(self, responsesets).process()
-            result_set(self, data_hash = key, latest_item = latest, data=result)
 
         return result
 

@@ -25,6 +25,7 @@ class ProcessPlugin(object):
     output_type = None
     options = {}
     defaults = {}
+    allow_cache = True
 
     def __init__(self, operation, responsesets):
         self.operation, self.responsesets  = operation, responsesets
