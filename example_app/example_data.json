@@ -1969,7 +1969,15 @@
     "model": "scorecard_processor.scorecard", 
     "fields": {
       "project": 1, 
-      "name": "Example scorecard"
+      "name": "Agency Indicators"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "scorecard_processor.scorecard", 
+    "fields": {
+      "project": 1, 
+      "name": "Government indicators"
     }
   }, 
   {
@@ -1982,6 +1990,18 @@
       "scorecard": 1, 
       "operation": "keyword_frequency", 
       "identifier": "1DP"
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "1DP_comment", 
+      "scorecard": 1, 
+      "operation": "concat", 
+      "identifier": "1DP_comment"
     }
   }, 
   {
@@ -2221,6 +2241,17 @@
       "instance_id": 28, 
       "position": 0, 
       "operation": 11, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 19, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 2, 
+      "position": 0, 
+      "operation": 12, 
       "instance_content_type": 15, 
       "argument_extractor": "value"
     }
