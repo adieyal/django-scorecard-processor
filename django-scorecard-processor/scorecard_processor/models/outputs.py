@@ -1,3 +1,4 @@
+from pprint import pprint
 from datetime import datetime, timedelta
 from collections import defaultdict
 
@@ -31,14 +32,17 @@ class Scorecard(models.Model):
     def get_absolute_url(self):
         return ('show_scorecard',(str(self.project.pk),str(self.pk)))
 
-    def get_values(self, responsesets, group_by = None):
+    def get_values(self, responsesets):
         result = []
 
         if not hasattr(self,'indicators'):
             self.indicators = self.operation_set.filter(indicator=True)
 
         for indicator in self.indicators:
-            result.append((indicator, indicator.get_data(responsesets)))
+            results = []
+            for ds, rs in responsesets:
+                results.append((ds,indicator.get_data(rs)))
+            result.append((indicator, results))
 
         return result
 
@@ -90,8 +94,11 @@ class Operation(models.Model):
         """ Outputs a value from the operation, applying the method to the
         arguments"""
         fetched_rs = [rs for rs in responsesets]
-        key = reduce(lambda x,y: x^y, [rs.pk for rs in fetched_rs])
-        latest = fetched_rs[0].last_update
+        if fetched_rs:
+            key = reduce(lambda x,y: x^y, [rs.pk for rs in fetched_rs])
+            latest = fetched_rs[0].last_update
+        else:
+            return None
 
         instance = self.plugin(self, responsesets)
         if instance.allow_cache:
@@ -148,6 +155,25 @@ Scorecard for 2009 and 2010 for all countries
 class ReportRunError(Exception):
     pass
 
+def split_sets(split, response_sets, split_entities = False):
+    result = []
+    if split:
+        for ds in split:
+            result.append((ds, [rs for rs in response_sets.filter(data_series=ds)]))
+    else:
+        split = [None]
+        result.append((None, [rs for rs in response_sets]))
+    if split_entities:
+        result_dict = defaultdict(list)
+        for ds, qs in result:
+            filter_dict = defaultdict(list)
+            for rs in qs:
+                filter_dict[rs.entity].append(rs)
+            for entity, data in filter_dict.items():
+                result_dict[entity].append((ds, data))
+        result = dict(result_dict)
+    return result
+
 class ReportRun(models.Model):
     scorecard = models.ForeignKey(Scorecard)
     name = models.CharField(max_length=200)
@@ -157,7 +183,7 @@ class ReportRun(models.Model):
     aggregate_on = models.ForeignKey(DataSeriesGroup, blank=True, null=True, help_text="Y axis grouping/aggregation of results")
     aggregate_by_entity = models.BooleanField(default=False, help_text="Group Y axis by the entity that submitted the data")
 
-    #compare_series = models.ForeignKey(DataSeriesGroup, blank=True, null=True, related_name="indicator_series_set", help_text="(optional) Group results per indicator by data series in this group")
+    compare_series = models.ForeignKey(DataSeriesGroup, blank=True, null=True, related_name="indicator_series_set", help_text="(optional) Group results per indicator by data series in this group")
 
     #Optional filters for underlying responsesets
     limit_to_dataseries = models.ManyToManyField(DataSeries, blank=True, null=True, help_text="(optional) Limit which responses are used as raw data, based on the data series they belong to") #Optionally limit to dataseries
@@ -178,7 +204,7 @@ class ReportRun(models.Model):
         if not self.aggregate_by_entity and not self.aggregate_on:
             raise ReportRunError("No aggregation mode selected")
 
-        qs = ResponseSet.objects.filter(survey__project__pk=self.scorecard.project_id)
+        qs = ResponseSet.objects.filter(survey__project__pk=self.scorecard.project_id).select_related('entity')
         
         if self.limit_to_dataseries.count():
             qs = qs.filter(data_series__in=self.limit_to_dataseries.all())
@@ -189,7 +215,9 @@ class ReportRun(models.Model):
         if self.limit_to_entitytype.count():
             qs = qs.filter(entity__entity_type__in=self.limit_to_entitytype.all())
 
-        #TODO: implement compare_series logic {'aggregate':[(series1, qs), (series2, qs)]}
+        result_sets = None
+        if self.compare_series:
+            result_sets = [ds for ds in self.compare_series.dataseries_set.all()]
 
         if self.aggregate_on:
             rs_dict = defaultdict(lambda: defaultdict(list)) 
@@ -197,31 +225,54 @@ class ReportRun(models.Model):
                 ds_qs = qs.filter(data_series=dataseries)
                 if ds_qs.count():
                     if self.aggregate_by_entity:
-                        for rs in ds_qs.select_related('entity'):
-                            rs_dict[rs.entity][dataseries].append(rs)
+                        for entity, data in split_sets(result_sets, ds_qs, split_entities=True).items():
+                            rs_dict[entity][dataseries] = data
                     else:
-                        rs_dict[dataseries] = ds_qs
+                        rs_dict[dataseries] = split_sets(result_sets, ds_qs)
         else:
-            rs_dict = defaultdict(list) 
-            for rs in qs.select_related('entity'):
-                rs_dict[rs.entity].append(rs)
+            rs_dict = split_sets(result_sets, ds_qs, split_entities=True)
+        """
+        returns (aggregate_on):
+        {
+            <dataseries>:<response_set>,
+            ...
+        }
+        or (aggregate_on_entity):
+        {
+            <entity>:<response_set>,
+            ...
+        }
+        or (aggregate_on_entity, aggregate_on):
+        {
+            <dataseries>:{
+                <entity>:<response_set>,
+                ...
+            }
+            ...
+        }
+
+        Where <response_set> is:
+            [(None, [ResponseSet, ...]]
+        or (compare_series):
+            [(DataSeries, [ResponseSet, ...]), ...]
+        """
         return rs_dict
 
     def run(self):
-        results = {}
+        results = defaultdict(list)
         for key, qs in self.get_responsesets().items():
-            if isinstance(qs, QuerySet):
-                results[key] = self.scorecard.get_values(qs)
-            else:
-                if isinstance(qs, list):
-                    if len(qs) == 0:
-                        results[key] = plugins.Vector([])
-                        continue
-                    if isinstance(qs[0], ResponseSet):
-                        results[key] = self.scorecard.get_values(qs)
-                        continue
+            if isinstance(qs, list):
+                if len(qs) == 0:
+                    results[key] = plugins.Vector([])
+                    continue
 
-                results[key] = plugins.Vector([(k, self.scorecard.get_values(q)) for k,q in qs.items()])
+                results[key].append(self.scorecard.get_values(qs))
+
+            if isinstance(qs,dict):
+                for entity, data in qs.items():
+                    results[key].append((entity, self.scorecard.get_values(data)))
+                results[key] = plugins.Vector(results[key])
+        results = dict(results)
         return results
 
 def default_expires(*args, **kwargs):
