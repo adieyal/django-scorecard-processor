@@ -21,10 +21,21 @@
                 {% for item in inner_result %}
                   {% if forloop.counter0 == 0 %}
                     <tr>
-                      <th></th>
-                      {% for k, v in item.1 %}
-                        <th title="{{k.description}}">{{k.identifier}}</th>
-                      {% endfor %}
+                      <tr>
+                        <th rowspan=2 valign=bottom>{% if key.data_type %}{{key.data_type}}{% else %}{% for k in key %}{{k.data_type}}{% if forloop.revcounter0 %}, {% endif %}{% endfor %}{% endif %}</th>
+                        {% for k, v in item.1 %}
+                            <th title="{{k.description}}" colspan="{{v|length}}" style="text-align:center">{{k.identifier}}</th>
+                        {% endfor %}
+                      </tr>
+                      <tr>
+                        {% if item.1.0.1.0.0 != None %}
+                            {% for k, v in item.1 %}
+                              {% for ds, value in v %}
+                                <th>{{ds.name}}</th>
+                              {% endfor %}
+                            {% endfor %}
+                        {% endif %}
+                      </tr>
                     </tr>
                   {% endif %}
                   <tr>
@@ -41,18 +52,29 @@
                   <table style="width:auto" class="bordered-table zebra-striped condensed-table">
                     <thead>
                       <tr>
-                        <th>{% if key.data_type %}{{key.data_type}}{% else %}{% for k in key %}{{k.data_type}}{% if forloop.revcounter0 %}, {% endif %}{% endfor %}{% endif %}</th>
+                        <th rowspan=2 valign=bottom>{% if key.data_type %}{{key.data_type}}{% else %}{% for k in key %}{{k.data_type}}{% if forloop.revcounter0 %}, {% endif %}{% endfor %}{% endif %}</th>
                         {% for k, v in result %}
-                          <th title="{{k.description}}">{{k.identifier}}</th>
+                            <th title="{{k.description}}" colspan="{{v|length}}" style="text-align:center">{{k.identifier}}</th>
                         {% endfor %}
+                      </tr>
+                      <tr>
+                        {% if result.0.1.0.0 != None %}
+                            {% for k, v in result %}
+                              {% for ds, value in v %}
+                                <th>{{ds.name}}</th>
+                              {% endfor %}
+                            {% endfor %}
+                        {% endif %}
                       </tr>
                     </thead>
                     <tbody>
                 {% endif %}
                 <tr>
                   <th>{{key.name}}</th>
-                  {% for i,v in result %}
-                        <td>{% if v %}{{v}}{% endif %}</td>
+                  {% for i, items in result %}
+                        {% for series, v in items %}
+                          <td>{% if v %}{{v}}{% endif %}</td>
+                        {% endfor %}
                   {% endfor %}
                 </tr>
                 {% if forloop.last %}

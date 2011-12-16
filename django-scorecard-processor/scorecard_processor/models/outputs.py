@@ -259,20 +259,21 @@ class ReportRun(models.Model):
         return rs_dict
 
     def run(self):
-        results = defaultdict(list)
+        results = {}
         for key, qs in self.get_responsesets().items():
             if isinstance(qs, list):
                 if len(qs) == 0:
                     results[key] = plugins.Vector([])
                     continue
 
-                results[key].append(self.scorecard.get_values(qs))
+                results[key] = self.scorecard.get_values(qs)
 
             if isinstance(qs,dict):
+                result = []
                 for entity, data in qs.items():
-                    results[key].append((entity, self.scorecard.get_values(data)))
-                results[key] = plugins.Vector(results[key])
-        results = dict(results)
+                    result.append((entity, self.scorecard.get_values(data)))
+                results[key] = plugins.Vector(result)
+
         return results
 
 def default_expires(*args, **kwargs):

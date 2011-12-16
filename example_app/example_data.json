@@ -85,12 +85,21 @@
     }
   }, 
   {
+    "pk": 20, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": false, 
+      "group": "Data collection year", 
+      "name": "base"
+    }
+  }, 
+  {
     "pk": 21, 
     "model": "scorecard_processor.dataseries", 
     "fields": {
       "visible": false, 
       "group": "Data collection year", 
-      "name": "2011 Collection"
+      "name": "c11"
     }
   }, 
   {
@@ -99,16 +108,7 @@
     "fields": {
       "visible": true, 
       "group": "Data collection year", 
-      "name": "2012 Collection"
-    }
-  }, 
-  {
-    "pk": 20, 
-    "model": "scorecard_processor.dataseries", 
-    "fields": {
-      "visible": false, 
-      "group": "Data collection year", 
-      "name": "Baseline Collection"
+      "name": "c12"
     }
   }, 
   {
@@ -1996,7 +1996,7 @@
     "pk": 12, 
     "model": "scorecard_processor.operation", 
     "fields": {
-      "indicator": true, 
+      "indicator": false, 
       "configuration": "", 
       "description": "1DP_comment", 
       "scorecard": 1, 
@@ -2339,6 +2339,7 @@
     "fields": {
       "aggregate_on": "Country", 
       "name": "Disaggregated Agency performance (Baseline)", 
+      "compare_series": null, 
       "limit_to_entity": [], 
       "limit_to_entitytype": [
         "agency"
@@ -2357,6 +2358,7 @@
     "fields": {
       "aggregate_on": null, 
       "name": "Aggregated agency scorecard", 
+      "compare_series": null, 
       "limit_to_entity": [], 
       "limit_to_entitytype": [
         "agency"
@@ -2375,6 +2377,7 @@
     "fields": {
       "aggregate_on": "Country", 
       "name": "Aggregated country indicators ", 
+      "compare_series": "Data collection year", 
       "limit_to_entity": [], 
       "limit_to_entitytype": [
         "agency"
@@ -2382,7 +2385,8 @@
       "aggregate_by_entity": false, 
       "scorecard": 1, 
       "limit_to_dataseries": [
-        20
+        20, 
+        21
       ], 
       "description": ""
     }
