@@ -125,7 +125,7 @@ class OperationArgument(models.Model):
     def get_data(self, responsesets, latest=None):
         response = self.instance.get_data(responsesets)
         if isinstance(response, QuerySet):
-            response = plugins.Vector(response)
+            response = plugins.Vector(response.select_related('response_set'))
         return response
 
         

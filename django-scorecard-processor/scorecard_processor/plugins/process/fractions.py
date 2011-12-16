@@ -5,6 +5,13 @@ import decimal
 def sum_values(x, y):
     return x + y
 
+def get_grouper(attr, item):
+    try:
+        grouper = getattr(item, attr)
+    except AttributeError:
+        grouper = getattr(item.response_set,attr)
+    return grouper
+
 class NumDenomPlugin(base.ProcessPlugin):
     name = 'Divide(Sum(Argument 1), Sum(Argument 2))'
     argument_list = ['numerator', 'denominator']
@@ -14,8 +21,9 @@ class NumDenomPlugin(base.ProcessPlugin):
         'pair_values':[None, 'entity_id', 'response_set_id'],
     }
     defaults = {
-        'pair_values':'entity_id',
+        'pair_values':'response_set_id',
     }
+
 
     def process(self):
         """ First test if the arguments come from the same survey, if they do,
@@ -36,12 +44,17 @@ class NumDenomPlugin(base.ProcessPlugin):
         if pair_values:
             filter_responses = {}
             for response in self.get_arguments().numerator.get_values():
-                filter_responses[response[pair_values]] = filter_responses.get(response.response_set_id,{})
-                filter_responses[response[pair_values]]['num'] = response.get_value()
+                grouper = get_grouper(pair_values,response)
+                filter_responses[grouper] = filter_responses.get(grouper,{})
+                filter_responses[grouper]['num'] = response.get_value()
+
 
             for response in self.get_arguments().denominator.get_values():
-                if response.response_set_id in filter_responses:
-                    filter_responses[response[pair_values]]['denom'] = response.get_value()
+                grouper = get_grouper(pair_values,response)
+                if grouper in filter_responses:
+                    filter_responses[grouper]['denom'] = response.get_value()
+
+            print(filter_responses)
             
             for frac in filter_responses.values():
                 if 'num' in frac and 'denom' in frac:
