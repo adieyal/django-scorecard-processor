@@ -154,7 +154,7 @@ class ReportRun(models.Model):
     aggregate_on = models.ForeignKey(DataSeriesGroup, blank=True, null=True, help_text="Y axis grouping/aggregation of results")
     aggregate_by_entity = models.BooleanField(default=False, help_text="Group Y axis by the entity that submitted the data")
 
-    compare_series = models.ForeignKey(DataSeriesGroup, blank=True, null=True, related_name="indicator_series_set", help_text="(optional) Group results per indicator by data series in this group")
+    #compare_series = models.ForeignKey(DataSeriesGroup, blank=True, null=True, related_name="indicator_series_set", help_text="(optional) Group results per indicator by data series in this group")
 
     #Optional filters for underlying responsesets
     limit_to_dataseries = models.ManyToManyField(DataSeries, blank=True, null=True, help_text="(optional) Limit which responses are used as raw data, based on the data series they belong to") #Optionally limit to dataseries
@@ -185,6 +185,8 @@ class ReportRun(models.Model):
 
         if self.limit_to_entitytype.count():
             qs = qs.filter(entity__entity_type__in=self.limit_to_entitytype.all())
+
+        #TODO: implement compare_series logic {'aggregate':[(series1, qs), (series2, qs)]}
 
         if self.aggregate_on:
             rs_dict = defaultdict(lambda: defaultdict(list)) 

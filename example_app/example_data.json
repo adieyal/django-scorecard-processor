@@ -2308,7 +2308,6 @@
     "fields": {
       "aggregate_on": "Country", 
       "name": "Disaggregated Agency performance (Baseline)", 
-      "compare_series": null, 
       "limit_to_entity": [], 
       "limit_to_entitytype": [
         "agency"
@@ -2327,7 +2326,6 @@
     "fields": {
       "aggregate_on": null, 
       "name": "Aggregated agency scorecard", 
-      "compare_series": null, 
       "limit_to_entity": [], 
       "limit_to_entitytype": [
         "agency"
@@ -2346,7 +2344,6 @@
     "fields": {
       "aggregate_on": "Country", 
       "name": "Aggregated country indicators ", 
-      "compare_series": null, 
       "limit_to_entity": [], 
       "limit_to_entitytype": [
         "agency"
