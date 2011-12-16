@@ -64,7 +64,7 @@ class Command(BaseCommand):
                         if question:
                             comment = comment or value['comment']
                             q = survey.questions.get(question)
-                            for collection, response in [('Baseline',value['baseline']), ('2011',value['latest'])]:
+                            for collection, response in [('Baseline Collection',value['baseline']), ('2011 Collection',value['latest'])]:
                                 year, v = response
                                 y = years.get(year,years.get('2007'))
                                 col = collections.get(collection,collections.get('2007'))
