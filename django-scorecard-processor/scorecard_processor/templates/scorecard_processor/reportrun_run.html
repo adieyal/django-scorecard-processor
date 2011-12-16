@@ -40,8 +40,10 @@
                   {% endif %}
                   <tr>
                   <th>{{item.0.name}}</th>
-                  {% for k,v in item.1 %}
-                        <td>{% if v %}{{v|linebreaksbr}}{% endif %}</td>
+                  {% for i, items in item.1 %}
+                        {% for series, v in items %}
+                          <td>{% if v %}{{v}}{% endif %}</td>
+                        {% endfor %}
                   {% endfor %}
                   </tr>
                 {% endfor %}
