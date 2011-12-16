@@ -90,7 +90,7 @@
     "fields": {
       "visible": false, 
       "group": "Data collection year", 
-      "name": "2011"
+      "name": "2011 Collection"
     }
   }, 
   {
@@ -99,7 +99,7 @@
     "fields": {
       "visible": true, 
       "group": "Data collection year", 
-      "name": "2012"
+      "name": "2012 Collection"
     }
   }, 
   {
@@ -108,7 +108,7 @@
     "fields": {
       "visible": false, 
       "group": "Data collection year", 
-      "name": "Baseline"
+      "name": "Baseline Collection"
     }
   }, 
   {
@@ -2081,6 +2081,30 @@
     }
   }, 
   {
+    "pk": 10, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "6DP", 
+      "scorecard": 1, 
+      "operation": "keyword_frequency", 
+      "identifier": "6DP"
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "7DP", 
+      "scorecard": 1, 
+      "operation": "keyword_frequency", 
+      "identifier": "7DP"
+    }
+  }, 
+  {
     "pk": 1, 
     "model": "scorecard_processor.operationargument", 
     "fields": {
@@ -2180,6 +2204,28 @@
     }
   }, 
   {
+    "pk": 17, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 26, 
+      "position": 0, 
+      "operation": 10, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 18, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 28, 
+      "position": 0, 
+      "operation": 11, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
     "pk": 2, 
     "model": "scorecard_processor.operationargument", 
     "fields": {
@@ -2262,6 +2308,7 @@
     "fields": {
       "aggregate_on": "Country", 
       "name": "Disaggregated Agency performance (Baseline)", 
+      "compare_series": null, 
       "limit_to_entity": [], 
       "limit_to_entitytype": [
         "agency"
@@ -2280,6 +2327,7 @@
     "fields": {
       "aggregate_on": null, 
       "name": "Aggregated agency scorecard", 
+      "compare_series": null, 
       "limit_to_entity": [], 
       "limit_to_entitytype": [
         "agency"
@@ -2298,6 +2346,7 @@
     "fields": {
       "aggregate_on": "Country", 
       "name": "Aggregated country indicators ", 
+      "compare_series": null, 
       "limit_to_entity": [], 
       "limit_to_entitytype": [
         "agency"
