@@ -2,13 +2,53 @@
 {% block head_title %}Report results - {{object.name}}{% endblock %}
 {% block script_bottom %}
 {{block.super}}
+<script type="text/javascript" src="{{STATIC_URL}}js/jquery.tablesorter.min.js"></script>
 <script type="text/javascript">
+  $(function() {
+    $("table").tablesorter({ sortList: [[0,0]] });
+  });
   $('[rel=popover]').popover();
+  var td_width = 0;
+  var th_width = 0;
+  $('td').each(function(i,e) {
+    if ($(e).width()>td_width) {
+      td_width = $(e).width()
+    }
+  })
+  $('tbody th').each(function(i,e) {
+    if ($(e).width()>th_width) {
+      th_width = $(e).width()
+    }
+  })
+  var cols = $('thead th[colspan]').attr('colspan');
+  var title = ["blue","orange","green","purple","red","yellow"]
+  var sub = title.slice(0,cols);
+  title = title.slice(2,4);
+  var cycle = 0;
+  $('th.header').each(function(i,e){
+    $(e).addClass(sub[cycle]);
+    cycle++; 
+    if (cycle>=cols){
+      cycle = 0;
+    }
+  });
+  cycle=0;
+  $('thead th[colspan]').each(function(i,e){
+    $(e).addClass(title[cycle]);
+    cycle++; 
+    if (cycle>=2){
+      cycle = 0;
+    }
+  })
+  $("<style>td {width:"+td_width+"px} tbody th {width:"+th_width+"px}</style>").appendTo($('body'))
 </script>
 {% endblock %}
 {% block fluid_content_outer %}
   <style>
     caption {font-size:large;text-align:left;margin:10px 0}
+    table {margin-bottom:40px;}
+    table td {text-align:center}
+    thead th {text-align:center}
   </style>
   <div class="fluid-container">
     <div class="content">
@@ -23,33 +63,35 @@
                 <caption>{{key.name}}</caption>
                 {% for item in inner_result %}
                   {% if forloop.counter0 == 0 %}
-                    <tr>
-                      <tr>
+                    <thead>
+                      <tr class="titles">
                         <th rowspan=2 style="vertical-align:bottom">{% if item.0.data_type %}{{item.0.data_type}}{% else %}{% for k in item.0 %}{{k.data_type}}{% if forloop.revcounter0 %}, {% endif %}{% endfor %}{% endif %}</th>
                         {% for k, v in item.1 %}
                             <th title="{{k.description}}" colspan="{{v|length}}" style="text-align:center">{{k.identifier}}</th>
                         {% endfor %}
                       </tr>
-                      <tr>
+                      <tr class="sub_titles">
                         {% if item.1.0.1.0.0 != None %}
                             {% for k, v in item.1 %}
                               {% for ds, value in v %}
-                                <th>{{ds.name}}</th>
+                                <th class="header">{{ds.name}}</th>
                               {% endfor %}
                             {% endfor %}
                         {% endif %}
                       </tr>
-                    </tr>
+                    </thead>
+                    <tbody>
                   {% endif %}
-                  <tr>
-                  <th>{{item.0.name}}</th>
-                  {% for i, items in item.1 %}
-                        {% for series, v in items %}
-                          <td>{% if v %}{{v}}{% endif %}</td>
-                        {% endfor %}
-                  {% endfor %}
-                  </tr>
+                    <tr>
+                    <th>{{item.0.name}}</th>
+                    {% for i, items in item.1 %}
+                          {% for series, v in items %}
+                            <td>{% if v %}{{v}}{% endif %}</td>
+                          {% endfor %}
+                    {% endfor %}
+                    </tr>
                 {% endfor %}
+                  </tbody>
                 </table>
 
               {% else %}
@@ -66,7 +108,7 @@
                         {% if result.0.1.0.0 != None %}
                             {% for k, v in result %}
                               {% for ds, value in v %}
-                                <th>{{ds.name}}</th>
+                                <th class="header">{{ds.name}}</th>
                               {% endfor %}
                             {% endfor %}
                         {% endif %}

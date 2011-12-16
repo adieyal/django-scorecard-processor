@@ -298,4 +298,3 @@ def result_set(operation, data_hash, latest_item, data):
     latest_item = str(latest_item).replace(':','').replace(' ','').replace('.','')
     cache.set('%s_%s_%s_set' % (operation.pk, data_hash, latest_item), True)
     cache.set('%s_%s_%s' % (operation.pk, data_hash, latest_item), data)
-
