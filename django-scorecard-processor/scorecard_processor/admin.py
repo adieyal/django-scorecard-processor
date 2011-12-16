@@ -87,6 +87,7 @@ class OperationArgumentInline(admin.StackedInline):
 
 class OperationAdmin(admin.ModelAdmin):
     model = Operation
+    list_display = ('__unicode__','scorecard')
     list_filter = ('scorecard',)
     inlines = [OperationArgumentInline]
     classes = ('collapse open',)
