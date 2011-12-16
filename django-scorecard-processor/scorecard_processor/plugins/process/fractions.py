@@ -10,6 +10,12 @@ class NumDenomPlugin(base.ProcessPlugin):
     argument_list = ['numerator', 'denominator']
     input_type = base.Vector
     output_type = base.Scalar
+    options = {
+        'pair_values':[None, 'entity_id', 'response_set_id'],
+    }
+    defaults = {
+        'pair_values':'entity_id',
+    }
 
     def process(self):
         """ First test if the arguments come from the same survey, if they do,
@@ -22,18 +28,20 @@ class NumDenomPlugin(base.ProcessPlugin):
         except AttributeError:
             pair_values = False
 
+        pair_values = pair_values and self.get_config('pair_values')
+
         numerator = []
         denominator = []
 
         if pair_values:
             filter_responses = {}
             for response in self.get_arguments().numerator.get_values():
-                filter_responses[response.response_set_id] = filter_responses.get(response.response_set_id,{})
-                filter_responses[response.response_set_id]['num'] = response.get_value()
+                filter_responses[response[pair_values]] = filter_responses.get(response.response_set_id,{})
+                filter_responses[response[pair_values]]['num'] = response.get_value()
 
             for response in self.get_arguments().denominator.get_values():
                 if response.response_set_id in filter_responses:
-                    filter_responses[response.response_set_id]['denom'] = response.get_value()
+                    filter_responses[response[pair_values]]['denom'] = response.get_value()
             
             for frac in filter_responses.values():
                 if 'num' in frac and 'denom' in frac:
