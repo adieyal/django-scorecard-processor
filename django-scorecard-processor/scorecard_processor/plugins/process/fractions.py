@@ -54,8 +54,6 @@ class NumDenomPlugin(base.ProcessPlugin):
                 if grouper in filter_responses:
                     filter_responses[grouper]['denom'] = response.get_value()
 
-            print(filter_responses)
-            
             for frac in filter_responses.values():
                 if 'num' in frac and 'denom' in frac:
                     numerator.append(float(frac['num']))
