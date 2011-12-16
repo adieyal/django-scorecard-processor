@@ -8,6 +8,7 @@ class Concat(base.ProcessPlugin):
     argument_list = ['response']
     input_type = base.Vector
     output_type = base.Scalar
+    allow_cache = False
 
     def process(self):
         return self.output_type("\n\n".join([v.get_value() for v in self.get_arguments().response.get_values()]))

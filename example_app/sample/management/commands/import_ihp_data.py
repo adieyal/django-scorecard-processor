@@ -64,10 +64,13 @@ class Command(BaseCommand):
                         if question:
                             comment = comment or value['comment']
                             q = survey.questions.get(question)
-                            for collection, response in [('Baseline Collection',value['baseline']), ('2011 Collection',value['latest'])]:
-                                year, v = response
-                                y = years.get(year,years.get('2007'))
-                                col = collections.get(collection,collections.get('2007'))
+                            for collection, response in [('Baseline Collection','baseline'), ('2011 Collection','latest')]:
+                                year, v = value[response]
+                                if response=='baseline':
+                                    y = years.get(year,years.get('2007'))
+                                else:
+                                    y = years.get(year,years.get('2009'))
+                                col = collections.get(collection,collections.get('2011 Collection'))
                                 if y and v:
                                     rs = responsesets.get((col,y))
                                     if not rs:
@@ -122,6 +125,8 @@ class Command(BaseCommand):
                                         sys.stdout.write('.')
                                         if flush:
                                             sys.stdout.flush()
+                                else:
+                                    sys.stdout.write('x')
                             if comment:
                                 q = survey.questions.get('%s_sup' % question)
                                 if q:
