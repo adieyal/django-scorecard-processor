@@ -1,5 +1,6 @@
 from pprint import pprint
 from datetime import datetime, timedelta
+import time
 from collections import defaultdict
 
 from django.core.cache import cache
@@ -286,15 +287,18 @@ class NoCachedResult(Exception):
     pass
 
 def result_get(operation, data_hash, latest_item):
-    latest_item = str(latest_item).replace(':','').replace(' ','').replace('.','')
-    result_test = cache.get('%s_%s_%s_set' % (operation.pk, data_hash, latest_item))
+    latest_item = time.mktime(latest_item.timetuple())
+    key = '%s_%s_%s' % (operation.pk, data_hash, latest_item)
+    result_test = cache.get('%s_set' % key)
     if result_test:
-        result = cache.get('%s_%s_%s' % (operation.pk, data_hash, latest_item))
+        result = cache.get(key)
     else:
+        print('miss %s' % key)
         raise NoCachedResult
+    print('hit %s' % key)
     return result
 
 def result_set(operation, data_hash, latest_item, data):
-    latest_item = str(latest_item).replace(':','').replace(' ','').replace('.','')
+    latest_item = time.mktime(latest_item.timetuple())
     cache.set('%s_%s_%s_set' % (operation.pk, data_hash, latest_item), True)
     cache.set('%s_%s_%s' % (operation.pk, data_hash, latest_item), data)

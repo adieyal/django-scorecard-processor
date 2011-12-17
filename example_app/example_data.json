@@ -1996,12 +1996,36 @@
     "pk": 12, 
     "model": "scorecard_processor.operation", 
     "fields": {
-      "indicator": false, 
+      "indicator": true, 
       "configuration": "", 
-      "description": "1DP_comment", 
+      "description": "1DP comments", 
       "scorecard": 1, 
       "operation": "concat", 
-      "identifier": "1DP_comment"
+      "identifier": "1DP comments"
+    }
+  }, 
+  {
+    "pk": 13, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "1G", 
+      "scorecard": 2, 
+      "operation": "assert_value", 
+      "identifier": "1G"
+    }
+  }, 
+  {
+    "pk": 14, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "1G_comment", 
+      "scorecard": 2, 
+      "operation": "concat", 
+      "identifier": "1G comment"
     }
   }, 
   {
@@ -2257,6 +2281,28 @@
     }
   }, 
   {
+    "pk": 20, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 37, 
+      "position": 0, 
+      "operation": 13, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 21, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 38, 
+      "position": 0, 
+      "operation": 14, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
     "pk": 2, 
     "model": "scorecard_processor.operationargument", 
     "fields": {
@@ -2390,6 +2436,27 @@
       "limit_to_dataseries": [
         20, 
         21
+      ], 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "scorecard_processor.reportrun", 
+    "fields": {
+      "aggregate_on": null, 
+      "name": "Country indicators", 
+      "compare_series": "Data collection year", 
+      "limit_to_entity": [], 
+      "limit_to_entitytype": [
+        "government"
+      ], 
+      "aggregate_by_entity": true, 
+      "scorecard": 2, 
+      "limit_to_dataseries": [
+        20, 
+        21, 
+        22
       ], 
       "description": ""
     }
