@@ -5,7 +5,7 @@ def sum_values(x, y):
 
 class TextRenderer(base.Scalar):
     def get_value(self):
-        "\n\n".join([i[1] for i in self.value])
+        return "\n\n".join([i[1] for i in self.value])
 
     def _as_html(self):
         if not self.value:

@@ -13,13 +13,13 @@
 
     $('dl.concat').each(function (i,e) {      
       var data = $($(e).parent()).html();
-      var a = $('<a rel="popover" data-trigger="focus" class="label" title="Responses">...</a>');
+      var a = $('<a rel="popover" class="label" title="Responses">...</a>');
       a.attr('data-content', data);
       $($(e).parent()).append(a);
       $(e).remove();
     })
 
-    $('[rel=popover]').popover({html:true});
+    $('[rel=popover]').popover({html:true,live:true});
 
     /* Normalize the width of all table elements */
     var td_width = 0;
@@ -68,8 +68,8 @@
     table td {text-align:center}
     thead th {text-align:center}
     td a.label {cursor:help}
-    .popover .inner {width:400px;}
-    dl.concat {width:120px;}
+    .popover .inner {width:500px;}
+    td dl.concat {width:120px;}
   </style>
   <div class="fluid-container">
     <div class="content">
