@@ -11,14 +11,15 @@ class Count(base.ProcessPlugin):
         return self.output_type(len(values))
 
 class CountValue(Count):
-    key = 'yes'
     name = "Frequency of keyword (%)"
+    options = {'value':basestring}
+    defaults = {'value':'yes'}
     def process(self):
         items = self.get_arguments().items.get_values()
         count = len(items)
         if count == 0:
             return None
-        count_values = len(filter(lambda x: x.get_value().lower() == self.key,items))
+        count_values = len(filter(lambda x: x.get_value().lower() == self.get_config('value'),items))
         return self.output_type(count_values / count * 100)
 
 
