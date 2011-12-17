@@ -86,7 +86,7 @@
                     <th>{{item.0.name}}</th>
                     {% for i, items in item.1 %}
                           {% for series, v in items %}
-                            <td>{% if v %}{{v}}{% endif %}</td>
+                            <td>{% if v %}{{v.as_html}}{% endif %}</td>
                           {% endfor %}
                     {% endfor %}
                     </tr>
@@ -120,7 +120,7 @@
                   <th>{{key.name}}</th>
                   {% for i, items in result %}
                         {% for series, v in items %}
-                          <td>{% if v %}{{v}}{% endif %}</td>
+                          <td>{% if v %}{{v.as_html}}{% endif %}</td>
                         {% endfor %}
                   {% endfor %}
                 </tr>
