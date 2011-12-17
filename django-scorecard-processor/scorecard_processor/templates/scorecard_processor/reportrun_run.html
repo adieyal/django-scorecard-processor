@@ -4,43 +4,61 @@
 {{block.super}}
 <script type="text/javascript" src="{{STATIC_URL}}js/jquery.tablesorter.min.js"></script>
 <script type="text/javascript">
+
+  
+
   $(function() {
+    /* Initialize dynamic elements */
     $("table").tablesorter({ sortList: [[0,0]] });
+
+    $('dl.concat').each(function (i,e) {      
+      var data = $($(e).parent()).html();
+      var a = $('<a rel="popover" data-trigger="focus" class="label" title="Responses">...</a>');
+      a.attr('data-content', data);
+      $($(e).parent()).append(a);
+      $(e).remove();
+    })
+
+    $('[rel=popover]').popover({html:true});
+
+    /* Normalize the width of all table elements */
+    var td_width = 0;
+    var th_width = 0;
+    $('td').each(function(i,e) {
+      if ($(e).width()>td_width) {
+        td_width = $(e).width()
+      }
+    })
+    $('tbody th').each(function(i,e) {
+      if ($(e).width()>th_width) {
+        th_width = $(e).width()
+      }
+    })
+    $("<style>td {width:"+td_width+"px} tbody th {width:"+th_width+"px}</style>").appendTo($('body'))
+
+    /* Colourize the table headings */
+    var cols = $('thead th[colspan]').attr('colspan');
+    var title = ["blue","orange","green","purple","red","yellow"]
+    var sub = title.slice(0,cols);
+    title = title.slice(2,4);
+    var cycle = 0;
+    $('th.header').each(function(i,e){
+      $(e).addClass(sub[cycle]);
+      cycle++; 
+      if (cycle>=cols){
+        cycle = 0;
+      }
+    });
+    cycle=0;
+    $('thead th[colspan]').each(function(i,e){
+      $(e).addClass(title[cycle]);
+      cycle++; 
+      if (cycle>=2){
+        cycle = 0;
+      }
+    })
   });
-  $('[rel=popover]').popover();
-  var td_width = 0;
-  var th_width = 0;
-  $('td').each(function(i,e) {
-    if ($(e).width()>td_width) {
-      td_width = $(e).width()
-    }
-  })
-  $('tbody th').each(function(i,e) {
-    if ($(e).width()>th_width) {
-      th_width = $(e).width()
-    }
-  })
-  var cols = $('thead th[colspan]').attr('colspan');
-  var title = ["blue","orange","green","purple","red","yellow"]
-  var sub = title.slice(0,cols);
-  title = title.slice(2,4);
-  var cycle = 0;
-  $('th.header').each(function(i,e){
-    $(e).addClass(sub[cycle]);
-    cycle++; 
-    if (cycle>=cols){
-      cycle = 0;
-    }
-  });
-  cycle=0;
-  $('thead th[colspan]').each(function(i,e){
-    $(e).addClass(title[cycle]);
-    cycle++; 
-    if (cycle>=2){
-      cycle = 0;
-    }
-  })
-  $("<style>td {width:"+td_width+"px} tbody th {width:"+th_width+"px}</style>").appendTo($('body'))
+
 </script>
 {% endblock %}
 {% block fluid_content_outer %}
@@ -49,6 +67,9 @@
     table {margin-bottom:40px;}
     table td {text-align:center}
     thead th {text-align:center}
+    td a.label {cursor:help}
+    .popover .inner {width:400px;}
+    dl.concat {width:120px;}
   </style>
   <div class="fluid-container">
     <div class="content">
