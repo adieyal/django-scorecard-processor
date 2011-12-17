@@ -12,7 +12,6 @@ class TextRenderer(base.Scalar):
             return ''
         row = "<dt>%s</dt><dd>%s</dd>"
         return "<dl class='concat'>%s</dl>" % ''.join([row % i for i in self.value])
-
         
 
 class Concat(base.ProcessPlugin):
@@ -20,7 +19,6 @@ class Concat(base.ProcessPlugin):
     argument_list = ['response']
     input_type = base.Vector
     output_type = TextRenderer
-    allow_cache = False
 
     def process(self):
         return self.output_type([(v.response_set.entity, v.get_value()) for v in self.get_arguments().response.get_values()])

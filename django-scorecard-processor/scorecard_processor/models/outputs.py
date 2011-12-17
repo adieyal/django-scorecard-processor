@@ -96,8 +96,9 @@ class Operation(models.Model):
         arguments"""
         fetched_rs = [rs for rs in responsesets]
         if fetched_rs:
-            key = reduce(lambda x,y: x^y, [rs.pk for rs in fetched_rs])
-            latest = fetched_rs[0].last_update
+            key = hash(repr([rs.pk for rs in fetched_rs]))
+            latest = fetched_rs[0].last_response_id
+            #latest = int(time.mktime(fetched_rs[0].last_update.timetuple()))
         else:
             return None
 
@@ -286,19 +287,18 @@ def default_expires(*args, **kwargs):
 class NoCachedResult(Exception):
     pass
 
+
+try:
+    import cPickle as pickle
+except ImportError:
+    import pickle
+
 def result_get(operation, data_hash, latest_item):
-    latest_item = time.mktime(latest_item.timetuple())
     key = '%s_%s_%s' % (operation.pk, data_hash, latest_item)
-    result_test = cache.get('%s_set' % key)
-    if result_test:
-        result = cache.get(key)
-    else:
-        print('miss %s' % key)
+    result = cache.get(key, NoCachedResult)
+    if result == NoCachedResult:
         raise NoCachedResult
-    print('hit %s' % key)
     return result
 
 def result_set(operation, data_hash, latest_item, data):
-    latest_item = time.mktime(latest_item.timetuple())
-    cache.set('%s_%s_%s_set' % (operation.pk, data_hash, latest_item), True)
-    cache.set('%s_%s_%s' % (operation.pk, data_hash, latest_item), data)
+    cache.set('%s_%s_%s' % (operation.pk, data_hash, latest_item), data, 186400)

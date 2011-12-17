@@ -37,6 +37,5 @@ CACHES = {
             #'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
             'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
             'LOCATION': 'unique-snowflake',
-            'MAX_ENTRIES': 5000,
     }
 }
