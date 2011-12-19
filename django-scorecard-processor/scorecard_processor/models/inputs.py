@@ -58,6 +58,16 @@ class Question(models.Model):
     def __unicode__(self):
         return "Question: %s. %s" % (self.identifier, self.question)
 
+class ImportMap(models.Model):
+    survey = models.ForeignKey(Survey)
+    name = models.CharField(max_length=200)
+    example_file = models.FileField(blank=True, null=True, upload_to="import_example")
+
+class ImportFieldMap(models.Model):
+    importmap = models.ForeignKey(ImportMap)
+    cell = models.CharField(max_length=20)
+    field = models.ForeignKey(Question)
+
 #TODO: enforce requirement of members of survey.data_series_groups
 class ResponseSet(models.Model):
     """ Survey::ResponseSet, Question::Response """
