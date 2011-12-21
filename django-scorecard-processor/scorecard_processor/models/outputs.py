@@ -176,6 +176,67 @@ def split_sets(split, response_sets, split_entities = False):
         result = dict(result_dict)
     return result
 
+def get_responsesets(scorecard, compare_series=None, limit_to_dataseries=[], limit_to_entity=[], limit_to_entitytype=[], aggregate_on=None, aggregate_by_entity=None):
+    if not aggregate_by_entity and not aggregate_on:
+        raise ReportRunError("No aggregation mode selected")
+
+    qs = ResponseSet.objects.filter(survey__project__pk=scorecard.project_id).select_related('entity','survey')
+
+    result_sets = None
+    
+    if limit_to_dataseries and len(limit_to_dataseries):
+        qs = qs.filter(data_series__in=limit_to_dataseries)
+        if compare_series:
+            result_sets = [ds for ds in limit_to_dataseries.filter(group=compare_series)] or None
+
+    if len(limit_to_entity):
+        qs = qs.filter(entity__in=limit_to_entity)
+
+    if len(limit_to_entitytype):
+        qs = qs.filter(entity__entity_type__in=limit_to_entitytype)
+
+    if not result_sets and compare_series:
+        result_sets = [ds for ds in compare_series.dataseries_set]
+
+    if aggregate_on:
+        rs_dict = defaultdict(lambda: defaultdict(list)) 
+        for dataseries in aggregate_on.dataseries_set.all():
+            ds_qs = qs.filter(data_series=dataseries)
+            if ds_qs.count():
+                if aggregate_by_entity:
+                    for entity, data in split_sets(result_sets, ds_qs, split_entities=True).items():
+                        rs_dict[entity][dataseries] = data
+                else:
+                    rs_dict[dataseries] = split_sets(result_sets, ds_qs)
+    else:
+        rs_dict = split_sets(result_sets, qs, split_entities=True)
+    """
+    returns (aggregate_on):
+    {
+        <dataseries>:<response_set>,
+        ...
+    }
+    or (aggregate_on_entity):
+    {
+        <entity>:<response_set>,
+        ...
+    }
+    or (aggregate_on_entity, aggregate_on):
+    {
+        <dataseries>:{
+            <entity>:<response_set>,
+            ...
+        }
+        ...
+    }
+
+    Where <response_set> is:
+        [(None, [ResponseSet, ...]]
+    or (compare_series):
+        [(DataSeries, [ResponseSet, ...]), ...]
+    """
+    return rs_dict
+
 class ReportRun(models.Model):
     scorecard = models.ForeignKey(Scorecard)
     name = models.CharField(max_length=200)
@@ -203,65 +264,14 @@ class ReportRun(models.Model):
         return ('show_report',(str(self.scorecard.project.pk),str(self.pk)))
 
     def get_responsesets(self):
-        if not self.aggregate_by_entity and not self.aggregate_on:
-            raise ReportRunError("No aggregation mode selected")
-
-        qs = ResponseSet.objects.filter(survey__project__pk=self.scorecard.project_id).select_related('entity','survey')
-
-        result_sets = None
-        
-        if self.limit_to_dataseries.count():
-            qs = qs.filter(data_series__in=self.limit_to_dataseries.all())
-            if self.compare_series:
-                result_sets = [ds for ds in self.limit_to_dataseries.filter(group=self.compare_series)] or None
-
-        if self.limit_to_entity.count():
-            qs = qs.filter(entity__in=self.limit_to_entity.all())
-
-        if self.limit_to_entitytype.count():
-            qs = qs.filter(entity__entity_type__in=self.limit_to_entitytype.all())
-
-        if not result_sets and self.compare_series:
-            result_sets = [ds for ds in self.compare_series.dataseries_set.all()]
-
-        if self.aggregate_on:
-            rs_dict = defaultdict(lambda: defaultdict(list)) 
-            for dataseries in self.aggregate_on.dataseries_set.all():
-                ds_qs = qs.filter(data_series=dataseries)
-                if ds_qs.count():
-                    if self.aggregate_by_entity:
-                        for entity, data in split_sets(result_sets, ds_qs, split_entities=True).items():
-                            rs_dict[entity][dataseries] = data
-                    else:
-                        rs_dict[dataseries] = split_sets(result_sets, ds_qs)
-        else:
-            rs_dict = split_sets(result_sets, qs, split_entities=True)
-        """
-        returns (aggregate_on):
-        {
-            <dataseries>:<response_set>,
-            ...
-        }
-        or (aggregate_on_entity):
-        {
-            <entity>:<response_set>,
-            ...
-        }
-        or (aggregate_on_entity, aggregate_on):
-        {
-            <dataseries>:{
-                <entity>:<response_set>,
-                ...
-            }
-            ...
-        }
-
-        Where <response_set> is:
-            [(None, [ResponseSet, ...]]
-        or (compare_series):
-            [(DataSeries, [ResponseSet, ...]), ...]
-        """
-        return rs_dict
+        return get_responsesets(
+                self.scorecard, 
+                compare_series=self.compare_series, 
+                limit_to_dataseries=self.limit_to_dataseries.all(),
+                limit_to_entity=self.limit_to_entity.all(), 
+                limit_to_entitytype=self.limit_to_entitytype.all(), 
+                aggregate_on=self.aggregate_on, 
+                aggregate_by_entity=self.aggregate_by_entity)
 
     def run(self):
         results = {}
