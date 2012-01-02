@@ -4,7 +4,8 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.views.generic import DetailView, ListView
 from django.contrib.auth.decorators import login_required
 
-from models import ResponseSet, Survey, Entity, ReportRun, DataSeries
+from models import ResponseSet, Survey, Entity, ReportRun, DataSeries, DataSeriesGroup, Scorecard
+from models.outputs import get_responsesets
 from forms import QuestionForm, ResponseSetForm
 
 def index(request):
@@ -47,6 +48,21 @@ def run_report(request, object_id):
         RequestContext(request)
     )
 
+#################################################################
+# Entity oriented
+#################################################################
+
+@login_required
+def entity_run_report(request, object_id, scorecard_id):
+    obj = get_object_or_404(Entity, pk=object_id)
+    scorecard = get_object_or_404(Scorecard, pk=scorecard_id)
+    rs = get_responsesets(scorecard, limit_to_entity=[obj], aggregate_by_entity=True, compare_series=DataSeriesGroup.objects.get(name='Data collection year'))
+    result = scorecard.get_values(rs[obj])
+    return render_to_response(
+        'scorecard_processor/entity_report.html',
+        {'object':obj, 'results':result},
+        RequestContext(request)
+    )
 
 #################################################################
 # User response section

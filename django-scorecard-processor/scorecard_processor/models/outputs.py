@@ -196,7 +196,7 @@ def get_responsesets(scorecard, compare_series=None, limit_to_dataseries=[], lim
         qs = qs.filter(entity__entity_type__in=limit_to_entitytype)
 
     if not result_sets and compare_series:
-        result_sets = [ds for ds in compare_series.dataseries_set]
+        result_sets = [ds for ds in compare_series.dataseries_set.all()]
 
     if aggregate_on:
         rs_dict = defaultdict(lambda: defaultdict(list)) 
