@@ -31,6 +31,7 @@ setup(
     description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
     platforms=['any'],
+    install_requires=['django-cerial','django-grapelli','south','django-bootstrap'],
     classifiers=CLASSIFIERS,
 )
 
