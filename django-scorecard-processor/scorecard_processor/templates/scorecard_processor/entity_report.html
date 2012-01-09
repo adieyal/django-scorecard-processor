@@ -33,20 +33,32 @@
         <h1><a href="{{object.get_absolute_url}}">{{object.name}}</a> results</h1>
       </div>
       <table style="width:auto" class="bordered-table zebra-striped condensed-table">
-        {% for operation, items in results %}
+        {% for operation, items in results.items %}
           {% if forloop.counter == 1 %}
             <thead>
-              <th>Operation</th> 
-            {% for series, v in items %}
-               <th>{{series.name}}</th>
-            {% endfor %}
+              <tr>
+                <th></th>
+                {% for series, v in items %}
+                   <th colspan={{v|length}}>{{series.name}}</th>
+                {% endfor %}
+              </tr>
+              <tr>
+                <th>Operation</th> 
+                {% for country, data in items %}
+                  {% for series, v in data %}
+                   <th>{{series.name}}</th>
+                  {% endfor %}
+                {% endfor %}
+              </tr>
             </thead>
             <tbody>
           {% endif %}
           <tr>
             <th title="{{operation.description}}">{{operation.identifier}}</th>
-            {% for series, v in items %}
+            {% for country, data in items %}
+              {% for series, v in data %}
                <td>{% if v %}{{v.as_html}}{% endif %}</td>
+              {% endfor %}
             {% endfor %}
           </tr>
         {% endfor %}

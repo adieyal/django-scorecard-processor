@@ -12,30 +12,38 @@
   <div class="container">
     <div class="content">
       <div class="page-header">
+        {% with object.entity_type.survey_set.all as survey_set %}
+          {% if survey_set.count == 1 %}
+            <a class="btn primary pull-right" href="{% url survey_response object.pk, survey_set.0.pk %}">Add response</a>
+          {% else %}
+            {% for survey in survey_set %}
+              <a class="btn pull-right" href="{% url survey_response object.pk, survey.pk %}">Respond to: {{survey.name}}</a>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
         <h1>Survey Responses <small>for {{object.name}}</small></h1>
       </div>
       <div class="row">
-        <div class="span14">
           {% with object.responseset_set.all.select_related as responsesets %}
             {% if responsesets %}
-              <h2>Edit existing survey responses <small>ordered by last update</small></h2>
-              <ul>
-              {% for responseset in responsesets %}
-                <li name="responseset_{{responseset.pk}}"><a href="{{responseset.get_absolute_url}}">{{responseset.survey.name}}</a> <strong>last update:</strong> {{responseset.last_update}} <strong>data series:</strong> {% for series in responseset.data_series.all %}{{series.name}}{% if forloop.revcounter0 %}, {% endif %}{% endfor %}</li>
-              {% endfor %}
-              </ul>
+              <div class="span7">
+                <h2>Edit responses <small>ordered by last update</small></h2>
+                <ul>
+                {% for responseset in responsesets %}
+                  <li name="responseset_{{responseset.pk}}"><a href="{{responseset.get_absolute_url}}">{{responseset.survey.name}}</a><br/> <strong>last update:</strong> {{responseset.last_update}}<br /> <strong>data series:</strong> {% for series in responseset.data_series.all %}{{series.name}}{% if forloop.revcounter0 %}, {% endif %}{% endfor %}</li>
+                {% endfor %}
+                </ul>
+              </div>
+              <div class="span7">
+                <h2>View Reports</h2>
+                <ul>
+                {% for report in object.project.scorecard_set.all %}
+                  <li><a href="{% url entity_report object.pk, report.pk %}">{{report}}</a></li>
+                {% endfor %}
+                </ul>
+              </div>
             {% endif %}
           {% endwith %}
-          {% with object.entity_type.survey_set.all as survey_set %}
-            {% if survey_set.count == 1 %}
-              <a class="btn primary" href="{% url survey_response object.pk, survey_set.0.pk %}">Add response</a></li>
-            {% else %}
-              {% for survey in survey_set %}
-                <a class="btn" href="{% url survey_response object.pk, survey.pk %}">Respond to: {{survey.name}}</a></li>
-              {% endfor %}
-            {% endif %}
-          {% endwith %}
-        </div>
       </div>
     </div>
   </div>
