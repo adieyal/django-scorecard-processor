@@ -21,6 +21,6 @@ class Concat(base.ProcessPlugin):
     output_type = TextRenderer
 
     def process(self):
-        return self.output_type([(v.response_set.entity, v.get_value()) for v in self.get_arguments().response.get_values()])
+        return self.output_type([(', '.join([v.response_set.entity.name]+[ds.name for ds in v.response_set.get_data_series()]), v.get_value()) for v in self.get_arguments().response.get_values()])
 
 register.register('process','Text','concat',Concat)

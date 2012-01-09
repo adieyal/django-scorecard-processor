@@ -89,6 +89,11 @@ class ResponseSet(models.Model):
     def __unicode__(self):
         return "ResponseSet for %s about %s" % (self.survey, self.entity)
 
+    def get_data_series(self):
+        if not hasattr(self, '_data_series'):
+            self._data_series = self.data_series.all()
+        return self._data_series
+
     def get_responses(self):
         data = []
         responses = dict([(r.question,r) for r in self.response_set.filter(current=True).select_related('question')])
