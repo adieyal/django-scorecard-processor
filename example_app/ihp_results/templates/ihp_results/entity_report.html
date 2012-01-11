@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block head_title %}Report results - {{object.name}}{% endblock %}
+{% block head_title %}Report results - {{entity.name}}{% endblock %}
 {% block script_bottom %}
 {{block.super}}
 <script type="text/javascript">
@@ -30,10 +30,10 @@
   <div class="fluid-container">
     <div class="content">
       <div class="page-header">
-        <h1><a href="{{object.get_absolute_url}}">{{object.name}}</a> results</h1>
+        <h1><a href="{{entity.get_absolute_url}}">{{entity.name}}</a> results</h1>
       </div>
       <table style="width:auto" class="bordered-table zebra-striped condensed-table">
-        {% for operation, items in results.items %}
+        {% for operation, items in data.items %}
           {% if forloop.counter == 1 %}
             <thead>
               <tr>

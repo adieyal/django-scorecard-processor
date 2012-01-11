@@ -109,6 +109,8 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
 
+    'ihp_results',
+
     'scorecard_processor',
     'sample',
 

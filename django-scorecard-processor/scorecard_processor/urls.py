@@ -11,7 +11,8 @@ question_qs = Question.objects.all()
 scorecard_qs = Scorecard.objects.all()
 reportrun_qs = ReportRun.objects.all()
 
-from views import SurveyResponses, entity_run_report
+from views import SurveyResponses
+from reports import get_entity_urls
 
 urlpatterns = patterns('scorecard_processor.views',
     url(r'^$', 'index', name="scorecard_index"),
@@ -78,9 +79,8 @@ urlpatterns = patterns('scorecard_processor.views',
         {'queryset':entity_qs}, 
         name="show_entity"
     ),
-    url(r'^entity/(?P<object_id>\d+)/report/(?P<scorecard_id>\d+)/$', 
-        entity_run_report,
-        name="entity_report"
+    url(r'^entity/(?P<entity_id>\d+)/reports/', 
+        include(get_entity_urls())
     ),
     url(r'^entity/(?P<object_id>\d+)/survey/add/(?P<survey_id>\d+)/$','add_survey',name="survey_response"),
     #TODO: urls for responses per survey

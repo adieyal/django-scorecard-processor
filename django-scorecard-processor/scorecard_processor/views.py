@@ -56,25 +56,6 @@ def run_report(request, object_id):
 # Entity oriented
 #################################################################
 
-from pprint import pprint
-
-@login_required
-def entity_run_report(request, object_id, scorecard_id):
-    obj = get_object_or_404(Entity, pk=object_id)
-    scorecard = get_object_or_404(Scorecard, pk=scorecard_id)
-    rs = get_responsesets(scorecard, limit_to_entity=[obj], aggregate_by_entity=True, aggregate_on=DataSeriesGroup.objects.get(name='Country'),compare_series=DataSeriesGroup.objects.get(name='Data collection year'))
-    operations = OrderedDict()
-    for country, data in rs[obj].items():
-        result = scorecard.get_values(data)
-        for operation, data in result:
-            operations[operation] = operations.get(operation,[])
-            operations[operation].append((country,data))
-    return render_to_response(
-        'scorecard_processor/entity_report.html',
-        {'object':obj, 'results':operations},
-        RequestContext(request)
-    )
-
 #################################################################
 # User response section
 #################################################################
