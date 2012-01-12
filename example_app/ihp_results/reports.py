@@ -1,3 +1,4 @@
+from decimal import Decimal
 from django.shortcuts import get_object_or_404
 from django.core.urlresolvers import reverse
 try:
@@ -7,6 +8,7 @@ except ImportError:
 
 from collections import defaultdict
 
+from scorecard_processor.plugins.types import Scalar
 from scorecard_processor.reports import EntityReport, ProjectReport
 from scorecard_processor.models import Entity, DataSeries, DataSeriesGroup, Scorecard
 from scorecard_processor.models.outputs import get_responsesets
@@ -62,6 +64,9 @@ class AgencyReport(ProjectReport):
             elif indicator.identifier in ["4G"]:
                 if cur_val <= 20:
                     return 'tick'
+            else:
+                if cur_val > 80:
+                    return 'tick'
         else:
             return 'none'
         return 'cross'
@@ -73,9 +78,15 @@ class AgencyReport(ProjectReport):
         operations = OrderedDict()
         for entity, data in rs.items():
             result = scorecard.get_values(data)
+            first = True
             for operation, data in result:
                 operations[operation] = operations.get(operation,[])
-                data.append(('rating',self.get_rating(operation,data[0][1], data[1][1])))
+                if data[1][1] is not None and isinstance(data[1][1],Scalar) and isinstance(data[1][1].get_value(), Decimal):
+                    data.append(('rating',self.get_rating(operation,data[0][1], data[1][1])))
+
+                if first:
+                    if len(data)==2:
+                        data.append(('rating',''))
                 operations[operation].append((entity,data))
         return operations
 
