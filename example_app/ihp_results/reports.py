@@ -44,6 +44,28 @@ class AgencyReport(ProjectReport):
     template_name = 'ihp_results/agency_report.html'
     url = r'^agency/(?P<scorecard_id>\d+)/$'
 
+    def get_rating(self, indicator, base_val, cur_val):
+        if cur_val is not None:
+            if indicator.identifier in ["5DPa", "5DPb"]:
+                if cur_val <= 20:
+                    return 'tick' 
+            elif indicator.identifier in ["2DPa"]:
+                if cur_val <= 15:
+                    return 'tick'
+            elif indicator.identifier in ["5DPc"]:
+                if cur_val == 0:
+                    return 'tick'
+            elif indicator.identifier in ["5Ga"]:
+                if base_val is not None:
+                    if cur_val - base_val >= 0.5:
+                        return 'tick'
+            elif indicator.identifier in ["4G"]:
+                if cur_val <= 20:
+                    return 'tick'
+        else:
+            return 'none'
+        return 'cross'
+
     def get_data(self):
         scorecard_id = self.kwargs['scorecard_id']
         scorecard = get_object_or_404(Scorecard, pk=scorecard_id)
@@ -53,6 +75,7 @@ class AgencyReport(ProjectReport):
             result = scorecard.get_values(data)
             for operation, data in result:
                 operations[operation] = operations.get(operation,[])
+                data.append(('rating',self.get_rating(operation,data[0][1], data[1][1])))
                 operations[operation].append((entity,data))
         return operations
 

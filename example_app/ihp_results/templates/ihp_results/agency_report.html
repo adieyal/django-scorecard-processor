@@ -46,7 +46,7 @@
                 <th>Operation</th> 
                 {% for country, data in items %}
                   {% for series, v in data %}
-                   <th>{{series.name}}</th>
+                   <th>{{series.name|default:series}}</th>
                   {% endfor %}
                 {% endfor %}
               </tr>
@@ -57,7 +57,7 @@
             <th title="{{operation.description}}">{{operation.identifier}}</th>
             {% for country, data in items %}
               {% for series, v in data %}
-               <td>{% if v %}{{v.as_html}}{% endif %}</td>
+               <td>{% if v.as_html %}{{v.as_html}}{% else %}<img src="{{STATIC_URL}}ihp_results/{{v}}.png" />{% endif %}</td>
               {% endfor %}
             {% endfor %}
           </tr>
