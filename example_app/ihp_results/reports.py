@@ -84,15 +84,14 @@ class AgencyReport(ProjectReport):
         for entity, data in rs.items():
             result = scorecard.get_values(data)
             first = True
-            print(entity)
             for operation, data in result:
                 operations[operation] = operations.get(operation,[])
-                if data[1][1] is not None and isinstance(data[1][1],Scalar) and isinstance(data[1][1].get_value(), Decimal):
-                    data.append(('rating',self.get_rating(operation,data[0][1], data[1][1])))
+                #if data[1][1] is not None and isinstance(data[1][1],Scalar) and isinstance(data[1][1].get_value(), Decimal):
+                #    data.append(('rating',self.get_rating(operation,data[0][1], data[1][1])))
 
-                if first:
-                    if len(data)==2:
-                        data.append(('rating',''))
+                #if first:
+                #    if len(data)==2:
+                #        data.append(('rating',''))
                 operations[operation].append((entity,data))
         return operations
 
