@@ -10,10 +10,12 @@ class SingleValue(base.ProcessPlugin):
 
     def process(self):
         values = self.get_arguments().items.get_values()
-        assert len(values) == 1
-        if values[0].get_value().lower() == self.get_config('value'):
-            return self.output_type(self.get_config('match'))
-        return self.output_type(self.get_config('miss'))
+        if len(values) == 1:
+            if values[0].get_value().lower() == self.get_config('value'):
+                return self.output_type(self.get_config('match'))
+            return self.output_type(self.get_config('miss'))
+        else:
+            return None
 
 class SingleValueInteger(SingleValue):
     name = 'Validate single value (100 / 0)'

@@ -39,7 +39,7 @@
               <tr>
                 <th></th>
                 {% for series, v in items %}
-                   <th colspan={{v|length}}>{{series.abbreviation}}</th>
+                   <th colspan={{v|length}}>{{series.abbreviation|default:series.name}}</th>
                 {% endfor %}
               </tr>
               <tr>
