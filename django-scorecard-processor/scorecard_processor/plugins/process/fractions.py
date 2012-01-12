@@ -19,9 +19,11 @@ class NumDenomPlugin(base.ProcessPlugin):
     output_type = base.Scalar
     options = {
         'pair_values':[None, 'entity_id', 'response_set_id'],
+        'decimal_places':int,
     }
     defaults = {
         'pair_values':'response_set_id',
+        'decimal_places':1
     }
 
 
@@ -68,7 +70,11 @@ class NumDenomPlugin(base.ProcessPlugin):
         denominator = decimal.Decimal(str(reduce(sum_values, denominator)))
         if denominator == 0:
             return None
-        quant = decimal.Decimal('1.00')
+        places = self.get_config('decimal_places')
+        if places>0:
+            quant = decimal.Decimal('.'.join(['1','0'*places]))
+        else:
+            quant = decimal.Decimal('1')
         return self.output_type((100 * (
                 numerator / 
                 denominator
