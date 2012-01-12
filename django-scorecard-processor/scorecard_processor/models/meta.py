@@ -12,6 +12,13 @@ class Project(models.Model):
     def __unicode__(self):
         return "Project: %s" % (self.name)
 
+    def get_report_links(self):
+        from scorecard_processor import reports
+        links = []
+        for name, report in reports.get_project_reports():
+            links.extend(report().get_report_links(self))
+        return links
+
 class DataSeriesGroup(models.Model):
     name = models.CharField(max_length=30,primary_key=True)
     project = models.ForeignKey(Project)
@@ -84,7 +91,6 @@ class Entity(models.Model):
         for name, report in reports.get_entity_reports():
             links.extend(report().get_report_links(self))
         return links
-
 
     def __unicode__(self):
         if self.abbreviation:

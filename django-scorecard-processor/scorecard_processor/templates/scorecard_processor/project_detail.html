@@ -45,6 +45,16 @@
                   </ul>
               </div>
             </div>
+            <div class="row">
+              <div class="span8"> 
+                <h3>Other Reports</h3>
+                  <ul>
+                  {% for link, name in object.get_report_links %}
+                    <li><a href="{{link}}">{{name}}</a><br />
+                  {% endfor %}
+                  </ul>
+              </div>
+            </div>
         </div>
       </div>
       <div class="row">

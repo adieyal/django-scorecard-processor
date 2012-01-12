@@ -12,7 +12,7 @@ scorecard_qs = Scorecard.objects.all()
 reportrun_qs = ReportRun.objects.all()
 
 from views import SurveyResponses
-from reports import get_entity_urls
+from reports import get_entity_urls, get_project_urls
 
 urlpatterns = patterns('scorecard_processor.views',
     url(r'^$', 'index', name="scorecard_index"),
@@ -57,14 +57,17 @@ urlpatterns = patterns('scorecard_processor.views',
         name="show_scorecard"
     ),
 
-    url(r'^project/(\d+)/report/(?P<object_id>\d+)/$',
+    url(r'^project/(\d+)/reports/generic/(?P<object_id>\d+)/$',
         login_required(object_detail),
         {'queryset': reportrun_qs}, 
         name="show_report"
     ),
-    url(r'^project/(\d+)/report/(?P<object_id>\d+)/run/$',
+    url(r'^project/(\d+)/reports/generic/(?P<object_id>\d+)/run/$',
         "run_report",
         name="run_report"
+    ),
+    url(r'^project/(?P<project_id>\d+)/reports/', 
+        include(get_project_urls())
     ),
 
 
