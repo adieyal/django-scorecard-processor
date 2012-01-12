@@ -13,17 +13,28 @@ reports = {
 def get_entity_urls():
     return patterns('',*[e.get_url() for e in reports['entity'].values()])
 
+def get_entity_reports():
+    return reports['entity'].items()
+
 class Report(TemplateView):
+    
+    @classmethod
+    def get_url_name(cls):
+        return cls.__name__+'_report'
+
     @classmethod
     def get_url(cls):
-        return url(cls.url, login_required(cls.as_view()), name=cls.__name__+'_report')
+        return url(cls.url, login_required(cls.as_view()), name=cls.get_url_name())
 
 class EntityReport(Report):
     """ Report related to an entity """
 
     def dispatch(self, request, *args, **kwargs):
-        self.entity = get_object_or_404(Entity, pk=kwargs['entity_id'])
+        self.set_entity(get_object_or_404(Entity, pk=kwargs['entity_id']))
         return Report.dispatch(self, request, *args, **kwargs)
+
+    def set_entity(self, entity):
+        self.entity = entity
 
     def get_data(self):
         raise NotImplementedError
@@ -33,6 +44,9 @@ class EntityReport(Report):
 
     def render_tabular(self):
         """ Renders data in tabular form, using tablib, for multiple output formats """
+        raise NotImplementedError
+
+    def get_report_links(self, entity=None):
         raise NotImplementedError
 
     @classmethod

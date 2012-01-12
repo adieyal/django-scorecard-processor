@@ -3,10 +3,6 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404
 from django.views.generic import DetailView, ListView
 from django.contrib.auth.decorators import login_required
-try:
-    from collections import OrderedDict
-except ImportError:
-    from ordereddict import OrderedDict
 
 from models import ResponseSet, Survey, Entity, ReportRun, DataSeries, DataSeriesGroup, Scorecard
 from models.outputs import get_responsesets

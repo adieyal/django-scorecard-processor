@@ -56,6 +56,7 @@ class EntityType(models.Model):
     def __unicode__(self):
         return "%s / %s" % (self.name, self.plural)
 
+
 class Entity(models.Model):
     """
     An entity / organisation
@@ -76,6 +77,14 @@ class Entity(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return ('show_entity',(str(self.pk),))
+
+    def get_report_links(self):
+        from scorecard_processor import reports
+        links = []
+        for name, report in reports.get_entity_reports():
+            links.extend(report().get_report_links(self))
+        return links
+
 
     def __unicode__(self):
         if self.abbreviation:

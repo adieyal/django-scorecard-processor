@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404
+from django.core.urlresolvers import reverse
 try:
     from collections import OrderedDict
 except ImportError:
@@ -23,5 +24,16 @@ class CountryReport(EntityReport):
                 operations[operation] = operations.get(operation,[])
                 operations[operation].append((country,data))
         return operations
+
+    def get_report_links(self, entity=None):
+        links = []
+        name = self.get_url_name()
+        entity = entity or getattr(self,'entity')
+        for scorecard in entity.project.scorecard_set.all().only('id'):
+            links.append((
+                reverse(name,args=[entity.pk, scorecard.pk]),
+                scorecard.name
+            ))
+        return links
 
 CountryReport.register('entity_by_country')

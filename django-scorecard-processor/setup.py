@@ -31,7 +31,7 @@ setup(
     description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
     platforms=['any'],
-    install_requires=['django-cerial','django-grapelli','south','django-bootstrap','tablib','xlrd','xlwt','ordereddict'],
+    install_requires=['django-cerial','django-grapelli','south','django-bootstrap','tablib','xlrd','xlwt'],
     classifiers=CLASSIFIERS,
 )
 

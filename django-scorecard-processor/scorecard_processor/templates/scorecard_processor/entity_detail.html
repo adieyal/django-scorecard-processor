@@ -37,8 +37,8 @@
               <div class="span7">
                 <h2>View Reports</h2>
                 <ul>
-                {% for report in object.project.scorecard_set.all %}
-                  <li><a href="{% url entity_report object.pk, report.pk %}">{{report}}</a></li>
+                {% for link, name in object.get_report_links %}
+                  <li><a href="{{link}}">{{name}}</a></li>
                 {% endfor %}
                 </ul>
               </div>
