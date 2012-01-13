@@ -83,9 +83,23 @@ class AgencyReport(ProjectReport):
         operations = OrderedDict()
         for entity, data in rs.items():
             result = scorecard.get_values(data)
-            first = True
             for operation, data in result:
                 operations[operation] = operations.get(operation,[])
+
+                change = ''
+                base, curr = data
+                base, curr = base[1], curr[1]
+                if base is not None and curr is not None:
+                    if isinstance(curr, Scalar) and isinstance(curr.get_value(), Decimal):
+                        change = Scalar(100)
+                        if isinstance(base, Scalar) and isinstance(base.get_value(),Decimal):
+                            if base.get_value() == 0:
+                                change = ''
+                            else:
+                                change = Scalar(((curr.get_value() / base.get_value() * 100)-100).quantize(Decimal('1.0')))
+
+                data.append(('% change', change))
+
                 #if data[1][1] is not None and isinstance(data[1][1],Scalar) and isinstance(data[1][1].get_value(), Decimal):
                 #    data.append(('rating',self.get_rating(operation,data[0][1], data[1][1])))
 
