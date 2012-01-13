@@ -1,3 +1,4 @@
+import decimal 
 from scorecard_processor.plugins import base, register
 
 class Count(base.ProcessPlugin):
@@ -12,15 +13,29 @@ class Count(base.ProcessPlugin):
 
 class CountValue(Count):
     name = "Frequency of keyword (%)"
-    options = {'value':basestring}
-    defaults = {'value':'yes'}
+    options = {
+        'value':basestring,
+        'decimal_places':int,
+    }
+    defaults = {
+        'decimal_places':1,
+        'value':'yes'
+    }
+
     def process(self):
         items = self.get_arguments().items.get_values()
         count = len(items)
         if count == 0:
             return None
         count_values = len(filter(lambda x: x.get_value().lower() == self.get_config('value'),items))
-        return self.output_type(count_values / count * 100)
+
+        places = self.get_config('decimal_places')
+        if places>0:
+            quant = decimal.Decimal('.'.join(['1','0'*places]))
+        else:
+            quant = decimal.Decimal('1')
+
+        return self.output_type((decimal.Decimal(count_values) / count * 100).quantize(quant))
 
 
 register.register('process','Count','count_items',Count)
