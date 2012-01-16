@@ -2144,7 +2144,7 @@
       "configuration": "", 
       "description": "5DPa", 
       "scorecard": 1, 
-      "operation": "num_denom", 
+      "operation": "one_minus_num_denom", 
       "identifier": "5DPa"
     }
   }, 
@@ -2156,7 +2156,7 @@
       "configuration": "", 
       "description": "5DPb", 
       "scorecard": 1, 
-      "operation": "num_denom", 
+      "operation": "one_minus_num_denom", 
       "identifier": "5DPb"
     }
   }, 
