@@ -8,10 +8,13 @@ except ImportError:
 
 from collections import defaultdict
 
-from scorecard_processor.plugins.types import Scalar
+from scorecard_processor.plugins.types import Scalar, NOT_APPLICABLE
 from scorecard_processor.reports import EntityReport, ProjectReport
 from scorecard_processor.models import EntityType, Entity, DataSeries, DataSeriesGroup, Scorecard
 from scorecard_processor.models.outputs import get_responsesets
+
+from target_criteria import indicators, criteria_funcs, MissingValueException, CannotCalculateException
+
 
 class CountryReport(EntityReport):
     template_name = 'ihp_results/entity_report.html'
@@ -42,34 +45,53 @@ class CountryReport(EntityReport):
 
 CountryReport.register('entity_by_country')
 
+class Rating(object):
+    TICK = 'tick'
+    ARROW = 'arrow'
+    CROSS = 'cross'
+    QUESTION = 'question' 
+    NONE = 'none'
+
 class AgencyReport(ProjectReport):
     template_name = 'ihp_results/agency_report.html'
     url = r'^agency/(?P<scorecard_id>\d+)/$'
 
     def get_rating(self, indicator, base_val, cur_val):
-        if cur_val is not None:
+
+        indicator_data = indicators[indicator.identifier]
+        tick_func = criteria_funcs[indicator_data['tick_function']]
+        arrow_func = criteria_funcs[indicator_data['arrow_function']]
+
+        if cur_val not in [None, NOT_APPLICABLE]:
             if indicator.identifier in ["5DPa", "5DPb"]:
                 if cur_val <= 20:
-                    return 'tick' 
+                    return Rating.TICK
             elif indicator.identifier in ["2DPa"]:
                 if cur_val <= 15:
-                    return 'tick'
+                    return Rating.TICK
             elif indicator.identifier in ["5DPc"]:
                 if cur_val == 0:
-                    return 'tick'
+                    return Rating.TICK
             elif indicator.identifier in ["5Ga"]:
-                if base_val is not None:
+                if base_val not in [None, NOT_APPLICABLE]:
                     if cur_val - base_val >= 0.5:
-                        return 'tick'
+                        return Rating.TICK
             elif indicator.identifier in ["4G"]:
                 if cur_val <= 20:
-                    return 'tick'
+                    return Rating.TICK
+
+        try:
+            if tick_func(float(base_val), float(cur_val), indicator_data['tick_value']):
+                return Rating.TICK
+            elif arrow_func(float(base_val), float(cur_val), indicator_data['arrow_value']):
+                return Rating.ARROW
             else:
-                if cur_val > 80:
-                    return 'tick'
-        else:
-            return 'none'
-        return 'cross'
+                return Rating.CROSS
+        except MissingValueException:
+            return Rating.QUESTION
+        except CannotCalculateException:
+            return Rating.NONE
+
 
     def get_data(self):
         scorecard_id = self.kwargs['scorecard_id']
@@ -86,9 +108,10 @@ class AgencyReport(ProjectReport):
             for operation, data in result:
                 operations[operation] = operations.get(operation,[])
 
-                change = ''
                 base, curr = data
                 base, curr = base[1], curr[1]
+
+                change = ''
                 if base is not None and curr is not None:
                     if isinstance(curr, Scalar) and isinstance(curr.get_value(), Decimal):
                         change = Scalar(100)
@@ -100,9 +123,14 @@ class AgencyReport(ProjectReport):
 
                 data.append(('% change', change))
 
-                #if data[1][1] is not None and isinstance(data[1][1],Scalar) and isinstance(data[1][1].get_value(), Decimal):
-                #    data.append(('rating',self.get_rating(operation,data[0][1], data[1][1])))
+                rating = 'none'
+                if curr is not None and isinstance(curr,Scalar) and isinstance(curr.get_value(), Decimal):
+                    if base != None:
+                        rating = self.get_rating(operation, base.get_value(), curr.get_value())
+                    else:
+                        rating = Rating.NONE
 
+                data.append(('rating', rating))
                 #if first:
                 #    if len(data)==2:
                 #        data.append(('rating',''))

@@ -1,5 +1,7 @@
 from django.utils.safestring import mark_safe
 
+NOT_APPLICABLE = 'n/a'
+
 class Value(object):
     def __init__(self, item, extractor_class=None):
         if extractor_class:
