@@ -4,7 +4,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.views.generic.base import TemplateView
 
-from models import Entity
+from models import Entity, Project
 
 reports = {
     'entity':{},
@@ -67,7 +67,7 @@ class ProjectReport(Report):
     """ Report related to an project """
 
     def dispatch(self, request, *args, **kwargs):
-        self.set_project(get_object_or_404(Entity, pk=kwargs['project_id']))
+        self.set_project(get_object_or_404(Project, pk=kwargs['project_id']))
         return Report.dispatch(self, request, *args, **kwargs)
 
     def set_project(self, project):
