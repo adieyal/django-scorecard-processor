@@ -112,7 +112,6 @@ INSTALLED_APPS = (
     'ihp_results',
 
     'scorecard_processor',
-    'sample',
 
     # Uncomment the next line to enable the admin:
     "django.contrib.staticfiles",
