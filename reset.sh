@@ -1,6 +1,6 @@
 #!/bin/bash
 cd `dirname $0`
-cd example_app
+cd ihp
 epio delete
 rm .epio-app
 sleep 5

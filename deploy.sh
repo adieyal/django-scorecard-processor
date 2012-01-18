@@ -1,14 +1,14 @@
 #!/bin/bash
 cd `dirname $0`
-rm -rf /tmp/example_app/
-cp -R example_app /tmp/
-rm /tmp/example_app/scorecard_processor
-rm /tmp/example_app/*db
-cp -R django-scorecard-processor/scorecard_processor /tmp/example_app/
-cd /tmp/example_app/
+rm -rf /tmp/ihp/
+cp -R ihp /tmp/
+rm /tmp/ihp/scorecard_processor
+rm /tmp/ihp/*db
+cp -R django-scorecard-processor/scorecard_processor /tmp/ihp/
+cd /tmp/ihp/
 epio upload
 curl http://ihpscorecard.ep.io > /dev/null &
 epio django syncdb -- --noinput
 epio django migrate
 cd -
-rm -rf /tmp/example_app/
+rm -rf /tmp/ihp/

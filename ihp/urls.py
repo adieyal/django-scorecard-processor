@@ -7,7 +7,6 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Example:
-    # (r'^example_app/', include('example_app.foo.urls')),
     (r'^$', direct_to_template, {'template':'index.html'}),
     (r'^accounts/', include('django.contrib.auth.urls')),
     (r'^scorecard/', include('scorecard_processor.urls')),
