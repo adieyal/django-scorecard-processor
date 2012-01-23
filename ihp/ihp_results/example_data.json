@@ -537,9 +537,15 @@
     "model": "scorecard_processor.survey", 
     "fields": {
       "project": 1, 
-      "entity_types": [], 
+      "entity_types": [
+        "agency"
+      ], 
       "name": "2012 Survey for Agencies", 
-      "data_series_groups": []
+      "data_series_groups": [
+        "Country", 
+        "Data collection year", 
+        "Year"
+      ]
     }
   }, 
   {
@@ -1051,12 +1057,12 @@
     "pk": 90, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "currency", 
+      "widget": "date", 
       "group": 39, 
       "question": "What value of health sector aid for procurement was disbursed? ", 
       "validator": "anything", 
       "survey": 3, 
-      "help_text": null, 
+      "help_text": "", 
       "identifier": "10"
     }
   }, 
@@ -1064,12 +1070,12 @@
     "pk": 91, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "currency", 
+      "widget": "date", 
       "group": 39, 
       "question": "What value of this used national procurement systems ?", 
       "validator": "anything", 
       "survey": 3, 
-      "help_text": null, 
+      "help_text": "", 
       "identifier": "11"
     }
   }, 
@@ -1077,12 +1083,12 @@
     "pk": 92, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "currency", 
+      "widget": "date", 
       "group": 40, 
       "question": "What value of health sector aid for the government sector (Q2) used national public financial management systems? ", 
       "validator": "anything", 
       "survey": 3, 
-      "help_text": null, 
+      "help_text": "", 
       "identifier": "12"
     }
   }, 
@@ -1129,12 +1135,12 @@
     "pk": 96, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "aid_types", 
+      "widget": "date", 
       "group": 44, 
       "question": "What support, if any, did you provide to civil society organisations to enable them to participate in health sector policy processes - including health sector planning, coordination and review mechanisms? (please enter Yes (Y) in as many categories as appropriate).", 
       "validator": "anything", 
       "survey": 3, 
-      "help_text": null, 
+      "help_text": "", 
       "identifier": "16"
     }
   }, 
@@ -1142,12 +1148,12 @@
     "pk": 97, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "currency", 
+      "widget": "date", 
       "group": 44, 
       "question": "What value of general budget support did you disburse?", 
       "validator": "anything", 
       "survey": 3, 
-      "help_text": null, 
+      "help_text": "", 
       "identifier": "17"
     }
   }, 
@@ -1155,12 +1161,12 @@
     "pk": 98, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "currency", 
+      "widget": "date", 
       "group": 44, 
       "question": "What value of sector budget support did you disburse?", 
       "validator": "anything", 
       "survey": 3, 
-      "help_text": null, 
+      "help_text": "", 
       "identifier": "18"
     }
   }, 
@@ -1194,12 +1200,12 @@
     "pk": 82, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "currency", 
+      "widget": "date", 
       "group": 34, 
       "question": "What value of health sector aid for the government sector did you disburse?  ", 
       "validator": "anything", 
       "survey": 3, 
-      "help_text": null, 
+      "help_text": "", 
       "identifier": "2"
     }
   }, 
@@ -1246,12 +1252,12 @@
     "pk": 83, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "currency", 
+      "widget": "date", 
       "group": 34, 
       "question": "What value of this was reported on national health sector budgets in 2011?", 
       "validator": "anything", 
       "survey": 3, 
-      "help_text": null, 
+      "help_text": "", 
       "identifier": "3"
     }
   }, 
@@ -1285,12 +1291,12 @@
     "pk": 84, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "currency", 
+      "widget": "date", 
       "group": 35, 
       "question": "What value of technical cooperation for health did you disburse?", 
       "validator": "anything", 
       "survey": 3, 
-      "help_text": null, 
+      "help_text": "", 
       "identifier": "4"
     }
   }, 
@@ -1298,12 +1304,12 @@
     "pk": 85, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "currency", 
+      "widget": "date", 
       "group": 35, 
       "question": "What value of this did you disburse through coordinated programmes that are consistent with national plans/strategies for the health sector?", 
       "validator": "anything", 
       "survey": 3, 
-      "help_text": null, 
+      "help_text": "", 
       "identifier": "5"
     }
   }, 
@@ -1311,12 +1317,12 @@
     "pk": 86, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "currency", 
+      "widget": "date", 
       "group": 36, 
       "question": "What value of health sector aid  did you disburse at country level? ", 
       "validator": "anything", 
       "survey": 3, 
-      "help_text": null, 
+      "help_text": "", 
       "identifier": "6"
     }
   }, 
@@ -1324,12 +1330,12 @@
     "pk": 87, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "currency", 
+      "widget": "date", 
       "group": 36, 
       "question": "What value of health sector aid did you disburse in support of initiatives adopting programme-based aproaches?", 
       "validator": "anything", 
       "survey": 3, 
-      "help_text": null, 
+      "help_text": "", 
       "identifier": "7"
     }
   }, 
@@ -1337,12 +1343,12 @@
     "pk": 88, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "currency", 
+      "widget": "date", 
       "group": 37, 
       "question": "What value of the health sector aid that you disbursed was provided through multi-year commitments (at least 3 years)? ", 
       "validator": "anything", 
       "survey": 3, 
-      "help_text": null, 
+      "help_text": "", 
       "identifier": "8"
     }
   }, 
@@ -1350,12 +1356,12 @@
     "pk": 89, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "currency", 
+      "widget": "date", 
       "group": 38, 
       "question": "What value of health sector aid did you plan to disburse at country level?", 
       "validator": "anything", 
       "survey": 3, 
-      "help_text": null, 
+      "help_text": "", 
       "identifier": "9"
     }
   }, 
