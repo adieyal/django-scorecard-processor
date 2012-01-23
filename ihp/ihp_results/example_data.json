@@ -3,7 +3,7 @@
     "pk": 1, 
     "model": "scorecard_processor.project", 
     "fields": {
-      "name": "IHP example"
+      "name": "IHP Results"
     }
   }, 
   {
@@ -242,6 +242,14 @@
     "fields": {
       "project": 1, 
       "plural": "Governments"
+    }
+  }, 
+  {
+    "pk": "non-IHP agency", 
+    "model": "scorecard_processor.entitytype", 
+    "fields": {
+      "project": 1, 
+      "plural": "non-IHP agencies"
     }
   }, 
   {
@@ -502,7 +510,7 @@
       "entity_types": [
         "agency"
       ], 
-      "name": "Survey for Agencies", 
+      "name": "2011 Survey for Agencies", 
       "data_series_groups": [
         "Country", 
         "Year"
@@ -517,7 +525,7 @@
       "entity_types": [
         "government"
       ], 
-      "name": "Survey for Government", 
+      "name": "2011 Survey for Government", 
       "data_series_groups": [
         "Country", 
         "Year"
