@@ -63,7 +63,7 @@ class Command(BaseCommand):
                     '14':'yes_no_na_choice',
                     '15':'yes_no_na_choice',
                     '16':'aid_types',
-                }.get(q_num,'fixed_currency')
+                }.get(q_num,'multi_currency')
 
             if q_num == '16':
                 if tick_mode == False:
