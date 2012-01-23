@@ -1161,7 +1161,7 @@
     "pk": 83, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "fixed_currency", 
+      "widget": "multi_currency", 
       "group": 34, 
       "question": "What value of health sector aid for the government sector did you disburse?  ", 
       "validator": "anything", 
@@ -1174,7 +1174,7 @@
     "pk": 84, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "fixed_currency", 
+      "widget": "multi_currency", 
       "group": 34, 
       "question": "What value of this was reported on national health sector budgets in 2011?", 
       "validator": "anything", 
@@ -1200,7 +1200,7 @@
     "pk": 86, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "fixed_currency", 
+      "widget": "multi_currency", 
       "group": 35, 
       "question": "What value of technical cooperation for health did you disburse?", 
       "validator": "anything", 
@@ -1213,7 +1213,7 @@
     "pk": 87, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "fixed_currency", 
+      "widget": "multi_currency", 
       "group": 35, 
       "question": "What value of this did you disburse through coordinated programmes that are consistent with national plans/strategies for the health sector?", 
       "validator": "anything", 
@@ -1239,7 +1239,7 @@
     "pk": 89, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "fixed_currency", 
+      "widget": "multi_currency", 
       "group": 36, 
       "question": "What value of health sector aid  did you disburse at country level? ", 
       "validator": "anything", 
@@ -1252,7 +1252,7 @@
     "pk": 90, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "fixed_currency", 
+      "widget": "multi_currency", 
       "group": 36, 
       "question": "What value of health sector aid did you disburse in support of initiatives adopting programme-based aproaches?", 
       "validator": "anything", 
@@ -1278,7 +1278,7 @@
     "pk": 92, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "fixed_currency", 
+      "widget": "multi_currency", 
       "group": 37, 
       "question": "What value of the health sector aid that you disbursed was provided through multi-year commitments (at least 3 years)? ", 
       "validator": "anything", 
@@ -1304,7 +1304,7 @@
     "pk": 94, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "fixed_currency", 
+      "widget": "multi_currency", 
       "group": 38, 
       "question": "What value of health sector aid did you plan to disburse at country level?", 
       "validator": "anything", 
@@ -1330,7 +1330,7 @@
     "pk": 96, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "fixed_currency", 
+      "widget": "multi_currency", 
       "group": 39, 
       "question": "What value of health sector aid for procurement was disbursed? ", 
       "validator": "anything", 
@@ -1343,7 +1343,7 @@
     "pk": 97, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "fixed_currency", 
+      "widget": "multi_currency", 
       "group": 39, 
       "question": "What value of this used national procurement systems ?", 
       "validator": "anything", 
@@ -1369,7 +1369,7 @@
     "pk": 99, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "fixed_currency", 
+      "widget": "multi_currency", 
       "group": 40, 
       "question": "What value of health sector aid for the government sector (Q2) used national public financial management systems? ", 
       "validator": "anything", 
@@ -1486,7 +1486,7 @@
     "pk": 108, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "fixed_currency", 
+      "widget": "multi_currency", 
       "group": 44, 
       "question": "What value of general budget support did you disburse?", 
       "validator": "anything", 
@@ -1499,7 +1499,7 @@
     "pk": 109, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "fixed_currency", 
+      "widget": "multi_currency", 
       "group": 44, 
       "question": "What value of sector budget support did you disburse?", 
       "validator": "anything", 

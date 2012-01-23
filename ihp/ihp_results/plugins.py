@@ -30,7 +30,7 @@ class CurrencyWidget(MultiWidget):
     def decompress(self, value):
         if value:
             return [value[0:3], Decimal(value[3:])]
-        return ['USD','']
+        return ['','']
 
 from scorecard_processor.plugins.input.currency import FixedCurrency
 
@@ -45,7 +45,7 @@ class CurrencySelector(MultiValueField):
         errors = self.default_error_messages.copy()
         if 'error_messages' in kwargs:
             errors.update(kwargs['error_messages'])
-        required = kwargs.get('required', False)
+        self.required = kwargs.get('required', False)
         localize = kwargs.get('localize', False)
         choices = (
                      ('USD', 'US Dollar'),
@@ -70,10 +70,10 @@ class CurrencySelector(MultiValueField):
                 )
         fields = (
             ChoiceField(error_messages={'invalid': self.errors['invalid_currency']},
-                      localize=localize, choices=choices, required=required),
+                      localize=localize, choices=choices, required=self.required),
             FixedCurrency(widget=TextInput,
                       error_messages={'invalid': self.errors['invalid_value']},
-                      localize=localize, required=required),
+                      localize=localize, required=self.required),
         )
         if 'widget' not in kwargs:
             kwargs['widget'] = self.widget(choices=choices)
@@ -82,9 +82,11 @@ class CurrencySelector(MultiValueField):
     def compress(self, data_list):
         if data_list:
             if data_list[1] in [None, '']:
-                raise ValidationError("Required")
+                if self.required:
+                    raise ValidationError(self.errors['invalid_value'])
+                return None
             return ''.join([unicode(d) for d in data_list]) 
-        return None
+        return ''
 
 
 register.register('input','IHP field','multi_currency', CurrencySelector)
