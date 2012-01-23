@@ -42,8 +42,7 @@ class Command(BaseCommand):
             row = sheet.row(row_num)
             if row[0].ctype != 0: #Empty
                 if section!=None:
-                    #Add comment
-                    pass
+                    question = section.question_set.create(survey=survey, identifier=section.name, question="Voluntary additional information", help_text="Please use this space to provide any additional information", widget='textbox')
                 section = survey.questiongroup_set.create(name=row[0].value, help_text=row[1].value)
 
                 if verbose:
@@ -64,7 +63,7 @@ class Command(BaseCommand):
                     '14':'yes_no_na_choice',
                     '15':'yes_no_na_choice',
                     '16':'aid_types',
-                }.get(q_num,'currency')
+                }.get(q_num,'fixed_currency')
 
             if q_num == '16':
                 if tick_mode == False:
