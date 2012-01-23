@@ -34,9 +34,9 @@ class Command(BaseCommand):
         countries = dict([(country.name, country) for country in models.DataSeriesGroup.objects.get(name="Country").dataseries_set.all()])
         years = dict([(y.name, y) for y in models.DataSeriesGroup.objects.get(name="Year").dataseries_set.all()])
         collections = dict([(c.name, c) for c in models.DataSeriesGroup.objects.get(name="Data collection year").dataseries_set.all()])
-        government_survey = models.Survey.objects.get(name="Survey for Government")
+        government_survey = models.Survey.objects.get(name="2011 Survey for Government")
         government_survey.questions = dict([(q.identifier, q) for q in government_survey.question_set.all()])
-        agency_survey = models.Survey.objects.get(name="Survey for Agencies")
+        agency_survey = models.Survey.objects.get(name="2011 Survey for Agencies")
         agency_survey.questions = dict([(q.identifier, q) for q in agency_survey.question_set.all()])
         for agency, response in data.items():
             try:
