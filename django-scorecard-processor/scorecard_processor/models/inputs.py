@@ -41,7 +41,6 @@ class Question(models.Model):
     help_text = models.TextField(blank=True, null=True)
     widget = models.CharField(max_length=30, default='text', choices=plugins.input_plugins_as_choices())
     validator = models.CharField(max_length=30, default='anything')
-    request_baseline = models.BooleanField(default=True)
 
     class Meta:
         app_label = "scorecard_processor"
