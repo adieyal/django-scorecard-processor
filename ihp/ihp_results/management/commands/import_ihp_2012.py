@@ -1,11 +1,11 @@
 from django.core.management.base import BaseCommand, CommandError
 from optparse import make_option
-import csv
+import xlrd
 from scorecard_processor import models
 
 class Command(BaseCommand):
-    args = '<filename.csv>'
-    help = 'Imports a legacy survey into the system'
+    args = '<filename.xls>'
+    help = 'Imports a 2012 legacy survey into the system'
     option_list = BaseCommand.option_list + (
         make_option('--name',
             dest='name',
@@ -19,111 +19,63 @@ class Command(BaseCommand):
     output_transaction = True
 
     def handle(self, *args, **options):
-        survey_file = csv.reader(open(args[0],'rb'))
+        survey_file = xlrd.open_workbook(args[0])
         name = options['name']
         verbose = options['verbose']
         if not name:
             raise CommandError("Require a name for the survey")
         
         group = None
-        survey = models.Survey(name=name, project=models.Project.objects.get())
-        survey.save()
+        survey, created = models.Survey.objects.get_or_create(name=name, project=models.Project.objects.get())
+        survey.question_set.all().delete()
+        survey.questiongroup_set.all().delete()
 
         skip = True
         sup = None
         order = 0
-        last_identifier = ''
-        for row in survey_file:
-            if not skip: 
-                widget = 'text'
-                grouper = row[2]
-                identifier = row[3]
-                question = row[4]
-                if grouper:
-                    measure = row[1]
-                    group_help = row[2]
-
-                    if not group_help or group_help == 'None':
-                        group_help = measure
-                    if not measure:
-                        measure = group_help
-                    exploded = measure.split(' ')
-
-                    if exploded[0] == 'Number' and exploded[1] == 'of':
-                        del exploded[0]
-                        del exploded[0]
-                        if exploded[0][0].islower():
-                            exploded[0] = exploded[0].capitalize()
-
-                    group_name = ' '.join(exploded[0:3])
-                    if group_name.endswith(' and'):
-                        group_name = group_name[0:-4]
-                    if group_name.endswith(' or'):
-                        group_name = group_name[0:-3]
-
-                    if sup:
-                        if verbose:
-                            print('%s Supplemental: %s' % (last_identifier,sup))
-                        group.question_set.create(
-                            survey=survey,
-                            identifier='%s_sup' % last_identifier,
-                            question="Supplemental information",
-                            help_text=sup.replace('<',''), 
-                            widget="textbox"
-                        )
-                        sup = None
-
-                    if verbose:
-                        print("\n\n%s\n%s" % (group_name,group_help))
-                    group = survey.questiongroup_set.create(
-                                name = group_name,
-                                ordering = order, 
-                                help_text = group_help)
-                    order += 1
-                try:
-                    baseline = row[6]
-                except IndexError:
-                    baseline = '' 
-
-
-                try:
-                    val = int(baseline.replace(',',''))
-                except ValueError:
+        sheet = survey_file.sheet_by_name('Survey Tool')
+        comment_text = sheet.row(2)[10].value
+        section = None
+        description = ''
+        tick_mode = False
+        for row_num in xrange(3,sheet.nrows):
+            row = sheet.row(row_num)
+            if row[0].ctype != 0: #Empty
+                if section!=None:
+                    #Add comment
                     pass
-                else:
-                    widget = 'integer'
-                if 'USD' in question or 'how much' in question.lower():
-                    widget = 'fixed_currency'
-                if baseline.lower() in ['yes','no']:
-                    widget = 'yes_no_na_choice'
-                if widget == 'text' and ('number' in question or question.startswith('How many')):
-                    widget = 'integer' 
-                if widget == 'text' and ('scores' in question and 'scale' in question):
-                    widget = 'rating_0_5_half'
-                if widget == 'text' and ('date' in question):
-                    widget = 'date'
+                section = survey.questiongroup_set.create(name=row[0].value, help_text=row[1].value)
 
-                
                 if verbose:
-                    print('%s. %s' % (identifier,question))
-                    print('%s: %s' % (widget,baseline))
-                group.question_set.create(survey=survey, identifier=identifier, question=question, widget=widget)
+                    print("\n")
+                    print(section.name)
+                    print(' '+section.help_text)
 
-                try:
-                    new_sup = row[11]
-                except IndexError:
-                    new_sup = None 
-                if new_sup:
-                    if sup:
-                        if verbose:
-                            print('%s Supplemental: %s' % (identifier,sup))
-                        group.question_set.create(
-                            survey=survey,
-                            identifier='%s_sup' % last_identifier,
-                            question="Supplemental information", help_text=sup,
-                            widget="textbox"
-                        )
-                    sup = new_sup
-                last_identifier = identifier
-            if row[0]=='Ind No.':
-                skip = False
+
+            try:
+                q_num = str(int(row[3].value))
+                q = row[4].value
+            except:
+                pass
+
+            q_type = {
+                    '1':'yes_no_na_choice',
+                    '13':'integer',
+                    '14':'yes_no_na_choice',
+                    '15':'yes_no_na_choice',
+                    '16':'aid_types',
+                }.get(q_num,'currency')
+
+            if q_num == '16':
+                if tick_mode == False:
+                    tick_mode = True
+            else:
+                tick_mode = False
+
+            
+            if tick_mode and q != row[4].value:
+                continue
+            else:
+                question = section.question_set.create(survey=survey, identifier=q_num, question=q, widget=q_type)
+                if verbose:
+                    print('   '+str(question))

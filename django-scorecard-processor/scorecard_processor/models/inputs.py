@@ -62,11 +62,15 @@ class ImportMap(models.Model):
     survey = models.ForeignKey(Survey)
     name = models.CharField(max_length=200)
     example_file = models.FileField(blank=True, null=True, upload_to="import_example")
+    class Meta:
+        app_label = "scorecard_processor"
 
 class ImportFieldMap(models.Model):
     importmap = models.ForeignKey(ImportMap)
     cell = models.CharField(max_length=20)
     field = models.ForeignKey(Question)
+    class Meta:
+        app_label = "scorecard_processor"
 
 #TODO: enforce requirement of members of survey.data_series_groups
 class ResponseSet(models.Model):
