@@ -62,7 +62,7 @@ class Command(BaseCommand):
                 pass
 
             q_type = {
-                    '1':'yes_no_na_choice',
+                    '1':'yes_no_choice',
                     '13':'integer',
                     '14':'yes_no_na_choice',
                     '15':'yes_no_na_choice',

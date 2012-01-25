@@ -12,6 +12,16 @@ class YesNoNAField(ChoiceField):
                 ('n/a','n/a'),
             )
 
+class YesNoField(ChoiceField):
+    name = "Yes / No choice"
+    def __init__(self, *args, **kwargs):
+        super(YesNoNAField,self).__init__(*args,**kwargs)
+        self.choices = (
+                ('',''),
+                ('yes','Yes'),
+                ('no','No'),
+            )
+
 class Rating(ChoiceField):
     r_min = 0
     r_max = 5
@@ -27,6 +37,7 @@ class RatingInt(Rating):
     r_max = 5
     name = "Rating: %s - %s (step: %s)" % (r_min, r_max, step)
 
+register.register('input','Choice field','yes_no_choice', YesNoField)
 register.register('input','Choice field','yes_no_na_choice', YesNoNAField)
 register.register('input','Choice field','rating_0_5_half', Rating)
 register.register('input','Choice field','rating_0_5', RatingInt)
