@@ -16,6 +16,12 @@ class QuestionAdmin(admin.ModelAdmin):
     list_display = ('__unicode__','survey')
     list_filter = ('survey',)
 
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(QuestionAdmin, self).get_form(request, obj, **kwargs)
+        if obj:
+            form.base_fields['group'].queryset = obj.survey.questiongroup_set.all()
+        return form
+
 class QuestionGroupAdmin(admin.ModelAdmin):
     model = QuestionGroup
     list_display = ('__unicode__','survey')

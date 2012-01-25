@@ -40,6 +40,10 @@ class Command(BaseCommand):
         tick_mode = False
         for row_num in xrange(3,sheet.nrows):
             row = sheet.row(row_num)
+            if row[3].ctype!=0 and int(row[3].value)==17:
+                row[0].value = 'General support'
+                row[0].ctype = 1
+
             if row[0].ctype != 0: #Empty
                 if section!=None:
                     question = section.question_set.create(survey=survey, identifier=section.name, question="Voluntary additional information", help_text="Please use this space to provide any additional information", widget='textbox')
@@ -78,3 +82,4 @@ class Command(BaseCommand):
                 question = section.question_set.create(survey=survey, identifier=q_num, question=q, widget=q_type)
                 if verbose:
                     print('   '+str(question))
+        question = section.question_set.create(survey=survey, identifier=section.name, question="Voluntary additional information", help_text="Please use this space to provide any additional information", widget='textbox')

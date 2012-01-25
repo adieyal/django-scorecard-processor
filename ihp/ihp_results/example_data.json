@@ -689,6 +689,16 @@
     }
   }, 
   {
+    "pk": 45, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "", 
+      "survey": 3, 
+      "name": "General support"
+    }
+  }, 
+  {
     "pk": 16, 
     "model": "scorecard_processor.questiongroup", 
     "fields": {
@@ -1486,8 +1496,21 @@
     "pk": 108, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "multi_currency", 
+      "widget": "textbox", 
       "group": 44, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "8DP"
+    }
+  }, 
+  {
+    "pk": 109, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "multi_currency", 
+      "group": 45, 
       "question": "What value of general budget support did you disburse?", 
       "validator": "anything", 
       "survey": 3, 
@@ -1496,16 +1519,29 @@
     }
   }, 
   {
-    "pk": 109, 
+    "pk": 110, 
     "model": "scorecard_processor.question", 
     "fields": {
       "widget": "multi_currency", 
-      "group": 44, 
+      "group": 45, 
       "question": "What value of sector budget support did you disburse?", 
       "validator": "anything", 
       "survey": 3, 
       "help_text": null, 
       "identifier": "18"
+    }
+  }, 
+  {
+    "pk": 111, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 45, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "General support"
     }
   }, 
   {
