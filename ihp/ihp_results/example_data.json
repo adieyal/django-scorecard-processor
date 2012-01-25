@@ -1431,7 +1431,7 @@
     "pk": 103, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "yes_no_na_choice", 
+      "widget": "yes_no_choice", 
       "group": 42, 
       "question": "Did you routinely use a single national performance assessment framework as the primary basis to assess progress in your country? ", 
       "validator": "anything", 
@@ -1457,7 +1457,7 @@
     "pk": 105, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "yes_no_na_choice", 
+      "widget": "yes_no_choice", 
       "group": 43, 
       "question": "Did you undertake a mutual assessment(s) of progress in implementing health sector commitments, including on aid effectiveness? ", 
       "validator": "anything", 
