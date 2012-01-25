@@ -1541,7 +1541,7 @@
       "validator": "anything", 
       "survey": 3, 
       "help_text": "Please use this space to provide any additional information", 
-      "identifier": "General support"
+      "identifier": "General"
     }
   }, 
   {

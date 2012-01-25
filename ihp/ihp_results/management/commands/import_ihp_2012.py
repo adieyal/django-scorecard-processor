@@ -82,4 +82,4 @@ class Command(BaseCommand):
                 question = section.question_set.create(survey=survey, identifier=q_num, question=q, widget=q_type)
                 if verbose:
                     print('   '+str(question))
-        question = section.question_set.create(survey=survey, identifier=section.name, question="Voluntary additional information", help_text="Please use this space to provide any additional information", widget='textbox')
+        question = section.question_set.create(survey=survey, identifier="General", question="Voluntary additional information", help_text="Please use this space to provide any additional information", widget='textbox')
