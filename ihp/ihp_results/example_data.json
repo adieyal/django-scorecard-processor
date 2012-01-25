@@ -1145,7 +1145,7 @@
     "pk": 81, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "yes_no_na_choice", 
+      "widget": "yes_no_choice", 
       "group": 33, 
       "question": "Have you signed the IHP+ Country Compact (or equivalent agreement)?", 
       "validator": "anything", 

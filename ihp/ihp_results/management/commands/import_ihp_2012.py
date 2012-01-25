@@ -64,8 +64,8 @@ class Command(BaseCommand):
             q_type = {
                     '1':'yes_no_choice',
                     '13':'integer',
-                    '14':'yes_no_na_choice',
-                    '15':'yes_no_na_choice',
+                    '14':'yes_no_choice',
+                    '15':'yes_no_choice',
                     '16':'aid_types',
                 }.get(q_num,'multi_currency')
 
