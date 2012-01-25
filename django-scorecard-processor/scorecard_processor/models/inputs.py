@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
+from django.utils.functional import lazy
+
 from meta import DataSeries, DataSeriesGroup, Entity, EntityType, Project
 from scorecard_processor import plugins
 
@@ -39,7 +41,7 @@ class Question(models.Model):
     identifier = models.CharField(max_length=10) #1, 2a, 2b
     question = models.TextField()
     help_text = models.TextField(blank=True, null=True)
-    widget = models.CharField(max_length=30, default='text', choices=plugins.input_plugins_as_choices())
+    widget = models.CharField(max_length=30, default='text', choices=lazy(plugins.input_plugins_as_choices,list)())
     validator = models.CharField(max_length=30, default='anything')
 
     class Meta:

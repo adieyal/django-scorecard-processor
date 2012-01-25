@@ -2,6 +2,7 @@ from scorecard_processor.plugins.input.multi_choices import register, MultiChoic
 from decimal import Decimal
 
 class AidTypes(MultiChoiceField):
+    name = "Aid types"
     def __init__(self, *args, **kwargs):
         super(AidTypes,self).__init__(*args, **kwargs)
         self.choices = (
@@ -35,6 +36,7 @@ class CurrencyWidget(MultiWidget):
 from scorecard_processor.plugins.input.currency import FixedCurrency
 
 class CurrencySelector(MultiValueField):
+    name = "Currency selector and input"
     widget = CurrencyWidget
     errors = {
         'invalid_currency':'Please choose a valid currency',
