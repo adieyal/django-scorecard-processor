@@ -31,7 +31,6 @@ class Survey(models.Model):
         #Get all overrides related to this survey's questions
         #Order overrides by how specific they are (i.e. num of data_series)
         if not hasattr(self, '_overrides'):
-            print('Cache miss, _overrides')
             self._overrides = defaultdict(list)
             for override in ResponseOverride.objects.\
                                 filter(question__in=self.question_set.all()).\
@@ -43,6 +42,11 @@ class Survey(models.Model):
 
     def get_override(self, question):
         return self.get_overrides().get(question,[])
+
+    def get_questions(self):
+        if not hasattr(self,'_questions'):
+            self._questions = self.question_set.all()
+        return self._questions
 
 class QuestionGroup(models.Model):
     survey = models.ForeignKey(Survey)
@@ -124,7 +128,6 @@ class ResponseSet(models.Model):
 
     def get_data_series(self):
         if not hasattr(self, '_data_series'):
-            print('Cache miss, ResponseSet._data_series')
             self._data_series = self.data_series.all()
         return self._data_series
 
@@ -135,7 +138,7 @@ class ResponseSet(models.Model):
             self._responses = OrderedDict()
             ds = set(self.get_data_series())
             responses = dict([(r.question, r) for r in self.response_set.filter(current=True).select_related('question')])
-            for question in self.survey.question_set.all():
+            for question in self.survey.get_questions():
                 response = responses.get(question)
                 if response:
                     #Ensure the fetched object caches the same responseset object
@@ -182,7 +185,6 @@ class ResponseOverride(models.Model):
 
     def get_data_series(self):
         if not hasattr(self, '_data_series'):
-            print('Cache miss, ResponseOverride._data_series')
             self._data_series = self.data_series.all()
         return self._data_series
 
