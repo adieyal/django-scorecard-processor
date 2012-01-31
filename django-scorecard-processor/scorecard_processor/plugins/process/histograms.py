@@ -16,15 +16,17 @@ class CountValue(Count):
     options = {
         'value':basestring,
         'decimal_places':int,
+        'ignore':list
     }
     defaults = {
         'decimal_places':1,
-        'value':'yes'
+        'value':'yes',
+        'ignore':['n/a']
     }
 
     def process(self):
         items = self.get_arguments().items.get_values()
-        count = len(items)
+        count = len([item for item in items if item.get_value().lower() not in self.get_config('ignore')])
         if count == 0:
             return None
         count_values = len(filter(lambda x: x.get_value().lower() == self.get_config('value'),items))
