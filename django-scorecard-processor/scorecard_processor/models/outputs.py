@@ -188,6 +188,7 @@ def get_responsesets(scorecard, compare_series=None, limit_to_dataseries=[], lim
 
     surveys = dict([(s.pk, s) for s in scorecard.project.survey_set.all()])
 
+    #TODO: Optimisation for django 1.4, add prefetch_related('data_series') for better performance
     qs = ResponseSet.objects.filter(survey__project__pk=scorecard.project_id).select_related('entity','survey')
 
     result_sets = None
