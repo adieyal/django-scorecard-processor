@@ -156,19 +156,26 @@ Scorecard for 2009 and 2010 for all countries
 class ReportRunError(Exception):
     pass
 
-def split_sets(split, response_sets, split_entities = False):
+def flatten_response_queryset(response_sets, survey_cache):
+    output = []
+    for rs in response_sets:
+        rs.survey = survey_cache[rs.survey_id]
+        output.append(rs)
+    return output
+
+def split_sets(split, response_sets, survey_cache, split_entities = False):
     result = []
     if split:
         for ds in split:
-            result.append((ds, [rs for rs in response_sets.filter(data_series=ds)]))
+            result.append((ds, flatten_response_queryset(response_sets.filter(data_series=ds), survey_cache)))
     else:
         split = [None]
-        result.append((None, [rs for rs in response_sets]))
+        result.append((None, flatten_response_queryset(response_sets, survey_cache)))
     if split_entities:
         result_dict = defaultdict(list)
         for ds, qs in result:
             filter_dict = defaultdict(list)
-            for rs in qs:
+            for rs in flatten_response_queryset(response_sets, survey_cache):
                 filter_dict[rs.entity].append(rs)
             for entity, data in filter_dict.items():
                 result_dict[entity].append((ds, data))
@@ -178,6 +185,8 @@ def split_sets(split, response_sets, split_entities = False):
 def get_responsesets(scorecard, compare_series=None, limit_to_dataseries=[], limit_to_entity=[], limit_to_entitytype=[], aggregate_on=None, aggregate_by_entity=None):
     if not aggregate_by_entity and not aggregate_on:
         raise ReportRunError("No aggregation mode selected")
+
+    surveys = dict([(s.pk, s) for s in scorecard.project.survey_set.all()])
 
     qs = ResponseSet.objects.filter(survey__project__pk=scorecard.project_id).select_related('entity','survey')
 
@@ -203,12 +212,12 @@ def get_responsesets(scorecard, compare_series=None, limit_to_dataseries=[], lim
             ds_qs = qs.filter(data_series=dataseries)
             if ds_qs.count():
                 if aggregate_by_entity:
-                    for entity, data in split_sets(result_sets, ds_qs, split_entities=True).items():
+                    for entity, data in split_sets(result_sets, ds_qs, surveys, split_entities=True).items():
                         rs_dict[entity][dataseries] = data
                 else:
-                    rs_dict[dataseries] = split_sets(result_sets, ds_qs)
+                    rs_dict[dataseries] = split_sets(result_sets, ds_qs, surveys)
     else:
-        rs_dict = split_sets(result_sets, qs, split_entities=True)
+        rs_dict = split_sets(result_sets, qs, surveys, split_entities=True)
     """
     returns (aggregate_on):
     {
