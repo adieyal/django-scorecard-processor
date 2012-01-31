@@ -1,3 +1,6 @@
+from collections import defaultdict
+from ordereddict import OrderedDict
+
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
@@ -23,6 +26,23 @@ class Survey(models.Model):
 
     def __unicode__(self):
         return "Survey: %s" % (self.name)
+
+    def get_overrides(self):
+        #Get all overrides related to this survey's questions
+        #Order overrides by how specific they are (i.e. num of data_series)
+        if not hasattr(self, '_overrides'):
+            print('Cache miss, _overrides')
+            self._overrides = defaultdict(list)
+            for override in ResponseOverride.objects.\
+                                filter(question__in=self.question_set.all()).\
+                                select_related('question').\
+                                annotate(ds_count=models.Count('data_series')).\
+                                order_by('-ds_count'):
+                self._overrides[override.question].append(override)
+        return self._overrides
+
+    def get_override(self, question):
+        return self.get_overrides().get(question,[])
 
 class QuestionGroup(models.Model):
     survey = models.ForeignKey(Survey)
@@ -59,6 +79,7 @@ class Question(models.Model):
     def __unicode__(self):
         return "Question: %s. %s" % (self.identifier, self.question)
 
+
 class ImportMap(models.Model):
     survey = models.ForeignKey(Survey)
     name = models.CharField(max_length=200)
@@ -66,12 +87,14 @@ class ImportMap(models.Model):
     class Meta:
         app_label = "scorecard_processor"
 
+
 class ImportFieldMap(models.Model):
     importmap = models.ForeignKey(ImportMap)
     cell = models.CharField(max_length=20)
     field = models.ForeignKey(Question)
     class Meta:
         app_label = "scorecard_processor"
+
 
 #TODO: enforce requirement of members of survey.data_series_groups
 class ResponseSet(models.Model):
@@ -96,21 +119,30 @@ class ResponseSet(models.Model):
 
     def get_data_series(self):
         if not hasattr(self, '_data_series'):
+            print('Cache miss, ResponseSet._data_series')
             self._data_series = self.data_series.all()
         return self._data_series
 
     def get_responses(self):
-        data = []
-        responses = dict([(r.question,r) for r in self.response_set.filter(current=True).select_related('question')])
-        for question in self.survey.question_set.all():
-            data.append((question, responses.get(question))) 
-        return data
+        if not hasattr(self,'_responses'):
+            #Cache responses for this responseset, order by question ordering
+            #Overlay responses with relevant responseoverride
+            self._responses = OrderedDict()
+            ds = set(self.get_data_series())
+            responses = dict([(r.question, r) for r in self.response_set.filter(current=True).select_related('question')])
+            for question in self.survey.question_set.all():
+                for override in self.survey.get_override(question):
+                    if set(override.get_data_series()).issubset(ds):
+                        override.response = responses.get(question)
+                        self._responses[question] = override
+                        continue
+                self._responses[question] = responses.get(question)
+        return self._responses
 
     def get_response(self, question):
-        if not hasattr(self, '_responses'):
-            self._responses = dict([(rs.question_id,rs) for rs in self.response_set.filter(current=True)])
-        return self._responses.get(question.pk)
+        return self.get_responses().get(question)
     
+
 class Response(models.Model):
     question = models.ForeignKey(Question)
     response_set = models.ForeignKey(ResponseSet)
@@ -129,6 +161,35 @@ class Response(models.Model):
         #TODO: should read something like question.get_validator()(self.value).get_value()
         #This method should output the value cast to the kind of value this field is
         return self.value.get('value')
+
+
+class ResponseOverride(models.Model):
+    question = models.ForeignKey(Question)
+    data_series = models.ManyToManyField(DataSeries) #Country, Year, Agency
+    value = JSONField() 
+
+    class Meta:
+        app_label = "scorecard_processor"
+
+    def get_data_series(self):
+        if not hasattr(self, '_data_series'):
+            print('Cache miss, ResponseOverride._data_series')
+            self._data_series = self.data_series.all()
+        return self._data_series
+
+    def get_value(self):
+        #TODO: should read something like question.get_validator()(self.value).get_value()
+        #This method should output the value cast to the kind of value this field is
+        return self.value.get('value')
+
+    def set_response(self, response):
+        self._response = response
+
+    def get_response(self, response):
+        return self._response
+
+    response = property(get_response, set_response)
+
 
 def invalidate_old_responses(sender, instance, **kwargs):
     if instance.current:

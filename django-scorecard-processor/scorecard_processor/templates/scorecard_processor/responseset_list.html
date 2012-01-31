@@ -43,7 +43,7 @@
           <th>
             <div>{% for series in responseset.data_series.all %}<a href="{% url show_survey_responses_series survey.project.pk survey.pk series.name %}">{{series.name}}</a>{% if forloop.revcounter0 %}, {% endif %}{% endfor %}</div>
           </th>
-          {% for question, response in responseset.get_responses %}
+          {% for question, response in responseset.get_responses.items %}
             <td><span title="{{question.question}}" data-content="{{response.get_value}}" rel="popover" data-placement="below">{{response.get_value|truncatewords:5}}</td>
           {% endfor %}
         </tr>
