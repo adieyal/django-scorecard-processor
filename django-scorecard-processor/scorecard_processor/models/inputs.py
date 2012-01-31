@@ -110,6 +110,11 @@ class ResponseSet(models.Model):
         app_label = "scorecard_processor"
         ordering = ('-last_update',)
 
+    def set_clever(self):
+        self.clever = True
+    def get_clever(self):
+        return getattr(self,'clever',False)
+
     @models.permalink
     def get_absolute_url(self):
         return ('survey_response_edit',(str(self.entity.pk),str(self.pk)))
@@ -131,12 +136,16 @@ class ResponseSet(models.Model):
             ds = set(self.get_data_series())
             responses = dict([(r.question, r) for r in self.response_set.filter(current=True).select_related('question')])
             for question in self.survey.question_set.all():
+                response = responses.get(question)
+                if response:
+                    #Ensure the fetched object caches the same responseset object
+                    response.response_set = self
                 for override in self.survey.get_override(question):
                     if set(override.get_data_series()).issubset(ds):
-                        override.response = responses.get(question)
+                        override.response = response
                         self._responses[question] = override
                         continue
-                self._responses[question] = responses.get(question)
+                self._responses[question] = response
         return self._responses
 
     def get_response(self, question):
