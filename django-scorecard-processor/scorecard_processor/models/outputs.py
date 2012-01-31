@@ -205,7 +205,7 @@ def get_responsesets(scorecard, compare_series=None, limit_to_dataseries=[], lim
 
     if not result_sets and compare_series:
         result_sets = [ds for ds in compare_series.dataseries_set.all()]
-
+    
     if aggregate_on:
         rs_dict = defaultdict(lambda: defaultdict(list)) 
         for dataseries in aggregate_on.dataseries_set.all():

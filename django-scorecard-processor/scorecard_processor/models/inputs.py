@@ -114,11 +114,6 @@ class ResponseSet(models.Model):
         app_label = "scorecard_processor"
         ordering = ('-last_update',)
 
-    def set_clever(self):
-        self.clever = True
-    def get_clever(self):
-        return getattr(self,'clever',False)
-
     @models.permalink
     def get_absolute_url(self):
         return ('survey_response_edit',(str(self.entity.pk),str(self.pk)))
@@ -136,7 +131,6 @@ class ResponseSet(models.Model):
             #Cache responses for this responseset, order by question ordering
             #Overlay responses with relevant responseoverride
             self._responses = OrderedDict()
-            ds = set(self.get_data_series())
             responses = dict([(r.question, r) for r in self.response_set.filter(current=True).select_related('question')])
             for question in self.survey.get_questions():
                 response = responses.get(question)
@@ -144,7 +138,7 @@ class ResponseSet(models.Model):
                     #Ensure the fetched object caches the same responseset object
                     response.response_set = self
                 for override in self.survey.get_override(question):
-                    if set(override.get_data_series()).issubset(ds):
+                    if set(override.get_data_series()).issubset(set(self.get_data_series())):
                         override.response = response
                         self._responses[question] = override
                         continue
