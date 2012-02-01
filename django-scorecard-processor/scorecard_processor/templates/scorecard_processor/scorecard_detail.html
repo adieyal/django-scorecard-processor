@@ -9,19 +9,24 @@
       <div class="row">
         <div class="span11">
           <h2>Indicators</h2>
-          <dl>
+          <table>
             {% for operation in object.operation_set.indicators %}
-              <dt>{{operation.identifier}} - {{operation.description}}</dt>
-              <dd>
-                {{operation.get_operation_display}}
-                <ul>
-                {%for argument in operation.operationargument_set.all%}
-                  <li>{{argument}}</li>
-                {% endfor %}
-                </ul>
-              </dd>
+              <tr>
+                <th rowspan=2 class="span2">{{operation.identifier}}</th>
+                <td class=span9>{{operation.description}}</td>
+              </tr>
+              <tr>
+                <td class="span9">
+                  {{operation.get_operation_display}}
+                  <ul>
+                  {%for argument in operation.operationargument_set.all%}
+                    <li>{{argument}}</li>
+                  {% endfor %}
+                  </ul>
+                </td>
+              </tr>
             {% endfor %}
-          </dl>
+          </table>
         </div>
         <div class="span5">
           <h2>Related reports</h2>
