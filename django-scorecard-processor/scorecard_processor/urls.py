@@ -12,6 +12,7 @@ scorecard_qs = Scorecard.objects.all()
 reportrun_qs = ReportRun.objects.all()
 
 from views import SurveyResponses
+from views import SurveyOverrides, ResponseOverrideView, ResponseOverrideDelete, create_override
 from reports import get_entity_urls, get_project_urls
 
 urlpatterns = patterns('scorecard_processor.views',
@@ -30,12 +31,40 @@ urlpatterns = patterns('scorecard_processor.views',
         name="show_project"
     ),
 
+
+#Manage surveys
     url(r'^project/(\d+)/survey/(?P<object_id>\d+)/$', 
         login_required(object_detail),
         {'queryset': survey_qs}, 
         name="show_survey"
     ),
 
+#Survey overrides
+    url(r'^project/(\d+)/survey/(?P<survey_id>\d+)/override/add/$', 
+        login_required(SurveyOverrides.as_view()),
+        {'queryset': survey_qs}, 
+        name="add_response_override"
+    ),
+
+    url(r'^project/(\d+)/survey/(\d+)/override/add/(?P<question_id>\d+)/$', 
+        create_override,
+        {}, 
+        name="add_response_override_question"
+    ),
+
+    url(r'^project/(\d+)/survey/(\d+)/override/(?P<override_id>\d+)/$', 
+        login_required(object_detail),
+        {'queryset': survey_qs}, 
+        name="view_response_override"
+    ),
+
+    url(r'^project/(\d+)/survey/(\d+)/override/(?P<override_id>\d+)/remove/$', 
+        login_required(object_detail),
+        {'queryset': survey_qs}, 
+        name="remove_response_override"
+    ),
+
+#Survey responses
     url(r'^project/(\d+)/survey/(?P<object_id>\d+)/responses/$', 
         login_required(SurveyResponses.as_view()),
         name="show_survey_responses"
@@ -51,12 +80,16 @@ urlpatterns = patterns('scorecard_processor.views',
         name="show_survey_responses_entity"
     ),
 
+
+# Manage scorecards
     url(r'^project/(\d+)/scorecard/(?P<object_id>\d+)/$',
         login_required(object_detail),
         {'queryset': scorecard_qs}, 
         name="show_scorecard"
     ),
 
+
+#Reports
     url(r'^project/(\d+)/reports/generic/(?P<object_id>\d+)/$',
         login_required(object_detail),
         {'queryset': reportrun_qs}, 

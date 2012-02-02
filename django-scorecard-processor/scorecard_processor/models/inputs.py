@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.utils.functional import lazy
 
+from bootstrap.forms import BootstrapForm, Fieldset
+
 from meta import DataSeries, DataSeriesGroup, Entity, EntityType, Project
 from scorecard_processor import plugins
 
@@ -72,6 +74,20 @@ class Question(models.Model):
         app_label = "scorecard_processor"
         unique_together = ('survey','identifier')
         ordering = ('group__ordering','id',)
+
+    def get_widget(self):
+        form = BootstrapForm()
+        form.fields[self.identifier] = plugins.get_input_plugin(self.widget).plugin(
+            label="""<span class="identifier">%s.</span> 
+            <span class="question">%s</span>""" % (self.identifier,self.question),
+            help_text=self.help_text,
+            required=False
+        )
+        form.layout = [Fieldset('',self.identifier)]
+        return form
+
+    def get_overrides(self):
+        return self.survey.get_override(self)
 
     @models.permalink
     def get_absolute_url(self):

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from models import  DataSeries, DataSeriesGroup, Entity, EntityType, Survey, \
-        Question, ResponseSet, Response, Scorecard, Operation, OperationArgument, \
-        Project, ReportRun, QuestionGroup
+        Question, ResponseSet, Response, ResponseOverride, Scorecard, Operation, \
+        OperationArgument, Project, ReportRun, QuestionGroup
 from django.forms.models import BaseInlineFormSet 
 
 class QuestionInline(admin.StackedInline):
@@ -48,9 +48,13 @@ class ResponseSetAdmin(admin.ModelAdmin):
     model = ResponseSet
     inlines = [ResponseInline]
 
+class ResponseOverrideAdmin(admin.ModelAdmin):
+    model = ResponseOverride
+    list_filter = ('question__survey',)
 
 admin.site.register(Survey, SurveyAdmin)
 admin.site.register(ResponseSet, ResponseSetAdmin)
+admin.site.register(ResponseOverride, ResponseOverrideAdmin)
 
 admin.site.register(QuestionGroup, QuestionGroupAdmin)
 admin.site.register(Question, QuestionAdmin)

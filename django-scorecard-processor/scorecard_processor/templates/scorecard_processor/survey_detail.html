@@ -10,17 +10,38 @@
         <h1>Edit: {{object.name}} <small>from <a href="{{object.project.get_absolute_url}}">{{object.project.name}}</a></small></h1>
       </div>
       <div class="row">
-        <div class="span7">
+        <div class="span10">
           <h2>Questions <a class="btn small" title="Add a question" href="/admin/scorecard_processor/survey/{{object.pk}}/">edit</a></h2>
+          <table class="span10">
           {% for question in object.question_set.all %}
-            <div class="question">
-              <h4>{{question.identifier}}. {{question.question}} <small></small></h4>
-              <p>{{question.help_text}}</p>
-              <p><small>Rendered as: {{question.widget}}, validator: {{question.validator}}</small></p>
-            </div>
+            <tr>
+              <td rowspan=2><div class="span1"></div></td>
+              <td class="span8">
+                <form class="form-stacked">{{question.get_widget.as_div}}</form>
+                <div class="row">
+                  <div class="span6">Widget: <strong>{{question.widget}}</strong></div>
+                  <div class="span6">Validator: <strong>{{question.validator}}</strong></div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="row">
+                  <div class="span4"><a href="{% url add_response_override_question question.survey.project_id question.survey_id question.id %}" class="btn">Add new override</a></div>
+                  <div class="span10">
+                    {% for override in question.responseoverride_set.all %}
+                      <li>[<a href="{% url remove_response_override question.survey.project_id question.survey_id override.id %}" title="remove">x</a>] Alters responses for: <strong>{{override.data_series.all}}</strong></li>
+                    {% endfor %}
+                  </div>
+                </div>
+              </td>
+            </tr>
           {% endfor %}
+          </table>
         </div>
-        <div class="span7">
+        <div class="span5 offset1">
+          <h3>Actions</h3>
+          <a href="{{object.get_absolute_url}}responses/">View responses ({{object.responseset_set.count}})</a>
         </div>
       </div>
     </div>

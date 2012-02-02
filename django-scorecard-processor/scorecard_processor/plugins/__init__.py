@@ -1,4 +1,5 @@
 from register import input_plugins_as_choices, output_plugins_as_choices, process_plugins_as_choices
+from register import get_input_plugin, get_output_plugin, get_process_plugin
 from base import Scalar, Vector
 import os
 

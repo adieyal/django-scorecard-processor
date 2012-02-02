@@ -1,10 +1,10 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, ListView, DeleteView, CreateView
 from django.contrib.auth.decorators import login_required
 
-from models import ResponseSet, Survey, Entity, ReportRun, DataSeries, DataSeriesGroup, Scorecard
+from models import ResponseSet, Survey, Entity, ReportRun, DataSeries, DataSeriesGroup, Scorecard, ResponseOverride
 from models.outputs import get_responsesets
 from forms import QuestionForm, ResponseSetForm
 
@@ -47,6 +47,55 @@ def run_report(request, object_id):
         {'object':obj, 'report':result},
         RequestContext(request)
     )
+
+#################################################################
+# Managing reporting, surveys etc.
+#################################################################
+
+@login_required
+def create_override(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    override = ResponseOverride(question=question)
+    if request.POST:
+        form = ResponseOverrideForm(request.POST, instance=override)
+        if form.is_valid():
+            override=form.save()
+            return HttpResponseRedirect()
+    else:
+        form = ResponseOverrideForm(request.POST, instance=override)
+    return render_to_response('scorecard_processor/create_responseoverride.html', {'form':form}, RequestContext(request))
+
+
+class SurveyOverrides(DetailView):
+    model = Survey
+    def get_object(self):
+        return get_object_or_404(self.model, pk=self.kwargs['survey_id'])
+
+    def get_context_data(self, **kwargs):
+        context = super(SurveyResponses,self).get_context_data(**kwargs)
+        return context
+
+
+class ResponseOverrideView(DetailView):
+    model = ResponseOverride
+    def get_object(self):
+        return get_object_or_404(self.model, pk=self.kwargs['override_id'])
+
+    def get_context_data(self, **kwargs):
+        context = super(ResponseOverride,self).get_context_data(**kwargs)
+        return context
+
+
+class ResponseOverrideDelete(DeleteView):
+    model = ResponseOverride
+
+    def get_object(self, queryset=None):
+        """ Hook to ensure object is owned by request.user. """
+        obj = super(ResponseOverrideDelete, self).get_object()
+        #TODO: only allow deleting of overrides owned by the user
+        #if not obj.owner == self.request.user:
+        #  raise Http404
+        return obj
 
 #################################################################
 # Entity oriented

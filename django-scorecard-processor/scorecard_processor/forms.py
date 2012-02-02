@@ -2,7 +2,7 @@ from django import forms
 from django.db.models import Q
 from django.template.defaultfilters import slugify
 from bootstrap.forms import *
-from models.inputs import ResponseSet, Response
+from models.inputs import ResponseSet, Response, ResponseOverride
 from models.outputs import OperationArgument
 from plugins import register
 
@@ -137,4 +137,9 @@ class QuestionForm(BootstrapForm):
                 )
                 instance.value = {'value':value}
                 instance.save()
+
+class ResponseOverrideForm(BootstrapModelForm):
+    class Meta:
+        model=ResponseOverride
+        exclude = ('question',)
 
