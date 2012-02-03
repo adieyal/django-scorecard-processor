@@ -9,6 +9,9 @@
 </script>
 {% endblock %}
 {% block fluid_content_outer %}
+<style>
+  li.responseset {margin-bottom:10px}
+</style>
   <div class="container">
     <div class="content">
       <div class="page-header">
@@ -46,7 +49,7 @@
                 <h2>Edit responses <small>ordered by last update</small></h2>
                 <ul>
                 {% for responseset in responsesets %}
-                  <li name="responseset_{{responseset.pk}}"><a href="{{responseset.get_absolute_url}}">{{responseset.survey.name}}</a><br/> <strong>last update:</strong> {{responseset.last_update}}<br /> <strong>data series:</strong> {% for series in responseset.data_series.all %}{{series.name}}{% if forloop.revcounter0 %}, {% endif %}{% endfor %}</li>
+                  <li class="responseset" name="responseset_{{responseset.pk}}"><a href="{{responseset.get_absolute_url}}">{% for series in responseset.get_data_series %}{{series.name}}{% if forloop.revcounter0 %}, {% endif %}{% endfor %}</a><br/> <strong>last update:</strong> {{responseset.last_update}}<br /> <strong>survey:</strong> {{responseset.survey.name}}</li>
                 {% endfor %}
                 </ul>
               </div>
