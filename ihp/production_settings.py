@@ -15,6 +15,8 @@ CACHES = {
   },
 }
 
+MIDDLEWARE_CLASSES = ("ihp_results.middleware.DomainRedirectMiddleware",) + MIDDLEWARE_CLASSES
+
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'survey2012@ihpresults.net'
 EMAIL_HOST_PASSWORD = '7813258ef8c6b632dde8cc80f6bda62f'
