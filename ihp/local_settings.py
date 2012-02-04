@@ -48,6 +48,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 SERVER_EMAIL='"IHP+Results Survey 2012" <survey2012@ihpresults.net>'
+DEFAULT_FROM_EMAIL=SERVER_EMAIL
 ADMINS = (
     ('Sysadmin','sysadmin@ihpresults.net'),
 )
