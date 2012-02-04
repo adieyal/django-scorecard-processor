@@ -1,0 +1,6 @@
+{% extends 'registration/password_reset_base.html' %}
+{% block head_title %}Logged out{% endblock %}
+{% block inner_content %}
+<h1>You are now logged out</h1>
+You can <a href="{% url django.contrib.auth.views.login %}">Log in</a> again.
+{% endblock %}

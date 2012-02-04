@@ -7,11 +7,13 @@
 <div class="container">
   <form method="POST" class="form-stacked">
     <div class="well span5 offset2">
-      <h2>AUTHORIZE yourself</h2>
+      <h2>Welcome</h2>
+      <p>Sign in with your email and password</p>
       {% csrf_token %}
       {{form.as_p}}
       <br />
-      <span class="span3"><span class="label notice">Hint:</span> admin / abc123</span><button class="btn primary large"  type="submit">Log in</button>
+      <button class="btn primary large pull-right"  type="submit">Log in</button>
+      <small style="clear:both;display:block;padding-top:20px">Don't know your password? <a href="{% url django.contrib.auth.views.password_reset %}">click to retrieve it</a>.</small>
     </div>
   </form>
 </div>
