@@ -4,20 +4,30 @@
   <div class="container">
     <div class="content">
       <div class="page-header">
-        <h1>Choose an entity <small>These would be linked to a user's account</small></h1>
+        <h1>Choose an entity</h1>
       </div>
       <div class="row">
-          {% regroup object_list by entity_type.plural as entity_list %}
-          {% for entity_type in entity_list %}
-          <div class="span7">
-            <h2>{{entity_type.grouper|capfirst}}</h2>
-            <ul>
-            {% for entity in entity_type.list %}
-              <li><a href="{{entity.get_absolute_url}}">{% if entity.abbreviation %}{{entity.abbreviation}} - {% endif %}{{entity.name}}</a></li>
+          {% if user.is_staff %}
+            {% regroup object_list by entity_type.plural as entity_list %}
+            {% for entity_type in entity_list %}
+              <div class="span7">
+                <h2>{{entity_type.grouper|capfirst}}</h2>
+                <ul>
+                {% for entity in entity_type.list %}
+                  <li><a href="{{entity.get_absolute_url}}">{% if entity.abbreviation %}{{entity.abbreviation}} - {% endif %}{{entity.name}}</a></li>
+                {% endfor %}
+                </ul>
+              </div>
             {% endfor %}
-            </ul>
-          </div>
-          {% endfor %}
+          {% else %}
+            <div class="span7">
+              <ul>
+              {% for entity in user.entity_set.all %}
+                  <li><a href="{{entity.get_absolute_url}}">{% if entity.abbreviation %}{{entity.abbreviation}} - {% endif %}{{entity.name}}</a></li>
+              {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
       </div>
     </div>
   </div>
