@@ -1,8 +1,5 @@
 from settings import *
 
-fubar = 'baz'
-
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
@@ -43,3 +40,17 @@ CACHES = {
             'LOCATION': 'unique-snowflake',
     }
 }
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'survey2012@ihpresults.net'
+EMAIL_HOST_PASSWORD = '7813258ef8c6b632dde8cc80f6bda62f'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+SERVER_EMAIL='"IHP+Results Survey 2012" <survey2012@ihpresults.net>'
+ADMINS = (
+    ('Sysadmin','sysadmin@ihpresults.net'),
+)
+EMAIL_SUBJECT_PREFIX='[Local] '
+
+    
