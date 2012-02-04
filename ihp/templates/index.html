@@ -4,8 +4,8 @@
 {% endblock %}
 {% block content %}
 <div class="row">
-<div class="span14">
-<h2>2012 IHP+Results Monitoring Process <small>Online Survey Tool</small></h2>
+<div class="span16">
+<h1>2012 IHP+Results Monitoring Process <small>Online Survey Tool</small></h1>
 
 <p>Welcome to the 3rd annual monitoring of progress against the International Health Partnership (IHP+) Global Compact commitments, by IHP+Results. IHP+Results is an independent consortium of research and advocacy organisations mandated to provide an annual assessment of the results of IHP+.</p>
 
@@ -18,12 +18,25 @@
     <li>You will be able to directly link through to key terms and definitions rather than have to look them up.</li>
 </ol>
 
-<p>More detailed documentation and guidance on the 2012 process is available at <a href="www.ihpresults.net/2012monitoring" target="_new">http://www.ihpresults.net/2012monitoring</a>. Here you will find:</p>
-<ul>
-    <li>Overview Guidance</li>
-    <li>Detailed Key Terms and Definitions</li>
-    <li>Excel versions so the Survey Tools</li>
-</ol>
+{% if user.entity_set.all.count > 1 %}
+  <h2>
+{% else %}
+  <a class="btn primary large" href="{{ user.entity_set.all.0.get_absolute_url }}">Get started</a>
+{% endif %}
+
+<div class="well" style="margin-top:20px">
+  <div class="content">
+    <p>More detailed documentation and guidance on the 2012 process is available at <a href="http://www.ihpresults.net/2012monitoring" target="_new">http://www.ihpresults.net/2012monitoring</a>.</p> 
+    <p>Here you will find:</p>
+    <ul>
+        <li>Overview Guidance</li>
+        <li>Detailed Key Terms and Definitions</li>
+        <li>Excel versions so the Survey Tools</li>
+    </ol>
+  </div>
+</div>
+
+
 </div>
 </div>
 {% endblock %}
