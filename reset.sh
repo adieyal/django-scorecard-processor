@@ -1,7 +1,7 @@
 #!/bin/bash
 cd `dirname $0`
 cd ihp
-epio django flush --noinput
+epio django flush -- --noinput 
 ../deploy.sh
 epio django loaddata ihp_results/example_data.json
 epio django createsuperuser -- --username=admin --email=admin@example.org --noinput
