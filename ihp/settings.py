@@ -20,6 +20,8 @@ DATABASES = {
     }
 }
 
+AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend','ihp_results.backends.EmailModelBackend',)
+
 LOGIN_REDIRECT_URL = "/"
 
 # Local time zone for this installation. Choices can be found here:
