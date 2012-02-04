@@ -1,7 +1,9 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Project(models.Model):
     name = models.CharField(max_length=100) 
+    user_set = models.ManyToManyField(User)
     class Meta:
         app_label = "scorecard_processor"
 
@@ -72,6 +74,7 @@ class Entity(models.Model):
     abbreviation = models.CharField(max_length=30, blank=True, null=True)
     entity_type = models.ForeignKey(EntityType)
     project = models.ForeignKey(Project)
+    user_set = models.ManyToManyField(User)
 
     class Meta:
         app_label = "scorecard_processor"
@@ -96,3 +99,4 @@ class Entity(models.Model):
         if self.abbreviation:
             return "%s: %s (%s)" % (self.entity_type.pk.capitalize(), self.name, self.abbreviation)
         return "%s: %s" % (self.entity_type.pk.capitalize(), self.name)
+

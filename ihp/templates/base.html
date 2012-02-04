@@ -26,9 +26,9 @@
 
             <ul class="nav">
               {% load nav %}
-              {% nav_url project_list "Projects and Surveys" %}
+              {% if user.is_staff %}{% nav_url project_list "Projects and Surveys" %}
               {% nav_url entity_list "Your responses" %}
-              {% if user.is_staff %}<li><a href="/admin/">Manage app</a></li>{% endif %}
+              <li><a href="/admin/">Manage app</a></li>{% endif %}
             </ul>
             {% if user.is_authenticated %}
               <p class="pull-right"><a href="#">Logged in as {{user.get_full_name|default:user.username}}</a></p>
