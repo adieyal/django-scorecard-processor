@@ -9,6 +9,8 @@ class QuestionInline(admin.StackedInline):
 
 class SurveyAdmin(admin.ModelAdmin):
     model = Survey
+    list_display = ('__unicode__','active','project')
+    list_filter = ('project','active')
     inlines = [QuestionInline]
 
 class QuestionAdmin(admin.ModelAdmin):
