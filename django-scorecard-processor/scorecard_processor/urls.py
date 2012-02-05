@@ -13,6 +13,7 @@ reportrun_qs = ReportRun.objects.all()
 
 from views import SurveyResponses
 from views import SurveyOverrides, ResponseOverrideView, ResponseOverrideDelete, create_override
+from views import entity_add_user, entity_remove_user
 from reports import get_entity_urls, get_project_urls
 
 urlpatterns = patterns('scorecard_processor.views',
@@ -115,6 +116,16 @@ urlpatterns = patterns('scorecard_processor.views',
         {'queryset':entity_qs}, 
         name="show_entity"
     ),
+    #Entity user management
+    url(r'^entity/(?P<entity_id>\d+)/users/add/$', 
+        entity_add_user,
+        name="entity_add_user"
+    ),
+    url(r'^entity/(?P<entity_id>\d+)/users/(?P<user_id>\d+)/remove/$', 
+        entity_remove_user,
+        name="entity_remove_user"
+    ),
+
     url(r'^entity/(?P<entity_id>\d+)/reports/', 
         include(get_entity_urls())
     ),

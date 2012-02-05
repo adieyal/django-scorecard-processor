@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block head_title %}Add user to {{object.name}}{% endblock %}
+{% block script_bottom %}
+{{block.super}}
+<script type="text/javascript">
+</script>
+{% endblock %}
+{% block fluid_content_outer %}
+  <div class="container">
+    <div class="content">
+      <div class="page-header">
+        <h1>Add user <small>to <a href="{{object.get_absolute_url}}">{{object.name}}</a></small></h1>
+      </div>
+      <div class="row">
+        <div class="span16">
+          <form method="POST" class="form-stacked">
+            {% csrf_token %}
+            {{form}}
+            <button class="btn primary" type="submit">Add user</button>
+          </form>
+        </div> 
+      </div>
+    </div>
+  </div>
+{% endblock %}

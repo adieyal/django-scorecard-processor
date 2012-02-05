@@ -3,10 +3,13 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404
 from django.views.generic import DetailView, ListView, DeleteView, CreateView
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import PasswordResetForm
+from django.contrib.auth.models import User
+
 
 from models import ResponseSet, Survey, Entity, ReportRun, DataSeries, DataSeriesGroup, Scorecard, ResponseOverride
 from models.outputs import get_responsesets
-from forms import QuestionForm, ResponseSetForm
+from forms import QuestionForm, ResponseSetForm, AddUserForm
 
 def index(request):
     return render_to_response('scorecard_processor/index.html',{},RequestContext(request))
@@ -100,6 +103,34 @@ class ResponseOverrideDelete(DeleteView):
 #################################################################
 # Entity oriented
 #################################################################
+@login_required
+def entity_add_user(request, entity_id):
+    entity = get_object_or_404(Entity, pk=entity_id)
+    if request.POST:
+        form = AddUserForm(request.POST)
+        if form.is_valid():
+            #Lookup or create user, add to entity
+            email = form.cleaned_data['email']
+            form.cleaned_data['username'] = email[:30]
+            del form.cleaned_data['email']
+            user, created = User.objects.get_or_create(email=email, defaults=form.cleaned_data)
+            if created:
+                reset_form = PasswordResetForm({'email':user.email})
+                reset_form.is_valid()
+                reset_form.save(email_template_name="registration/new_account.html")
+            entity.user_set.add(user)
+            return HttpResponseRedirect(entity.get_absolute_url())
+    else:
+        form = AddUserForm()
+    return render_to_response('scorecard_processor/entity/add_user.html', {'object':entity,'form':form}, RequestContext(request))
+
+@login_required
+def entity_remove_user(request, entity_id, user_id):
+    entity = get_object_or_404(Entity, pk=entity_id)
+    user = get_object_or_404(Entity, pk=user_id)
+    entity.user_set.remove(user)
+    return HttpResponseRedirect(entity.get_absolute_url())
+        
 
 #################################################################
 # User response section

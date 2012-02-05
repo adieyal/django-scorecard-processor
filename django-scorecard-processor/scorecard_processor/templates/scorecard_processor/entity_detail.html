@@ -39,10 +39,13 @@
               <p>No users are currently associated with this {{object.entity_type}}</p>
             {% else %}
               <ul>
-                {% for user in object.user_set.all %}
-                  <li>{{user.get_full_name}} <strong>{{user.email}}</strong></li>
+                {% for person in object.user_set.all %}
+                  <li>{% if user.is_staff %}[<a href="{% url entity_remove_user object.pk person.pk %}" title="Remove access">x</a>] {% endif %}{{person.get_full_name}} <strong>{{person.email}}</strong></li>
                 {% endfor %}
               </ul>
+            {% endif %}
+            {% if user.is_staff %}
+              <p><a href="{% url entity_add_user object.pk %}">Add user by email address</a></p>
             {% endif %}
             {% comment %}
               <h2>View Reports</h2>

@@ -54,6 +54,12 @@ class ResponseSetForm(forms.ModelForm):
             self.save_m2m()
         return instance
 
+class AddUserForm(BootstrapForm):
+    first_name = forms.CharField(required=True)
+    last_name = forms.CharField(required=True)
+    email = forms.EmailField(required=True)
+    
+
 class ArgumentForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(ArgumentForm, self).__init__(*args, **kwargs)
