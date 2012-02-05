@@ -8,6 +8,9 @@
       </div>
       <div class="row">
         <div class="span14">
+          {% if survey.description %}
+            {{survey.description|safe}}
+          {% endif %}
           <h2>Please select the relevant data series</h2>
           <form method="POST">
             {% csrf_token %}
