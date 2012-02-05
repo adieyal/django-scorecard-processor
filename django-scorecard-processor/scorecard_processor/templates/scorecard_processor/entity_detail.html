@@ -34,6 +34,16 @@
               {% endif %}
             {% endwith %}
 
+            <h2 style="padding-top:10px">Associated users</h2>
+            {% if object.user_set.count == 0 %}
+              <p>No users are currently associated with this {{object.entity_type}}</p>
+            {% else %}
+              <ul>
+                {% for user in object.user_set.all %}
+                  <li>{{user.get_full_name}} <strong>{{user.email}}</strong></li>
+                {% endfor %}
+              </ul>
+            {% endif %}
             {% comment %}
               <h2>View Reports</h2>
               <ul>
