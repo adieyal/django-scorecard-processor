@@ -1,6 +1,7 @@
 #!/bin/bash
 cd `dirname $0`
 cd ihp
+epio django flush -a ihp_prod -- --noinput
 epio django reset scorecard_processor -a ihp_prod -- --noinput
 epio django createsuperuser -a ihp_prod -- --username=admin --email=admin@example.org --noinput 
 echo -e "from django.contrib.auth import models;u=models.User.objects.get(username='admin');u.set_password('abc123');u.save();exit()" | epio django shell -a ihp_prod
