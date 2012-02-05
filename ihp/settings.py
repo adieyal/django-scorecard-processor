@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Django settings for ihp project.
 
 DEBUG = False
@@ -37,6 +38,13 @@ DEFAULT_CHARSET = "UTF-8"
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-gb'
+
+ugettext = lambda s: s
+LANGUAGES = (
+    ('en-gb', ugettext('English')),
+    ('fr', ugettext(u'Français')),
+    ('es', ugettext(u'Español')),
+)
 
 SITE_ID = 1
 
@@ -79,6 +87,7 @@ TEMPLATE_LOADERS = (
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',

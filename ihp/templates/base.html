@@ -35,6 +35,16 @@
             {% else %}
               <p class="pull-right"><a href="{% url django.contrib.auth.views.login %}">Log in</a></p>
             {% endif %}
+            <form action="/i18n/setlang/" method="post" class="pull-right" style="margin:10px 20px 0">
+              {% csrf_token %}
+              <label for="language" style="color:#fff;margin-right:10px">Language</label>
+              <select name="language" class="span3">
+                {% for lang in LANGUAGES %}
+                  <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %}selected=selected{%endif %}>{{ lang.1 }}</option>
+                {% endfor %}
+              </select>
+              <button class="btn" type="submit" value="Go" />Go</button>
+            </form>
 
           </div>
         </div>
