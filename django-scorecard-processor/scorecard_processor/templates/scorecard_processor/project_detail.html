@@ -25,7 +25,7 @@
             
             <ul>
             {% for survey in object.survey_set.all %}
-              <li><a href="{{survey.get_absolute_url}}">{{survey.name}}</a> (<a href="{{survey.get_absolute_url}}responses/">view {% with survey.responseset_set.count as count %}{{count}} response{{count|pluralize}}{% endwith %}</a>)</li>
+              <li>{% if not survey.active %}<span class="label" title="Users cannot submit responses">inactive</span>{% endif %} <a href="{{survey.get_absolute_url}}">{{survey.name}}</a> (<a href="{{survey.get_absolute_url}}responses/">view {% with survey.responseset_set.count as count %}{{count}} response{{count|pluralize}}{% endwith %}</a>)</li>
             {% endfor %}
             </ul>
             <div class="row">

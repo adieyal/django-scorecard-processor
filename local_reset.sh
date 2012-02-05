@@ -1,4 +1,5 @@
 #!/bin/bash
+./manage.py flush --noinput --settings=local_settings
 ./manage.py reset scorecard_processor --noinput --settings=local_settings
 ./manage.py syncdb --noinput --settings=local_settings
 ./manage.py createsuperuser --username=admin --email=admin@example.org --noinput --settings=local_settings 

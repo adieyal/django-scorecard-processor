@@ -532,48 +532,51 @@
     "pk": 1, 
     "model": "scorecard_processor.survey", 
     "fields": {
+      "name": "2011 Survey for Agencies", 
       "project": 1, 
       "data_series_groups": [
         "Country", 
         "Year"
       ], 
+      "active": false, 
       "entity_types": [
         "agency"
       ], 
-      "name": "2011 Survey for Agencies", 
-      "description": null
+      "description": ""
     }
   }, 
   {
     "pk": 2, 
     "model": "scorecard_processor.survey", 
     "fields": {
+      "name": "2011 Survey for Government", 
       "project": 1, 
       "data_series_groups": [
         "Country", 
         "Year"
       ], 
+      "active": false, 
       "entity_types": [
         "government"
       ], 
-      "name": "2011 Survey for Government", 
-      "description": null
+      "description": ""
     }
   }, 
   {
     "pk": 3, 
     "model": "scorecard_processor.survey", 
     "fields": {
+      "name": "2012 Survey for Agencies", 
       "project": 1, 
       "data_series_groups": [
         "Country", 
         "Data collection year", 
         "Year"
       ], 
+      "active": true, 
       "entity_types": [
         "agency"
       ], 
-      "name": "2012 Survey for Agencies", 
       "description": "<h2>Please note before submitting data</h2>\r\n\r\n<p>Please complete a separate survey tool for each of the participating countries in which\r\nyou are supporting health sector development. For instance, where you are providing health sector aid (directly or indirectly). Health sector aid is defined as: \u201cODA contributed to the health sector.\u201d Our system should be clever enough to only give you the option to select the countries in which you are supporting the health sector, but please get in touch with your IHP+Results focal point if this is not the case.</p>\r\n\r\n<p>Data is requested for calendar years, not fiscal years.</p>\r\n<ul>\r\n    <li>You should enter financial data in the most appropriate currency. Please select your currency from the drop-down list at the top of the survey.</li>\r\n    <li>Please provide source information \u2013 ideally weblinks or references to published documents \u2013 in the \u2018Voluntary additional information\u2019 text boxes.</li>\r\n</ul>\r\n\r\n<p>In addition to the guidance above we advise you to have a copy of the [Overview Guidance] to hand when you begin submitting your data as it is possible that this will cover any questions you may have. Alternatively please get in touch with your IHP+Results focal point.</p>"
     }
   }, 

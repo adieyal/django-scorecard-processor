@@ -13,12 +13,22 @@ from scorecard_processor import plugins
 
 from cerial import JSONField
 
+
+class SurveyManager(models.Manager):
+    use_for_related_fields = True
+
+    def active(self, *args, **kwargs):
+        return self.get_query_set().filter(active=True)
+
 class Survey(models.Model):
     name = models.CharField(max_length=100)
     project = models.ForeignKey(Project)
     description = models.TextField(blank=True, null=True)
+    active = models.BooleanField(default=True)
     data_series_groups = models.ManyToManyField(DataSeriesGroup) 
     entity_types = models.ManyToManyField(EntityType)
+
+    objects = SurveyManager()
 
     class Meta:
         app_label = "scorecard_processor"

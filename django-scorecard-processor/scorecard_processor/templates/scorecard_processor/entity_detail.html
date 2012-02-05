@@ -22,7 +22,7 @@
       <div class="row">
           <div class="span7">
             <h2>Respond <small>Click a button to add a new response</small></h2>
-            {% with object.entity_type.survey_set.all as survey_set %}
+            {% with object.entity_type.survey_set.active as survey_set %}
               {% if survey_set.count == 1 %}
                 <a class="btn primary" href="{% url survey_response object.pk, survey_set.0.pk %}">Add response</a>
               {% else %}
