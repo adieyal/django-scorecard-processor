@@ -3,6 +3,21 @@ from optparse import make_option
 import xlrd
 from scorecard_processor import models
 
+lookup = {
+    '1DP':"Documented & Agreed commitments",
+    '2DPa':"Country-level plans and strategies",
+    '2DPb':"",
+    '2DPc':"",
+    '3DP':"",
+    '4DP':"",
+    '5DPa':"",
+    '5DPb':"",
+    '5DPc':"",
+    '6DP':"",
+    '7DP':"",
+    '8DP':"",
+}
+
 class Command(BaseCommand):
     args = '<filename.xls>'
     help = 'Imports a 2012 legacy survey into the system'
