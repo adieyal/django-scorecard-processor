@@ -56,14 +56,16 @@ class Command(BaseCommand):
         for row_num in xrange(3,sheet.nrows):
             row = sheet.row(row_num)
             if row[3].ctype!=0 and int(row[3].value)==17:
-                row[0].value = 'General support'
+                row[0].value = 'Additional questions'
                 row[0].ctype = 1
 
             if row[0].ctype != 0: #Empty
                 if section!=None:
                     question = section.question_set.create(survey=survey, identifier=group_name, question="Voluntary additional information", help_text="Please use this space to provide any additional information", widget='textbox')
-                group_name = row[0].value
-                section = survey.questiongroup_set.create(name='%s: %s' % (group_name, lookup.get(group_name,group_name)), help_text=row[1].value)
+                section_name = group_name = row[0].value
+                if group_name in lookup:
+                    section_name = '%s: %s' % (group_name, lookup.get(group_name,group_name))
+                section = survey.questiongroup_set.create(name= section_name, help_text=row[1].value)
 
                 if verbose:
                     print("\n")
