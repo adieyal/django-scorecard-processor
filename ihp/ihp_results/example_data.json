@@ -601,23 +601,13 @@
     }
   }, 
   {
-    "pk": 33, 
-    "model": "scorecard_processor.questiongroup", 
-    "fields": {
-      "ordering": 1, 
-      "help_text": "Proportion of IHP+ countries  in which the partner has signed commitment to (or documented support for) the IHP+ Country Compact or equivalent agreement.", 
-      "survey": 3, 
-      "name": "1DP"
-    }
-  }, 
-  {
     "pk": 34, 
     "model": "scorecard_processor.questiongroup", 
     "fields": {
       "ordering": 1, 
       "help_text": "Percent of aid flows to the health sector that is reported on national health sector budgets. (PD3)", 
       "survey": 3, 
-      "name": "2DPa"
+      "name": "Aid on national budget"
     }
   }, 
   {
@@ -627,97 +617,7 @@
       "ordering": 1, 
       "help_text": "Percent of current capacity-development support provided through coordinated programmes consistent with national plans/strategies for the health sector (PD4)", 
       "survey": 3, 
-      "name": "2DPb"
-    }
-  }, 
-  {
-    "pk": 36, 
-    "model": "scorecard_processor.questiongroup", 
-    "fields": {
-      "ordering": 1, 
-      "help_text": "", 
-      "survey": 3, 
-      "name": "2DPc"
-    }
-  }, 
-  {
-    "pk": 37, 
-    "model": "scorecard_processor.questiongroup", 
-    "fields": {
-      "ordering": 1, 
-      "help_text": "Percent  of health sector aid provided through multi-year commitments", 
-      "survey": 3, 
-      "name": "3DP"
-    }
-  }, 
-  {
-    "pk": 38, 
-    "model": "scorecard_processor.questiongroup", 
-    "fields": {
-      "ordering": 1, 
-      "help_text": "", 
-      "survey": 3, 
-      "name": "4DP"
-    }
-  }, 
-  {
-    "pk": 39, 
-    "model": "scorecard_processor.questiongroup", 
-    "fields": {
-      "ordering": 1, 
-      "help_text": "Percent of aid that flows through public financial management systems (PD5a)", 
-      "survey": 3, 
-      "name": "5DPa"
-    }
-  }, 
-  {
-    "pk": 40, 
-    "model": "scorecard_processor.questiongroup", 
-    "fields": {
-      "ordering": 1, 
-      "help_text": "Proportion of IHP+ countries in which agreed, transparent and monitorable performance assessment frameworks are being used to assess progress  in the health sector (PD11)", 
-      "survey": 3, 
-      "name": "5DPb"
-    }
-  }, 
-  {
-    "pk": 41, 
-    "model": "scorecard_processor.questiongroup", 
-    "fields": {
-      "ordering": 1, 
-      "help_text": "Proportion of IHP+ countries where mutual assessments have been made of progress implementing commitments in the health sector, including on aid effectiveness  (PD12)", 
-      "survey": 3, 
-      "name": "5DPc"
-    }
-  }, 
-  {
-    "pk": 42, 
-    "model": "scorecard_processor.questiongroup", 
-    "fields": {
-      "ordering": 1, 
-      "help_text": "Evidence of support for Civil Society to be actively represented in health sector policy processes - including health sector planning, coordination and review mechanisms.", 
-      "survey": 3, 
-      "name": "6DP"
-    }
-  }, 
-  {
-    "pk": 43, 
-    "model": "scorecard_processor.questiongroup", 
-    "fields": {
-      "ordering": 1, 
-      "help_text": "", 
-      "survey": 3, 
-      "name": "7DP"
-    }
-  }, 
-  {
-    "pk": 44, 
-    "model": "scorecard_processor.questiongroup", 
-    "fields": {
-      "ordering": 1, 
-      "help_text": "", 
-      "survey": 3, 
-      "name": "8DP"
+      "name": "Capacity development support"
     }
   }, 
   {
@@ -728,6 +628,36 @@
       "help_text": "", 
       "survey": 3, 
       "name": "General support"
+    }
+  }, 
+  {
+    "pk": 33, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "Proportion of IHP+ countries  in which the partner has signed commitment to (or documented support for) the IHP+ Country Compact or equivalent agreement.", 
+      "survey": 3, 
+      "name": "IHP+ Compacts and equivalent agreements"
+    }
+  }, 
+  {
+    "pk": 37, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "Percent  of health sector aid provided through multi-year commitments", 
+      "survey": 3, 
+      "name": "Multi-year commitments"
+    }
+  }, 
+  {
+    "pk": 43, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "", 
+      "survey": 3, 
+      "name": "Mutual assessment processes"
     }
   }, 
   {
@@ -748,6 +678,76 @@
       "help_text": "Halve the proportion of aid flows to the health sector are not reported on government's budget(s) (with at least 85% reported on budget)", 
       "survey": 1, 
       "name": "Percent of aid"
+    }
+  }, 
+  {
+    "pk": 42, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "Evidence of support for Civil Society to be actively represented in health sector policy processes - including health sector planning, coordination and review mechanisms.", 
+      "survey": 3, 
+      "name": "Performance assessment frameworks"
+    }
+  }, 
+  {
+    "pk": 38, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "", 
+      "survey": 3, 
+      "name": "Predictability of disbursements"
+    }
+  }, 
+  {
+    "pk": 39, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "Percent of aid that flows through public financial management systems (PD5a)", 
+      "survey": 3, 
+      "name": "Procurement systems"
+    }
+  }, 
+  {
+    "pk": 36, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "", 
+      "survey": 3, 
+      "name": "Programme based approaches"
+    }
+  }, 
+  {
+    "pk": 41, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "Proportion of IHP+ countries where mutual assessments have been made of progress implementing commitments in the health sector, including on aid effectiveness  (PD12)", 
+      "survey": 3, 
+      "name": "Project Implementation Units"
+    }
+  }, 
+  {
+    "pk": 40, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "Proportion of IHP+ countries in which agreed, transparent and monitorable performance assessment frameworks are being used to assess progress  in the health sector (PD11)", 
+      "survey": 3, 
+      "name": "Public financial management systems"
+    }
+  }, 
+  {
+    "pk": 44, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "", 
+      "survey": 3, 
+      "name": "Support to civil society representation"
     }
   }, 
   {
@@ -1196,7 +1196,7 @@
       "validator": "anything", 
       "survey": 3, 
       "help_text": "Please use this space to provide any additional information", 
-      "identifier": "1DP"
+      "identifier": "IHP+ Compacts and equivalent agreements"
     }
   }, 
   {
@@ -1235,7 +1235,7 @@
       "validator": "anything", 
       "survey": 3, 
       "help_text": "Please use this space to provide any additional information", 
-      "identifier": "2DPa"
+      "identifier": "Aid on national budget"
     }
   }, 
   {
@@ -1274,7 +1274,7 @@
       "validator": "anything", 
       "survey": 3, 
       "help_text": "Please use this space to provide any additional information", 
-      "identifier": "2DPb"
+      "identifier": "Capacity development support"
     }
   }, 
   {
@@ -1313,7 +1313,7 @@
       "validator": "anything", 
       "survey": 3, 
       "help_text": "Please use this space to provide any additional information", 
-      "identifier": "2DPc"
+      "identifier": "Programme based approaches"
     }
   }, 
   {
@@ -1339,7 +1339,7 @@
       "validator": "anything", 
       "survey": 3, 
       "help_text": "Please use this space to provide any additional information", 
-      "identifier": "3DP"
+      "identifier": "Multi-year commitments"
     }
   }, 
   {
@@ -1365,7 +1365,7 @@
       "validator": "anything", 
       "survey": 3, 
       "help_text": "Please use this space to provide any additional information", 
-      "identifier": "4DP"
+      "identifier": "Predictability of disbursements"
     }
   }, 
   {
@@ -1404,7 +1404,7 @@
       "validator": "anything", 
       "survey": 3, 
       "help_text": "Please use this space to provide any additional information", 
-      "identifier": "5DPa"
+      "identifier": "Procurement systems"
     }
   }, 
   {
@@ -1430,7 +1430,7 @@
       "validator": "anything", 
       "survey": 3, 
       "help_text": "Please use this space to provide any additional information", 
-      "identifier": "5DPb"
+      "identifier": "Public financial management systems"
     }
   }, 
   {
@@ -1456,7 +1456,7 @@
       "validator": "anything", 
       "survey": 3, 
       "help_text": "Please use this space to provide any additional information", 
-      "identifier": "5DPc"
+      "identifier": "Project Implementation Units"
     }
   }, 
   {
@@ -1482,7 +1482,7 @@
       "validator": "anything", 
       "survey": 3, 
       "help_text": "Please use this space to provide any additional information", 
-      "identifier": "6DP"
+      "identifier": "Performance assessment frameworks"
     }
   }, 
   {
@@ -1508,7 +1508,7 @@
       "validator": "anything", 
       "survey": 3, 
       "help_text": "Please use this space to provide any additional information", 
-      "identifier": "7DP"
+      "identifier": "Mutual assessment processes"
     }
   }, 
   {
@@ -1534,7 +1534,7 @@
       "validator": "anything", 
       "survey": 3, 
       "help_text": "Please use this space to provide any additional information", 
-      "identifier": "8DP"
+      "identifier": "Support to civil society representation"
     }
   }, 
   {

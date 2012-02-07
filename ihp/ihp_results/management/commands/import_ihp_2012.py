@@ -4,18 +4,18 @@ import xlrd
 from scorecard_processor import models
 
 lookup = {
-    '1DP':"Documented & Agreed commitments",
-    '2DPa':"Country-level plans and strategies",
-    '2DPb':"",
-    '2DPc':"",
-    '3DP':"",
-    '4DP':"",
-    '5DPa':"",
-    '5DPb':"",
-    '5DPc':"",
-    '6DP':"",
-    '7DP':"",
-    '8DP':"",
+    "1DP"     :"IHP+ Compacts and equivalent agreements",
+    "2DPa"    :"Aid on national budget",
+    "2DPb"    :"Capacity development support",
+    "2DPc"    :"Programme based approaches",
+    "3DP"     :"Multi-year commitments",
+    "4DP"     :"Predictability of disbursements",
+    "5DPa"    :"Procurement systems",
+    "5DPb"    :"Public financial management systems",
+    "5DPc"    :"Project Implementation Units",
+    "6DP"     :"Performance assessment frameworks",
+    "7DP"     :"Mutual assessment processes",
+    "8DP"     :"Support to civil society representation",
 }
 
 class Command(BaseCommand):
@@ -62,7 +62,8 @@ class Command(BaseCommand):
             if row[0].ctype != 0: #Empty
                 if section!=None:
                     question = section.question_set.create(survey=survey, identifier=section.name, question="Voluntary additional information", help_text="Please use this space to provide any additional information", widget='textbox')
-                section = survey.questiongroup_set.create(name=row[0].value, help_text=row[1].value)
+                group_name = row[0].value
+                section = survey.questiongroup_set.create(name=lookup.get(group_name,group_name), help_text=row[1].value)
 
                 if verbose:
                     print("\n")
