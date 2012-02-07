@@ -24,11 +24,11 @@
             <h2>Respond <small>Click a button to add a new response</small></h2>
             {% with object.entity_type.survey_set.active as survey_set %}
               {% if survey_set.count == 1 %}
-                <a class="btn primary" href="{% url survey_response object.pk, survey_set.0.pk %}">Add response</a>
+                {% include 'scorecard_processor/_render_survey_link.html' with entity=object survey=survey_set.0 %}
               {% else %}
                 <ul>
                   {% for survey in survey_set %}
-                    <li><a class="btn" style="margin-bottom:10px" href="{% url survey_response object.pk, survey.pk %}">{{survey.name}}</a></li>
+                    <li>{% include 'scorecard_processor/_render_survey_link.html' with entity=object survey=survey %}</li>
                   {% endfor %}
                 </ul>
               {% endif %}

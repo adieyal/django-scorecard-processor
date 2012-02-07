@@ -35,7 +35,7 @@ class Survey(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-      return ('show_survey',(str(self.project.pk),str(self.pk)))
+        return ('show_survey',(str(self.project.pk),str(self.pk)))
 
     def __unicode__(self):
         return "Survey: %s" % (self.name)
