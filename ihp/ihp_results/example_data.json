@@ -1196,7 +1196,7 @@
       "validator": "anything", 
       "survey": 3, 
       "help_text": "Please use this space to provide any additional information", 
-      "identifier": "IHP+ Compacts and equivalent agreements"
+      "identifier": "1DP"
     }
   }, 
   {
@@ -1235,7 +1235,7 @@
       "validator": "anything", 
       "survey": 3, 
       "help_text": "Please use this space to provide any additional information", 
-      "identifier": "Aid on national budget"
+      "identifier": "2DPa"
     }
   }, 
   {
@@ -1274,7 +1274,7 @@
       "validator": "anything", 
       "survey": 3, 
       "help_text": "Please use this space to provide any additional information", 
-      "identifier": "Capacity development support"
+      "identifier": "2DPb"
     }
   }, 
   {
@@ -1313,7 +1313,7 @@
       "validator": "anything", 
       "survey": 3, 
       "help_text": "Please use this space to provide any additional information", 
-      "identifier": "Programme based approaches"
+      "identifier": "2DPc"
     }
   }, 
   {
@@ -1339,7 +1339,7 @@
       "validator": "anything", 
       "survey": 3, 
       "help_text": "Please use this space to provide any additional information", 
-      "identifier": "Multi-year commitments"
+      "identifier": "3DP"
     }
   }, 
   {
@@ -1365,7 +1365,7 @@
       "validator": "anything", 
       "survey": 3, 
       "help_text": "Please use this space to provide any additional information", 
-      "identifier": "Predictability of disbursements"
+      "identifier": "4DP"
     }
   }, 
   {
@@ -1404,7 +1404,7 @@
       "validator": "anything", 
       "survey": 3, 
       "help_text": "Please use this space to provide any additional information", 
-      "identifier": "Procurement systems"
+      "identifier": "5DPa"
     }
   }, 
   {
@@ -1430,7 +1430,7 @@
       "validator": "anything", 
       "survey": 3, 
       "help_text": "Please use this space to provide any additional information", 
-      "identifier": "Public financial management systems"
+      "identifier": "5DPb"
     }
   }, 
   {
@@ -1456,7 +1456,7 @@
       "validator": "anything", 
       "survey": 3, 
       "help_text": "Please use this space to provide any additional information", 
-      "identifier": "Project Implementation Units"
+      "identifier": "5DPc"
     }
   }, 
   {
@@ -1482,7 +1482,7 @@
       "validator": "anything", 
       "survey": 3, 
       "help_text": "Please use this space to provide any additional information", 
-      "identifier": "Performance assessment frameworks"
+      "identifier": "6DP"
     }
   }, 
   {
@@ -1508,7 +1508,7 @@
       "validator": "anything", 
       "survey": 3, 
       "help_text": "Please use this space to provide any additional information", 
-      "identifier": "Mutual assessment processes"
+      "identifier": "7DP"
     }
   }, 
   {
@@ -1534,7 +1534,7 @@
       "validator": "anything", 
       "survey": 3, 
       "help_text": "Please use this space to provide any additional information", 
-      "identifier": "Support to civil society representation"
+      "identifier": "8DP"
     }
   }, 
   {
