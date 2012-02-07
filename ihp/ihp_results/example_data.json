@@ -601,13 +601,23 @@
     }
   }, 
   {
+    "pk": 33, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "Proportion of IHP+ countries  in which the partner has signed commitment to (or documented support for) the IHP+ Country Compact or equivalent agreement.", 
+      "survey": 3, 
+      "name": "1DP: IHP+ Compacts and equivalent agreements"
+    }
+  }, 
+  {
     "pk": 34, 
     "model": "scorecard_processor.questiongroup", 
     "fields": {
       "ordering": 1, 
       "help_text": "Percent of aid flows to the health sector that is reported on national health sector budgets. (PD3)", 
       "survey": 3, 
-      "name": "Aid on national budget"
+      "name": "2DPa: Aid on national budget"
     }
   }, 
   {
@@ -617,27 +627,17 @@
       "ordering": 1, 
       "help_text": "Percent of current capacity-development support provided through coordinated programmes consistent with national plans/strategies for the health sector (PD4)", 
       "survey": 3, 
-      "name": "Capacity development support"
+      "name": "2DPb: Capacity development support"
     }
   }, 
   {
-    "pk": 45, 
+    "pk": 36, 
     "model": "scorecard_processor.questiongroup", 
     "fields": {
       "ordering": 1, 
       "help_text": "", 
       "survey": 3, 
-      "name": "General support"
-    }
-  }, 
-  {
-    "pk": 33, 
-    "model": "scorecard_processor.questiongroup", 
-    "fields": {
-      "ordering": 1, 
-      "help_text": "Proportion of IHP+ countries  in which the partner has signed commitment to (or documented support for) the IHP+ Country Compact or equivalent agreement.", 
-      "survey": 3, 
-      "name": "IHP+ Compacts and equivalent agreements"
+      "name": "2DPc: Programme based approaches"
     }
   }, 
   {
@@ -647,7 +647,57 @@
       "ordering": 1, 
       "help_text": "Percent  of health sector aid provided through multi-year commitments", 
       "survey": 3, 
-      "name": "Multi-year commitments"
+      "name": "3DP: Multi-year commitments"
+    }
+  }, 
+  {
+    "pk": 38, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "", 
+      "survey": 3, 
+      "name": "4DP: Predictability of disbursements"
+    }
+  }, 
+  {
+    "pk": 39, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "Percent of aid that flows through public financial management systems (PD5a)", 
+      "survey": 3, 
+      "name": "5DPa: Procurement systems"
+    }
+  }, 
+  {
+    "pk": 40, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "Proportion of IHP+ countries in which agreed, transparent and monitorable performance assessment frameworks are being used to assess progress  in the health sector (PD11)", 
+      "survey": 3, 
+      "name": "5DPb: Public financial management systems"
+    }
+  }, 
+  {
+    "pk": 41, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "Proportion of IHP+ countries where mutual assessments have been made of progress implementing commitments in the health sector, including on aid effectiveness  (PD12)", 
+      "survey": 3, 
+      "name": "5DPc: Project Implementation Units"
+    }
+  }, 
+  {
+    "pk": 42, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "Evidence of support for Civil Society to be actively represented in health sector policy processes - including health sector planning, coordination and review mechanisms.", 
+      "survey": 3, 
+      "name": "6DP: Performance assessment frameworks"
     }
   }, 
   {
@@ -657,7 +707,27 @@
       "ordering": 1, 
       "help_text": "", 
       "survey": 3, 
-      "name": "Mutual assessment processes"
+      "name": "7DP: Mutual assessment processes"
+    }
+  }, 
+  {
+    "pk": 44, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "", 
+      "survey": 3, 
+      "name": "8DP: Support to civil society representation"
+    }
+  }, 
+  {
+    "pk": 45, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "", 
+      "survey": 3, 
+      "name": "General support: General support"
     }
   }, 
   {
@@ -678,76 +748,6 @@
       "help_text": "Halve the proportion of aid flows to the health sector are not reported on government's budget(s) (with at least 85% reported on budget)", 
       "survey": 1, 
       "name": "Percent of aid"
-    }
-  }, 
-  {
-    "pk": 42, 
-    "model": "scorecard_processor.questiongroup", 
-    "fields": {
-      "ordering": 1, 
-      "help_text": "Evidence of support for Civil Society to be actively represented in health sector policy processes - including health sector planning, coordination and review mechanisms.", 
-      "survey": 3, 
-      "name": "Performance assessment frameworks"
-    }
-  }, 
-  {
-    "pk": 38, 
-    "model": "scorecard_processor.questiongroup", 
-    "fields": {
-      "ordering": 1, 
-      "help_text": "", 
-      "survey": 3, 
-      "name": "Predictability of disbursements"
-    }
-  }, 
-  {
-    "pk": 39, 
-    "model": "scorecard_processor.questiongroup", 
-    "fields": {
-      "ordering": 1, 
-      "help_text": "Percent of aid that flows through public financial management systems (PD5a)", 
-      "survey": 3, 
-      "name": "Procurement systems"
-    }
-  }, 
-  {
-    "pk": 36, 
-    "model": "scorecard_processor.questiongroup", 
-    "fields": {
-      "ordering": 1, 
-      "help_text": "", 
-      "survey": 3, 
-      "name": "Programme based approaches"
-    }
-  }, 
-  {
-    "pk": 41, 
-    "model": "scorecard_processor.questiongroup", 
-    "fields": {
-      "ordering": 1, 
-      "help_text": "Proportion of IHP+ countries where mutual assessments have been made of progress implementing commitments in the health sector, including on aid effectiveness  (PD12)", 
-      "survey": 3, 
-      "name": "Project Implementation Units"
-    }
-  }, 
-  {
-    "pk": 40, 
-    "model": "scorecard_processor.questiongroup", 
-    "fields": {
-      "ordering": 1, 
-      "help_text": "Proportion of IHP+ countries in which agreed, transparent and monitorable performance assessment frameworks are being used to assess progress  in the health sector (PD11)", 
-      "survey": 3, 
-      "name": "Public financial management systems"
-    }
-  }, 
-  {
-    "pk": 44, 
-    "model": "scorecard_processor.questiongroup", 
-    "fields": {
-      "ordering": 1, 
-      "help_text": "", 
-      "survey": 3, 
-      "name": "Support to civil society representation"
     }
   }, 
   {
