@@ -22,11 +22,9 @@ class QuestionFieldset(Fieldset):
         self.fields.append(field)
 
     def as_html(self, form):
-        return u"<div class='tab' id='%s'><fieldset>%s<div class='fields'>%s</div></fieldset></div>" % (self.div_id, self.legend_html, form.render_fields(self.fields))
+        return u"<div class='pill-pane' id='%s'><fieldset>%s<div class='fields'>%s</div></fieldset></div>" % (self.div_id, self.legend_html, form.render_fields(self.fields))
 
 class ResponseSetForm(forms.ModelForm):
-    #TODO: Make django-bootstrap support modelforms
-    # https://github.com/earle/django-bootstrap/issues/3
     class Meta:
         model = ResponseSet
         exclude = ('survey','entity','submission_date','last_update','respondant')
