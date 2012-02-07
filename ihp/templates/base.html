@@ -31,7 +31,7 @@
               <li><a href="/admin/">Manage app</a></li>{% endif %}
             </ul>
             {% if user.is_authenticated %}
-              <p class="pull-right" style="color:#fff">Logged in as <strong>{{user.get_full_name|default:user.username}} <a class="btn danger" href="{% url django.contrib.auth.views.logout %}">log out</a></p>
+              <p class="pull-right" style="color:#fff">Logged in as <strong>{{user.get_full_name|default:user.username}}</strong> <a class="btn danger" href="{% url django.contrib.auth.views.logout %}">log out</a></p>
             {% else %}
               <p class="pull-right"><a href="{% url django.contrib.auth.views.login %}">Log in</a></p>
             {% endif %}
