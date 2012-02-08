@@ -1,3 +1,53 @@
 # Create your views here.
+from django.http import HttpResponse, HttpResponseRedirect
+from django.template import RequestContext
+from django.shortcuts import render_to_response, get_object_or_404
+from django.views.generic import DetailView, ListView, DeleteView, CreateView
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import PasswordResetForm
+from django.contrib.auth.models import User
 
+from scorecard_processor.models import Entity, DataSeriesGroup, Survey
 
+def add_dsg_survey(request, entity_id, data_series_group_name, survey_id):
+    entity = Entity.objects.get(pk=entity_id)
+    data_series_group = DataSeriesGroup.objects.get(pk=data_series_group_name)
+    survey = Survey.objects.get(pk=survey_id)
+    data_series = data_series_group.dataseries_set.all()
+    context = {
+        'entity':entity,
+        'survey':survey,
+        'data_series_group':data_series_group,
+        'data_series':data_series
+    }
+    return render_to_response('ihp_results/add_dsg_survey.html',context,RequestContext(request))
+
+from forms import QuestionForm
+
+def edit_dsg_survey(request, entity_id, data_series_group_name, survey_id, data_series_name):
+    entity = Entity.objects.get(pk=entity_id)
+    data_series_group = DataSeriesGroup.objects.get(pk=data_series_group_name)
+    data_series = data_series_group.dataseries_set.get(pk=data_series_name)
+    survey = Survey.objects.get(pk=survey_id)
+    categories = DataSeriesGroup.objects.get(pk='Data collection year').dataseries_set.filter(visible=True)
+
+    if request.POST:
+        form = QuestionForm(request.POST, entity=entity, user=request.user, survey=survey, country=data_series, series=categories)
+        if form.is_valid():
+            form.save()
+            next_section = request.POST.get('next')
+            if next_section:
+                return HttpResponseRedirect('#%s' % next_section)
+            else:
+                return HttpResponseRedirect(responseset.entity.get_absolute_url())
+    else:
+        form = QuestionForm(entity=entity, user=request.user, survey=survey, country=data_series, series=categories)
+
+    context = {
+        'entity':entity,
+        'survey':survey,
+        'data_series_group':data_series_group,
+        'form':form,
+        'data_series':data_series
+    }
+    return render_to_response('ihp_results/edit_dsg_survey.html',context,RequestContext(request))

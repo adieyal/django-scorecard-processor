@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block head_title %}Response to {{survey.name}} for {{entity.name}}{% endblock %}
+{% block script_bottom %}
+{{block.super}}
+<script type="text/javascript">
+//  $('fieldset').addClass('row');
+//  $('fieldset legend').addClass('span12');
+//  $('fieldset .legend').addClass('span12');
+//  $('fieldset .fields').addClass('span12');
+//  $('fieldset .fields label .question').addClass('span9');
+//  var list = $('<ul class="pills span4 pull-left"></ul>')
+//  $('.form').before(list);
+//  var save = $('.actions');
+//  save.removeClass('actions');
+//  save.addClass('pull-right');
+//  var tab_length = $('.pill-pane').length;
+//  var next = '#'+$('div.pill-pane')[0].id;
+//  if (window.location.hash) {next = window.location.hash;}
+//  if ($('.error').length) {
+//    next = '#'+$($('.error')[0]).parents('div.pill-pane').attr('id');
+//  }
+//  $('button').live('click', function(e) {$('#next').attr('value',$(e.currentTarget).parents('div.pill-pane').next('div.pill-pane').attr('id')); });
+//  $('.pill-pane').each(function(i,e) {
+//    var id = $(e).attr('id');
+//    var classes = ''
+//    item = $('<li><a href="#'+id+'">'+$('legend',e).html()+'</a></li>');
+//    list.append(item);
+//    var new_save = save.clone();
+//    if (i+1 == tab_length) {
+//      $('button',new_save).html('Save');
+//    } else {
+//      $('button',new_save).attr('value',id);
+//    }
+//    new_save.appendTo(e);
+//    if ('#'+id == next) {
+//        $(e).addClass('active');
+//        $(item).addClass('active');
+//    }
+//  })
+//  save.hide();
+//  list.tabs();
+//  $('.pills').bind('change', function (e) {
+//    //window.console.log() // activated tab
+//    var href=$(e.target).attr('href');
+//    $('#next').attr('value',href.substring(1));
+//    //$('form').submit();
+//  })
+</script>
+<style>
+  .legend.span5 {clear:left}
+  .fields.span10 {float:right}
+  label .identifier, label .question {display:block;float:left;margin-left:0}
+  label .identifier {margin-right:0.5em;}
+  .form-stacked .clearfix div.input {clear:left;padding:5px 0 20px 20px}
+  .input .currency {margin-right:0.5em;}
+  .pills li {float:none}
+  select.currency_select {display:none}
+</style>
+{% endblock %}
+
+{% block fluid_content_outer %}
+  <div class="container">
+    <div class="content">
+      <div class="page-header">
+        <h1>{{survey.name}} <small>for <a href="{{entity.get_absolute_url}}">{{entity.name}}</a> - {{data_series}}</small></h1>
+      </div>
+      <form method="POST" class="form-stacked">
+          {% csrf_token %}
+          <div class="row">
+          </div>
+
+          <div class="row">
+            <div class="span4">
+              <label>{{form.currency.label}}</label>
+              {{form.currency}}
+
+              <label>{{form.baseline_year.label}}</label>
+              {{form.baseline_year}}
+
+              <label>{{form.current_year.label}}</label>
+              {{form.current_year}}
+            </div>
+            <div class="span10">
+              <div class="form pill-content">
+                {{form.as_div}}
+              </div>
+              <input type="hidden" id="next" name="next" value="" />
+              <div class="actions">
+                  <button type="submit" class="btn primary large" name="button">Next</button> &nbsp;
+              </div>
+            </div>
+            
+          </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

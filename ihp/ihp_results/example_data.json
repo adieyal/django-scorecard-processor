@@ -86,21 +86,12 @@
     }
   }, 
   {
-    "pk": 20, 
-    "model": "scorecard_processor.dataseries", 
-    "fields": {
-      "visible": false, 
-      "group": "Data collection year", 
-      "name": "base"
-    }
-  }, 
-  {
     "pk": 21, 
     "model": "scorecard_processor.dataseries", 
     "fields": {
       "visible": false, 
       "group": "Data collection year", 
-      "name": "c11"
+      "name": "2011 collection"
     }
   }, 
   {
@@ -109,7 +100,16 @@
     "fields": {
       "visible": true, 
       "group": "Data collection year", 
-      "name": "c12"
+      "name": "2012 collection"
+    }
+  }, 
+  {
+    "pk": 20, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Data collection year", 
+      "name": "Baseline"
     }
   }, 
   {
@@ -3245,8 +3245,8 @@
       "aggregate_by_entity": true, 
       "scorecard": 1, 
       "limit_to_dataseries": [
-        20, 
-        21
+        21, 
+        20
       ], 
       "description": ""
     }
@@ -3265,9 +3265,9 @@
       "aggregate_by_entity": true, 
       "scorecard": 1, 
       "limit_to_dataseries": [
-        20, 
         21, 
-        22
+        22, 
+        20
       ], 
       "description": ""
     }
@@ -3286,8 +3286,8 @@
       "aggregate_by_entity": false, 
       "scorecard": 1, 
       "limit_to_dataseries": [
-        20, 
-        21
+        21, 
+        20
       ], 
       "description": ""
     }
@@ -3306,9 +3306,9 @@
       "aggregate_by_entity": true, 
       "scorecard": 2, 
       "limit_to_dataseries": [
-        20, 
         21, 
-        22
+        22, 
+        20
       ], 
       "description": ""
     }
