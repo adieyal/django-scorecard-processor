@@ -78,7 +78,7 @@ class CurrencySelector(MultiValueField):
                       localize=localize, required=self.required),
         )
         if 'widget' not in kwargs:
-            kwargs['widget'] = self.widget(choices=choices)
+            kwargs['widget'] = self.widget(choices=choices, attrs={'class':'currency_select medium'})
         super(CurrencySelector, self).__init__(fields, *args, **kwargs)
 
     def compress(self, data_list):

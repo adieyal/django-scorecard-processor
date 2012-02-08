@@ -28,7 +28,23 @@ class QuestionFieldset(Fieldset):
     def as_html(self, form):
         return u"<div class='tab' id='%s'><fieldset>%s<div class='fields'>%s</div></fieldset></div>" % (self.div_id, self.legend_html, form.render_fields(self.fields))
 
+import plugins
+
 class QuestionForm(BootstrapForm):
+
+    currency = forms.ChoiceField(
+                    choices=plugins.CurrencySelector().widget.widgets[0].choices,
+                    label="Currency",
+                    help_text="Please select your currency"
+                ) 
+    baseline_year = forms.ChoiceField(
+                        choices=((2005, 2005), (2006,2006), (2007,2007)),
+                        label="Baseline year",
+                    ) 
+    current_year = forms.ChoiceField(
+                        choices=((2010,2010), (2011,2011)),
+                        label="Current year",
+                    ) 
 
     def __init__(self, *args, **kwargs):
         self.entity = kwargs.pop('entity')

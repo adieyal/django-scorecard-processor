@@ -54,6 +54,7 @@
   .form-stacked .clearfix div.input {clear:left;padding:5px 0 20px 20px}
   .input .currency {margin-right:0.5em;}
   .pills li {float:none}
+  select.currency_select {display:none}
 </style>
 {% endblock %}
 
@@ -65,12 +66,30 @@
       </div>
       <form method="POST" class="form-stacked">
           {% csrf_token %}
-          <div class="form pill-content">
-            {{form.as_div}}
+          <div class="row">
           </div>
-          <input type="hidden" id="next" name="next" value="" />
-          <div class="actions">
-              <button type="submit" class="btn primary large" name="button">Next</button> &nbsp;
+
+          <div class="row">
+            <div class="span4">
+              <label>{{form.currency.label}}</label>
+              {{form.currency}}
+
+              <label>{{form.baseline_year.label}}</label>
+              {{form.baseline_year}}
+
+              <label>{{form.current_year.label}}</label>
+              {{form.current_year}}
+            </div>
+            <div class="span10">
+              <div class="form pill-content">
+                {{form.as_div}}
+              </div>
+              <input type="hidden" id="next" name="next" value="" />
+              <div class="actions">
+                  <button type="submit" class="btn primary large" name="button">Next</button> &nbsp;
+              </div>
+            </div>
+            
           </div>
       </form>
     </div>
