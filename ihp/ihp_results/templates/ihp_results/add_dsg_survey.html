@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block head_title %}Add a new response to {{survey.name}} for {{entity.name}}{% endblock %}
+{% block fluid_content_outer %}
+  <div class="container">
+    <div class="content">
+      <div class="page-header">
+        <h1>New response to {{survey.name}} <small>for <a href="{{entity.get_absolute_url}}">{{entity.name}}</a></small></h1>
+      </div>
+      <div class="row">
+        <div class="span14">
+          {% if survey.description %}
+            {{survey.description|safe}}
+          {% endif %}
+          <h2>Please select your country</h2>
+            <ul>
+            {% for ds in data_series %}
+              <li><a href="{% url survey_dsg_response_edit entity.pk data_series_group.pk survey.pk ds.pk %}">{{ds.name}}</a></li>
+            {% endfor %}
+            </ul>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

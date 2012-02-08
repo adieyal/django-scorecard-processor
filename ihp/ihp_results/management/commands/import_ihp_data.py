@@ -64,13 +64,13 @@ class Command(BaseCommand):
                         if question:
                             comment = comment or value['comment']
                             q = survey.questions.get(question)
-                            for collection, response in [('base','baseline'), ('c11','latest')]:
+                            for collection, response in [('Baseline','baseline'), ('2011 collection','latest')]:
                                 year, v = value[response]
                                 if response=='baseline':
                                     y = years.get(year,years.get('2007'))
                                 else:
                                     y = years.get(year,years.get('2009'))
-                                col = collections.get(collection,collections.get('c11'))
+                                col = collections.get(collection,collections.get('2011 collection'))
                                 if y and v:
                                     rs = responsesets.get((col,y))
                                     if not rs:

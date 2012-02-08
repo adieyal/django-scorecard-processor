@@ -136,8 +136,8 @@ urlpatterns = patterns('scorecard_processor.views',
     url(r'^entity/(?P<object_id>\d+)/response/(?P<responseset_id>\d+)/edit/$','edit_survey',name="survey_response_edit"),
 
     #TODO:generalize so that this IHP specific stuff moves out of here
-    url(r'^entity/(?P<object_id>\d+)/survey_by/(?P<data_series_group>\w+)/add/(?P<survey_id>\d+)/$',add_dsg_survey, name="survey_dsg_response"),
+    url(r'^entity/(?P<entity_id>\d+)/survey_by/(?P<data_series_group_name>\w+)/add/(?P<survey_id>\d+)/$',add_dsg_survey, name="survey_dsg_response"),
     #TODO: urls for responses per survey
-    url(r'^entity/(?P<object_id>\d+)/response_by/(?P<data_series_group>\w+)/edit/(?P<survey_id>\d+)/(?P<data_series>\w+)/$',edit_dsg_survey,name="survey_dsg_response_edit"),
+    url(r'^entity/(?P<entity_id>\d+)/response_by/(?P<data_series_group_name>\w+)/edit/(?P<survey_id>\d+)/(?P<data_series_name>\w+)/$',edit_dsg_survey,name="survey_dsg_response_edit"),
 )
 

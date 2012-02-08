@@ -1,9 +1,14 @@
+from collections import defaultdict
+
 from django import forms
 from django.db.models import Q
 from django.template.defaultfilters import slugify
+
 from bootstrap.forms import *
-from models.inputs import ResponseSet, Response, ResponseOverride
-from models.outputs import OperationArgument
+
+from scorecard_processor.models.inputs import ResponseSet, Response, ResponseOverride
+from scorecard_processor.models.outputs import OperationArgument
+
 from plugins import register
 
 class QuestionFieldset(Fieldset):
@@ -35,10 +40,10 @@ class QuestionForm(BootstrapForm):
         super(QuestionForm, self).__init__(*args, **kwargs)
         self.layout = []
 
-        responsesets = survey.entity.responseset_set.filter(data_series=self.country).filter(data_series__in=self.series) 
+        responsesets = self.entity.responseset_set.filter(data_series=self.country).filter(data_series__in=self.series) 
         response_dict = dict([(r.pk,r) for r in responsesets])
         responses = Response.objects.filter(
-                        active=True,
+                        current=True,
                         response_set__in=responsesets).\
                     select_related('question')
         question_dict = defaultdict(list)
@@ -52,10 +57,14 @@ class QuestionForm(BootstrapForm):
             fieldset = QuestionFieldset(group)
             for question in group.question_set.all():
                 label = True
-                for series in self.series:
-                    self.add_field_from_question(question, series, label)
-                    fieldset.add_field('q_%s_%s' % question.pk, series.pk)
-                    label = False
+                if question.question == "Voluntary additional information":
+                    self.add_field_from_question(question, self.series[0])
+                    fieldset.add_field('q_%s_%s' % (question.pk, self.series[0].pk))
+                else:
+                    for series in self.series:
+                        self.add_field_from_question(question, series, label)
+                        fieldset.add_field('q_%s_%s' % (question.pk, series.pk))
+                        label = False
             self.layout.append(fieldset)
 
         #TODO:  get initial values
@@ -65,19 +74,19 @@ class QuestionForm(BootstrapForm):
         #            for response in self.entity.responseset_set.filter(current=True)
         #        ]))
             
-    def add_field_from_question(self, question, series, label):
+    def add_field_from_question(self, question, series, label=True):
         field = register.get_input_plugin(question.widget).plugin
         if label:
             label="""<span class="identifier">%s.</span> 
                      <span class="question">%s</span>""" % (question.identifier,question.question)
         else:
-            label = ""
-        self.fields['q_%s_%s' % (question.pk,series.pk)] = field(
+            label = series.name
+        field = field(
                     help_text = question.help_text,
                     label = label,
                     required = False,
-                    attrs = {'class':"series_%s" % series.pk}
         )
+        self.fields['q_%s_%s' % (question.pk,series.pk)] = field
 
     def save(self):
         vomit
