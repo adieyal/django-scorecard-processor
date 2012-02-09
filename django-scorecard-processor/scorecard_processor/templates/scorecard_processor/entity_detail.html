@@ -60,11 +60,7 @@
             {% if responsesets %}
               <div class="span7">
                 <h2>Edit responses <small>ordered by last update</small></h2>
-                <ul>
-                {% for responseset in responsesets %}
-                  <li class="responseset" name="responseset_{{responseset.pk}}"><a href="{{responseset.get_absolute_url}}">{% for series in responseset.get_data_series %}{{series.name}}{% if forloop.revcounter0 %}, {% endif %}{% endfor %}</a><br/> <strong>last update:</strong> {{responseset.last_update}}<br /> <strong>survey:</strong> {{responseset.survey.name}}</li>
-                {% endfor %}
-                </ul>
+                {% include 'scorecard_processor/_entity_responsesets.html' %}
               </div>
             {% endif %}
           {% endwith %}

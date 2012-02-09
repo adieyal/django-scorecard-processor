@@ -153,6 +153,11 @@ class ResponseSet(models.Model):
             self._data_series = self.data_series.all().select_related('group')
         return self._data_series
 
+    def get_data_series_by_type(self):
+        return dict([
+            (ds.group.name, ds) for ds in self.get_data_series()
+        ])
+
     def get_responses(self):
         if not hasattr(self,'_responses'):
             #Cache responses for this responseset, order by question ordering
