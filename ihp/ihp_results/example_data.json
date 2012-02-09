@@ -32,6 +32,15 @@
     }
   }, 
   {
+    "pk": 32, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Year", 
+      "name": "2005"
+    }
+  }, 
+  {
     "pk": 10, 
     "model": "scorecard_processor.dataseries", 
     "fields": {

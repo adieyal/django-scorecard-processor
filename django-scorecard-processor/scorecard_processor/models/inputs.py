@@ -150,7 +150,7 @@ class ResponseSet(models.Model):
 
     def get_data_series(self):
         if not hasattr(self, '_data_series'):
-            self._data_series = self.data_series.all()
+            self._data_series = self.data_series.all().select_related('group')
         return self._data_series
 
     def get_responses(self):
