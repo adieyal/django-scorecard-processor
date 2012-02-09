@@ -113,6 +113,15 @@
     }
   }, 
   {
+    "pk": 23, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "Benin"
+    }
+  }, 
+  {
     "pk": 4, 
     "model": "scorecard_processor.dataseries", 
     "fields": {
@@ -158,6 +167,15 @@
     }
   }, 
   {
+    "pk": 24, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "El Salvador"
+    }
+  }, 
+  {
     "pk": 16, 
     "model": "scorecard_processor.dataseries", 
     "fields": {
@@ -173,6 +191,15 @@
       "visible": true, 
       "group": "Country", 
       "name": "Mali"
+    }
+  }, 
+  {
+    "pk": 25, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "Mauritania"
     }
   }, 
   {
@@ -212,6 +239,33 @@
     }
   }, 
   {
+    "pk": 26, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "Rwanda"
+    }
+  }, 
+  {
+    "pk": 27, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "Senegal"
+    }
+  }, 
+  {
+    "pk": 28, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "Sierra Leone"
+    }
+  }, 
+  {
     "pk": 2, 
     "model": "scorecard_processor.dataseries", 
     "fields": {
@@ -230,6 +284,33 @@
     }
   }, 
   {
+    "pk": 29, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "Sudan"
+    }
+  }, 
+  {
+    "pk": 30, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "Togo"
+    }
+  }, 
+  {
+    "pk": 31, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "Uganda"
+    }
+  }, 
+  {
     "pk": "agency", 
     "model": "scorecard_processor.entitytype", 
     "fields": {
@@ -243,14 +324,6 @@
     "fields": {
       "project": 1, 
       "plural": "Governments"
-    }
-  }, 
-  {
-    "pk": "non-IHP agency", 
-    "model": "scorecard_processor.entitytype", 
-    "fields": {
-      "project": 1, 
-      "plural": "non-IHP agencies"
     }
   }, 
   {
@@ -526,6 +599,28 @@
       "user_set": [], 
       "name": "Government of Nigeria", 
       "entity_type": "government"
+    }
+  }, 
+  {
+    "pk": 26, 
+    "model": "scorecard_processor.entity", 
+    "fields": {
+      "abbreviation": "AfDB", 
+      "project": 1, 
+      "user_set": [], 
+      "name": "African Development Bank", 
+      "entity_type": "agency"
+    }
+  }, 
+  {
+    "pk": 27, 
+    "model": "scorecard_processor.entity", 
+    "fields": {
+      "abbreviation": "Germany", 
+      "project": 1, 
+      "user_set": [], 
+      "name": "Germany", 
+      "entity_type": "agency"
     }
   }, 
   {
