@@ -1,3 +1,4 @@
+from django.utils.translation import ugettext_lazy as _
 from scorecard_processor.plugins.input.multi_choices import register, MultiChoiceField
 from decimal import Decimal
 
@@ -6,9 +7,9 @@ class AidTypes(MultiChoiceField):
     def __init__(self, *args, **kwargs):
         super(AidTypes,self).__init__(*args, **kwargs)
         self.choices = (
-            ('financial','Financial support'),
-            ('technical','Technical assistance (non-financial)'),
-            ('lobbying','Lobbying/advocay - non-financial')
+            ('financial',_('Financial support')),
+            ('technical',_('Technical assistance (non-financial)')),
+            ('lobbying',_('Lobbying/advocay - non-financial'))
         )
         self.widget.choices = self.choices
 
@@ -39,8 +40,8 @@ class CurrencySelector(MultiValueField):
     name = "Currency selector and input"
     widget = CurrencyWidget
     errors = {
-        'invalid_currency':'Please choose a valid currency',
-        'invalid_value':'Please enter a numeric amount'
+        'invalid_currency':_('Please choose a valid currency'),
+        'invalid_value':_('Please enter a numeric amount')
     }
 
     def __init__(self, *args, **kwargs):
@@ -50,25 +51,25 @@ class CurrencySelector(MultiValueField):
         self.required = kwargs.get('required', False)
         localize = kwargs.get('localize', False)
         choices = (
-                     ('USD', 'US Dollar'),
-                     ('GBP', 'British Pound'),
-                     ('EUR', 'Euro'),
-                     ('AUD', 'Australian Dollar'),
-                     ('SEK', 'Swedish Krona'),
-                     ('XOF', 'CFA Franc BCEAO'),
-                     ('BIF', 'Burundi Franc'),
-                     ('DJF', 'Djibouti Franc'),
-                     ('CDF', 'Congolese Franc'),
-                     ('SVC', 'El Salvador Colon'),
-                     ('ETB', 'Ethiopian Birr'),
-                     ('MRO', 'Mauritanian Ouguiya'),
-                     ('MZN', 'Mozambique New Metical'),
-                     ('NPR', 'Nepal Rupee'),
-                     ('NGN', 'Nigerian Naira'),
-                     ('RWF', 'Rwandan Franc'),
-                     ('SLL', 'Sierra Leone Leone'),
-                     ('SDG', 'Sudanese Pound'),
-                     ('UGX', 'Uganda Shilling'),
+                     ('USD', _('US Dollar')),
+                     ('GBP', _('British Pound')),
+                     ('EUR', _('Euro')),
+                     ('AUD', _('Australian Dollar')),
+                     ('SEK', _('Swedish Krona')),
+                     ('XOF', _('CFA Franc BCEAO')),
+                     ('BIF', _('Burundi Franc')),
+                     ('DJF', _('Djibouti Franc')),
+                     ('CDF', _('Congolese Franc')),
+                     ('SVC', _('El Salvador Colon')),
+                     ('ETB', _('Ethiopian Birr')),
+                     ('MRO', _('Mauritanian Ouguiya')),
+                     ('MZN', _('Mozambique New Metical')),
+                     ('NPR', _('Nepal Rupee')),
+                     ('NGN', _('Nigerian Naira')),
+                     ('RWF', _('Rwandan Franc')),
+                     ('SLL', _('Sierra Leone Leone')),
+                     ('SDG', _('Sudanese Pound')),
+                     ('UGX', _('Uganda Shilling')),
                 )
         fields = (
             ChoiceField(error_messages={'invalid': self.errors['invalid_currency']},

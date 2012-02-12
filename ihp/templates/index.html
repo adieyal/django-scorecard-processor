@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% block head_title %}Home{% endblock %}
 {% block sidebar %}
 {% endblock %}
 {% block content %}
 <div class="row">
 <div class="span16">
-<h1>2012 IHP+Results Monitoring Process <small>Online Survey Tool</small></h1>
+{% blocktrans %}<h1>2012 IHP+Results Monitoring Process <small>Online Survey Tool</small></h1>
 
 <p>Welcome to the 3rd annual monitoring of progress against the International Health Partnership (IHP+) Global Compact commitments, by IHP+Results. IHP+Results is an independent consortium of research and advocacy organisations mandated to provide an annual assessment of the results of IHP+.</p>
 
@@ -17,6 +18,7 @@
     <li>You will be prompted if you enter an unexpected piece of data / information (e.g. entering a number into a text field by mistake).</li>
     <li>You will be able to directly link through to key terms and definitions rather than have to look them up.</li>
 </ol>
+{% endblocktrans %}
 
 {% if user.entity_set.all.count > 1 %}
   <h2>Manage your responses for:</h2>
@@ -26,11 +28,14 @@
     {% endfor %}
   </ul>
 {% else %}
+{% blocktrans %}
   <a class="btn primary large" href="{{ user.entity_set.all.0.get_absolute_url|default:"/scorecard/entity/" }}">Get started</a>
+{% endblocktrans %}
 {% endif %}
 
 <div class="well" style="margin-top:20px">
   <div class="content">
+    {% blocktrans %}
     <p>More detailed documentation and guidance on the 2012 process is available at <a href="http://www.ihpresults.net/2012monitoring" target="_new">http://www.ihpresults.net/2012monitoring</a>.</p> 
     <p>Here you will find:</p>
     <ul>
@@ -38,6 +43,7 @@
         <li>Detailed Key Terms and Definitions</li>
         <li>Excel versions of the Survey Tools</li>
     </ol>
+    {% endblocktrans %}
   </div>
 </div>
 

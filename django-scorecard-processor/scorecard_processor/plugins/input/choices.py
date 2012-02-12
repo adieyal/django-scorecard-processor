@@ -1,5 +1,6 @@
 from django.forms import ChoiceField
 from scorecard_processor.plugins import base, register
+from django.utils.translation import ugettext_lazy as _
 
 class YesNoNAField(ChoiceField):
     name = "Yes / No / N/A choice"
@@ -7,9 +8,9 @@ class YesNoNAField(ChoiceField):
         super(YesNoNAField,self).__init__(*args,**kwargs)
         self.choices = (
                 ('',''),
-                ('yes','Yes'),
-                ('no','No'),
-                ('n/a','n/a'),
+                ('yes',_('Yes')),
+                ('no',_('No')),
+                ('n/a',_('n/a')),
             )
 
 class YesNoField(ChoiceField):
@@ -18,8 +19,8 @@ class YesNoField(ChoiceField):
         super(YesNoField,self).__init__(*args,**kwargs)
         self.choices = (
                 ('',''),
-                ('yes','Yes'),
-                ('no','No'),
+                ('yes',_('Yes')),
+                ('no',_('No')),
             )
 
 class Rating(ChoiceField):

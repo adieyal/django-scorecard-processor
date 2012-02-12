@@ -1,10 +1,11 @@
-from collections import defaultdict
+from collections import defaultdict, namedtuple
 from ordereddict import OrderedDict
 
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.utils.functional import lazy
+from django.utils import translation
 
 from bootstrap.forms import BootstrapForm, Fieldset
 
@@ -20,6 +21,7 @@ class SurveyManager(models.Manager):
     def active(self, *args, **kwargs):
         return self.get_query_set().filter(active=True)
 
+i18nSurveyTuple = namedtuple("i18nSurveyTuple","name description")
 class Survey(models.Model):
     name = models.CharField(max_length=100)
     project = models.ForeignKey(Project)
@@ -61,6 +63,33 @@ class Survey(models.Model):
             self._questions = self.question_set.all()
         return self._questions
 
+    @property
+    def i18n(self):
+        lang = translation.get_language()
+        self._i18n_cache = getattr(self,'_i18n_cache',{})
+        obj = self._i18n_cache.get(lang)
+        if not obj:
+            if lang.startswith('en'):
+                obj = self
+            else:
+                try:
+                    obj = self.surveytranslation_set.get(lang=lang)
+                except SurveyTranslation.DoesNotExist:
+                    obj = self
+            self._i18n_cache[lang] = obj
+        return i18nSurveyTuple(name=obj.name, description=obj.description)
+        
+class SurveyTranslation(models.Model):
+    parent_object = models.ForeignKey(Survey)
+    lang = models.CharField(max_length=5, db_index=True)
+    name = models.CharField(max_length=100)
+    description = models.TextField(blank=True, null=True)
+
+    class Meta:
+        app_label = "scorecard_processor"
+
+
+i18nQuestionGroupTuple = namedtuple("i18nQuestionGroupTuple","name help_text")
 class QuestionGroup(models.Model):
     survey = models.ForeignKey(Survey)
     name = models.CharField(max_length=200)
@@ -72,6 +101,34 @@ class QuestionGroup(models.Model):
     def __unicode__(self):
         return "%s" % self.name
 
+    @property
+    def i18n(self):
+        lang = translation.get_language()
+        self._i18n_cache = getattr(self,'_i18n_cache',{})
+        obj = self._i18n_cache.get(lang)
+        if not obj:
+            if lang.startswith('en'):
+                obj = self
+            else:
+                try:
+                    obj = self.questiongrouptranslation_set.get(lang=lang)
+                except QuestionGroupTranslation.DoesNotExist:
+                    obj = self
+            self._i18n_cache[lang] = obj
+        return i18nQuestionGroupTuple(name=obj.name, help_text=obj.help_text)
+
+
+class QuestionGroupTranslation(models.Model):
+    parent_object = models.ForeignKey(QuestionGroup)
+    lang = models.CharField(max_length=5, db_index=True)
+    name = models.CharField(max_length=200)
+    help_text = models.TextField(blank=True, null=True)
+
+    class Meta:
+        app_label = "scorecard_processor"
+
+
+i18nQuestionTuple = namedtuple("i18nQuestionTuple","identifier question help_text")
 class Question(models.Model):
     survey = models.ForeignKey(Survey)
     group = models.ForeignKey(QuestionGroup, null=True, blank=True)
@@ -85,6 +142,22 @@ class Question(models.Model):
         app_label = "scorecard_processor"
         unique_together = ('survey','identifier')
         ordering = ('group__ordering','id',)
+
+    @property
+    def i18n(self):
+        lang = translation.get_language()
+        self._i18n_cache = getattr(self,'_i18n_cache',{})
+        obj = self._i18n_cache.get(lang)
+        if not obj:
+            if lang.startswith('en'):
+                obj = self
+            else:
+                try:
+                    obj = self.questiontranslation_set.get(lang=lang)
+                except QuestionTranslation.DoesNotExist:
+                    obj = self
+            self._i18n_cache[lang] = obj
+        return i18nQuestionTuple(identifier=self.identifier, question=obj.question, help_text=obj.help_text)
 
     def get_widget(self):
         form = BootstrapForm()
@@ -109,6 +182,15 @@ class Question(models.Model):
 
     def __unicode__(self):
         return "Question: %s. %s" % (self.identifier, self.question)
+
+class QuestionTranslation(models.Model):
+    parent_object = models.ForeignKey(Question)
+    lang = models.CharField(max_length=5, db_index=True)
+    question = models.TextField()
+    help_text = models.TextField(blank=True, null=True)
+
+    class Meta:
+        app_label = "scorecard_processor"
 
 
 class ImportMap(models.Model):

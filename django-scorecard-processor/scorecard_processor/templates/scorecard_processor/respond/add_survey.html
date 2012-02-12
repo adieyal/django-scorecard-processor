@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
-{% block head_title %}Add a new response to {{survey.name}} for {{entity.name}}{% endblock %}
+{% block head_title %}Add a new response to {{survey.i18n.name}} for {{entity.name}}{% endblock %}
 {% block fluid_content_outer %}
   <div class="container">
     <div class="content">
       <div class="page-header">
-        <h1>New response to {{survey.name}} <small>for <a href="{{entity.get_absolute_url}}">{{entity.name}}</a></small></h1>
+        <h1>New response to {{survey.i18n.name}} <small>for <a href="{{entity.get_absolute_url}}">{{entity.name}}</a></small></h1>
       </div>
       <div class="row">
         <div class="span14">
           {% if survey.description %}
-            {{survey.description|safe}}
+            {{survey.i18n.description|safe}}
           {% endif %}
           <h2>Please select the relevant data series</h2>
           <form method="POST">

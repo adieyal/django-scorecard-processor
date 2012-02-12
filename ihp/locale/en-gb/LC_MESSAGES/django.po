@@ -1,0 +1,232 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-02-12 19:52+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: settings.py:44
+msgid "English"
+msgstr ""
+
+#: settings.py:45
+msgid "Français"
+msgstr ""
+
+#: settings.py:46
+msgid "Español"
+msgstr ""
+
+#: ihp_results/forms.py:43
+msgid "Currency"
+msgstr ""
+
+#: ihp_results/forms.py:44
+msgid "Please select your currency"
+msgstr ""
+
+#: ihp_results/forms.py:48
+msgid "Baseline year"
+msgstr ""
+
+#: ihp_results/forms.py:52
+msgid "Current year"
+msgstr ""
+
+#: ihp_results/forms.py:96
+msgid "Voluntary additional information"
+msgstr ""
+
+#: ihp_results/plugins.py:10
+msgid "Financial support"
+msgstr ""
+
+#: ihp_results/plugins.py:11
+msgid "Technical assistance (non-financial)"
+msgstr ""
+
+#: ihp_results/plugins.py:12
+msgid "Lobbying/advocay - non-financial"
+msgstr ""
+
+#: ihp_results/plugins.py:43
+msgid "Please choose a valid currency"
+msgstr ""
+
+#: ihp_results/plugins.py:44
+msgid "Please enter a numeric amount"
+msgstr ""
+
+#: ihp_results/plugins.py:54
+msgid "US Dollar"
+msgstr ""
+
+#: ihp_results/plugins.py:55
+msgid "British Pound"
+msgstr ""
+
+#: ihp_results/plugins.py:56
+msgid "Euro"
+msgstr ""
+
+#: ihp_results/plugins.py:57
+msgid "Australian Dollar"
+msgstr ""
+
+#: ihp_results/plugins.py:58
+msgid "Swedish Krona"
+msgstr ""
+
+#: ihp_results/plugins.py:59
+msgid "CFA Franc BCEAO"
+msgstr ""
+
+#: ihp_results/plugins.py:60
+msgid "Burundi Franc"
+msgstr ""
+
+#: ihp_results/plugins.py:61
+msgid "Djibouti Franc"
+msgstr ""
+
+#: ihp_results/plugins.py:62
+msgid "Congolese Franc"
+msgstr ""
+
+#: ihp_results/plugins.py:63
+msgid "El Salvador Colon"
+msgstr ""
+
+#: ihp_results/plugins.py:64
+msgid "Ethiopian Birr"
+msgstr ""
+
+#: ihp_results/plugins.py:65
+msgid "Mauritanian Ouguiya"
+msgstr ""
+
+#: ihp_results/plugins.py:66
+msgid "Mozambique New Metical"
+msgstr ""
+
+#: ihp_results/plugins.py:67
+msgid "Nepal Rupee"
+msgstr ""
+
+#: ihp_results/plugins.py:68
+msgid "Nigerian Naira"
+msgstr ""
+
+#: ihp_results/plugins.py:69
+msgid "Rwandan Franc"
+msgstr ""
+
+#: ihp_results/plugins.py:70
+msgid "Sierra Leone Leone"
+msgstr ""
+
+#: ihp_results/plugins.py:71
+msgid "Sudanese Pound"
+msgstr ""
+
+#: ihp_results/plugins.py:72
+msgid "Uganda Shilling"
+msgstr ""
+
+#: templates/index.html:8
+msgid ""
+"<h1>2012 IHP+Results Monitoring Process <small>Online Survey Tool</small></"
+"h1>\n"
+"\n"
+"<p>Welcome to the 3rd annual monitoring of progress against the "
+"International Health Partnership (IHP+) Global Compact commitments, by IHP"
+"+Results. IHP+Results is an independent consortium of research and advocacy "
+"organisations mandated to provide an annual assessment of the results of IHP"
+"+.</p>\n"
+"\n"
+"<p>This online data collection platform has been designed to help you manage "
+"the process of submitting data to IHP+Results. If you perfer, it is also "
+"possible for you to submit this data through an Excel tool. However, we "
+"recommend using this online version as it is more user-friendly, including "
+"with the following advantages:<p>\n"
+"\n"
+"<ol>\n"
+"    <li>Your responses will be automatically saved within our database so "
+"you do not have to worry about storing and finding multiple Excel files. You "
+"will also be able to switch between your response without having to open "
+"different files.</li>\n"
+"    <li>Participants from the 2010/11 monitoring round will be able to see "
+"the baseline data that they entered previously (this will not be editable "
+"though).</li>\n"
+"    <li>You will be prompted if you enter an unexpected piece of data / "
+"information (e.g. entering a number into a text field by mistake).</li>\n"
+"    <li>You will be able to directly link through to key terms and "
+"definitions rather than have to look them up.</li>\n"
+"</ol>\n"
+msgstr ""
+
+#: templates/index.html:30
+#, python-format
+msgid ""
+"\n"
+"  <a class=\"btn primary large\" href=\"%(user.entity_set.all.0."
+"get_absolute_url|default:\"/scorecard/entity/\")s\">Get started</a>\n"
+msgstr ""
+
+#: templates/index.html:37
+msgid ""
+"\n"
+"    <p>More detailed documentation and guidance on the 2012 process is "
+"available at <a href=\"http://www.ihpresults.net/2012monitoring\" target="
+"\"_new\">http://www.ihpresults.net/2012monitoring</a>.</p> \n"
+"    <p>Here you will find:</p>\n"
+"    <ul>\n"
+"        <li>Overview Guidance</li>\n"
+"        <li>Detailed Key Terms and Definitions</li>\n"
+"        <li>Excel versions of the Survey Tools</li>\n"
+"    </ol>\n"
+"    "
+msgstr ""
+
+#: templates/admin/base_site.html:4
+msgid "Django site admin"
+msgstr ""
+
+#: templates/admin/base_site.html:7
+msgid "Django administration"
+msgstr ""
+
+#: templates/registration/new_account.html:2
+#, python-format
+msgid ""
+"You're receiving this e-mail because an account had been created on %"
+"(site_name)s."
+msgstr ""
+
+#: templates/registration/new_account.html:4
+msgid "Please go to the following page and choose a new password:"
+msgstr ""
+
+#: templates/registration/new_account.html:8
+msgid "Your username is:"
+msgstr ""
+
+#: templates/registration/new_account.html:10
+msgid "Thanks for using our site!"
+msgstr ""
+
+#: templates/registration/new_account.html:12
+#, python-format
+msgid "The %(site_name)s team"
+msgstr ""

@@ -45,6 +45,9 @@ LANGUAGES = (
     ('fr', ugettext(u'Français')),
     ('es', ugettext(u'Español')),
 )
+LOCALE_PATHS = (
+    'locale',
+)
 
 SITE_ID = 1
 

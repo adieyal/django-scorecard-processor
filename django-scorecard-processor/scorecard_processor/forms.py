@@ -9,13 +9,13 @@ from plugins import register
 
 class QuestionFieldset(Fieldset):
     def __init__(self, question_group, *fields):
-        self.legend_html = question_group and ('<legend>%s</legend>' % question_group.name) or ''
+        self.legend_html = question_group and ('<legend>%s</legend>' % question_group.i18n.name) or ''
         self.div_id = question_group and 'qg_'+slugify(question_group.pk);
         if not self.div_id:
             self.div_id = 'general'
         
         if question_group and question_group.help_text:
-            self.legend_html += "<p class='legend'>%s</p>" % question_group.help_text
+            self.legend_html += "<p class='legend'>%s</p>" % question_group.i18n.help_text
         self.fields = list(fields)
 
     def add_field(self, field):
@@ -103,10 +103,11 @@ class QuestionForm(BootstrapForm):
             
     def add_field_from_question(self, question):
         field = register.get_input_plugin(question.widget).plugin
+        question_tuple = question.i18n
         self.fields['q_%s' % question.pk] = field(
                     label="""<span class="identifier">%s.</span> 
-                            <span class="question">%s</span>""" % (question.identifier,question.question),
-                    help_text=question.help_text,
+                            <span class="question">%s</span>""" % (question_tuple.identifier, question_tuple.question),
+                    help_text=question_tuple.help_text,
                     required=False
         )
 

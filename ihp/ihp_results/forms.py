@@ -4,6 +4,7 @@ from ordereddict import OrderedDict
 from django import forms
 from django.db.models import Q
 from django.template.defaultfilters import slugify
+from django.utils.translation import ugettext_lazy as _
 
 from bootstrap.forms import *
 
@@ -15,13 +16,13 @@ from plugins import register
 
 class QuestionFieldset(Fieldset):
     def __init__(self, question_group, *fields):
-        self.legend_html = question_group and ('<legend>%s</legend>' % question_group.name) or ''
+        self.legend_html = question_group and ('<legend>%s</legend>' % question_group.i18n.name) or ''
         self.div_id = question_group and 'qg_'+slugify(question_group.pk);
         if not self.div_id:
             self.div_id = 'general'
         
         if question_group and question_group.help_text:
-            self.legend_html += "<p class='legend'>%s</p>" % question_group.help_text
+            self.legend_html += "<p class='legend'>%s</p>" % question_group.i18n.help_text
         self.fields = list(fields)
 
     def add_field(self, field):
@@ -39,16 +40,16 @@ class QuestionForm(BootstrapForm):
 
     currency = forms.ChoiceField(
                     choices=plugins.CurrencySelector().widget.widgets[0].choices,
-                    label="Currency",
-                    help_text="Please select your currency"
+                    label=_("Currency"),
+                    help_text=_("Please select your currency")
                 ) 
     baseline_year = forms.ChoiceField(
                         choices=((2005, 2005), (2006,2006), (2007,2007)),
-                        label="Baseline year",
+                        label=_("Baseline year"),
                     ) 
     current_year = forms.ChoiceField(
                         choices=((2010,2010), (2011,2011)),
-                        label="Current year",
+                        label=_("Current year"),
                     ) 
 
     def __init__(self, *args, **kwargs):
@@ -92,7 +93,7 @@ class QuestionForm(BootstrapForm):
             for question in group.question_set.all():
                 label = True
                 self.questions[question.pk] = question
-                if question.question == "Voluntary additional information":
+                if question.question == _("Voluntary additional information"):
                     self.add_field_from_question(question, self.series.values()[0])
                     fieldset.add_field('q_%s_%s' % (question.pk, self.series.values()[0].pk))
                 else:
@@ -111,11 +112,11 @@ class QuestionForm(BootstrapForm):
         field = register.get_input_plugin(question.widget).plugin
         if label:
             label="""<span class="identifier">%s.</span> 
-                     <span class="question">%s</span>""" % (question.identifier,question.question)
+                     <span class="question">%s</span>""" % (question.i18n.identifier,question.i18n.question)
         else:
             label = series.name
         field = field(
-                    help_text = question.help_text,
+                    help_text = question.i18n.help_text,
                     label = label,
                     required = False,
         )
@@ -164,7 +165,6 @@ class QuestionForm(BootstrapForm):
                         responseset.save()
                         responseset.data_series.add(self.country)
                         responseset.data_series.add(series)
-                        print(series.name)
                         if series.name == 'Baseline':
                             responseset.data_series.add(baseline_year)
                         else:
