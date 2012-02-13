@@ -28,9 +28,7 @@
     {% endfor %}
   </ul>
 {% else %}
-{% blocktrans %}
-  <a class="btn primary large" href="{{ user.entity_set.all.0.get_absolute_url|default:"/scorecard/entity/" }}">Get started</a>
-{% endblocktrans %}
+  <a class="btn primary large" href="{{ user.entity_set.all.0.get_absolute_url|default:"/scorecard/entity/" }}">{% blocktrans %}Get started{% endblocktrans %}</a>
 {% endif %}
 
 <div class="well" style="margin-top:20px">
