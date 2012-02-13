@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-12 19:52+0200\n"
+"POT-Creation-Date: 2012-02-13 12:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -145,7 +145,7 @@ msgstr ""
 msgid "Uganda Shilling"
 msgstr ""
 
-#: templates/index.html:8
+#: templates/index.html:9
 msgid ""
 "<h1>2012 IHP+Results Monitoring Process <small>Online Survey Tool</small></"
 "h1>\n"
@@ -177,15 +177,11 @@ msgid ""
 "</ol>\n"
 msgstr ""
 
-#: templates/index.html:30
-#, python-format
-msgid ""
-"\n"
-"  <a class=\"btn primary large\" href=\"%(user.entity_set.all.0."
-"get_absolute_url|default:\"/scorecard/entity/\")s\">Get started</a>\n"
+#: templates/index.html:31
+msgid "Get started"
 msgstr ""
 
-#: templates/index.html:37
+#: templates/index.html:36
 msgid ""
 "\n"
 "    <p>More detailed documentation and guidance on the 2012 process is "
