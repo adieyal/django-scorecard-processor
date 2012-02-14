@@ -48,7 +48,7 @@ class QuestionForm(BootstrapForm):
                         label=_("Baseline year"),
                     ) 
     current_year = forms.ChoiceField(
-                        choices=((2010,2010), (2011,2011)),
+                        choices=((2011,2011), (2010,2010)),
                         label=_("Current year"),
                     ) 
 
