@@ -43,7 +43,6 @@ ugettext = lambda s: s
 LANGUAGES = (
     ('en-gb', ugettext('English')),
     ('fr', ugettext(u'Français')),
-    ('es', ugettext(u'Español')),
 )
 LOCALE_PATHS = (
     'locale',
