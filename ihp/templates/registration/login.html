@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% block head_title %}Log in{% endblock %}
 {% block content %}
 <style>
@@ -6,15 +7,26 @@
 </style>
 <div class="container">
   <form method="POST" class="form-stacked">
-    <div class="well span5 offset2">
-      <h2>Welcome</h2>
-      <p>Sign in with your email and password</p>
-      {% csrf_token %}
-      {{form.as_p}}
-      <br />
-      <button class="btn primary large pull-right"  type="submit">Log in</button>
-      <small style="clear:both;display:block;padding-top:20px">Don't know your password? <a href="{% url django.contrib.auth.views.password_reset %}">click to retrieve it</a>.</small>
+  <div class="row">
+    <div class="well span10">
+      <h2>{% blocktrans %}Welcome{% endblocktrans %}</h2>
+
+    <div class="row">
+      <div class="span5">
+        <p>To use the survey tool you need to be registered.  Registration is managed by the IHP+Results team in conjunction with IHP+ focal points in all participating organisations.  Please contact your IHP+ focal point if you need to be registered to use this system.  You may already have been registered, in which you case you will have received an email from ‘IHP+Results Survey 2012’; please click on the link in that email and follow the on screen instructions to access the online survey.</p>
+      </div>
+      <div class="span5">
+        {% csrf_token %}
+        {{form.as_p}}
+        <br />
+        <button class="btn primary large pull-right"  type="submit">{% blocktrans %}Log in{% endblocktrans %}</button>
+        <small style="clear:both;display:block;padding-top:20px">{% url django.contrib.auth.views.password_reset as reset_url %}{% blocktrans %}Don't know your password? <a href="{{reset_url}}">click to retrieve it</a>.{% endblocktrans %}</small>
+      </div>
+
     </div>
+    </div>
+
+  </div>
   </form>
 </div>
 {% endblock %}
