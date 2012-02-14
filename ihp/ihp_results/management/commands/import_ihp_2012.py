@@ -49,11 +49,12 @@ class Command(BaseCommand):
         sup = None
         order = 0
         sheet = survey_file.sheet_by_name('Survey Tool')
-        comment_text = sheet.row(2)[10].value
+        print(sheet.row(6))
+        comment_text = sheet.row(6)[7].value
         section = None
         description = ''
         tick_mode = False
-        for row_num in xrange(3,sheet.nrows):
+        for row_num in xrange(7,sheet.nrows):
             row = sheet.row(row_num)
             if row[3].ctype!=0 and int(row[3].value)==17:
                 row[0].value = 'Additional questions'

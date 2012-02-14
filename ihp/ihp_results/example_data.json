@@ -1304,7 +1304,7 @@
     "fields": {
       "widget": "multi_currency", 
       "group": 34, 
-      "question": "What value of this was reported on national health sector budgets in 2011?", 
+      "question": "What value of this was reported on national health sector budgets?", 
       "validator": "anything", 
       "survey": 3, 
       "help_text": null, 
@@ -1382,7 +1382,7 @@
     "fields": {
       "widget": "multi_currency", 
       "group": 36, 
-      "question": "What value of health sector aid did you disburse in support of initiatives adopting programme-based aproaches?", 
+      "question": "What value of health sector aid did you disburse in support of initiatives adopting programme-based approaches?", 
       "validator": "anything", 
       "survey": 3, 
       "help_text": null, 
@@ -1408,7 +1408,7 @@
     "fields": {
       "widget": "multi_currency", 
       "group": 37, 
-      "question": "What value of the health sector aid that you disbursed was provided through multi-year commitments (at least 3 years)? ", 
+      "question": "What value of the health sector aid (Q6) that you disbursed was provided through multi-year commitments (at least 3 years)? ", 
       "validator": "anything", 
       "survey": 3, 
       "help_text": null, 
@@ -1434,7 +1434,7 @@
     "fields": {
       "widget": "multi_currency", 
       "group": 38, 
-      "question": "What value of health sector aid did you plan to disburse at country level?", 
+      "question": "What value of health sector aid (Q6) did you plan to disburse at country level?", 
       "validator": "anything", 
       "survey": 3, 
       "help_text": null, 
