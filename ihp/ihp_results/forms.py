@@ -29,7 +29,7 @@ class QuestionFieldset(Fieldset):
         self.fields.append(field)
 
     def as_html(self, form):
-        return u"<div class='tab' id='%s'><fieldset>%s<div class='fields'>%s</div></fieldset></div>" % (self.div_id, self.legend_html, form.render_fields(self.fields))
+        return u"<div class='tab-pane' id='%s'><fieldset>%s<div class='fields'>%s</div></fieldset></div>" % (self.div_id, self.legend_html, form.render_fields(self.fields))
 
 import plugins
 
