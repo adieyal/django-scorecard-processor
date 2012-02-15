@@ -8,6 +8,575 @@
     }
   }, 
   {
+    "pk": 1, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "The country Compact is a negotiated and signed time-bound agreement in which all partners commit to implement and uphold the defined country health priorities outlined in the validated country health strategy. Therefore, signatories to the country Compact agree that all existing and future investments are based on the ONE validated country health strategy, which is results-based and costed, with clear performance benchmarks for all parties and which is transparently monitored and evaluated for purposes of mutual accountability.  For more guidance on IHP+ country compacts see the IHP+ website. http://www.internationalhealthpartnership.net/CMS_files/documents/ihp_compact_guidance_note_EN.pdf", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "A document developed under the stewardship of the government, which defines priorities for health sector support and is signed by the government and (a number of) development partners \u2013 ie not a bilateral agreement,for example a Memorandum of Understanding or a Code of Conduct.", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "Has been signed by the government and (a number of) development partners \u2013 ie not still under development. Published in the public domain (please provide a weblink to this document, or an electronic copy).", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "Targets that relate to an ongoing (ie not expired) period of implementation. Budgets that relate to the existing annual or multi-year budget (eg MTEF).", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "Costed HRH plan: Human Resources for Health (HRH) plan, which has been developed in the context of available resources \u2013 budgets for each action should be defined, including the responsibility for providing finances. Comprehensive national HRH plan: Plan that addresses (directly or by reference to other plans/strategies) the key constraints that need to be addressed to achieve agreed objectives on HRH. Evidence based HRH plan: Plan that has been developed and informed through understanding of what works to achieve the stated objectives.", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "The HRH plan is referred to  in the national health plan (ie the HRH budget and other implications are reflected in the national health plan) and other higher- or lower-level plans/strategies as appropriate; the HRH plan should also make reference to higher- or lower-level strategies. ", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "For the purpose of this exercise, public funding is defined as domestic public spending on health, excluding external funding .  African governments have demonstrated their commitment to health services by committing to allocate a 15% share of their own resources to the health sector. 15% is understood to mean domestic public spending on health, excluding external funding , as set out in the national budget that has been approved by the country\u2019s legislature.  If data is available, we would like to get a figure for domestic funding for health (ie without external funding included).  If this data is not available, an overall figure for the discretionary resources spent on health will suffice.  ", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "Is the annual budget as it was originally approved by the legislature. In order to support discipline and credibility of the budget preparation process, subsequent revisions to the original annual budget \u2014 even when approved by the legislature \u2014 should NOT be recorded here. This is because it is the credibility of the original, approved budget that is important to measure and because revisions to the annual budget in many cases are retroactive. ", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "Disbursement: A disbursement is the placement of resources at the disposal of a recipient country or agency. Resources provided in-kind should only be included when the value of the resources have been monetised in an agreement or in a document communicated to government. \n\nApproved annual budget for the health sector: Is the annual budget as it was originally approved by the legislature. In order to support discipline and credibility of the budget preparation process, subsequent revisions to the original annual budget \u2014 even when approved by the legislature \u2014 should NOT be recorded here. This is because it is the credibility of the original, approved budget that is important to measure and because revisions to the annual budget in many cases are retroactive. \n", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "This indicator is based on the World Bank Country Policy and Institutional Assessment (CPIA) data. The CPIA framework of analysis includes 16 indicators, one of which \u2014 CPIA Indicator 13 \u2014 measures the quality of partner countries budget and financial management systems (Taken from www.oecd.org/dataoecd/45/46/35230756.pdf). Four assessment criteria are used for this indicator: \n\u00b7\tA comprehensive and credible budget linked to policy priorities. \n\u00b7\tEffective financial management systems of budget expenditure and budget revenues. \n\u00b7\tTimely and accurate fiscal reporting. \n\u00b7\tClear and balanced assignment of expenditures and revenues to each level of government. \n\nIHP+Results has gathered the available data from the World Bank website, presented below.  IHP+ Country Governments are asked to verify this data, to raise any objections, and to provide evidence to support these objections.  We will use this data to provide ratings on the quality of PFM systems.  Data is presented for 2005 \u2013 when the Paris Declaration (which is the source of this target) was signed, for 2009, and for 2010 which is the most recent available year.\n[insert table]", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "The OECD has outlined a procedure to produce an indicative picture of the quality of procurement systems, based on a 4-point scale. These assessments took place for 2007 and 2010 (Detailed information on this procedure can be found on the OECD website and specifically at the following web addresses: www.unpcdc.org/media/4182/global%20monitoring%20paris\n%20dec.doc and http://www.oecd.org/document/62/0,3746,en_2649_3236398_39238590_1_1_1_1,00.html).  IHP+Results will use this data in order to reduce duplication and minimize transaction costs. 17 countries were assessed for 2007 but only 5 were assessed for 2010, and none were repeat countries (For more detailed information see \u2018Progress in Implementing the Paris Declaration\u2019 (page 118), http://www.oecd.org/document/1/0,3746,en_2649_3236398_48725569_1_1_1_1,00.html).  As a result data for this indicator is only available in five of the IHP+ countries participating in IHP+Results 2012 monitoring, and only for 2007.\n\nRelevant IHP+ country scores (participating in IHP+Results 2012 monitoring): [insert table]\n\nThis data is insufficient for IHP+Results to assess any country\u2019s progress towards the agreed target. In the absence of more comprehensive data, IHP+ Governments are asked to provide any relevant data on assessments that they have conducted of their procurement systems, or to provide information on any reform programmes that are in place (see following definition). \n", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "Agreed and published, preferably with good awareness amongst key stakeholders including civil society.", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 13, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "Monitorable: Including a limited number of agreed indicators that are tracked through the Health Management Information System and other sources.\n\nPerformance assessment framework (PAF): The Paris Declaration commits donors and partner countries to manage and implement aid in a way that focuses on the desired results and uses information to improve decision making; partners to strengthen the linkages between strategies and budgets, and endeavour to establish results-oriented reporting and assessment frameworks; donors to link country programming to results and align them with partners\u2018 assessment and monitoring frameworks, and harmonise reporting requirements; and partner and donors to jointly strengthen the necessary capacities. This indicator measures the extent to which the country commitment on establishing performance frameworks has been realised. \n", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 14, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "Exercises that engage at a national level both partner authorities and donors in a review of mutual performance. In determining whether mutual assessments of progress have been undertaken, partner authorities and donors may be guided by the following criteria:\nBroad-based dialogue \u2014 Mutual assessments should engage in dialogue a broad range of government ministries (including line ministries and relevant departments) and donors (bilateral, multilateral and global initiatives). Government and donors should also consider engaging with civil society organisations.\nCountry mechanisms for monitoring progress \u2014 A formal process for measuring progress and following-up the assessment on a regular basis (e.g. one to two years) might be supplemented, wherever possible, through independent/impartial reviews. The results of such assessments should be made publicly available through appropriate means to ensure transparency.\nCountry targets \u2014 Partner countries have established country targets for improved aid effectiveness and health sector performance including within the framework of the agreed Partnerships Commitments and Indicators of Progress included in the Paris Declaration (PD-\u00a79). They may, however, go beyond the Paris Declaration wherever government and donors agree to do so.\nHigh-level support \u2014 The assessments should be transparent and country led with significant support at the highest levels and with an appropriate level of resources.\n", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 15, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "Multi-stakeholder body that meets regularly (usually monthly or quarterly) to provide the main forum for dialogue on health sector policy and planning.\n\nThe survey tool provides tick boxes for a number of categories designed to capture the breadth of CSO representation that is enabled in the health sector coordination mechanism (see below); the extent to which CSOs are represented at key points in the policy and planning process is also tracked through X cateogries (also below).  For each category, government representatives are asked to tick each category where CSOs representation is enabled:   \n\nOrganisational Focus:\n\u2022\tMaternal Health\n\u2022\tChild Health\n\u2022\tMalaria\n\u2022\tHIV/AIDS\n\u2022\tTB\n\u2022\tHealth Systems Strengthening (Governance, Financing, HRH, Information Systems, Medicines, service delivery)\n\u2022\tNutrition\n\nType of Organisation:\n\u2022\tInternational Non-Governmental Organisation (NGO)\n\u2022\tNational NGO\n\u2022\tFaith Based Organisation\n\u2022\tUmbrella Organisation\n\u2022\tProfessional Association\n\nPoints in the policy and planning process:\n\u2022\tJoint Annual Reviews\n\u2022\tMonthly/quarterly coordination meetings\n\u2022\tThematic Working Groups\n\u2022\tBudget development / resource allocation\n\n\nNB: This Standard Performance Measure will be supplemented by the equivalent DP Standard Performance Measure (8DP), and possibly by a qualitative survey of national civil society organisations, which will explore the quality of civil society engagement in health sector policy dialogue.\n\n \n\nGuidance on completing other questions\n\nA limited number of questions are also asked to enable the completion of the Country Scorecard:\n", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 16, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "Donor missions to the field are defined as missions that meet all of the following criteria:\n- The mission is undertaken by, or on behalf of, a donor, including programme developers, appraisers and evaluators, sector assessment teams commissioned by a donor.\n- The mission involved international travel typically, but not exclusively, from donor headquarters.\n- The mission made a request to meet with government officials including local government.\nThis definition should exclude missions:\n- Undertaken by donors to attend events (workshops, conferences, etc.) that do not involve request to meet with government officials.\n- Undertaken by parliamentary or other political delegations.\n- Special event missions undertaken as part of a defined program, e.g. electoral observers.\n- External consultants that are executing work as part of scheduled programme implementation plans.\n- Disaster assessment teams.\n", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 17, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "A funding mechanism which receives contributions from more than one donor which are then pooled and disbursed upon instructions from the Fund\u2019s decision-making structure by an Administrative Agent (or Fund Manager) to a number of recipients. Sometimes known as a Multi-Donor Trust Fund. Taken from http://www.undg.org/index.cfm?P=152 ", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 18, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "Those who are properly trained and who have appropriate equipment and drugs. Excludes traditional birth attendants, even if they have received a short training course. (http://www.wpro.who.int/NR/rdonlyres/45B45060-A38E-496F-B2C1-BD2DC6C04C52/0/44Definitionofterms2009.pdf)", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 19, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "Total number of outpatient (A person who goes to a health care facility for consultation, is not admitted to the facility and does not occupy a hospital bed for any length of time) visits per year, divided by the sum of total population / 10,000.  \n\nExample:\nTotal population: 2,000,000\nTotal outpatient department visits: 500,000\n\n2,000,000 / 10,000 = 200\n\n500,000 / 200 = 2,500\n\nTotal outpatient department visits per 10,000 = 2,500.  \n", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 20, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "Health sector aid: ODA contributed to the health sector.  ODA includes all transactions defined in OECD/DAC statistical directives paragraph 35, including official transactions that: \n-\tare administered with the promotion of economic development and welfare of developing countries as its main objective; and\n-\tare concessional in character and convey a grant element of at least 25%.\nWhere ODA is provided to the partner country as part of a donor\u2018s regional (multi-country) programme and it is possible to identify those activities and disbursements that are specific to that partner country, these disbursements should also be recorded. \n\nThe following transactions are excluded from the scope of this survey and should not be recorded: \n-\tTransactions made to beneficiaries that are not based in the country receiving ODA or to regional organisations. \n-\tDebt reorganisation/restructuring. \n-\tEmergency and relief assistance. \nNB: Based on guidance from OECD, the costs of administering a programme of support to a country should not be captured, including those costs associated with country-based staff (eg salaries).\nDisbursed for the government sector: Health sector aid disbursed in the context of an agreement with administrations (ministries, departments, agencies or municipalities) authorised to receive revenue or undertake expenditures on behalf of central government. This includes works, goods or services delegated or subcontracted by these administrations to other entities such as:\n- Non-Governmental organisations (NGOs);\n- Semi-autonomous government agencies\n-\tPrivate companies\n", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 21, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "A disbursement is the placement of resources at the disposal of a recipient country or agency. Resources provided in-kind should only be included when the values of the resources have been monetised in an agreement or in a document communicated to the government. Where ODA is provided to the partner country as part of the donor\u2019s regional (multi-country) programme and it is possible to identify those activities and disbursements that are specific to that partner country, these disbursements should also be recorded. In order to avoid double counting in cases where one donor disburses ODA funds on behalf of another, it is the donor who makes the final disbursement to the government who should report on these funds.  The only exception to this is Q18 for DPs against which donors should record total ODA funds channelled through other donors.  Direct Budget Support (General- and Sector- Budget Support) should be included as appropriate.  For the purposes of calculating the health sector element of General Budget Support (GBS), please provide the total amount of GBS that you have provided and IHP+Results will calculate the amount to the health sector based on the government allocation to health from the national budget.", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 22, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "This should include all health sector aid recorded in the annual budget as grants, revenue or loans.", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 23, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "(also referred to as technical assistance) is the provision of know-how in the form of personnel, training, research and associated costs. (OECD DAC Statistical Reporting Directives 40-44). It comprises donor-financed: \n- Activities that augment the level of knowledge, skills, technical know-how or productive aptitudes of people in developing countries; and\n- Services such as consultancies, technical support or the provision of know-how that contribute to the execution of a capital project. \nTechnical co-operation can be provided to both government and non-government entities, and includes both free standing technical co-operation and technical co-operation that is embedded in investment programmes (or included in programme-based approaches).\n\nNB: Based on guidance from OECD, costs associated with missions from headquarters should not be captured in the calculation of the value of technical assistance provided.\n", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 24, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "technical cooperation: Co-ordinated technical co-operation means free standing and embedded technical co-operation that respects the following principles. Ownership -- Partner countries exercise effective leadership over their capacity development programmes. Alignment \u2013 Technical co-operation in support of capacity development is aligned with countries\u2019 development objectives and strategies. Harmonisation \u2013 Where more than one donor is involved in supporting partner-led capacity development, donors co-ordinate their activities and contributions.\nYou are invited to review all your health sector support with a view to determining how much technical co-operation was disbursed through co-ordinated programmes that meet BOTH criteria: \n1.\tHave relevant country authorities (government or non-government) communicated clear capacity development objectives as part of the health sector strategy? (Y/N)\n2.\tIs the technical co-operation aligned with these capacity development objectives? (Y/N)\nAND at least ONE of the criteria below:\n3.\tDo relevant country authorities (government or non-government) have control over the technical co-operation? (Y/N)\n4.\tIf more than one donor is involved in supporting country programmes, are arrangements in place involving the country authorities for co-ordinating technical co-operation provided by different donors? (Y/N)\n", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 25, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "ODA contributed to the health sector.  ODA includes all transactions defined in OECD/DAC statistical directives paragraph 35, including official transactions that: \n-\tare administered with the promotion of economic development and welfare of developing countries as its main objective; and\n-\tare concessional in character and convey a grant element of at least 25%.\n", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 26, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "Programme based approaches (PBA) are a way of engaging in development co-operation based on the principles of co-ordinated support for a locally owned programme of development, such as a national development strategy, a sector programme, a thematic programme or a programme of a specific organisation. Programme based approaches share the following features: (i) Leadership by the host country or organisation; (ii) A single comprehensive programme and budget framework; (iii) A formalised process for donor co-ordination and harmonisation of donor procedures for reporting, budgeting, financial management and procurement; (iv) Efforts to increase the use of local systems for programme design and implementation, financial management, monitoring and evaluation.\nDonors can support and implement programme based approaches in different ways and across a range of aid modalities including budget support, sector budget support, project support, pooled arrangements and trust funds.\nDonors are invited to review all their development activities with a view to determining how much health sector aid was disbursed in support of programme based approaches that meet ALL 4 of the following criteria (anything less does not qualify as a PBA):\n1.\tIs the host country or organisation exercising leadership over the programme supported by donors? (Y/N)\n2.\tIs a single comprehensive programme and budget framework used? (Y/N)\n3.\tIs there a formal process for donor co-ordination and harmonisation of donor procedures for at least two of the following systems: (i) reporting, (ii) budgeting, (iii) financial management and (iv) procurement? (Y/N)\n4.\tDoes your support to the programme use at least two of the following local systems: (i) programme design, (ii) programme implementation, (iii) financial management and (iv) monitoring and evaluation? (Y/N)\n", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 27, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "Commitments to disburse funding that are designed to fund expenditures for several years. For the purposes of this work, a minimum of 3 years.", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 28, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 29, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "Legislative frameworks normally provide for specific types of financial reports to be produced as well as periodicity of such reporting. The use of national financial reporting means that donors do not impose additional requirements on governments for financial reporting. In particular donors do NOT require: (i) maintenance of a separate accounting system to satisfy donor reporting requirements, and (ii) creation of a separate chart of accounts to record the use of donor funds.\nDonors are invited to review all their health sector activities with a view to determining how much health sector aid for the government sector meet BOTH criteria below (anything less does not qualify):\n1.\tYou do NOT require maintenance of a separate accounting system to satisfy your own reporting requirements?\n2.\tYou ONLY require financial reports prepared using country\u2019s established financial reporting arrangements? (Y/N).\n", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 30, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "When providing development assistance in a country, some donors establish Project Implementation Units (They are also commonly referred to as project management units, project management consultants, project management offices, project co-ordination offices etc.). These are dedicated management units designed to support the implementation and administration of projects or programmes. PIUs typically share the following key features: \n\u2192\uf020PIUs are TYPICALLY required to perform subsidiary (rather than principal) tasks with regard to the implementation of a project or programme: monitoring and reporting on technical and/or financial progress, accounting, procurement of works, goods and services, drawing-up of terms of reference, contract supervision, detailed design or equipment specification. \n\u2192\uf020PIUs are often established at the request of a donor following the inception of a project or programme. \n\u2192\uf020The staff of PIUs vary considerably in size and composition. Staff size can vary from 1 to as many as 200 but most count less than 10 professional staff. Although a significant number of PIUs make use of government staff, most PIUs rely on staff recruited outside the civil service (e.g. long-term local consultants). \n\u2192\uf020A distinction is made here between a PIU and technical advice provided directly to national administrations. \n", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 31, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "The Paris Declaration commits donors and partner countries to manage and implement aid in a way that focuses on the desired results and uses information to improve decision making; partners to strengthen the linkages between strategies and budgets, and endeavour to establish results-oriented reporting and assessment frameworks; donors to link country programming to results and align them with partners\u2018 assessment and monitoring frameworks, and harmonise reporting requirements; and partner and donors to jointly strengthen the necessary capacities. This indicator measures the extent to which the country commitment on establishing performance frameworks has been realised. PAFs provide a mechanism for monitoring government progress on pre-established priority areas, and opportunities for policy dialogue on key strategic issues for the development of the health sector. They are the basis of a government's policy to make information about the quality and performance of health care services available to the public and partners.  National Performance Assessment Frameworks should be comprehensive (ie cover all areas of health sector performance).", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 32, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "Mutual assessments of progress are exercises that engage at a national level both partner authorities and donors in a review of mutual performance. In determining whether mutual assessments of progress have been undertaken, partner authorities and donors may be guided by the following criteria:\n- Broad-based dialogue \u2014 Mutual assessments should engage in dialogue a broad range of government ministries (including line ministries and relevant departments) and donors (bilateral, multilateral and global initiatives). Government and donors should also consider engaging with civil society organisations.\n- Country mechanisms for monitoring progress \u2014 A formal process for measuring progress and following-up the assessment on a regular basis (e.g. one to two years) might be supplemented, wherever possible, through independent/impartial reviews. The results of such assessments should be made publicly available through appropriate means to ensure transparency.\n- Country targets \u2014 Partner countries have established country targets for improved aid effectiveness and health sector performance including within the framework of the agreed Partnerships Commitments and Indicators of Progress included in the Paris Declaration (PD-\u00a79). They may, however, go beyond the Paris Declaration wherever government and donors agree to do so.\n- High-level support \u2014 The assessments should be transparent and country led with significant support at the highest levels and with an appropriate level of resources.\n\nNB: The survey tool asks whether you have undertaken a mutual assessment of progress.  It is intended that this mutual assessment should be organised by the government, or jointly with other partners - ie not to arrange a separate mutual assessment.\n", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 33, 
+    "model": "scorecard_processor.glossarydefinition", 
+    "fields": {
+      "project": 1, 
+      "definition": "Technical or financial resources provided to civil society in order to strengthen their engagement in health sector policy dialogue (ie not for service delivery).\n\nThe survey tool provides tick boxes in three categories of \u2018support\u2019 which are designed to unpack the nature of support that CSOs receive. Concrete examples of each category that is reported should be provided:\n\n\u2022\tFinancial support: Funding to CSOs to implement activities, where funds are transferred from the DP to the CSO.\n\u2022\tTechnical assistance (non-financial): This may be through the provision of training, briefing, technical advice but where funds are not transferred to the CSO to implement the activity.  \n\u2022\tLobbying/advocacy (non-financial): This may be through inclusion of commitments or expectations on the involvement of CSOs in programme design, implementation, monitoring etc in project documentation. It could equally be where there is documented evidence that the agenda of meaningful engagement in policy, planning, coordination and review mechanisms has been discussed.  Again the emphasis is on where funds are not transferred to CSOs to implement the activity.\n", 
+      "lang": "en-gb"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 1, 
+      "term": "IHP+ Country Compact"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 2, 
+      "term": "equivalent agreement"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 3, 
+      "term": "in place"
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 4, 
+      "term": "current targets and budgets"
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 5, 
+      "term": "costed, comprehensive, evidence based HRH plan"
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 6, 
+      "term": "integrated with the national health plan"
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 7, 
+      "term": "public (domestic) funding allocated to health"
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 8, 
+      "term": "approved annual budget for the health sector"
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 9, 
+      "term": "disbursed against the approved annual budget for the health sector"
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 10, 
+      "term": "PFM/CPIA scale of performance"
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 11, 
+      "term": "four point scale used to assess performance in the procurement sector"
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 12, 
+      "term": "transparent"
+    }
+  }, 
+  {
+    "pk": 13, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 13, 
+      "term": "monitorable performance assessment framework in place"
+    }
+  }, 
+  {
+    "pk": 14, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 14, 
+      "term": "mutual assessment[s] of progress"
+    }
+  }, 
+  {
+    "pk": 15, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 15, 
+      "term": "health sector coordination mechanism"
+    }
+  }, 
+  {
+    "pk": 16, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 16, 
+      "term": "number of Development Partner / Donor missions"
+    }
+  }, 
+  {
+    "pk": 17, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 17, 
+      "term": "pooled funding mechanism"
+    }
+  }, 
+  {
+    "pk": 18, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 18, 
+      "term": "skilled medical personnel"
+    }
+  }, 
+  {
+    "pk": 19, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 19, 
+      "term": "outpatient department visits"
+    }
+  }, 
+  {
+    "pk": 20, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 20, 
+      "term": "health sector aid for the government sector"
+    }
+  }, 
+  {
+    "pk": 21, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 21, 
+      "term": "disburse"
+    }
+  }, 
+  {
+    "pk": 22, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 22, 
+      "term": "reported on national health sector budgets"
+    }
+  }, 
+  {
+    "pk": 23, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 23, 
+      "term": " technical cooperation"
+    }
+  }, 
+  {
+    "pk": 24, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 24, 
+      "term": "coordinated programmes"
+    }
+  }, 
+  {
+    "pk": 25, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 25, 
+      "term": "health sector aid"
+    }
+  }, 
+  {
+    "pk": 26, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 25, 
+      "term": "of the health sector aid"
+    }
+  }, 
+  {
+    "pk": 27, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 26, 
+      "term": "programme-based approaches"
+    }
+  }, 
+  {
+    "pk": 28, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 27, 
+      "term": "multi-year commitments"
+    }
+  }, 
+  {
+    "pk": 29, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 28, 
+      "term": "of this"
+    }
+  }, 
+  {
+    "pk": 30, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 29, 
+      "term": "public financial management systems"
+    }
+  }, 
+  {
+    "pk": 31, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 30, 
+      "term": "parallel project implementation units"
+    }
+  }, 
+  {
+    "pk": 32, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 31, 
+      "term": "national performance assessment framework"
+    }
+  }, 
+  {
+    "pk": 33, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 32, 
+      "term": "mutual assessment(s)"
+    }
+  }, 
+  {
+    "pk": 34, 
+    "model": "scorecard_processor.glossaryterm", 
+    "fields": {
+      "definition": 33, 
+      "term": "support"
+    }
+  }, 
+  {
     "pk": "Country", 
     "model": "scorecard_processor.dataseriesgroup", 
     "fields": {
