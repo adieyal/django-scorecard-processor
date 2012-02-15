@@ -25,7 +25,7 @@ class Project(models.Model):
 
     def get_glossary(self):
         lang = translation.get_language()
-        return GlossaryTerm.objects.filter(definition__lang==lang).select_related('definition')
+        return GlossaryTerm.objects.filter(definition__lang=lang).select_related('definition')
         
 
 class GlossaryDefinition(models.Model):
