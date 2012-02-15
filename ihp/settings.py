@@ -24,7 +24,7 @@ DATABASES = {
 AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend','ihp_results.backends.EmailModelBackend',)
 
 LOGIN_REDIRECT_URL = "/"
-PASSWORD_RESET_TIMEOUT_DAYS = 30
+PASSWORD_RESET_TIMEOUT_DAYS = 60
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
