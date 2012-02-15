@@ -2080,6 +2080,19 @@
     "pk": 134, 
     "model": "scorecard_processor.question", 
     "fields": {
+      "widget": "textbox", 
+      "group": 55, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "13+"
+    }
+  }, 
+  {
+    "pk": 135, 
+    "model": "scorecard_processor.question", 
+    "fields": {
       "widget": "rep_types", 
       "group": 55, 
       "question": "Which of the following types of Civil Society organizations are represented in the health sector coordination mechanism? (please enter Yes (Y) in as many categories as appropriate).", 
@@ -2087,19 +2100,6 @@
       "survey": 4, 
       "help_text": null, 
       "identifier": "14"
-    }
-  }, 
-  {
-    "pk": 135, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "cso_involved", 
-      "group": 55, 
-      "question": "At what points in the policy and planning process are CSOs routinely involved? (please enter Yes (Y) in as many categories as appropriate).", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": null, 
-      "identifier": "15"
     }
   }, 
   {
@@ -2112,11 +2112,37 @@
       "validator": "anything", 
       "survey": 4, 
       "help_text": "Please use this space to provide any additional information", 
-      "identifier": "8G"
+      "identifier": "14+"
     }
   }, 
   {
     "pk": 137, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "cso_involved", 
+      "group": 55, 
+      "question": "At what points in the policy and planning process are CSOs routinely involved? (please enter Yes (Y) in as many categories as appropriate).", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "15"
+    }
+  }, 
+  {
+    "pk": 138, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 55, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "15+"
+    }
+  }, 
+  {
+    "pk": 139, 
     "model": "scorecard_processor.question", 
     "fields": {
       "widget": "integer", 
@@ -2129,7 +2155,20 @@
     }
   }, 
   {
-    "pk": 138, 
+    "pk": 140, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 56, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "16+"
+    }
+  }, 
+  {
+    "pk": 141, 
     "model": "scorecard_processor.question", 
     "fields": {
       "widget": "integer", 
@@ -2142,7 +2181,20 @@
     }
   }, 
   {
-    "pk": 139, 
+    "pk": 142, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 56, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "17+"
+    }
+  }, 
+  {
+    "pk": 143, 
     "model": "scorecard_processor.question", 
     "fields": {
       "widget": "integer", 
@@ -2155,7 +2207,20 @@
     }
   }, 
   {
-    "pk": 140, 
+    "pk": 144, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 56, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "18+"
+    }
+  }, 
+  {
+    "pk": 145, 
     "model": "scorecard_processor.question", 
     "fields": {
       "widget": "integer", 
@@ -2168,7 +2233,20 @@
     }
   }, 
   {
-    "pk": 141, 
+    "pk": 146, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 56, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "19+"
+    }
+  }, 
+  {
+    "pk": 147, 
     "model": "scorecard_processor.question", 
     "fields": {
       "widget": "integer", 
@@ -2181,7 +2259,20 @@
     }
   }, 
   {
-    "pk": 142, 
+    "pk": 148, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 56, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "20+"
+    }
+  }, 
+  {
+    "pk": 149, 
     "model": "scorecard_processor.question", 
     "fields": {
       "widget": "multi_currency", 
@@ -2194,7 +2285,20 @@
     }
   }, 
   {
-    "pk": 143, 
+    "pk": 150, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 56, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "21+"
+    }
+  }, 
+  {
+    "pk": 151, 
     "model": "scorecard_processor.question", 
     "fields": {
       "widget": "yes_no_choice", 
@@ -2207,7 +2311,20 @@
     }
   }, 
   {
-    "pk": 144, 
+    "pk": 152, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 56, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "22+"
+    }
+  }, 
+  {
+    "pk": 153, 
     "model": "scorecard_processor.question", 
     "fields": {
       "widget": "integer", 
@@ -2220,7 +2337,20 @@
     }
   }, 
   {
-    "pk": 145, 
+    "pk": 154, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 56, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "23+"
+    }
+  }, 
+  {
+    "pk": 155, 
     "model": "scorecard_processor.question", 
     "fields": {
       "widget": "integer", 
@@ -2233,7 +2363,20 @@
     }
   }, 
   {
-    "pk": 146, 
+    "pk": 156, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 56, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "24+"
+    }
+  }, 
+  {
+    "pk": 157, 
     "model": "scorecard_processor.question", 
     "fields": {
       "widget": "date", 
@@ -2246,10 +2389,23 @@
     }
   }, 
   {
-    "pk": 147, 
+    "pk": 158, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "text", 
+      "widget": "textbox", 
+      "group": 56, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "25+"
+    }
+  }, 
+  {
+    "pk": 159, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
       "group": 56, 
       "question": "Please comment on the level of representation at the JAR?  ", 
       "validator": "anything", 
@@ -2259,10 +2415,10 @@
     }
   }, 
   {
-    "pk": 148, 
+    "pk": 160, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "text", 
+      "widget": "textbox", 
       "group": 56, 
       "question": "Please comment on the effectiveness of the JAR as an accountability mechanism ", 
       "validator": "anything", 

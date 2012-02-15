@@ -93,7 +93,7 @@ class QuestionForm(BootstrapForm):
             for question in group.question_set.all():
                 label = True
                 self.questions[question.pk] = question
-                if question.question == _("Voluntary additional information"):
+                if question.widget == 'textbox':
                     self.add_field_from_question(question, self.series.values()[0])
                     fieldset.add_field('q_%s_%s' % (question.pk, self.series.values()[0].pk))
                 else:
