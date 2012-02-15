@@ -15,6 +15,43 @@ class AidTypes(MultiChoiceField):
 
 register.register('input','IHP field','aid_types', AidTypes)
 
+class RepresentedTypes(MultiChoiceField):
+    name = "CSO Representation Types"
+    def __init__(self, *args, **kwargs):
+        super(RepresentedTypes,self).__init__(*args, **kwargs)
+        self.choices = (
+            ("maternal","Maternal Health"),
+            ("child","Child Health"),
+            ("maleria","Malaria"),
+            ("hiv","HIV/AIDS"),
+            ("tb","TB"),
+            ("systems","Health Systems Strengthening (Governance, Financing, HRH, Information Systems, Medicines, service delivery)"),
+            ("nutrition","Nutrition"),
+            ("international","International NGO"),
+            ("national","National NGO"),
+            ("failth","Faith Based Organisation"),
+            ("umbrella","Umbrella Organisation"),
+            ("professional","Professional Association"),
+
+        )
+        self.widget.choices = self.choices
+
+register.register('input','IHP field','rep_types', RepresentedTypes)
+
+class CSOInvolvement(MultiChoiceField):
+    name = "CSO Involvement"
+    def __init__(self, *args, **kwargs):
+        super(CSOInvolvement,self).__init__(*args, **kwargs)
+        self.choices = (
+            ("joint_review","Joint Annual Reviews"),
+            ("monthly","Monthly/quarterly coordination meetings"),
+            ("thematic","Thematic working groups"),
+            ("budget","Budget development / resource allocation"),
+        )
+        self.widget.choices = self.choices
+
+register.register('input','IHP field','cso_involved', CSOInvolvement)
+
 
 from django.forms import MultiWidget, ChoiceField, Select, TextInput, MultiValueField, ValidationError
 
