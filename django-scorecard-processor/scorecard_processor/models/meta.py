@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import translation
+
 
 class Project(models.Model):
     name = models.CharField(max_length=100) 
@@ -20,6 +22,30 @@ class Project(models.Model):
         for name, report in reports.get_project_reports():
             links.extend(report().get_report_links(self))
         return links
+
+    def get_glossary(self):
+        lang = translation.get_language()
+        return GlossaryTerm.objects.filter(definition__lang==lang).select_related('definition')
+        
+
+class GlossaryDefinition(models.Model):
+    project = models.ForeignKey(Project)
+    definition = models.TextField() 
+    lang = models.CharField(max_length=5, db_index=True)
+    class Meta:
+        app_label = "scorecard_processor"
+
+class GlossaryTerm(models.Model):
+    term = models.CharField(max_length=100)
+    definition = models.ForeignKey(GlossaryDefinition)
+    class Meta:
+        app_label = "scorecard_processor"
+
+# WIP for db based cache of which objects/fields need translation
+#class GlossaryCache(models.Model):
+#    obj = Generic...
+#    term_set = ManyToManyField(GlossaryTerm)
+
 
 class DataSeriesGroup(models.Model):
     name = models.CharField(max_length=30,primary_key=True)

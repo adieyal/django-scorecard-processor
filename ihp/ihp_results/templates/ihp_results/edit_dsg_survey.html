@@ -91,4 +91,10 @@ if (next) {
       </form>
     </div>
   </div>
+  <dl id="definitions">
+    {% for term in entity.project.get_glossary %}
+      <dt>{{term.term}}</dt>
+      <dd>{{term.definition.definition}}</dd>
+    {% endfor %}
+  </dl>
 {% endblock %}

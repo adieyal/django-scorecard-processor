@@ -14,6 +14,8 @@ CACHES = {
     },
   },
 }
+CACHE_MIDDLEWARE_ANONYMOUS_ONLY=True
+
 
 MIDDLEWARE_CLASSES = ("ihp_results.middleware.DomainRedirectMiddleware",) + MIDDLEWARE_CLASSES
 
