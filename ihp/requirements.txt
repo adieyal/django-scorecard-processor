@@ -5,6 +5,7 @@ django-grappelli
 redis>2.4.5
 django-redis-cache
 xlwt
+xlrd
 tablib
 ordereddict
 
