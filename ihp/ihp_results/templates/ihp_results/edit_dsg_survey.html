@@ -3,6 +3,17 @@
 {% block head_title %}Response to {{survey.name}} for {{entity.name}}{% endblock %}
 {% block script_bottom %}
 {{block.super}}
+<style>
+  .legend.span5 {clear:left}
+  .fields.span10 {float:right}
+  label .identifier {margin-right:0.5em;}
+  .form-stacked .clearfix div.input {clear:left;padding:5px 0 20px 20px}
+  .input .currency {margin-right:0.5em;}
+  select.currency_select {display:none}
+  label abbr {font-weight:bold;border-bottom:dotted 1px #386; color:#386;cursor:help}
+  #definitions {position:fixed;margin-top:40px;display:none}
+  #definitions .term {display:none}
+</style>
 <script type="text/javascript">
 $('.actions').hide();
 $('ul.tabs').tabs();
@@ -15,6 +26,7 @@ $('ul.tabs').bind('change', function (e) {
   } else {
     $('.actions').show();
   }
+  parse_defs();
 })
 $('#continue_button').bind('click', function(e) {
   $($('.tabs li a')[1]).click();
@@ -31,15 +43,42 @@ if (next) {
   $('a',next.replace('#','#t')).click();
 }
 
+var terms = Array();
+$('.term').each(function (i,e) {
+  terms.push({term:$(e).attr('data-term'), id:$(e).attr('id')})
+})
+
+function parse_defs() {
+  var pane = $('.tab-pane.active')
+  if (pane.data('parsed_def')==undefined) {
+    $('label', pane).each(function(i,e) {
+      $(terms).each(function(j,f) {
+        var test = $(e).html().split(f.term);
+        if (test.length > 1) {
+          $(e).html(test.join("<abbr data-id='"+f.id+"'>"+f.term+"</abbr>"));
+          //Do we want to keep finding more defs?
+          return false;
+        }
+      });
+    });
+    pane.data('parsed_def',true);
+  }
+}
+
+$('abbr').live({ 
+  mouseover:function(e) {
+    $('#definitions').fadeIn('fast');
+    $('#'+$(this).data('id')).slideDown('fast');
+  },
+  mouseout:function(e){
+    $('#definitions').fadeOut('fast');
+    $('#'+$(this).data('id')).slideUp('fast');
+  }
+})
+
+parse_defs();
+
 </script>
-<style>
-  .legend.span5 {clear:left}
-  .fields.span10 {float:right}
-  label .identifier {margin-right:0.5em;}
-  .form-stacked .clearfix div.input {clear:left;padding:5px 0 20px 20px}
-  .input .currency {margin-right:0.5em;}
-  select.currency_select {display:none}
-</style>
 {% endblock %}
 
 {% block fluid_content_outer %}
@@ -51,7 +90,7 @@ if (next) {
       <form method="POST" class="form-stacked">
           {% csrf_token %}
           <div class="row">
-            <div class="span14">
+            <div class="span12">
               <ul class="tabs">
                 <li class="active" id="intro_tab"><a href="#intro">Overview</a></li>
                 {% for group in survey.questiongroup_set.all %}
@@ -77,7 +116,7 @@ if (next) {
                       {{form.current_year}}
                     </div>
                   </div>
-                  <button class="btn primary large pull-right" id="continue_button">{% blocktrans %}Continue{%endblocktrans%}</button>
+                  <button class="btn primary large pull-right" id="continue_button" style="margin-top:30px">{% blocktrans %}Continue{%endblocktrans%}</button>
                 </div>
                 {{form.as_div}}
               </div>
@@ -86,15 +125,16 @@ if (next) {
                   <button type="submit" class="pull-right btn primary large" name="button">{% blocktrans %}Save and continue{% endblocktrans %}</button> &nbsp;
               </div>
             </div>
+            <div id="definitions" class="offset10 span6 well">
+                {% for term in entity.project.get_glossary %}
+                  <div class='term' id="{{term.term|slugify}}" data-term="{{term.term}}">
+                    <p>{{term.definition.definition|safe}}</p>
+                  </div>
+                {% endfor %}
+            </div>
             
           </div>
       </form>
     </div>
   </div>
-  <dl id="definitions">
-    {% for term in entity.project.get_glossary %}
-      <dt>{{term.term}}</dt>
-      <dd>{{term.definition.definition}}</dd>
-    {% endfor %}
-  </dl>
 {% endblock %}
