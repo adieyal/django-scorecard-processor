@@ -165,6 +165,28 @@
     }
   }, 
   {
+    "pk": 26, 
+    "model": "scorecard_processor.entity", 
+    "fields": {
+      "abbreviation": "AfDB", 
+      "project": 1, 
+      "user_set": [], 
+      "name": "African Development Bank", 
+      "entity_type": "agency"
+    }
+  }, 
+  {
+    "pk": 27, 
+    "model": "scorecard_processor.entity", 
+    "fields": {
+      "abbreviation": "Germany", 
+      "project": 1, 
+      "user_set": [], 
+      "name": "Germany", 
+      "entity_type": "agency"
+    }
+  }, 
+  {
     "pk": 16, 
     "model": "scorecard_processor.entity", 
     "fields": {
@@ -272,28 +294,6 @@
       "user_set": [], 
       "name": "Government of Nigeria", 
       "entity_type": "government"
-    }
-  }, 
-  {
-    "pk": 26, 
-    "model": "scorecard_processor.entity", 
-    "fields": {
-      "abbreviation": "AfDB", 
-      "project": 1, 
-      "user_set": [], 
-      "name": "African Development Bank", 
-      "entity_type": "agency"
-    }
-  }, 
-  {
-    "pk": 27, 
-    "model": "scorecard_processor.entity", 
-    "fields": {
-      "abbreviation": "Germany", 
-      "project": 1, 
-      "user_set": [], 
-      "name": "Germany", 
-      "entity_type": "agency"
     }
   }, 
   {

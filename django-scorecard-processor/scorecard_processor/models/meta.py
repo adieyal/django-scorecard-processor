@@ -111,7 +111,7 @@ class Entity(models.Model):
     class Meta:
         app_label = "scorecard_processor"
         unique_together = (('name','project'),)
-        ordering = ('entity_type',)
+        ordering = ('entity_type','name')
 
     @property
     def data_type(self):
