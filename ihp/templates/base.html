@@ -1,4 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+{% load i18n %}
 <html>
     <head>
         {% block head %}{% endblock %}
@@ -31,19 +32,19 @@
               <li><a href="/admin/">Manage app</a></li>{% endif %}
             </ul>
             {% if user.is_authenticated %}
-              <p class="pull-right" style="color:#fff">Logged in as <strong>{{user.get_full_name|default:user.username}}</strong> <a class="btn danger" href="{% url django.contrib.auth.views.logout %}">log out</a></p>
+              <p class="pull-right" style="color:#fff">{% blocktrans %}Logged in as{% endblocktrans %} <strong>{{user.get_full_name|default:user.username}}</strong> <a class="btn danger" href="{% url django.contrib.auth.views.logout %}">log out</a></p>
             {% else %}
               <p class="pull-right"><a href="{% url django.contrib.auth.views.login %}">Log in</a></p>
             {% endif %}
             <form action="/i18n/setlang/" method="post" class="pull-right" style="margin:10px 20px 0 0">
               {% csrf_token %}
-              <label for="language" style="color:#fff;margin-right:10px;width:auto">Language</label>
+              <label for="language" style="color:#fff;margin-right:10px;width:auto">{% blocktrans %}Language{% endblocktrans %}</label>
               <select name="language" class="span3">
                 {% for lang in LANGUAGES %}
                   <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %}selected=selected{%endif %}>{{ lang.1 }}</option>
                 {% endfor %}
               </select>
-              <button class="btn" type="submit" value="Go" />Go</button>
+              <button class="btn" type="submit" value="Set" />{% blocktrans %}Set{% endblocktrans %}</button>
             </form>
 
           </div>

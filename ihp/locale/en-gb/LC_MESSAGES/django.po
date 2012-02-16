@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 15:20+0200\n"
+"POT-Creation-Date: 2012-02-16 15:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -221,6 +221,18 @@ msgstr ""
 
 #: ihp_results/templates/ihp_results/edit_dsg_survey.html:127
 msgid "Save and continue"
+msgstr ""
+
+#: templates/base.html:35
+msgid "Logged in as"
+msgstr ""
+
+#: templates/base.html:41
+msgid "Language"
+msgstr ""
+
+#: templates/base.html:47
+msgid "Set"
 msgstr ""
 
 #: templates/index.html:7
