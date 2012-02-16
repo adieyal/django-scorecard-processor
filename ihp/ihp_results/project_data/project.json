@@ -1,0 +1,304 @@
+[
+  {
+    "pk": 1, 
+    "model": "scorecard_processor.project", 
+    "fields": {
+      "user_set": [], 
+      "name": "IHP Results"
+    }
+  }, 
+  {
+    "pk": 32, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Year", 
+      "name": "2005"
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Year", 
+      "name": "2006"
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Year", 
+      "name": "2007"
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Year", 
+      "name": "2008"
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Year", 
+      "name": "2009"
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Year", 
+      "name": "2010"
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Year", 
+      "name": "2011"
+    }
+  }, 
+  {
+    "pk": 21, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": false, 
+      "group": "Data collection year", 
+      "name": "2011 collection"
+    }
+  }, 
+  {
+    "pk": 22, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Data collection year", 
+      "name": "2012 collection"
+    }
+  }, 
+  {
+    "pk": 20, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Data collection year", 
+      "name": "Baseline"
+    }
+  }, 
+  {
+    "pk": 23, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "Benin"
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "Botswana"
+    }
+  }, 
+  {
+    "pk": 14, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "Burkina Faso"
+    }
+  }, 
+  {
+    "pk": 13, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "Burundi"
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "DRC"
+    }
+  }, 
+  {
+    "pk": 15, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "Djibouti"
+    }
+  }, 
+  {
+    "pk": 24, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "El Salvador"
+    }
+  }, 
+  {
+    "pk": 16, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "Ethiopia"
+    }
+  }, 
+  {
+    "pk": 17, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "Mali"
+    }
+  }, 
+  {
+    "pk": 25, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "Mauritania"
+    }
+  }, 
+  {
+    "pk": 18, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "Mozambique"
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "Nepal"
+    }
+  }, 
+  {
+    "pk": 19, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "Niger"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "Nigeria"
+    }
+  }, 
+  {
+    "pk": 26, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "Rwanda"
+    }
+  }, 
+  {
+    "pk": 27, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "Senegal"
+    }
+  }, 
+  {
+    "pk": 28, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "Sierra Leone"
+    }
+  }, 
+  {
+    "pk": 29, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "Sudan"
+    }
+  }, 
+  {
+    "pk": 30, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "Togo"
+    }
+  }, 
+  {
+    "pk": 31, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Country", 
+      "name": "Uganda"
+    }
+  }, 
+  {
+    "pk": "Country", 
+    "model": "scorecard_processor.dataseriesgroup", 
+    "fields": {
+      "project": 1, 
+      "reverse_ordering": false
+    }
+  }, 
+  {
+    "pk": "Data collection year", 
+    "model": "scorecard_processor.dataseriesgroup", 
+    "fields": {
+      "project": 1, 
+      "reverse_ordering": false
+    }
+  }, 
+  {
+    "pk": "Year", 
+    "model": "scorecard_processor.dataseriesgroup", 
+    "fields": {
+      "project": 1, 
+      "reverse_ordering": true
+    }
+  }
+]

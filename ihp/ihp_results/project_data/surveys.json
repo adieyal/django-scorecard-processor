@@ -1,0 +1,2716 @@
+[
+  {
+    "pk": 1, 
+    "model": "scorecard_processor.survey", 
+    "fields": {
+      "name": "2011 Survey for Agencies", 
+      "project": 1, 
+      "active": false, 
+      "data_series_groups": [
+        "Country", 
+        "Year"
+      ], 
+      "short_description": null, 
+      "entity_types": [
+        "agency"
+      ], 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "scorecard_processor.survey", 
+    "fields": {
+      "name": "2011 Survey for Government", 
+      "project": 1, 
+      "active": false, 
+      "data_series_groups": [
+        "Country", 
+        "Year"
+      ], 
+      "short_description": null, 
+      "entity_types": [
+        "government"
+      ], 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "scorecard_processor.survey", 
+    "fields": {
+      "name": "2012 Survey for Agencies", 
+      "project": 1, 
+      "active": true, 
+      "data_series_groups": [
+        "Country", 
+        "Data collection year", 
+        "Year"
+      ], 
+      "short_description": null, 
+      "entity_types": [
+        "agency"
+      ], 
+      "description": "<h2>Please note before submitting data</h2>\r\n\r\n<p>Please complete a separate survey tool for each of the participating countries in which\r\nyou are supporting health sector development. For instance, where you are providing health sector aid (directly or indirectly). Health sector aid is defined as: \u201cODA contributed to the health sector.\u201d Our system should be clever enough to only give you the option to select the countries in which you are supporting the health sector, but please get in touch with your IHP+Results focal point if this is not the case.</p>\r\n\r\n<p>Data is requested for calendar years, not fiscal years.</p>\r\n<ul>\r\n    <li>You should enter financial data in the most appropriate currency. Please select your currency from the drop-down list at the top of the survey.</li>\r\n    <li>Please provide source information \u2013 ideally weblinks or references to published documents \u2013 in the \u2018Voluntary additional information\u2019 text boxes.</li>\r\n</ul>\r\n\r\n<p>In addition to the guidance above we advise you to have a copy of the [Overview Guidance] to hand when you begin submitting your data as it is possible that this will cover any questions you may have. Alternatively please get in touch with your IHP+Results focal point.</p>"
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "scorecard_processor.survey", 
+    "fields": {
+      "name": "2012 Survey for Governments", 
+      "project": 1, 
+      "active": true, 
+      "data_series_groups": [
+        "Country", 
+        "Data collection year", 
+        "Year"
+      ], 
+      "short_description": null, 
+      "entity_types": [
+        "government"
+      ], 
+      "description": "<h2>Please note before submitting data</h2>\r\n<ul>\r\n    <li>Data is requested for calendar years (not fiscal years).</li>\r\n<li>Our preference is for 2011 data for latest year, but if this is not available we can accept 2010 data.  You will be prompted at the top of the survey to indicate which years you are providing data for (both baseline and latest years).  Please then provide data for these respective years for every question.</li>\r\n    <li>You should enter financial data in the most appropriate currency. Please select your currency from the drop-down list at the top of the survey.</li>\r\n    <li>If you are responding from one of the ten countries that participated in IHP+Results 2010 monitoring, you only need to provide latest year data (2010 or 2011) as you have previously reported baseline data. If you are responding from one of the nine countries participating for the first time, you need to submit baseline data too (2005, 2006 or 2007).</li>\r\n    <li>Please provide source information \u2013 ideally weblinks or references to published documents \u2013 in the \u2018Voluntary additional information\u2019 text boxes.</li>\r\n</ul>\r\n\r\n\r\n\r\n<p>In addition to the guidance above we advise you to have a copy of the Overview Guidance to hand when you begin submitting your data as it is possible that this will cover any questions you may have. Alternatively please get in touch with your IHP+Results focal point.</p>"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "yes_no_na_choice", 
+      "group": 1, 
+      "question": "Have you signed the IHP+ Country Compact (or equivalent agreement)?", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": null, 
+      "identifier": "1"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 1, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": " If not, please explain why. ", 
+      "identifier": "1_sup"
+    }
+  }, 
+  {
+    "pk": 37, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "yes_no_na_choice", 
+      "group": 15, 
+      "question": "Is there an IHP+ Country Compact (or equivalent agreement) in place?", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": null, 
+      "identifier": "1"
+    }
+  }, 
+  {
+    "pk": 38, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 15, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": "If yes, please provide details of the Compact or equivalent, including its title and the period which it covers.                                                                 If not, please explain why, including your efforts in leading on the creation of such an agreement in the future. ", 
+      "identifier": "1_sup"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "fixed_currency", 
+      "group": 2, 
+      "question": "How much health sector aid for the government sector ($USD) did you disburse in calendar years 2007 and 2009?  ", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": null, 
+      "identifier": "2"
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "fixed_currency", 
+      "group": 2, 
+      "question": "How much of this ($USD) was reported on national health sector budgets in 2007 and 2009?", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": null, 
+      "identifier": "3"
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 2, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": " Please provide details of the specific actions/support that you are providing in this area.                                                               If you have not met the agreed target (see target column), please provide an explanation of the circumstances.", 
+      "identifier": "3_sup"
+    }
+  }, 
+  {
+    "pk": 39, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "yes_no_na_choice", 
+      "group": 16, 
+      "question": "Does the National Health Sector Strategy (or equivalent) include current targets and budgets?", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": null, 
+      "identifier": "2"
+    }
+  }, 
+  {
+    "pk": 40, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "yes_no_na_choice", 
+      "group": 16, 
+      "question": "Has the National Health Sector Strategy been jointly assessed? ", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": null, 
+      "identifier": "3"
+    }
+  }, 
+  {
+    "pk": 41, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 16, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": "<If yes, please provide details of the plan, including its title and the period which it covers.                                          <If not, please describe your efforts to ensure that such targets and budgets are included in the future.", 
+      "identifier": "2_sup"
+    }
+  }, 
+  {
+    "pk": 42, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 16, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": "If yes, please describe any plans in place to get the plan jointly assessed, include details about timeframes.                                             If not, please provide an explanation of the circumstances. ", 
+      "identifier": "3_sup"
+    }
+  }, 
+  {
+    "pk": 81, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "yes_no_choice", 
+      "group": 33, 
+      "question": "Have you signed the IHP+ Country Compact (or equivalent agreement)?", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": null, 
+      "identifier": "1"
+    }
+  }, 
+  {
+    "pk": 82, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 33, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "1DP"
+    }
+  }, 
+  {
+    "pk": 83, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "multi_currency", 
+      "group": 34, 
+      "question": "What value of health sector aid for the government sector did you disburse?  ", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": null, 
+      "identifier": "2"
+    }
+  }, 
+  {
+    "pk": 84, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "multi_currency", 
+      "group": 34, 
+      "question": "What value of this was reported on national health sector budgets?", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": null, 
+      "identifier": "3"
+    }
+  }, 
+  {
+    "pk": 85, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 34, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "2DPa"
+    }
+  }, 
+  {
+    "pk": 86, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "multi_currency", 
+      "group": 35, 
+      "question": "What value of technical cooperation for health did you disburse?", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": null, 
+      "identifier": "4"
+    }
+  }, 
+  {
+    "pk": 87, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "multi_currency", 
+      "group": 35, 
+      "question": "What value of this did you disburse through coordinated programmes that are consistent with national plans/strategies for the health sector?", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": null, 
+      "identifier": "5"
+    }
+  }, 
+  {
+    "pk": 88, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 35, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "2DPb"
+    }
+  }, 
+  {
+    "pk": 89, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "multi_currency", 
+      "group": 36, 
+      "question": "What value of health sector aid  did you disburse at country level? ", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": null, 
+      "identifier": "6"
+    }
+  }, 
+  {
+    "pk": 90, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "multi_currency", 
+      "group": 36, 
+      "question": "What value of health sector aid did you disburse in support of initiatives adopting programme-based approaches?", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": null, 
+      "identifier": "7"
+    }
+  }, 
+  {
+    "pk": 91, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 36, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "2DPc"
+    }
+  }, 
+  {
+    "pk": 92, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "multi_currency", 
+      "group": 37, 
+      "question": "What value of the health sector aid (Q6) that you disbursed was provided through multi-year commitments (at least 3 years)? ", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": null, 
+      "identifier": "8"
+    }
+  }, 
+  {
+    "pk": 93, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 37, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "3DP"
+    }
+  }, 
+  {
+    "pk": 94, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "multi_currency", 
+      "group": 38, 
+      "question": "What value of health sector aid (Q6) did you plan to disburse at country level?", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": null, 
+      "identifier": "9"
+    }
+  }, 
+  {
+    "pk": 95, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 38, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "4DP"
+    }
+  }, 
+  {
+    "pk": 96, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "multi_currency", 
+      "group": 39, 
+      "question": "What value of health sector aid for procurement was disbursed? ", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": null, 
+      "identifier": "10"
+    }
+  }, 
+  {
+    "pk": 97, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "multi_currency", 
+      "group": 39, 
+      "question": "What value of this used national procurement systems ?", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": null, 
+      "identifier": "11"
+    }
+  }, 
+  {
+    "pk": 98, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 39, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "5DPa"
+    }
+  }, 
+  {
+    "pk": 99, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "multi_currency", 
+      "group": 40, 
+      "question": "What value of health sector aid for the government sector (Q2) used national public financial management systems? ", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": null, 
+      "identifier": "12"
+    }
+  }, 
+  {
+    "pk": 100, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 40, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "5DPb"
+    }
+  }, 
+  {
+    "pk": 101, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "integer", 
+      "group": 41, 
+      "question": "How many parallel project implementation units did you make use of in the provision of health sector aid for the government sector?", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": null, 
+      "identifier": "13"
+    }
+  }, 
+  {
+    "pk": 102, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 41, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "5DPc"
+    }
+  }, 
+  {
+    "pk": 103, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "yes_no_choice", 
+      "group": 42, 
+      "question": "Did you routinely use a single national performance assessment framework as the primary basis to assess progress in your country? ", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": null, 
+      "identifier": "14"
+    }
+  }, 
+  {
+    "pk": 104, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 42, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "6DP"
+    }
+  }, 
+  {
+    "pk": 105, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "yes_no_choice", 
+      "group": 43, 
+      "question": "Did you undertake a mutual assessment(s) of progress in implementing health sector commitments, including on aid effectiveness? ", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": null, 
+      "identifier": "15"
+    }
+  }, 
+  {
+    "pk": 106, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 43, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "7DP"
+    }
+  }, 
+  {
+    "pk": 107, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "aid_types", 
+      "group": 44, 
+      "question": "What support, if any, did you provide to civil society organisations to enable them to participate in health sector policy processes - including health sector planning, coordination and review mechanisms? (please enter Yes (Y) in as many categories as appropriate).", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": null, 
+      "identifier": "16"
+    }
+  }, 
+  {
+    "pk": 108, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 44, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "8DP"
+    }
+  }, 
+  {
+    "pk": 109, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "multi_currency", 
+      "group": 45, 
+      "question": "What value of general budget support did you disburse?", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": null, 
+      "identifier": "17"
+    }
+  }, 
+  {
+    "pk": 110, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "multi_currency", 
+      "group": 45, 
+      "question": "What value of sector budget support did you disburse?", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": null, 
+      "identifier": "18"
+    }
+  }, 
+  {
+    "pk": 111, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 45, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 3, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "General"
+    }
+  }, 
+  {
+    "pk": 112, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "yes_no_choice", 
+      "group": 46, 
+      "question": "Was there an IHP+ Country Compact (or equivalent agreement) in place?", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "1"
+    }
+  }, 
+  {
+    "pk": 113, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 46, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "1G"
+    }
+  }, 
+  {
+    "pk": 114, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "yes_no_choice", 
+      "group": 47, 
+      "question": "Did the National Health Sector Strategy (or equivalent) include current targets and budgets?", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "2"
+    }
+  }, 
+  {
+    "pk": 115, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "yes_no_choice", 
+      "group": 47, 
+      "question": "Was the National Health Sector Strategy jointly assessed? ", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "3"
+    }
+  }, 
+  {
+    "pk": 116, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 47, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "2Ga"
+    }
+  }, 
+  {
+    "pk": 117, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "yes_no_choice", 
+      "group": 48, 
+      "question": "Was there a costed, comprehensive, evidence based HRH plan (that was integrated with the national health plan) that was being implemented or developed?", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "4"
+    }
+  }, 
+  {
+    "pk": 118, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 48, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "2Gb"
+    }
+  }, 
+  {
+    "pk": 119, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "multi_currency", 
+      "group": 49, 
+      "question": "What was the value of the total public (domestic) contribution to the national budget (ie not including external funding)?", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "5"
+    }
+  }, 
+  {
+    "pk": 120, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "multi_currency", 
+      "group": 49, 
+      "question": "What was the total value of public (domestic) funding allocated to health (ie not including external funding)?", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "6"
+    }
+  }, 
+  {
+    "pk": 121, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 49, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "3G"
+    }
+  }, 
+  {
+    "pk": 122, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "multi_currency", 
+      "group": 50, 
+      "question": "What was the total value (including external/donor funding) of the approved annual budget for the health sector? ", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "7"
+    }
+  }, 
+  {
+    "pk": 123, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "multi_currency", 
+      "group": 50, 
+      "question": "What was the total value of funding disbursed against the approved annual budget for the health sector?", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "8"
+    }
+  }, 
+  {
+    "pk": 124, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 50, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "4G"
+    }
+  }, 
+  {
+    "pk": 125, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "rating_0_5_half", 
+      "group": 51, 
+      "question": "Please provide scores against the PFM/CPIA scale of performance. ", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "9"
+    }
+  }, 
+  {
+    "pk": 126, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 51, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "5Ga"
+    }
+  }, 
+  {
+    "pk": 127, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "rating_0_5_half", 
+      "group": 52, 
+      "question": "Please provide the scores for the four point scale used to assess performance in the procurement sector for 2007 and 2009.", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "10"
+    }
+  }, 
+  {
+    "pk": 128, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 52, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "5Gb"
+    }
+  }, 
+  {
+    "pk": 129, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "yes_no_choice", 
+      "group": 53, 
+      "question": "Was there a transparent and monitorable performance assessment framework in place to assess progress in the health sector", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "11"
+    }
+  }, 
+  {
+    "pk": 130, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 53, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "6G"
+    }
+  }, 
+  {
+    "pk": 131, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "yes_no_choice", 
+      "group": 54, 
+      "question": "Did you undertake a mutual assessment[s] of progress in implementing health sector commitments including on aid effectiveness?", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "12"
+    }
+  }, 
+  {
+    "pk": 132, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 54, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "7G"
+    }
+  }, 
+  {
+    "pk": 133, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "integer", 
+      "group": 55, 
+      "question": "What proportion of seats were allocated to civil society representatives on the health sector coordination mechanism? ", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "13"
+    }
+  }, 
+  {
+    "pk": 134, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 55, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "13+"
+    }
+  }, 
+  {
+    "pk": 135, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "rep_types", 
+      "group": 55, 
+      "question": "Which of the following types of Civil Society organizations are represented in the health sector coordination mechanism? (please enter Yes (Y) in as many categories as appropriate).", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "14"
+    }
+  }, 
+  {
+    "pk": 136, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 55, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "14+"
+    }
+  }, 
+  {
+    "pk": 137, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "cso_involved", 
+      "group": 55, 
+      "question": "At what points in the policy and planning process are CSOs routinely involved? (please enter Yes (Y) in as many categories as appropriate).", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "15"
+    }
+  }, 
+  {
+    "pk": 138, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 55, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "15+"
+    }
+  }, 
+  {
+    "pk": 139, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "integer", 
+      "group": 56, 
+      "question": "What were the total number of Development Partner / Donor missions?", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "16"
+    }
+  }, 
+  {
+    "pk": 140, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 56, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "16+"
+    }
+  }, 
+  {
+    "pk": 141, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "integer", 
+      "group": 56, 
+      "question": "How many development partners used a pooled funding mechanism (if it exists)? ", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "17"
+    }
+  }, 
+  {
+    "pk": 142, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 56, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "17+"
+    }
+  }, 
+  {
+    "pk": 143, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "integer", 
+      "group": 56, 
+      "question": "How many skilled medical personnel were in service?", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "18"
+    }
+  }, 
+  {
+    "pk": 144, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 56, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "18+"
+    }
+  }, 
+  {
+    "pk": 145, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "integer", 
+      "group": 56, 
+      "question": "Please enter the total population of your country.", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "19"
+    }
+  }, 
+  {
+    "pk": 146, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 56, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "19+"
+    }
+  }, 
+  {
+    "pk": 147, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "integer", 
+      "group": 56, 
+      "question": "How many total outpatient department visits were there?", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "20"
+    }
+  }, 
+  {
+    "pk": 148, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 56, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "20+"
+    }
+  }, 
+  {
+    "pk": 149, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "multi_currency", 
+      "group": 56, 
+      "question": "What was the total amount spent on the health workforce?", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "21"
+    }
+  }, 
+  {
+    "pk": 150, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 56, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "21+"
+    }
+  }, 
+  {
+    "pk": 151, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "yes_no_choice", 
+      "group": 56, 
+      "question": "Does the HMIS provides timely, relevant and robust data on results? ", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "22"
+    }
+  }, 
+  {
+    "pk": 152, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 56, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "22+"
+    }
+  }, 
+  {
+    "pk": 153, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "integer", 
+      "group": 56, 
+      "question": "How many Indicators are there in the National Results Framework?", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "23"
+    }
+  }, 
+  {
+    "pk": 154, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 56, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "23+"
+    }
+  }, 
+  {
+    "pk": 155, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "integer", 
+      "group": 56, 
+      "question": "How many Indicators were actually tracked (eg to respond to requests from DPs for additional reporting)?", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "24"
+    }
+  }, 
+  {
+    "pk": 156, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 56, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "24+"
+    }
+  }, 
+  {
+    "pk": 157, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "date", 
+      "group": 56, 
+      "question": "When was the date of the last Joint Annual Health Sector Review (JAR)? ", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "25"
+    }
+  }, 
+  {
+    "pk": 158, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 56, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "25+"
+    }
+  }, 
+  {
+    "pk": 159, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 56, 
+      "question": "Please comment on the level of representation at the JAR?  ", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "26"
+    }
+  }, 
+  {
+    "pk": 160, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 56, 
+      "question": "Please comment on the effectiveness of the JAR as an accountability mechanism ", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "27"
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "fixed_currency", 
+      "group": 3, 
+      "question": "How much technical cooperation for health did you disburse ($USD) in calendar year 2007 and 2009?", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": null, 
+      "identifier": "4"
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "fixed_currency", 
+      "group": 3, 
+      "question": "How much technical cooperation for health did you disburse through coordinated programmes that are consistent with national plans/strategies for the health sector?", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": null, 
+      "identifier": "5"
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 3, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": " Please provide details of the specific actions/support that you are providing in this area.                                                               If you have not met the agreed target (see target column), please provide an explanation of the circumstances.", 
+      "identifier": "5_sup"
+    }
+  }, 
+  {
+    "pk": 43, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "yes_no_na_choice", 
+      "group": 17, 
+      "question": "Is there a costed, comprehensive, evidence based HRH plan (that is integrated with the national health plan) that is being implemented or developed?", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": null, 
+      "identifier": "4"
+    }
+  }, 
+  {
+    "pk": 44, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 17, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": "If yes, please provide details of the plan, including its title and the period which it covers, and details on how its been implemented.                             If not, please provide an explanation of the circumstances   ", 
+      "identifier": "4_sup"
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "fixed_currency", 
+      "group": 4, 
+      "question": "How much health sector aid ($USD) did you disburse at country level in calendar years 2007 and 2009? ", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": null, 
+      "identifier": "6"
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "fixed_currency", 
+      "group": 4, 
+      "question": "How much health sector aid did you disburse in support of initiatives adopting programme-based aproaches in calendar years 2007 and 2009?", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": null, 
+      "identifier": "7"
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 4, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": " Please provide details of the specific actions/support that you are providing in this area.                                                               If you have not met the agreed target (see target column), please provide an explanation of the circumstances.", 
+      "identifier": "7_sup"
+    }
+  }, 
+  {
+    "pk": 45, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "fixed_currency", 
+      "group": 18, 
+      "question": "What was the total amount of public funding/national budget in $USD?", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": null, 
+      "identifier": "5"
+    }
+  }, 
+  {
+    "pk": 46, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "fixed_currency", 
+      "group": 18, 
+      "question": "What was the total amount of public funding allocated to health in $USD?", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": null, 
+      "identifier": "6"
+    }
+  }, 
+  {
+    "pk": 47, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 18, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": "Please provide details of the specific actions/support that you are providing in this area;                                                               If you have not met the agreed target (see target column), please provide an explanation of the circumstances.", 
+      "identifier": "6_sup"
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "fixed_currency", 
+      "group": 5, 
+      "question": "How much health sector aid ($USD) did you disburse at country level in calendar years 2007 and 2009?", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": null, 
+      "identifier": "8"
+    }
+  }, 
+  {
+    "pk": 13, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "fixed_currency", 
+      "group": 5, 
+      "question": "How much of this was provided through multi-year commitments (at least 3 years)? ", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": null, 
+      "identifier": "9"
+    }
+  }, 
+  {
+    "pk": 14, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 5, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": " Has your agency published a target (that differs from 90%) for the percent of health sector aid provided through multi-year commitments?  If so, please confirm that target and show where it was published.                                                                   Please provide details of the specific actions/support that you are providing in this area.                                                               If you have not met the agreed target (see target column), please provide an explanation of the circumstances.", 
+      "identifier": "9_sup"
+    }
+  }, 
+  {
+    "pk": 48, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "fixed_currency", 
+      "group": 19, 
+      "question": "What was the total amount ($USD) of the approved annual budget for the health sector? ", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": null, 
+      "identifier": "7"
+    }
+  }, 
+  {
+    "pk": 49, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "fixed_currency", 
+      "group": 19, 
+      "question": "What was the total amount ($USD) of funding disbursed against the approved annual budget for the health sector?", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": null, 
+      "identifier": "8"
+    }
+  }, 
+  {
+    "pk": 50, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 19, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": "Please provide details of the specific actions/support that you are providing in this area;                                                               If you have not met the agreed target (see target column), please provide an explanation of the circumstances.", 
+      "identifier": "8_sup"
+    }
+  }, 
+  {
+    "pk": 15, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "fixed_currency", 
+      "group": 6, 
+      "question": "In calendar years 2007 and 2009, how much health sector aid did you disburse at the country level?", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": null, 
+      "identifier": "10"
+    }
+  }, 
+  {
+    "pk": 16, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "fixed_currency", 
+      "group": 6, 
+      "question": "How much health sector aid did you disburse within the year for which it was scheduled?", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": null, 
+      "identifier": "11"
+    }
+  }, 
+  {
+    "pk": 17, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 6, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": " Please provide details of the specific actions/support that you are providing in this area.                                                               If you have not met the agreed target (see target column), please provide an explanation of the circumstances.", 
+      "identifier": "11_sup"
+    }
+  }, 
+  {
+    "pk": 51, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "rating_0_5_half", 
+      "group": 20, 
+      "question": "Please provide scores against the PFM/CPIA scale of performance. ", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": null, 
+      "identifier": "9"
+    }
+  }, 
+  {
+    "pk": 52, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 20, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": "NB:  The \"Guide to Key Terms & Definitions\" provides data for PFM/CPIA scores.  IHP+Results will use this data.  Please include any comments on those scores, with answers to the following questsions, in the column \"Answers & additional information\":                  If PFM/CPIA score is below 3.5, are there reform programmes in place to strengthen thes?                                                                       Please provide details of the specific actions/support that you are providing in this area.                                                               If you have not met the agreed target (see target column), please provide an explanation of the circumstances.", 
+      "identifier": "9_sup"
+    }
+  }, 
+  {
+    "pk": 18, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "fixed_currency", 
+      "group": 7, 
+      "question": "How much health sector aid for procurement was disbursed in 2007 and 2009? ", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": null, 
+      "identifier": "12"
+    }
+  }, 
+  {
+    "pk": 19, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "fixed_currency", 
+      "group": 7, 
+      "question": "In calendar years 2007 and 2009, how much of this used national procurement systems ?", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": null, 
+      "identifier": "13"
+    }
+  }, 
+  {
+    "pk": 20, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 7, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": "Please provide details of the specific actions/support that you are providing in this area.                                                              If you have not met the agreed target (see target column), please provide an explanation of the circumstances.                                    If you are not using national procurement systems, please explain why and what you are doing to strengthen them?", 
+      "identifier": "13_sup"
+    }
+  }, 
+  {
+    "pk": 53, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "rating_0_5_half", 
+      "group": 21, 
+      "question": "Please provide the scores for the four point scale used to assess performance in the procurement sector for 2007 and 2009.", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": null, 
+      "identifier": "10"
+    }
+  }, 
+  {
+    "pk": 54, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 21, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": "NB:  The \"Guide to Key Terms & Definitions\" provides available data for \"four point scale\".  IHP+Results will use this data.  Please include any comments on this data, with answers to the following questsions, in the column \"Answers & additional information\":If this data is not available, please provide details on how procurement systems adhere to broadly accepted good practices.                                                           If procurement systems do not adhere to broadly accepted good practices, are there reform programmes in place to strengthen these?                                                                Please provide details of the specific actions/support that you are providing in this area;                                                               If you have not met the agreed target (see target column), please provide an explanation of the circumstances.", 
+      "identifier": "10_sup"
+    }
+  }, 
+  {
+    "pk": 21, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "fixed_currency", 
+      "group": 8, 
+      "question": "How much health sector aid for the government sector  was disbursed in 2007 and 2009? ", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": null, 
+      "identifier": "14"
+    }
+  }, 
+  {
+    "pk": 22, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "fixed_currency", 
+      "group": 8, 
+      "question": "How much of this used national public financial management systems in 2007 and 2009? ", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": null, 
+      "identifier": "15"
+    }
+  }, 
+  {
+    "pk": 23, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 8, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": " Please provide details of the specific actions/support that you are providing in this area.                                                               If you have not met the agreed target (see target column), please provide an explanation of the circumstances.                                   >If you are not using national PFM systems (budget execution, financial reporting procedures, national auditing procedures), please explain why and what you are doing to help strengthen them?", 
+      "identifier": "15_sup"
+    }
+  }, 
+  {
+    "pk": 55, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "yes_no_na_choice", 
+      "group": 22, 
+      "question": "Is there a transparent and monitorable performance assessment framework which is in place to assess progress in the health sector", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": null, 
+      "identifier": "11"
+    }
+  }, 
+  {
+    "pk": 56, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 22, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": "Please provide details of the specific actions/support that you are providing in this area.                                                             If you have not met the agreed target (see target column), please provide an explanation about the circumstances.", 
+      "identifier": "11_sup"
+    }
+  }, 
+  {
+    "pk": 24, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "integer", 
+      "group": 9, 
+      "question": "How many parallel project implementation units did you make use of in the provision of health sector aid for the government sector 2007 and 2009?", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": null, 
+      "identifier": "16"
+    }
+  }, 
+  {
+    "pk": 25, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 9, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": " If you have not met the agreed target (see target column), please provide an explanation of the circumstances.                                                    If you are using PIUs please comment on the trend in use, and plans to reduce the stock of PIUs.  ", 
+      "identifier": "16_sup"
+    }
+  }, 
+  {
+    "pk": 57, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "yes_no_na_choice", 
+      "group": 23, 
+      "question": "Did you undertake a mutual assessment[s] of progress in implementing health sector commitments including on aid effectiveness?", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": null, 
+      "identifier": "12"
+    }
+  }, 
+  {
+    "pk": 58, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 23, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": "If such a mechanism is not in place please provide details on your efforts to ensure such mechanisms are being introduced in the future, including how it will monitor aid effectiveness.                                                                     Please provide details of the specific actions/support that you are providing in this area.                                                               If you have not met the agreed target (see target column), please provide an explanation of the circumstances.", 
+      "identifier": "12_sup"
+    }
+  }, 
+  {
+    "pk": 26, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "yes_no_na_choice", 
+      "group": 10, 
+      "question": "Did you routinely use a single national performance assessment framework as the primary basis to assess progress in your country? ", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": null, 
+      "identifier": "17"
+    }
+  }, 
+  {
+    "pk": 27, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 10, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": " If you do not use a single national performance assessment framework please provide details on why, including details on your efforts to use such a framework in the future.", 
+      "identifier": "17_sup"
+    }
+  }, 
+  {
+    "pk": 59, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "integer", 
+      "group": 24, 
+      "question": "How many seats were allocated to civil society representatives on the health sector coordination mechanism? ", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": null, 
+      "identifier": "13"
+    }
+  }, 
+  {
+    "pk": 60, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "integer", 
+      "group": 24, 
+      "question": "What is the total number of seats on the health sector coordination mechanism?", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": null, 
+      "identifier": "14"
+    }
+  }, 
+  {
+    "pk": 61, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 24, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": "Please provide any additional details relating to this.                                                                        If you wish, please provide details of the specific actions/support that you are providing in this area.                                                               If you have not met the agreed target (see target column), please provide an explanation of the circumstances.", 
+      "identifier": "14_sup"
+    }
+  }, 
+  {
+    "pk": 28, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "yes_no_na_choice", 
+      "group": 11, 
+      "question": "Did you undertake a mutual assessment(s) of progress in implementing health sector commitments, including on aid effectiveness? ", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": null, 
+      "identifier": "18"
+    }
+  }, 
+  {
+    "pk": 29, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 11, 
+      "question": "Please comment on the effectiveness of the JAR as an accountability mechanism. ", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": "", 
+      "identifier": "19"
+    }
+  }, 
+  {
+    "pk": 30, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 11, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": "< If such a mechanism is not in place please provide details on your efforts to ensure such a mechanism is in place in the future, including how it will monitor aid effectiveness.          <If you have undertaken a mutual assessment, please provide details on how you participated in this mechanism.", 
+      "identifier": "18_sup"
+    }
+  }, 
+  {
+    "pk": 31, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 11, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": " Please provide an assessment of the strengths and weaknesses of the JAR to to monitor health sector aid effectiveness commitments.                                                               What needs to be done to strengthen the JAR as an accountability mechanism?", 
+      "identifier": "19_sup"
+    }
+  }, 
+  {
+    "pk": 62, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "integer", 
+      "group": 25, 
+      "question": "What were the total number of Development Partner / Donor missions in 2007 and 2009?", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": null, 
+      "identifier": "15"
+    }
+  }, 
+  {
+    "pk": 63, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 25, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": "Please comment on the extent to which these have been conducted jointly by Development Partners.", 
+      "identifier": "15_sup"
+    }
+  }, 
+  {
+    "pk": 32, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "integer", 
+      "group": 12, 
+      "question": "What support, if any, did you provide to civil society organisations to enable them to participate in health sector policy processes - including health sector planning, coordination and review mechanisms? ", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": null, 
+      "identifier": "20"
+    }
+  }, 
+  {
+    "pk": 64, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "integer", 
+      "group": 26, 
+      "question": "How many development partners used a pooled funding mechanism (if it exists)? ", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": null, 
+      "identifier": "16"
+    }
+  }, 
+  {
+    "pk": 65, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 26, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": "Please name the development partner(s) who used a pooled funding mechanism.", 
+      "identifier": "16_sup"
+    }
+  }, 
+  {
+    "pk": 33, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "fixed_currency", 
+      "group": 13, 
+      "question": "How much health sector aid ($USD) did you disburse through other donors (ie. health sector aid that is not captured in your response to Q2 above) at country level in 2007 and 2009?", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": null, 
+      "identifier": "21"
+    }
+  }, 
+  {
+    "pk": 34, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 13, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": "If you provided this kind of support, please provide further details, including amounts and donors that you disbursed to.", 
+      "identifier": "21_sup"
+    }
+  }, 
+  {
+    "pk": 66, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "integer", 
+      "group": 27, 
+      "question": "How many skilled medical personnel were there in 2007 and 2009?", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": null, 
+      "identifier": "17"
+    }
+  }, 
+  {
+    "pk": 67, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "integer", 
+      "group": 27, 
+      "question": "What was the total population in 2007 and 2009?", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": null, 
+      "identifier": "18"
+    }
+  }, 
+  {
+    "pk": 68, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 27, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": "Is the availability of skilled medical personnel sufficient?                                   Does it meet national targets, if these exist?                                       What are the obstacles to improving the availability of skiller health workers?", 
+      "identifier": "18_sup"
+    }
+  }, 
+  {
+    "pk": 35, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "fixed_currency", 
+      "group": 14, 
+      "question": "How much general budget support ($USD) did you disburse in 2007 and 2009?", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": null, 
+      "identifier": "22"
+    }
+  }, 
+  {
+    "pk": 36, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "fixed_currency", 
+      "group": 14, 
+      "question": "How much sector budget support did you disburse in 2007 and 2009?", 
+      "validator": "anything", 
+      "survey": 1, 
+      "help_text": null, 
+      "identifier": "23"
+    }
+  }, 
+  {
+    "pk": 69, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "integer", 
+      "group": 28, 
+      "question": "How many total outpatient department visits were there in 2007 and 2009?", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": null, 
+      "identifier": "19"
+    }
+  }, 
+  {
+    "pk": 70, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 28, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": "How does this relate to national targets, if these exist?", 
+      "identifier": "19_sup"
+    }
+  }, 
+  {
+    "pk": 71, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "fixed_currency", 
+      "group": 29, 
+      "question": "What was the total amount ($USD) spent on the health workforce in 2007 and 2009?", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": null, 
+      "identifier": "20"
+    }
+  }, 
+  {
+    "pk": 72, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 29, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": "How does this relate to national targets (if these exist), or projected need?", 
+      "identifier": "20_sup"
+    }
+  }, 
+  {
+    "pk": 73, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "yes_no_na_choice", 
+      "group": 30, 
+      "question": "Does the HMIS provides timely, relevant and robust data on results (see supplementary questions)? ", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": null, 
+      "identifier": "21"
+    }
+  }, 
+  {
+    "pk": 74, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 30, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": "What year is the latest available  data from?                                           By what date (year and month) was the data available?                                            What % of hospitals and health centres provided data?", 
+      "identifier": "21_sup"
+    }
+  }, 
+  {
+    "pk": 75, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "integer", 
+      "group": 31, 
+      "question": "How many Indicators are there in the National Results Framework?", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": null, 
+      "identifier": "22"
+    }
+  }, 
+  {
+    "pk": 76, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "integer", 
+      "group": 31, 
+      "question": "How many Indicators were actually tracked (eg to respond to requests from DPs for additional reporting)?", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": null, 
+      "identifier": "23"
+    }
+  }, 
+  {
+    "pk": 77, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 31, 
+      "question": "Supplemental information", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": "Did development partners request that additional indicators were tracked (in addition to those included in the national results framework)?                                              If so, which development partners and how many indicators?", 
+      "identifier": "23_sup"
+    }
+  }, 
+  {
+    "pk": 78, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "date", 
+      "group": 32, 
+      "question": "When was the date of the last Joint Annual Health Sector Review (JAR)? ", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": null, 
+      "identifier": "24"
+    }
+  }, 
+  {
+    "pk": 79, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "text", 
+      "group": 32, 
+      "question": "Please comment on the level of representation at the JAR?  ", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": null, 
+      "identifier": "25"
+    }
+  }, 
+  {
+    "pk": 80, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "text", 
+      "group": 32, 
+      "question": "Please comment on the effectiveness of the JAR as an accountability mechanism ", 
+      "validator": "anything", 
+      "survey": 2, 
+      "help_text": null, 
+      "identifier": "26"
+    }
+  }, 
+  {
+    "pk": 15, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 0, 
+      "help_text": "An IHP+ Compact or equivalent mutual agreement is in place", 
+      "survey": 2, 
+      "name": "IHP+ Compact"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 0, 
+      "help_text": "100% of IHP+ countries\nwhere the signatory operates\nhave support for/commitment\nto the IHP+ compact (or\nequivalent) mutually agreed\nand documented.", 
+      "survey": 1, 
+      "name": "Proportion of IHP+"
+    }
+  }, 
+  {
+    "pk": 33, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "Proportion of IHP+ countries  in which the partner has signed commitment to (or documented support for) the IHP+ Country Compact or equivalent agreement.", 
+      "survey": 3, 
+      "name": "1DP: IHP+ Compacts and equivalent agreements"
+    }
+  }, 
+  {
+    "pk": 46, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "IHP+ Compact or equivalent mutual agreement in place", 
+      "survey": 4, 
+      "name": "1G"
+    }
+  }, 
+  {
+    "pk": 34, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "Percent of aid flows to the health sector that is reported on national health sector budgets. (PD3)", 
+      "survey": 3, 
+      "name": "2DPa: Aid on national budget"
+    }
+  }, 
+  {
+    "pk": 35, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "Percent of current capacity-development support provided through coordinated programmes consistent with national plans/strategies for the health sector (PD4)", 
+      "survey": 3, 
+      "name": "2DPb: Capacity development support"
+    }
+  }, 
+  {
+    "pk": 36, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "", 
+      "survey": 3, 
+      "name": "2DPc: Programme based approaches"
+    }
+  }, 
+  {
+    "pk": 47, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "National Health Sector Plans/Strategy in place with current targets & budgets that have been jointly assessed", 
+      "survey": 4, 
+      "name": "2Ga"
+    }
+  }, 
+  {
+    "pk": 48, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "Costed, evidence-based HRH plan in place that is integrated with the national health plan ", 
+      "survey": 4, 
+      "name": "2Gb"
+    }
+  }, 
+  {
+    "pk": 37, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "Percent  of health sector aid provided through multi-year commitments", 
+      "survey": 3, 
+      "name": "3DP: Multi-year commitments"
+    }
+  }, 
+  {
+    "pk": 49, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "Proportion of public funding allocated to Health.", 
+      "survey": 4, 
+      "name": "3G"
+    }
+  }, 
+  {
+    "pk": 38, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "", 
+      "survey": 3, 
+      "name": "4DP: Predictability of disbursements"
+    }
+  }, 
+  {
+    "pk": 50, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "Proportion of health sector funding disbursed against the approved annual budget", 
+      "survey": 4, 
+      "name": "4G"
+    }
+  }, 
+  {
+    "pk": 39, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "Percent of aid that flows through public financial management systems (PD5a)", 
+      "survey": 3, 
+      "name": "5DPa: Procurement systems"
+    }
+  }, 
+  {
+    "pk": 40, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "Proportion of IHP+ countries in which agreed, transparent and monitorable performance assessment frameworks are being used to assess progress  in the health sector (PD11)", 
+      "survey": 3, 
+      "name": "5DPb: Public financial management systems"
+    }
+  }, 
+  {
+    "pk": 41, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "Proportion of IHP+ countries where mutual assessments have been made of progress implementing commitments in the health sector, including on aid effectiveness  (PD12)", 
+      "survey": 3, 
+      "name": "5DPc: Project Implementation Units"
+    }
+  }, 
+  {
+    "pk": 51, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "Country procurement and public financial management systems for the health sector either (a) adhere to broadly accepted good practices or (b) have a reform programme in place to achieve these. (PD2)", 
+      "survey": 4, 
+      "name": "5Ga"
+    }
+  }, 
+  {
+    "pk": 52, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "", 
+      "survey": 4, 
+      "name": "5Gb"
+    }
+  }, 
+  {
+    "pk": 42, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "Evidence of support for Civil Society to be actively represented in health sector policy processes - including health sector planning, coordination and review mechanisms.", 
+      "survey": 3, 
+      "name": "6DP: Performance assessment frameworks"
+    }
+  }, 
+  {
+    "pk": 53, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "An agreed, transparent and monitorable performance assessment framework is being used to assess progress in the health sector (PD11)", 
+      "survey": 4, 
+      "name": "6G"
+    }
+  }, 
+  {
+    "pk": 43, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "", 
+      "survey": 3, 
+      "name": "7DP: Mutual assessment processes"
+    }
+  }, 
+  {
+    "pk": 54, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "Mutual Assessments, such as Joint Annual Health Sector Reviews, have been made of progress implementing commitments in the health sector, including on aid effectiveness", 
+      "survey": 4, 
+      "name": "7G"
+    }
+  }, 
+  {
+    "pk": 44, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "", 
+      "survey": 3, 
+      "name": "8DP: Support to civil society representation"
+    }
+  }, 
+  {
+    "pk": 55, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "Evidence that Civil Society is actively represented in health sector policy processes - including health sector planning, coordination & review mechanisms", 
+      "survey": 4, 
+      "name": "8G"
+    }
+  }, 
+  {
+    "pk": 45, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "", 
+      "survey": 3, 
+      "name": "Additional questions"
+    }
+  }, 
+  {
+    "pk": 56, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "", 
+      "survey": 4, 
+      "name": "Additional questions"
+    }
+  }, 
+  {
+    "pk": 16, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "A National Health Sector Plan/Strategy is in place with current targets & budgets that have been jointly assessed.", 
+      "survey": 2, 
+      "name": "National Health Sector"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "Halve the proportion of aid flows to the health sector are not reported on government's budget(s) (with at least 85% reported on budget)", 
+      "survey": 1, 
+      "name": "Percent of aid"
+    }
+  }, 
+  {
+    "pk": 17, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 2, 
+      "help_text": "A costed, comprehensive national HRH plan (integrated with the health plan) is being implemented or developed", 
+      "survey": 2, 
+      "name": "Costed, evidence-based HRH"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 2, 
+      "help_text": "50% or more of technical cooperation flows to each IHP+ country in which the signatory operates are implemented through  coordinated programmes that are consistent with national plans/strategies for the health sector ", 
+      "survey": 1, 
+      "name": "Percent of current"
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 3, 
+      "help_text": "66% of aid flows are provided in the context of programme based approaches", 
+      "survey": 1, 
+      "name": "66% of aid"
+    }
+  }, 
+  {
+    "pk": 18, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 3, 
+      "help_text": "15% (or an equivalent published target) of the national budget is allocated to health", 
+      "survey": 2, 
+      "name": "Proportion of public"
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 4, 
+      "help_text": "90% (or an equivalent published target) of health sector funding provided through multi-year commitments [min. 3 years] ", 
+      "survey": 1, 
+      "name": "90% (or an"
+    }
+  }, 
+  {
+    "pk": 19, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 4, 
+      "help_text": "Halve the proportion of health sector funding not disbursed against the approved annual budget", 
+      "survey": 2, 
+      "name": "Proportion of health"
+    }
+  }, 
+  {
+    "pk": 20, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 5, 
+      "help_text": "Improvement of at least one measure (ie 0.5 points) on the PFM/CPIA scale of performance.", 
+      "survey": 2, 
+      "name": "Country procurement"
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 5, 
+      "help_text": "Halve the proportion of health sector aid not disbursed within the year for which it was scheduled ", 
+      "survey": 1, 
+      "name": "Percent of health"
+    }
+  }, 
+  {
+    "pk": 21, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 6, 
+      "help_text": "Improvement of at least one measure on the four-point scale used to assess performance for this sector", 
+      "survey": 2, 
+      "name": "Improvement of at"
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 6, 
+      "help_text": "One-third reduction in the % of health sector aid to the public sector not using partner countries' procurement systems", 
+      "survey": 1, 
+      "name": "Percent of health"
+    }
+  }, 
+  {
+    "pk": 22, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 7, 
+      "help_text": "A transparent and monitorable performance assessment framework is in place to assess progress against (a) the national development strategies relevant to health and (b) health sector programmes", 
+      "survey": 2, 
+      "name": "An agreed, transparent"
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 7, 
+      "help_text": "One-third reduction in the % of health sector aid to the public sector not using partner countries' PFM systems", 
+      "survey": 1, 
+      "name": "Percent of aid"
+    }
+  }, 
+  {
+    "pk": 23, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 8, 
+      "help_text": "Mutual assessments (such as a joint Annual Health Sector Review) are being made of progress implementing commitments in the health sector, including on aid effectiveness.", 
+      "survey": 2, 
+      "name": "Mutual Assessments, such"
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 8, 
+      "help_text": "Reduce by two-thirds the stock of parallel project implementation units (PIUs)", 
+      "survey": 1, 
+      "name": "Parallel Project Implementation"
+    }
+  }, 
+  {
+    "pk": 24, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 9, 
+      "help_text": "At least 10% of seats in the country's Health Sector Coordination mechanisms are allocated to Civil Society representatives.", 
+      "survey": 2, 
+      "name": "Evidence that Civil"
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 9, 
+      "help_text": "Single national performance assessment frameworks are used, where they exist, as the primary basis to assess progress in all IHP+ countries where the signatory operates", 
+      "survey": 1, 
+      "name": "Proportion of IHP+"
+    }
+  }, 
+  {
+    "pk": 25, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 10, 
+      "help_text": "Number of DP missions", 
+      "survey": 2, 
+      "name": "DP missions"
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 10, 
+      "help_text": "Annual mutual assessment of progress in implementing health sector commitments & agreements (such as the IHP+ country compact and on aid effectiveness in the health sector), is being made in all the countries where the signatory operates", 
+      "survey": 1, 
+      "name": "Proportion of IHP+"
+    }
+  }, 
+  {
+    "pk": 26, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 11, 
+      "help_text": "Number of DPs using pooled financing mechanisms", 
+      "survey": 2, 
+      "name": "DPs using pooled"
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 11, 
+      "help_text": "Development Partner can provide some evidence of supporting active civil society engagement.", 
+      "survey": 1, 
+      "name": "Evidence of support"
+    }
+  }, 
+  {
+    "pk": 13, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 12, 
+      "help_text": "N/A", 
+      "survey": 1, 
+      "name": "N/A"
+    }
+  }, 
+  {
+    "pk": 27, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 12, 
+      "help_text": "Number of skilled medical personnel per 10,000 pop", 
+      "survey": 2, 
+      "name": "Skilled medical personnel"
+    }
+  }, 
+  {
+    "pk": 14, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 13, 
+      "help_text": "N/A", 
+      "survey": 1, 
+      "name": "N/A"
+    }
+  }, 
+  {
+    "pk": 28, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 13, 
+      "help_text": "Number of outpatient dept visits per 10,000 pop p/a", 
+      "survey": 2, 
+      "name": "Outpatient dept visits"
+    }
+  }, 
+  {
+    "pk": 29, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 14, 
+      "help_text": "Health workforce spend", 
+      "survey": 2, 
+      "name": "Health workforce spend"
+    }
+  }, 
+  {
+    "pk": 30, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 15, 
+      "help_text": "Existence of HMIS that provides timely relevant robust data on results", 
+      "survey": 2, 
+      "name": "Existence of HMIS"
+    }
+  }, 
+  {
+    "pk": 31, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 16, 
+      "help_text": "Number of Indicators in Nartional Results Framework. ", 
+      "survey": 2, 
+      "name": "Indicators in Nartional"
+    }
+  }, 
+  {
+    "pk": 32, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 17, 
+      "help_text": "JAR date and details", 
+      "survey": 2, 
+      "name": "JAR date"
+    }
+  }
+]

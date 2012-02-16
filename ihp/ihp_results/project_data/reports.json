@@ -1,0 +1,842 @@
+[
+  {
+    "pk": 1, 
+    "model": "scorecard_processor.scorecard", 
+    "fields": {
+      "project": 1, 
+      "name": "Agency Indicators"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "scorecard_processor.scorecard", 
+    "fields": {
+      "project": 1, 
+      "name": "Government indicators"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "Signed an IHP+ country compact ", 
+      "scorecard": 1, 
+      "operation": "keyword_frequency", 
+      "identifier": "1DP"
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "1DP comments", 
+      "scorecard": 1, 
+      "operation": "concat", 
+      "identifier": "1DP comments"
+    }
+  }, 
+  {
+    "pk": 13, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "1G", 
+      "scorecard": 2, 
+      "operation": "assert_value_yn", 
+      "identifier": "1G"
+    }
+  }, 
+  {
+    "pk": 14, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "1G_comment", 
+      "scorecard": 2, 
+      "operation": "concat", 
+      "identifier": "1G comment"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "2DPa", 
+      "scorecard": 1, 
+      "operation": "one_minus_num_denom", 
+      "identifier": "2DPa"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "2DPb", 
+      "scorecard": 1, 
+      "operation": "num_denom", 
+      "identifier": "2DPb"
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "2DPc", 
+      "scorecard": 1, 
+      "operation": "num_denom", 
+      "identifier": "2DPc"
+    }
+  }, 
+  {
+    "pk": 15, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "2Ga", 
+      "scorecard": 2, 
+      "operation": "combine_values", 
+      "identifier": "2Ga"
+    }
+  }, 
+  {
+    "pk": 16, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "2Gb", 
+      "scorecard": 2, 
+      "operation": "assert_value_integer", 
+      "identifier": "2Gb"
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "3DP", 
+      "scorecard": 1, 
+      "operation": "num_denom", 
+      "identifier": "3DP"
+    }
+  }, 
+  {
+    "pk": 17, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "3G", 
+      "scorecard": 2, 
+      "operation": "num_denom", 
+      "identifier": "3G"
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "4DP", 
+      "scorecard": 1, 
+      "operation": "num_denom", 
+      "identifier": "4DP"
+    }
+  }, 
+  {
+    "pk": 18, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "4G", 
+      "scorecard": 2, 
+      "operation": "one_minus_num_denom", 
+      "identifier": "4G"
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "5DPa", 
+      "scorecard": 1, 
+      "operation": "one_minus_num_denom", 
+      "identifier": "5DPa"
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "5DPb", 
+      "scorecard": 1, 
+      "operation": "one_minus_num_denom", 
+      "identifier": "5DPb"
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "5DPc", 
+      "scorecard": 1, 
+      "operation": "sum_items", 
+      "identifier": "5DPc"
+    }
+  }, 
+  {
+    "pk": 19, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "5Ga", 
+      "scorecard": 2, 
+      "operation": "sum_items", 
+      "identifier": "5Ga"
+    }
+  }, 
+  {
+    "pk": 20, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "5Gb", 
+      "scorecard": 2, 
+      "operation": "sum_items", 
+      "identifier": "5Gb"
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "6DP", 
+      "scorecard": 1, 
+      "operation": "keyword_frequency", 
+      "identifier": "6DP"
+    }
+  }, 
+  {
+    "pk": 21, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "6G", 
+      "scorecard": 2, 
+      "operation": "assert_value_yn", 
+      "identifier": "6G"
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "7DP", 
+      "scorecard": 1, 
+      "operation": "keyword_frequency", 
+      "identifier": "7DP"
+    }
+  }, 
+  {
+    "pk": 22, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "7G", 
+      "scorecard": 2, 
+      "operation": "assert_value_yn", 
+      "identifier": "7G"
+    }
+  }, 
+  {
+    "pk": 23, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "8G", 
+      "scorecard": 2, 
+      "operation": "num_denom", 
+      "identifier": "8G"
+    }
+  }, 
+  {
+    "pk": 26, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "Q12G", 
+      "scorecard": 2, 
+      "operation": "assert_value_yn", 
+      "identifier": "Q12G"
+    }
+  }, 
+  {
+    "pk": 27, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "Q21G", 
+      "scorecard": 2, 
+      "operation": "assert_value_yn", 
+      "identifier": "Q21G"
+    }
+  }, 
+  {
+    "pk": 24, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "Q2G", 
+      "scorecard": 2, 
+      "operation": "assert_value_yn", 
+      "identifier": "Q2G"
+    }
+  }, 
+  {
+    "pk": 25, 
+    "model": "scorecard_processor.operation", 
+    "fields": {
+      "indicator": true, 
+      "configuration": "", 
+      "description": "Q3G", 
+      "scorecard": 2, 
+      "operation": "assert_value_yn", 
+      "identifier": "Q3G"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 4, 
+      "position": 0, 
+      "operation": 1, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 7, 
+      "position": 0, 
+      "operation": 2, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 1, 
+      "position": 0, 
+      "operation": 3, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 10, 
+      "position": 0, 
+      "operation": 4, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 13, 
+      "position": 0, 
+      "operation": 5, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 16, 
+      "position": 0, 
+      "operation": 6, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 19, 
+      "position": 0, 
+      "operation": 7, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 14, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 22, 
+      "position": 0, 
+      "operation": 8, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 16, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 24, 
+      "position": 0, 
+      "operation": 9, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 17, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 26, 
+      "position": 0, 
+      "operation": 10, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 18, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 28, 
+      "position": 0, 
+      "operation": 11, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 19, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 2, 
+      "position": 0, 
+      "operation": 12, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 20, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 37, 
+      "position": 0, 
+      "operation": 13, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 21, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 38, 
+      "position": 0, 
+      "operation": 14, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 22, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 39, 
+      "position": 0, 
+      "operation": 15, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 24, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 43, 
+      "position": 0, 
+      "operation": 16, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 25, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 46, 
+      "position": 0, 
+      "operation": 17, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 27, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 49, 
+      "position": 0, 
+      "operation": 18, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 29, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 51, 
+      "position": 0, 
+      "operation": 19, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 30, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 53, 
+      "position": 0, 
+      "operation": 20, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 31, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 55, 
+      "position": 0, 
+      "operation": 21, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 32, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 57, 
+      "position": 0, 
+      "operation": 22, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 33, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 59, 
+      "position": 0, 
+      "operation": 23, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 35, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 39, 
+      "position": 0, 
+      "operation": 24, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 36, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 40, 
+      "position": 0, 
+      "operation": 25, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 37, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 57, 
+      "position": 0, 
+      "operation": 26, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 38, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 73, 
+      "position": 0, 
+      "operation": 27, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 3, 
+      "position": 1, 
+      "operation": 1, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 6, 
+      "position": 1, 
+      "operation": 2, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 9, 
+      "position": 1, 
+      "operation": 4, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 12, 
+      "position": 1, 
+      "operation": 5, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 15, 
+      "position": 1, 
+      "operation": 6, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 13, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 18, 
+      "position": 1, 
+      "operation": 7, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 15, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 21, 
+      "position": 1, 
+      "operation": 8, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 23, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 40, 
+      "position": 1, 
+      "operation": 15, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 26, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 45, 
+      "position": 1, 
+      "operation": 17, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 28, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 48, 
+      "position": 1, 
+      "operation": 18, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 34, 
+    "model": "scorecard_processor.operationargument", 
+    "fields": {
+      "instance_id": 60, 
+      "position": 1, 
+      "operation": 23, 
+      "instance_content_type": 15, 
+      "argument_extractor": "value"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "scorecard_processor.reportrun", 
+    "fields": {
+      "aggregate_on": "Country", 
+      "name": "Disaggregated Agency performance (Baseline)", 
+      "compare_series": "Data collection year", 
+      "limit_to_entity": [], 
+      "limit_to_entitytype": [
+        "agency"
+      ], 
+      "aggregate_by_entity": true, 
+      "scorecard": 1, 
+      "limit_to_dataseries": [
+        21, 
+        20
+      ], 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "scorecard_processor.reportrun", 
+    "fields": {
+      "aggregate_on": null, 
+      "name": "Aggregated agency scorecard", 
+      "compare_series": "Data collection year", 
+      "limit_to_entity": [], 
+      "limit_to_entitytype": [
+        "agency"
+      ], 
+      "aggregate_by_entity": true, 
+      "scorecard": 1, 
+      "limit_to_dataseries": [
+        21, 
+        22, 
+        20
+      ], 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "scorecard_processor.reportrun", 
+    "fields": {
+      "aggregate_on": "Country", 
+      "name": "Aggregated country indicators ", 
+      "compare_series": "Data collection year", 
+      "limit_to_entity": [], 
+      "limit_to_entitytype": [
+        "agency"
+      ], 
+      "aggregate_by_entity": false, 
+      "scorecard": 1, 
+      "limit_to_dataseries": [
+        21, 
+        20
+      ], 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "scorecard_processor.reportrun", 
+    "fields": {
+      "aggregate_on": null, 
+      "name": "Country indicators", 
+      "compare_series": "Data collection year", 
+      "limit_to_entity": [], 
+      "limit_to_entitytype": [
+        "government"
+      ], 
+      "aggregate_by_entity": true, 
+      "scorecard": 2, 
+      "limit_to_dataseries": [
+        21, 
+        22, 
+        20
+      ], 
+      "description": ""
+    }
+  }
+]
