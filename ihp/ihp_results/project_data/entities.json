@@ -187,10 +187,21 @@
     }
   }, 
   {
+    "pk": 28, 
+    "model": "scorecard_processor.entity", 
+    "fields": {
+      "abbreviation": "Benin", 
+      "project": 1, 
+      "user_set": [], 
+      "name": "Government of Benin", 
+      "entity_type": "government"
+    }
+  }, 
+  {
     "pk": 16, 
     "model": "scorecard_processor.entity", 
     "fields": {
-      "abbreviation": null, 
+      "abbreviation": "Burkina Faso", 
       "project": 1, 
       "user_set": [], 
       "name": "Government of Burkina Faso", 
@@ -201,7 +212,7 @@
     "pk": 17, 
     "model": "scorecard_processor.entity", 
     "fields": {
-      "abbreviation": null, 
+      "abbreviation": "Burundi", 
       "project": 1, 
       "user_set": [], 
       "name": "Government of Burundi", 
@@ -212,7 +223,7 @@
     "pk": 19, 
     "model": "scorecard_processor.entity", 
     "fields": {
-      "abbreviation": null, 
+      "abbreviation": "DRC", 
       "project": 1, 
       "user_set": [], 
       "name": "Government of DRC", 
@@ -223,7 +234,7 @@
     "pk": 18, 
     "model": "scorecard_processor.entity", 
     "fields": {
-      "abbreviation": null, 
+      "abbreviation": "Djibouti", 
       "project": 1, 
       "user_set": [], 
       "name": "Government of Djibouti", 
@@ -231,10 +242,21 @@
     }
   }, 
   {
+    "pk": 29, 
+    "model": "scorecard_processor.entity", 
+    "fields": {
+      "abbreviation": "El Salvador", 
+      "project": 1, 
+      "user_set": [], 
+      "name": "Government of El Salvador", 
+      "entity_type": "government"
+    }
+  }, 
+  {
     "pk": 20, 
     "model": "scorecard_processor.entity", 
     "fields": {
-      "abbreviation": null, 
+      "abbreviation": "Ethiopia", 
       "project": 1, 
       "user_set": [], 
       "name": "Government of Ethiopia", 
@@ -245,7 +267,7 @@
     "pk": 21, 
     "model": "scorecard_processor.entity", 
     "fields": {
-      "abbreviation": null, 
+      "abbreviation": "Mali", 
       "project": 1, 
       "user_set": [], 
       "name": "Government of Mali", 
@@ -253,10 +275,21 @@
     }
   }, 
   {
+    "pk": 30, 
+    "model": "scorecard_processor.entity", 
+    "fields": {
+      "abbreviation": "Mauritania", 
+      "project": 1, 
+      "user_set": [], 
+      "name": "Government of Mauritania", 
+      "entity_type": "government"
+    }
+  }, 
+  {
     "pk": 22, 
     "model": "scorecard_processor.entity", 
     "fields": {
-      "abbreviation": null, 
+      "abbreviation": "Mozambique", 
       "project": 1, 
       "user_set": [], 
       "name": "Government of Mozambique", 
@@ -267,7 +300,7 @@
     "pk": 23, 
     "model": "scorecard_processor.entity", 
     "fields": {
-      "abbreviation": null, 
+      "abbreviation": "Nepal", 
       "project": 1, 
       "user_set": [], 
       "name": "Government of Nepal", 
@@ -278,7 +311,7 @@
     "pk": 24, 
     "model": "scorecard_processor.entity", 
     "fields": {
-      "abbreviation": null, 
+      "abbreviation": "Niger", 
       "project": 1, 
       "user_set": [], 
       "name": "Government of Niger", 
@@ -289,10 +322,76 @@
     "pk": 25, 
     "model": "scorecard_processor.entity", 
     "fields": {
-      "abbreviation": null, 
+      "abbreviation": "Nigeria", 
       "project": 1, 
       "user_set": [], 
       "name": "Government of Nigeria", 
+      "entity_type": "government"
+    }
+  }, 
+  {
+    "pk": 31, 
+    "model": "scorecard_processor.entity", 
+    "fields": {
+      "abbreviation": "Rwanda", 
+      "project": 1, 
+      "user_set": [], 
+      "name": "Government of Rwanda", 
+      "entity_type": "government"
+    }
+  }, 
+  {
+    "pk": 32, 
+    "model": "scorecard_processor.entity", 
+    "fields": {
+      "abbreviation": "Senegal", 
+      "project": 1, 
+      "user_set": [], 
+      "name": "Government of Senegal", 
+      "entity_type": "government"
+    }
+  }, 
+  {
+    "pk": 33, 
+    "model": "scorecard_processor.entity", 
+    "fields": {
+      "abbreviation": "Sierra Leone", 
+      "project": 1, 
+      "user_set": [], 
+      "name": "Government of Sierra Leone", 
+      "entity_type": "government"
+    }
+  }, 
+  {
+    "pk": 34, 
+    "model": "scorecard_processor.entity", 
+    "fields": {
+      "abbreviation": "Sudan", 
+      "project": 1, 
+      "user_set": [], 
+      "name": "Government of Sudan", 
+      "entity_type": "government"
+    }
+  }, 
+  {
+    "pk": 35, 
+    "model": "scorecard_processor.entity", 
+    "fields": {
+      "abbreviation": "Togo", 
+      "project": 1, 
+      "user_set": [], 
+      "name": "Government of Togo", 
+      "entity_type": "government"
+    }
+  }, 
+  {
+    "pk": 36, 
+    "model": "scorecard_processor.entity", 
+    "fields": {
+      "abbreviation": "Uganda", 
+      "project": 1, 
+      "user_set": [], 
+      "name": "Government of Uganda", 
       "entity_type": "government"
     }
   }, 
