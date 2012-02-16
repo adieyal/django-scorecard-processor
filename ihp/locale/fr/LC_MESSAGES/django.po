@@ -27,11 +27,11 @@ msgstr ""
 
 #: ihp_results/forms.py:43
 msgid "Currency"
-msgstr ""
+msgstr "Votre devise"
 
 #: ihp_results/forms.py:44
 msgid "Please select your currency"
-msgstr ""
+msgstr "S'il vous plaît choisir votre devise"
 
 #: ihp_results/forms.py:48 ihp_results/forms.py:118
 msgid "Baseline year"
@@ -129,11 +129,11 @@ msgstr "Développement des budgets / allocation des ressources"
 
 #: ihp_results/plugins.py:81
 msgid "Please choose a valid currency"
-msgstr ""
+msgstr "S'il vous plaît choisir une devise valide"
 
 #: ihp_results/plugins.py:82
 msgid "Please enter a numeric amount"
-msgstr ""
+msgstr "S'il vous plaît entrer un montant numérique"
 
 #: ihp_results/plugins.py:92
 msgid "US Dollar"
@@ -214,7 +214,7 @@ msgstr ""
 #: ihp_results/templates/ihp_results/add_dsg_survey.html:3
 #, python-format
 msgid "Add a new response to %(survey_name)s for %(entity_name)s"
-msgstr ""
+msgstr "Ajouter une nouvelle réponse à %(survey_name)s pour %(entity_name)s"
 
 #: ihp_results/templates/ihp_results/add_dsg_survey.html:15
 msgid "Please select a country"
@@ -268,7 +268,7 @@ msgstr ""
 
 #: templates/index.html:31
 msgid "Get started"
-msgstr ""
+msgstr "Commencer"
 
 #: templates/index.html:36
 msgid ""
@@ -295,17 +295,17 @@ msgstr ""
 
 #: templates/registration/login.html:12
 msgid "Welcome"
-msgstr ""
+msgstr "Accueil"
 
 #: templates/registration/login.html:22
 msgid "Log in"
-msgstr ""
+msgstr "Connectez-vous"
 
 #: templates/registration/login.html:23
 #, python-format
 msgid ""
 "Don't know your password? <a href=\"%(reset_url)s\">click to retrieve it</a>."
-msgstr ""
+msgstr "Je ne sais pas votre mot de passe? <a href \"%(reset_url)s\">cliquez dessus pour l'extraire</a>"
 
 #: templates/registration/new_account.html:2
 #, python-format
