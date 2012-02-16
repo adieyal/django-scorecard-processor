@@ -114,7 +114,10 @@ class QuestionForm(BootstrapForm):
             label="""<span class="identifier">%s.</span> 
                      <span class="question">%s</span>""" % (question.i18n.identifier,question.i18n.question)
         else:
-            label = series.name
+            label = {
+                    "Baseline":_("Baseline year"),
+                    "2012 Collection":_("Current year"),
+                }.get(series.name)
         field = field(
                     help_text = question.i18n.help_text,
                     label = label,

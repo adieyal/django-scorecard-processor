@@ -2712,5 +2712,325 @@
       "survey": 2, 
       "name": "JAR date"
     }
+  }, 
+  {
+    "pk": 1, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": null, 
+      "parent_object": 81, 
+      "question": "Avez-vous sign\u00e9 le Pacte national de Partenariat  IHP+ (ou un accord \u00e9quivalent)? "
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": null, 
+      "parent_object": 83, 
+      "question": "Quel montant de l'aide au secteur de la sant\u00e9 avez-vous d\u00e9pens\u00e9  pour le secteur gouvernemental?   "
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": null, 
+      "parent_object": 84, 
+      "question": "Combien de cette somme a-t-elle \u00e9t\u00e9 rapport\u00e9e sur les budgets du secteur national de la sant\u00e9? "
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": null, 
+      "parent_object": 86, 
+      "question": "Quel montant de la coop\u00e9ration technique pour la sant\u00e9 avez-vous d\u00e9pens\u00e9?  "
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": null, 
+      "parent_object": 87, 
+      "question": "Combien de cette somme avez-vous d\u00e9pens\u00e9 \u00e0 travers des programmes coordonn\u00e9s qui sont coh\u00e9rents avec les plans/strat\u00e9gies nationaux du secteur de la sant\u00e9?  "
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": null, 
+      "parent_object": 89, 
+      "question": "Quel montant de l'aide au secteur de la sant\u00e9 avez-vous d\u00e9pens\u00e9 au niveau national?"
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": null, 
+      "parent_object": 90, 
+      "question": "Quel montant de l'aide au secteur de la sant\u00e9 avez-vous d\u00e9pens\u00e9 en soutien d'initiatives adoptant une approche programmatique?  "
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": null, 
+      "parent_object": 92, 
+      "question": "Quel montant de l'aide au secteur de la sant\u00e9 que vous avez d\u00e9pens\u00e9  a \u00e9t\u00e9 fourni dans le carde d'engagements pluriannuels (au moins 3 ans)?"
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": null, 
+      "parent_object": 94, 
+      "question": "Quel montant de l'aide au secteur de la sant\u00e9 avez-vous planifi\u00e9 de d\u00e9penser au niveau national? "
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": null, 
+      "parent_object": 96, 
+      "question": "Quel montant de l'aide au secteur de la sant\u00e9 avez-vous d\u00e9pens\u00e9 pour l'approvisionnement?  "
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": null, 
+      "parent_object": 97, 
+      "question": "Combien de cette somme a utilis\u00e9 les syst\u00e8mes nationaux d'approvisionnement?"
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": null, 
+      "parent_object": 99, 
+      "question": "Quel montant de l'aide au secteur de la sant\u00e9 pour le secteur gouvernemental (Q2) a utilis\u00e9 les syst\u00e8mes de gestion des financements publics? "
+    }
+  }, 
+  {
+    "pk": 13, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": null, 
+      "parent_object": 101, 
+      "question": "Combien d'unit\u00e9s de mise en \u0153uvre de projets parall\u00e8les avez-vous utilis\u00e9es pour fournir l'aide au secteur de la sant\u00e9 pour le secteur gouvernemental? "
+    }
+  }, 
+  {
+    "pk": 14, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": null, 
+      "parent_object": 103, 
+      "question": "Avez-vous de mani\u00e8re habituelle utilis\u00e9 un unique cadre national  d'\u00e9valuation des performances comme base premi\u00e8re d'\u00e9valuation des progr\u00e8s dans votre pays?  "
+    }
+  }, 
+  {
+    "pk": 15, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": null, 
+      "parent_object": 105, 
+      "question": "Avez-vous entrepris des \u00e9valuations mutuelles des progr\u00e8s dans la mise en \u0153uvre des engagements dans le secteur de la sant\u00e9, y compris en ce qui concerne l'efficacit\u00e9 de l'aide? "
+    }
+  }, 
+  {
+    "pk": 16, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": null, 
+      "parent_object": 107, 
+      "question": "Quel soutien, s'il y en a eu, avez-vous fourni aux organisations de la soci\u00e9t\u00e9 civile afin de leur permettre de participer aux processus de politique - y compris la planification du secteur de la sant\u00e9, la coordination et les m\u00e9chanismes de r\u00e9vision ? Merci d'indiquer Oui (O) dans toutes les cat\u00e9gories ad\u00e9quates"
+    }
+  }, 
+  {
+    "pk": 17, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": null, 
+      "parent_object": 109, 
+      "question": "Quel montant du budget global de soutien avez-vous d\u00e9pens\u00e9?"
+    }
+  }, 
+  {
+    "pk": 18, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": null, 
+      "parent_object": 110, 
+      "question": "Quel montant du budget sectoriel de soutien avez-vous d\u00e9pens\u00e9? "
+    }
+  }, 
+  {
+    "pk": 19, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
+      "parent_object": 82, 
+      "question": "Informations compl\u00e9mentaires volontaires"
+    }
+  }, 
+  {
+    "pk": 20, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
+      "parent_object": 85, 
+      "question": "Informations compl\u00e9mentaires volontaires"
+    }
+  }, 
+  {
+    "pk": 21, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
+      "parent_object": 88, 
+      "question": "Informations compl\u00e9mentaires volontaires"
+    }
+  }, 
+  {
+    "pk": 22, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
+      "parent_object": 91, 
+      "question": "Informations compl\u00e9mentaires volontaires"
+    }
+  }, 
+  {
+    "pk": 23, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
+      "parent_object": 93, 
+      "question": "Informations compl\u00e9mentaires volontaires"
+    }
+  }, 
+  {
+    "pk": 24, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
+      "parent_object": 95, 
+      "question": "Informations compl\u00e9mentaires volontaires"
+    }
+  }, 
+  {
+    "pk": 25, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
+      "parent_object": 98, 
+      "question": "Informations compl\u00e9mentaires volontaires"
+    }
+  }, 
+  {
+    "pk": 26, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
+      "parent_object": 100, 
+      "question": "Informations compl\u00e9mentaires volontaires"
+    }
+  }, 
+  {
+    "pk": 27, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
+      "parent_object": 102, 
+      "question": "Informations compl\u00e9mentaires volontaires"
+    }
+  }, 
+  {
+    "pk": 28, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
+      "parent_object": 104, 
+      "question": "Informations compl\u00e9mentaires volontaires"
+    }
+  }, 
+  {
+    "pk": 29, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
+      "parent_object": 106, 
+      "question": "Informations compl\u00e9mentaires volontaires"
+    }
+  }, 
+  {
+    "pk": 30, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
+      "parent_object": 108, 
+      "question": "Informations compl\u00e9mentaires volontaires"
+    }
+  }, 
+  {
+    "pk": 31, 
+    "model": "scorecard_processor.questiontranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
+      "parent_object": 111, 
+      "question": "Informations compl\u00e9mentaires volontaires"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "scorecard_processor.questiongrouptranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": null, 
+      "parent_object": 45, 
+      "name": "Des questions suppl\u00e9mentaires"
+    }
   }
 ]

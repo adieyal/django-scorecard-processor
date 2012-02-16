@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 14:48+0200\n"
+"POT-Creation-Date: 2012-02-16 15:20+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,13 +33,13 @@ msgstr ""
 msgid "Please select your currency"
 msgstr ""
 
-#: ihp_results/forms.py:48
+#: ihp_results/forms.py:48 ihp_results/forms.py:118
 msgid "Baseline year"
-msgstr ""
+msgstr "Données de base"
 
-#: ihp_results/forms.py:52
+#: ihp_results/forms.py:52 ihp_results/forms.py:119
 msgid "Current year"
-msgstr ""
+msgstr "Dernières données"
 
 #: ihp_results/plugins.py:10
 msgid "Financial support"
@@ -55,7 +55,8 @@ msgstr "Lobbying - plaidoyer - non financier"
 
 #: ihp_results/plugins.py:13
 msgid "Other (please specify in Voluntary additional information)"
-msgstr "Autre (veuillez préciser dans l'informations complémentaires volontaires)"
+msgstr ""
+"Autre (veuillez préciser dans l'informations complémentaires volontaires)"
 
 #: ihp_results/plugins.py:24
 msgid "Maternal Health"
