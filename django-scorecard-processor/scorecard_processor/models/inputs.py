@@ -25,6 +25,7 @@ i18nSurveyTuple = namedtuple("i18nSurveyTuple","name description")
 class Survey(models.Model):
     name = models.CharField(max_length=100)
     project = models.ForeignKey(Project)
+    short_description = models.TextField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
     active = models.BooleanField(default=True)
     data_series_groups = models.ManyToManyField(DataSeriesGroup) 
