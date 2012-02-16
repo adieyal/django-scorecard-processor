@@ -255,7 +255,7 @@
     "model": "scorecard_processor.glossarydefinition", 
     "fields": {
       "project": 1, 
-      "definition": "", 
+      "definition": "Legislative frameworks normally provide for specific types of financial reports to be produced as well as periodicity of such reporting. The use of national financial reporting means that donors do not impose additional requirements on governments for financial reporting. In particular donors do NOT require: (i) maintenance of a separate accounting system to satisfy donor reporting requirements, and (ii) creation of a separate chart of accounts to record the use of donor funds.\nDonors are invited to review all their health sector activities with a view to determining how much health sector aid for the government sector meet BOTH criteria below (anything less does not qualify):\n1.\tYou do NOT require maintenance of a separate accounting system to satisfy your own reporting requirements?\n2.\tYou ONLY require financial reports prepared using country\u2019s established financial reporting arrangements? (Y/N).\n", 
       "lang": "en-gb"
     }
   }, 
@@ -264,7 +264,7 @@
     "model": "scorecard_processor.glossarydefinition", 
     "fields": {
       "project": 1, 
-      "definition": "Legislative frameworks normally provide for specific types of financial reports to be produced as well as periodicity of such reporting. The use of national financial reporting means that donors do not impose additional requirements on governments for financial reporting. In particular donors do NOT require: (i) maintenance of a separate accounting system to satisfy donor reporting requirements, and (ii) creation of a separate chart of accounts to record the use of donor funds.\nDonors are invited to review all their health sector activities with a view to determining how much health sector aid for the government sector meet BOTH criteria below (anything less does not qualify):\n1.\tYou do NOT require maintenance of a separate accounting system to satisfy your own reporting requirements?\n2.\tYou ONLY require financial reports prepared using country\u2019s established financial reporting arrangements? (Y/N).\n", 
+      "definition": "When providing development assistance in a country, some donors establish Project Implementation Units (They are also commonly referred to as project management units, project management consultants, project management offices, project co-ordination offices etc.). These are dedicated management units designed to support the implementation and administration of projects or programmes. PIUs typically share the following key features: \n\u2192\uf020PIUs are TYPICALLY required to perform subsidiary (rather than principal) tasks with regard to the implementation of a project or programme: monitoring and reporting on technical and/or financial progress, accounting, procurement of works, goods and services, drawing-up of terms of reference, contract supervision, detailed design or equipment specification. \n\u2192\uf020PIUs are often established at the request of a donor following the inception of a project or programme. \n\u2192\uf020The staff of PIUs vary considerably in size and composition. Staff size can vary from 1 to as many as 200 but most count less than 10 professional staff. Although a significant number of PIUs make use of government staff, most PIUs rely on staff recruited outside the civil service (e.g. long-term local consultants). \n\u2192\uf020A distinction is made here between a PIU and technical advice provided directly to national administrations. \n", 
       "lang": "en-gb"
     }
   }, 
@@ -273,7 +273,7 @@
     "model": "scorecard_processor.glossarydefinition", 
     "fields": {
       "project": 1, 
-      "definition": "When providing development assistance in a country, some donors establish Project Implementation Units (They are also commonly referred to as project management units, project management consultants, project management offices, project co-ordination offices etc.). These are dedicated management units designed to support the implementation and administration of projects or programmes. PIUs typically share the following key features: \n\u2192\uf020PIUs are TYPICALLY required to perform subsidiary (rather than principal) tasks with regard to the implementation of a project or programme: monitoring and reporting on technical and/or financial progress, accounting, procurement of works, goods and services, drawing-up of terms of reference, contract supervision, detailed design or equipment specification. \n\u2192\uf020PIUs are often established at the request of a donor following the inception of a project or programme. \n\u2192\uf020The staff of PIUs vary considerably in size and composition. Staff size can vary from 1 to as many as 200 but most count less than 10 professional staff. Although a significant number of PIUs make use of government staff, most PIUs rely on staff recruited outside the civil service (e.g. long-term local consultants). \n\u2192\uf020A distinction is made here between a PIU and technical advice provided directly to national administrations. \n", 
+      "definition": "The Paris Declaration commits donors and partner countries to manage and implement aid in a way that focuses on the desired results and uses information to improve decision making; partners to strengthen the linkages between strategies and budgets, and endeavour to establish results-oriented reporting and assessment frameworks; donors to link country programming to results and align them with partners\u2018 assessment and monitoring frameworks, and harmonise reporting requirements; and partner and donors to jointly strengthen the necessary capacities. This indicator measures the extent to which the country commitment on establishing performance frameworks has been realised. PAFs provide a mechanism for monitoring government progress on pre-established priority areas, and opportunities for policy dialogue on key strategic issues for the development of the health sector. They are the basis of a government's policy to make information about the quality and performance of health care services available to the public and partners.  National Performance Assessment Frameworks should be comprehensive (ie cover all areas of health sector performance).", 
       "lang": "en-gb"
     }
   }, 
@@ -282,21 +282,12 @@
     "model": "scorecard_processor.glossarydefinition", 
     "fields": {
       "project": 1, 
-      "definition": "The Paris Declaration commits donors and partner countries to manage and implement aid in a way that focuses on the desired results and uses information to improve decision making; partners to strengthen the linkages between strategies and budgets, and endeavour to establish results-oriented reporting and assessment frameworks; donors to link country programming to results and align them with partners\u2018 assessment and monitoring frameworks, and harmonise reporting requirements; and partner and donors to jointly strengthen the necessary capacities. This indicator measures the extent to which the country commitment on establishing performance frameworks has been realised. PAFs provide a mechanism for monitoring government progress on pre-established priority areas, and opportunities for policy dialogue on key strategic issues for the development of the health sector. They are the basis of a government's policy to make information about the quality and performance of health care services available to the public and partners.  National Performance Assessment Frameworks should be comprehensive (ie cover all areas of health sector performance).", 
-      "lang": "en-gb"
-    }
-  }, 
-  {
-    "pk": 32, 
-    "model": "scorecard_processor.glossarydefinition", 
-    "fields": {
-      "project": 1, 
       "definition": "Mutual assessments of progress are exercises that engage at a national level both partner authorities and donors in a review of mutual performance. In determining whether mutual assessments of progress have been undertaken, partner authorities and donors may be guided by the following criteria:\n- Broad-based dialogue \u2014 Mutual assessments should engage in dialogue a broad range of government ministries (including line ministries and relevant departments) and donors (bilateral, multilateral and global initiatives). Government and donors should also consider engaging with civil society organisations.\n- Country mechanisms for monitoring progress \u2014 A formal process for measuring progress and following-up the assessment on a regular basis (e.g. one to two years) might be supplemented, wherever possible, through independent/impartial reviews. The results of such assessments should be made publicly available through appropriate means to ensure transparency.\n- Country targets \u2014 Partner countries have established country targets for improved aid effectiveness and health sector performance including within the framework of the agreed Partnerships Commitments and Indicators of Progress included in the Paris Declaration (PD-\u00a79). They may, however, go beyond the Paris Declaration wherever government and donors agree to do so.\n- High-level support \u2014 The assessments should be transparent and country led with significant support at the highest levels and with an appropriate level of resources.\n\nNB: The survey tool asks whether you have undertaken a mutual assessment of progress.  It is intended that this mutual assessment should be organised by the government, or jointly with other partners - ie not to arrange a separate mutual assessment.\n", 
       "lang": "en-gb"
     }
   }, 
   {
-    "pk": 33, 
+    "pk": 32, 
     "model": "scorecard_processor.glossarydefinition", 
     "fields": {
       "project": 1, 
@@ -533,7 +524,7 @@
     "model": "scorecard_processor.glossaryterm", 
     "fields": {
       "definition": 28, 
-      "term": "of this"
+      "term": "public financial management systems"
     }
   }, 
   {
@@ -541,7 +532,7 @@
     "model": "scorecard_processor.glossaryterm", 
     "fields": {
       "definition": 29, 
-      "term": "public financial management systems"
+      "term": "parallel project implementation units"
     }
   }, 
   {
@@ -549,7 +540,7 @@
     "model": "scorecard_processor.glossaryterm", 
     "fields": {
       "definition": 30, 
-      "term": "parallel project implementation units"
+      "term": "national performance assessment framework"
     }
   }, 
   {
@@ -557,7 +548,7 @@
     "model": "scorecard_processor.glossaryterm", 
     "fields": {
       "definition": 31, 
-      "term": "national performance assessment framework"
+      "term": "mutual assessment(s)"
     }
   }, 
   {
@@ -565,14 +556,6 @@
     "model": "scorecard_processor.glossaryterm", 
     "fields": {
       "definition": 32, 
-      "term": "mutual assessment(s)"
-    }
-  }, 
-  {
-    "pk": 34, 
-    "model": "scorecard_processor.glossaryterm", 
-    "fields": {
-      "definition": 33, 
       "term": "support"
     }
   }, 

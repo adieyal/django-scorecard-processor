@@ -23,12 +23,13 @@ class Command(BaseCommand):
         for row_num in xrange(1,sheet.nrows):
             row = sheet.row(row_num)
             definition = row[0].value
-            definition,created = project.glossarydefinition_set.get_or_create(definition=definition, lang=lang)
-            col = 1
-            while 1:
-                if row[col].value!='':
-                    t,created =definition.glossaryterm_set.get_or_create(term=row[col].value) 
-                else:
-                    break
-                col += 1
+            if definition:
+                definition,created = project.glossarydefinition_set.get_or_create(definition=definition, lang=lang)
+                col = 1
+                while 1:
+                    if row[col].value!='':
+                        t,created =definition.glossaryterm_set.get_or_create(term=row[col].value) 
+                    else:
+                        break
+                    col += 1
 
