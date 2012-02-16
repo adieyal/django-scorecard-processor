@@ -11,6 +11,17 @@
     }
   }, 
   {
+    "pk": 26, 
+    "model": "scorecard_processor.entity", 
+    "fields": {
+      "abbreviation": "AfDB", 
+      "project": 1, 
+      "user_set": [], 
+      "name": "African Development Bank", 
+      "entity_type": "agency"
+    }
+  }, 
+  {
     "pk": 2, 
     "model": "scorecard_processor.entity", 
     "fields": {
@@ -18,6 +29,50 @@
       "project": 1, 
       "user_set": [], 
       "name": "BELGIUM", 
+      "entity_type": "agency"
+    }
+  }, 
+  {
+    "pk": 27, 
+    "model": "scorecard_processor.entity", 
+    "fields": {
+      "abbreviation": "Germany", 
+      "project": 1, 
+      "user_set": [], 
+      "name": "Germany", 
+      "entity_type": "agency"
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "scorecard_processor.entity", 
+    "fields": {
+      "abbreviation": "Norway", 
+      "project": 1, 
+      "user_set": [], 
+      "name": "NORWAY", 
+      "entity_type": "agency"
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "scorecard_processor.entity", 
+    "fields": {
+      "abbreviation": "Spain", 
+      "project": 1, 
+      "user_set": [], 
+      "name": "SPAIN", 
+      "entity_type": "agency"
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "scorecard_processor.entity", 
+    "fields": {
+      "abbreviation": "Sweden", 
+      "project": 1, 
+      "user_set": [], 
+      "name": "SWEDEN", 
       "entity_type": "agency"
     }
   }, 
@@ -66,39 +121,6 @@
     }
   }, 
   {
-    "pk": 7, 
-    "model": "scorecard_processor.entity", 
-    "fields": {
-      "abbreviation": "Norway", 
-      "project": 1, 
-      "user_set": [], 
-      "name": "NORWAY", 
-      "entity_type": "agency"
-    }
-  }, 
-  {
-    "pk": 8, 
-    "model": "scorecard_processor.entity", 
-    "fields": {
-      "abbreviation": "Spain", 
-      "project": 1, 
-      "user_set": [], 
-      "name": "SPAIN", 
-      "entity_type": "agency"
-    }
-  }, 
-  {
-    "pk": 9, 
-    "model": "scorecard_processor.entity", 
-    "fields": {
-      "abbreviation": "Sweden", 
-      "project": 1, 
-      "user_set": [], 
-      "name": "SWEDEN", 
-      "entity_type": "agency"
-    }
-  }, 
-  {
     "pk": 10, 
     "model": "scorecard_processor.entity", 
     "fields": {
@@ -106,6 +128,28 @@
       "project": 1, 
       "user_set": [], 
       "name": "THE UNITED KINGDOM", 
+      "entity_type": "agency"
+    }
+  }, 
+  {
+    "pk": 15, 
+    "model": "scorecard_processor.entity", 
+    "fields": {
+      "abbreviation": "World Bank", 
+      "project": 1, 
+      "user_set": [], 
+      "name": "THE WORLD BANK", 
+      "entity_type": "agency"
+    }
+  }, 
+  {
+    "pk": 14, 
+    "model": "scorecard_processor.entity", 
+    "fields": {
+      "abbreviation": "WHO", 
+      "project": 1, 
+      "user_set": [], 
+      "name": "THE WORLD HEALTH ORGANIZATION", 
       "entity_type": "agency"
     }
   }, 
@@ -143,50 +187,6 @@
     }
   }, 
   {
-    "pk": 14, 
-    "model": "scorecard_processor.entity", 
-    "fields": {
-      "abbreviation": "WHO", 
-      "project": 1, 
-      "user_set": [], 
-      "name": "THE WORLD HEALTH ORGANIZATION", 
-      "entity_type": "agency"
-    }
-  }, 
-  {
-    "pk": 15, 
-    "model": "scorecard_processor.entity", 
-    "fields": {
-      "abbreviation": "World Bank", 
-      "project": 1, 
-      "user_set": [], 
-      "name": "THE WORLD BANK", 
-      "entity_type": "agency"
-    }
-  }, 
-  {
-    "pk": 26, 
-    "model": "scorecard_processor.entity", 
-    "fields": {
-      "abbreviation": "AfDB", 
-      "project": 1, 
-      "user_set": [], 
-      "name": "African Development Bank", 
-      "entity_type": "agency"
-    }
-  }, 
-  {
-    "pk": 27, 
-    "model": "scorecard_processor.entity", 
-    "fields": {
-      "abbreviation": "Germany", 
-      "project": 1, 
-      "user_set": [], 
-      "name": "Germany", 
-      "entity_type": "agency"
-    }
-  }, 
-  {
     "pk": 16, 
     "model": "scorecard_processor.entity", 
     "fields": {
@@ -209,17 +209,6 @@
     }
   }, 
   {
-    "pk": 18, 
-    "model": "scorecard_processor.entity", 
-    "fields": {
-      "abbreviation": null, 
-      "project": 1, 
-      "user_set": [], 
-      "name": "Government of Djibouti", 
-      "entity_type": "government"
-    }
-  }, 
-  {
     "pk": 19, 
     "model": "scorecard_processor.entity", 
     "fields": {
@@ -227,6 +216,17 @@
       "project": 1, 
       "user_set": [], 
       "name": "Government of DRC", 
+      "entity_type": "government"
+    }
+  }, 
+  {
+    "pk": 18, 
+    "model": "scorecard_processor.entity", 
+    "fields": {
+      "abbreviation": null, 
+      "project": 1, 
+      "user_set": [], 
+      "name": "Government of Djibouti", 
       "entity_type": "government"
     }
   }, 

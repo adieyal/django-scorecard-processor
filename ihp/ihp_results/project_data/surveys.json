@@ -66,7 +66,7 @@
         "Data collection year", 
         "Year"
       ], 
-      "short_description": "<h2>Please select a country</h2>\r\n<p>Please complete a separate survey tool for each of the participating countries in which\r\nyou are \u2018active\u2019. You should only have the option to submit data for the countries in which it has been agreed you are active. Please let us know if this is not the case.</p>", 
+      "short_description": "", 
       "entity_types": [
         "government"
       ], 

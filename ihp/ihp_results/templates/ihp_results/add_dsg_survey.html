@@ -10,13 +10,14 @@
         <div class="span14">
           {% if survey.short_description %}
             {{survey.short_description|safe}}
+          {% else %}
+            <h2>{% blocktrans %}Please select a country{% endblocktrans %}</h2>
           {% endif %}
-          <h2>Please select your country</h2>
-            <ul>
-            {% for ds in data_series %}
-              <li><a href="{% url survey_dsg_response_edit entity.pk data_series_group.pk survey.pk ds.pk %}">{{ds.name}}</a></li>
-            {% endfor %}
-            </ul>
+          <ul>
+          {% for ds in data_series %}
+            <li><a href="{% url survey_dsg_response_edit entity.pk data_series_group.pk survey.pk ds.pk %}">{{ds.name}}</a></li>
+          {% endfor %}
+          </ul>
           </form>
         </div>
       </div>
