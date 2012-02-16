@@ -20,18 +20,18 @@ class RepresentedTypes(MultiChoiceField):
     def __init__(self, *args, **kwargs):
         super(RepresentedTypes,self).__init__(*args, **kwargs)
         self.choices = (
-            ("maternal","Maternal Health"),
-            ("child","Child Health"),
-            ("maleria","Malaria"),
-            ("hiv","HIV/AIDS"),
-            ("tb","TB"),
-            ("systems","Health Systems Strengthening (Governance, Financing, HRH, Information Systems, Medicines, service delivery)"),
-            ("nutrition","Nutrition"),
-            ("international","International NGO"),
-            ("national","National NGO"),
-            ("failth","Faith Based Organisation"),
-            ("umbrella","Umbrella Organisation"),
-            ("professional","Professional Association"),
+            ("maternal",_("Maternal Health")),
+            ("child",_("Child Health")),
+            ("maleria",_("Malaria")),
+            ("hiv",_("HIV/AIDS")),
+            ("tb",_("TB")),
+            ("systems",_("Health Systems Strengthening (Governance, Financing, HRH, Information Systems, Medicines, service delivery)")),
+            ("nutrition",_("Nutrition")),
+            ("international",_("International NGO")),
+            ("national",_("National NGO")),
+            ("failth",_("Faith Based Organisation")),
+            ("umbrella",_("Umbrella Organisation")),
+            ("professional",_("Professional Association")),
 
         )
         self.widget.choices = self.choices
@@ -43,10 +43,10 @@ class CSOInvolvement(MultiChoiceField):
     def __init__(self, *args, **kwargs):
         super(CSOInvolvement,self).__init__(*args, **kwargs)
         self.choices = (
-            ("joint_review","Joint Annual Reviews"),
-            ("monthly","Monthly/quarterly coordination meetings"),
-            ("thematic","Thematic working groups"),
-            ("budget","Budget development / resource allocation"),
+            ("joint_review",_("Joint Annual Reviews")),
+            ("monthly",_("Monthly/quarterly coordination meetings")),
+            ("thematic",_("Thematic working groups")),
+            ("budget",_("Budget development / resource allocation")),
         )
         self.widget.choices = self.choices
 

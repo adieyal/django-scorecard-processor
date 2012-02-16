@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-14 10:02+0200\n"
+"POT-Creation-Date: 2012-02-16 14:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,16 +16,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: settings.py:44
+#: settings.py:45
 msgid "English"
 msgstr ""
 
-#: settings.py:45
-msgid "Français"
-msgstr ""
-
 #: settings.py:46
-msgid "Español"
+msgid "Français"
 msgstr ""
 
 #: ihp_results/forms.py:43
@@ -44,10 +40,6 @@ msgstr ""
 msgid "Current year"
 msgstr ""
 
-#: ihp_results/forms.py:96
-msgid "Voluntary additional information"
-msgstr ""
-
 #: ihp_results/plugins.py:10
 msgid "Financial support"
 msgstr ""
@@ -60,91 +52,174 @@ msgstr ""
 msgid "Lobbying/advocay - non-financial"
 msgstr ""
 
-#: ihp_results/plugins.py:43
+#: ihp_results/plugins.py:23
+msgid "Maternal Health"
+msgstr ""
+
+#: ihp_results/plugins.py:24
+msgid "Child Health"
+msgstr ""
+
+#: ihp_results/plugins.py:25
+msgid "Malaria"
+msgstr ""
+
+#: ihp_results/plugins.py:26
+msgid "HIV/AIDS"
+msgstr ""
+
+#: ihp_results/plugins.py:27
+msgid "TB"
+msgstr ""
+
+#: ihp_results/plugins.py:28
+msgid ""
+"Health Systems Strengthening (Governance, Financing, HRH, Information "
+"Systems, Medicines, service delivery)"
+msgstr ""
+
+#: ihp_results/plugins.py:29
+msgid "Nutrition"
+msgstr ""
+
+#: ihp_results/plugins.py:30
+msgid "International NGO"
+msgstr ""
+
+#: ihp_results/plugins.py:31
+msgid "National NGO"
+msgstr ""
+
+#: ihp_results/plugins.py:32
+msgid "Faith Based Organisation"
+msgstr ""
+
+#: ihp_results/plugins.py:33
+msgid "Umbrella Organisation"
+msgstr ""
+
+#: ihp_results/plugins.py:34
+msgid "Professional Association"
+msgstr ""
+
+#: ihp_results/plugins.py:46
+msgid "Joint Annual Reviews"
+msgstr ""
+
+#: ihp_results/plugins.py:47
+msgid "Monthly/quarterly coordination meetings"
+msgstr ""
+
+#: ihp_results/plugins.py:48
+msgid "Thematic working groups"
+msgstr ""
+
+#: ihp_results/plugins.py:49
+msgid "Budget development / resource allocation"
+msgstr ""
+
+#: ihp_results/plugins.py:80
 msgid "Please choose a valid currency"
 msgstr ""
 
-#: ihp_results/plugins.py:44
+#: ihp_results/plugins.py:81
 msgid "Please enter a numeric amount"
 msgstr ""
 
-#: ihp_results/plugins.py:54
+#: ihp_results/plugins.py:91
 msgid "US Dollar"
 msgstr ""
 
-#: ihp_results/plugins.py:55
+#: ihp_results/plugins.py:92
 msgid "British Pound"
 msgstr ""
 
-#: ihp_results/plugins.py:56
+#: ihp_results/plugins.py:93
 msgid "Euro"
 msgstr ""
 
-#: ihp_results/plugins.py:57
+#: ihp_results/plugins.py:94
 msgid "Australian Dollar"
 msgstr ""
 
-#: ihp_results/plugins.py:58
+#: ihp_results/plugins.py:95
 msgid "Swedish Krona"
 msgstr ""
 
-#: ihp_results/plugins.py:59
+#: ihp_results/plugins.py:96
 msgid "CFA Franc BCEAO"
 msgstr ""
 
-#: ihp_results/plugins.py:60
+#: ihp_results/plugins.py:97
 msgid "Burundi Franc"
 msgstr ""
 
-#: ihp_results/plugins.py:61
+#: ihp_results/plugins.py:98
 msgid "Djibouti Franc"
 msgstr ""
 
-#: ihp_results/plugins.py:62
+#: ihp_results/plugins.py:99
 msgid "Congolese Franc"
 msgstr ""
 
-#: ihp_results/plugins.py:63
+#: ihp_results/plugins.py:100
 msgid "El Salvador Colon"
 msgstr ""
 
-#: ihp_results/plugins.py:64
+#: ihp_results/plugins.py:101
 msgid "Ethiopian Birr"
 msgstr ""
 
-#: ihp_results/plugins.py:65
+#: ihp_results/plugins.py:102
 msgid "Mauritanian Ouguiya"
 msgstr ""
 
-#: ihp_results/plugins.py:66
+#: ihp_results/plugins.py:103
 msgid "Mozambique New Metical"
 msgstr ""
 
-#: ihp_results/plugins.py:67
+#: ihp_results/plugins.py:104
 msgid "Nepal Rupee"
 msgstr ""
 
-#: ihp_results/plugins.py:68
+#: ihp_results/plugins.py:105
 msgid "Nigerian Naira"
 msgstr ""
 
-#: ihp_results/plugins.py:69
+#: ihp_results/plugins.py:106
 msgid "Rwandan Franc"
 msgstr ""
 
-#: ihp_results/plugins.py:70
+#: ihp_results/plugins.py:107
 msgid "Sierra Leone Leone"
 msgstr ""
 
-#: ihp_results/plugins.py:71
+#: ihp_results/plugins.py:108
 msgid "Sudanese Pound"
 msgstr ""
 
-#: ihp_results/plugins.py:72
+#: ihp_results/plugins.py:109
 msgid "Uganda Shilling"
 msgstr ""
 
-#: templates/index.html:9
+#: ihp_results/templates/ihp_results/add_dsg_survey.html:3
+#, python-format
+msgid "Add a new response to %(survey_name)s for %(entity_name)s"
+msgstr ""
+
+#: ihp_results/templates/ihp_results/add_dsg_survey.html:15
+msgid "Please select a country"
+msgstr ""
+
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:121
+msgid "Continue"
+msgstr ""
+
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:127
+msgid "Save and continue"
+msgstr ""
+
+#: templates/index.html:7
 msgid ""
 "<h1>2012 IHP+Results Monitoring Process <small>Online Survey Tool</small></"
 "h1>\n"
@@ -182,11 +257,11 @@ msgid ""
 "\n"
 msgstr ""
 
-#: templates/index.html:33
+#: templates/index.html:31
 msgid "Get started"
 msgstr ""
 
-#: templates/index.html:38
+#: templates/index.html:36
 msgid ""
 "\n"
 "    <p>More detailed documentation and guidance on the 2012 process is "
@@ -207,6 +282,20 @@ msgstr ""
 
 #: templates/admin/base_site.html:7
 msgid "Django administration"
+msgstr ""
+
+#: templates/registration/login.html:12
+msgid "Welcome"
+msgstr ""
+
+#: templates/registration/login.html:22
+msgid "Log in"
+msgstr ""
+
+#: templates/registration/login.html:23
+#, python-format
+msgid ""
+"Don't know your password? <a href=\"%(reset_url)s\">click to retrieve it</a>."
 msgstr ""
 
 #: templates/registration/new_account.html:2
