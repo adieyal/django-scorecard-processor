@@ -13,6 +13,7 @@
   a.glossary_term {font-weight:bold;border-bottom:dotted 1px #386; color:#386;cursor:help}
   #definitions {position:absolute;top:0;left:0;width:100%;height:100%;background:#aaa;background:RGBA(95,95,95,0.5);z-index:1000;display:none}
   #definitions .term {display:none}
+  .modal .modal-body {max-height: 300px; overflow:auto}
 </style>
 <script type="text/javascript">
 $('.actions').hide();
@@ -51,13 +52,12 @@ $('.term').each(function (i,e) {
 function parse_defs() {
   var pane = $('.tab-pane.active')
   if (pane.data('parsed_def')==undefined) {
-    $('label, legend', pane).each(function(i,e) {
+    $('label, legend, div.intro', pane).each(function(i,e) {
       $(terms).each(function(j,f) {
         var test = $(e).html().split(f.term);
         if (test.length > 1) {
-          $(e).html(test.join("<a class='glossary_term' data-id='"+f.id+"' title='Click to see definition'>"+f.term+"</abbr>"));
+          $(e).html(test.join("<a class='glossary_term' data-id='"+f.id+"' title='Click to see definition'>"+f.term+"</a>"));
           //Do we want to keep finding more defs?
-          return false;
         }
       });
     });
@@ -67,12 +67,15 @@ function parse_defs() {
 
 $('a.glossary_term').live({ 
   click:function(e) {
-    $('#definitions').fadeIn();
+    $('#definitions').fadeIn('fast');
     $('#'+$(this).data('id')).modal('show');
   },
 })
 $('.modal a.close').live({click:function(e){
-  $('#definitions').fadeOut();
+  $('#definitions').fadeOut('fast');
+}})
+$('#definitions').bind({click:function(e){
+  $('.modal:visible a.close').click();
 }})
 
 parse_defs();
@@ -130,14 +133,14 @@ parse_defs();
     </div>
   </div>
 
-  <div id="definitions">
+  <div id="definitions" style="display:none">
       {% for term in entity.project.get_glossary %}
         <div class='modal term' id="{{term.term|slugify}}" data-term="{{term.term}}" data-position="center center">
           <div class="modal-header">
             <a class="close" href="#">×</a>
             <h3>{{term.term}}</h3>
           </div>
-          <div class="modal-body">{{term.definition.definition|safe}}</div>
+          <div class="modal-body">{{term.definition.definition|linebreaksbr|urlize}}</div>
         </div>
       {% endfor %}
   </div>
