@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404
 from django.views.generic import DetailView, ListView, DeleteView, CreateView
@@ -140,6 +140,8 @@ def entity_remove_user(request, entity_id, user_id):
 def add_survey(request, object_id, survey_id):
     survey = get_object_or_404(Survey, pk=survey_id)
     entity = get_object_or_404(Entity, pk=object_id)
+    if not request.user.is_staff and request.user.entity_set.filter(pk=entity.pk).count() == 0:
+        return HttpResponseNotFound()
     instance = ResponseSet(
                     survey=survey,
                     entity=entity
@@ -160,6 +162,8 @@ def edit_survey(request, object_id, responseset_id):
     responseset = get_object_or_404(ResponseSet, pk=responseset_id)
     survey = responseset.survey
     entity = get_object_or_404(Entity, pk=object_id)
+    if not request.user.is_staff and request.user.entity_set.filter(pk=entity.pk).count() == 0:
+        return HttpResponseNotFound()
     form = QuestionForm
     
     if request.POST:

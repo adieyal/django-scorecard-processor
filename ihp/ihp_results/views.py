@@ -1,5 +1,5 @@
 # Create your views here.
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404
 from django.views.generic import DetailView, ListView, DeleteView, CreateView
@@ -12,6 +12,8 @@ from scorecard_processor.models import Entity, DataSeriesGroup, Survey
 @login_required
 def add_dsg_survey(request, entity_id, data_series_group_name, survey_id):
     entity = Entity.objects.get(pk=entity_id)
+    if not request.user.is_staff and request.user.entity_set.filter(pk=entity.pk).count() == 0:
+        return HttpResponseNotFound()
     data_series_group = DataSeriesGroup.objects.get(pk=data_series_group_name)
     survey = Survey.objects.get(pk=survey_id)
     data_series = data_series_group.dataseries_set.all()
@@ -28,6 +30,8 @@ from forms import QuestionForm
 @login_required
 def edit_dsg_survey(request, entity_id, data_series_group_name, survey_id, data_series_name):
     entity = Entity.objects.get(pk=entity_id)
+    if not request.user.is_staff and request.user.entity_set.filter(pk=entity.pk).count() == 0:
+        return HttpResponseNotFound()
     data_series_group = DataSeriesGroup.objects.get(pk=data_series_group_name)
     data_series = data_series_group.dataseries_set.get(pk=data_series_name)
     survey = Survey.objects.get(pk=survey_id)
