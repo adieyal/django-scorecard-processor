@@ -21,7 +21,7 @@ class SurveyManager(models.Manager):
     def active(self, *args, **kwargs):
         return self.get_query_set().filter(active=True)
 
-i18nSurveyTuple = namedtuple("i18nSurveyTuple","name description")
+i18nSurveyTuple = namedtuple("i18nSurveyTuple","name description short_description")
 class Survey(models.Model):
     name = models.CharField(max_length=100)
     project = models.ForeignKey(Project)
@@ -78,12 +78,13 @@ class Survey(models.Model):
                 except SurveyTranslation.DoesNotExist:
                     obj = self
             self._i18n_cache[lang] = obj
-        return i18nSurveyTuple(name=obj.name, description=obj.description)
+        return i18nSurveyTuple(name=obj.name, description=obj.description, short_description=obj.short_description)
         
 class SurveyTranslation(models.Model):
     parent_object = models.ForeignKey(Survey)
     lang = models.CharField(max_length=5, db_index=True)
     name = models.CharField(max_length=100)
+    short_description = models.TextField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
 
     class Meta:

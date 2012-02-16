@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 15:46+0200\n"
+"POT-Creation-Date: 2012-02-16 15:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -209,6 +209,14 @@ msgstr ""
 #: ihp_results/templates/ihp_results/add_dsg_survey.html:3
 #, python-format
 msgid "Add a new response to %(survey_name)s for %(entity_name)s"
+msgstr ""
+
+#: ihp_results/templates/ihp_results/add_dsg_survey.html:8
+msgid "New response to "
+msgstr ""
+
+#: ihp_results/templates/ihp_results/add_dsg_survey.html:8
+msgid "for"
 msgstr ""
 
 #: ihp_results/templates/ihp_results/add_dsg_survey.html:15

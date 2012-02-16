@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 {% load i18n %}
-{% block head_title %}{% blocktrans with survey.name as survey_name and entity.name as entity_name%}Add a new response to {{survey_name}} for {{entity_name}}{% endblocktrans %}{% endblock %}
+{% block head_title %}{% blocktrans with survey.i18n.name as survey_name and entity.name as entity_name%}Add a new response to {{survey_name}} for {{entity_name}}{% endblocktrans %}{% endblock %}
 {% block fluid_content_outer %}
   <div class="container">
     <div class="content">
       <div class="page-header">
-        <h1>New response to {{survey.name}} <small>for <a href="{{entity.get_absolute_url}}">{{entity.name}}</a></small></h1>
+        <h1>{% blocktrans %}New response to {% endblocktrans %}{{survey.i18n.name}} <small>{% blocktrans %}for{% endblocktrans %} <a href="{{entity.get_absolute_url}}">{{entity.name}}</a></small></h1>
       </div>
       <div class="row">
         <div class="span14">
           {% if survey.short_description %}
-            {{survey.short_description|safe}}
+            {{survey.i18n.short_description|safe}}
           {% else %}
             <h2>{% blocktrans %}Please select a country{% endblocktrans %}</h2>
           {% endif %}
