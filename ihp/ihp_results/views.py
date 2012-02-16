@@ -9,6 +9,7 @@ from django.contrib.auth.models import User
 
 from scorecard_processor.models import Entity, DataSeriesGroup, Survey
 
+@login_required
 def add_dsg_survey(request, entity_id, data_series_group_name, survey_id):
     entity = Entity.objects.get(pk=entity_id)
     data_series_group = DataSeriesGroup.objects.get(pk=data_series_group_name)
@@ -24,6 +25,7 @@ def add_dsg_survey(request, entity_id, data_series_group_name, survey_id):
 
 from forms import QuestionForm
 
+@login_required
 def edit_dsg_survey(request, entity_id, data_series_group_name, survey_id, data_series_name):
     entity = Entity.objects.get(pk=entity_id)
     data_series_group = DataSeriesGroup.objects.get(pk=data_series_group_name)
