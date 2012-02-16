@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-{% block head_title %}Add a new response to {{survey.name}} for {{entity.name}}{% endblock %}
+{% load i18n %}
+{% block head_title %}{% blocktrans with survey.name as survey_name and entity.name as entity_name%}Add a new response to {{survey_name}} for {{entity_name}}{% endblocktrans %}{% endblock %}
 {% block fluid_content_outer %}
   <div class="container">
     <div class="content">
