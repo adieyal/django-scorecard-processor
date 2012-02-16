@@ -1,4 +1,5 @@
 # Create your views here.
+from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404
@@ -16,7 +17,12 @@ def add_dsg_survey(request, entity_id, data_series_group_name, survey_id):
         return HttpResponseNotFound()
     data_series_group = DataSeriesGroup.objects.get(pk=data_series_group_name)
     survey = Survey.objects.get(pk=survey_id)
-    data_series = data_series_group.dataseries_set.all()
+    if entity.entity_type_id == 'government':
+        data_series = data_series_group.dataseries_set.filter(name=entity.abbreviation)
+    else:
+        data_series = data_series_group.dataseries_set.all()
+    if len(data_series) == 1:
+        return HttpResponseRedirect(reverse("survey_dsg_response_edit",args=[entity.pk, data_series_group.pk, survey.pk, data_series[0].pk]))
     context = {
         'entity':entity,
         'survey':survey,

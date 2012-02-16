@@ -92,7 +92,7 @@ parse_defs();
       <form method="POST" class="form-stacked">
           {% csrf_token %}
           <div class="row">
-            <div class="span12">
+            <div class="offset1 span13">
               <ul class="tabs">
                 <li class="active" id="intro_tab"><a href="#intro">Overview</a></li>
                 {% for group in survey.questiongroup_set.all %}
