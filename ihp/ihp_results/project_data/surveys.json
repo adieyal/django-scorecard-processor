@@ -2715,6 +2715,28 @@
   }, 
   {
     "pk": 1, 
+    "model": "scorecard_processor.surveytranslation", 
+    "fields": {
+      "lang": "", 
+      "short_description": null, 
+      "parent_object": 4, 
+      "name": "2012 Enqu\u00eate pour les gouvernements", 
+      "description": null
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "scorecard_processor.surveytranslation", 
+    "fields": {
+      "lang": "fr", 
+      "short_description": null, 
+      "parent_object": 4, 
+      "name": "2012 Enqu\u00eate pour les gouvernements", 
+      "description": null
+    }
+  }, 
+  {
+    "pk": 1, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
