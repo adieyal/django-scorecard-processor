@@ -16,7 +16,7 @@
           {% endif %}
           <ul>
           {% for ds in data_series %}
-            <li><a href="{% url survey_dsg_response_edit entity.pk data_series_group.pk survey.pk ds.pk %}">{{ds.name}}</a></li>
+            <li><a href="{% url survey_dsg_response_edit entity.pk data_series_group.pk survey.pk ds.name %}">{{ds.name}}</a></li>
           {% endfor %}
           </ul>
           </form>

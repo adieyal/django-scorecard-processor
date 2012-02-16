@@ -22,7 +22,7 @@ def add_dsg_survey(request, entity_id, data_series_group_name, survey_id):
     else:
         data_series = data_series_group.dataseries_set.all()
     if len(data_series) == 1:
-        return HttpResponseRedirect(reverse("survey_dsg_response_edit",args=[entity.pk, data_series_group.pk, survey.pk, data_series[0].pk]))
+        return HttpResponseRedirect(reverse("survey_dsg_response_edit",args=[entity.pk, data_series_group.pk, survey.pk, data_series[0].name]))
     context = {
         'entity':entity,
         'survey':survey,
@@ -39,7 +39,14 @@ def edit_dsg_survey(request, entity_id, data_series_group_name, survey_id, data_
     if not request.user.is_staff and request.user.entity_set.filter(pk=entity.pk).count() == 0:
         return HttpResponseNotFound()
     data_series_group = DataSeriesGroup.objects.get(pk=data_series_group_name)
-    data_series = data_series_group.dataseries_set.get(pk=data_series_name)
+    try:
+        ds_pk = int(data_series_name)
+    except ValueError:
+        ds_pk = None
+    if ds_pk:
+        data_series = data_series_group.dataseries_set.get(pk=data_series_name)
+    else:
+        data_series = data_series_group.dataseries_set.get(name=data_series_name)
     survey = Survey.objects.get(pk=survey_id)
     categories = DataSeriesGroup.objects.get(pk='Data collection year').dataseries_set.filter(visible=True)
 
