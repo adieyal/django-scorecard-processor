@@ -10,6 +10,7 @@ class AidTypes(MultiChoiceField):
             ('financial',_('Financial support')),
             ('technical',_('Technical assistance (non-financial)')),
             ('lobbying',_('Lobbying/advocay - non-financial'))
+            ('other',_('Other (please specify in Voluntary additional information)'))
         )
         self.widget.choices = self.choices
 

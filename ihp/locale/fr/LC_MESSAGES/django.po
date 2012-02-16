@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 14:38+0200\n"
+"POT-Creation-Date: 2012-02-16 14:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,175 +43,170 @@ msgstr ""
 
 #: ihp_results/plugins.py:10
 msgid "Financial support"
-msgstr ""
+msgstr "Soutien financier"
 
 #: ihp_results/plugins.py:11
 msgid "Technical assistance (non-financial)"
-msgstr ""
+msgstr "Assistance technique (non financier)"
 
 #: ihp_results/plugins.py:12
 msgid "Lobbying/advocay - non-financial"
-msgstr ""
+msgstr "Lobbying - plaidoyer - non financier"
 
-#: ihp_results/plugins.py:23
+#: ihp_results/plugins.py:13
+msgid "Other (please specify in Voluntary additional information)"
+msgstr "Autre (veuillez préciser dans l'informations complémentaires volontaires)"
+
+#: ihp_results/plugins.py:24
 msgid "Maternal Health"
 msgstr "Santé maternelle"
 
-
-#: ihp_results/plugins.py:24
+#: ihp_results/plugins.py:25
 msgid "Child Health"
 msgstr "Santé infantile"
 
-
-#: ihp_results/plugins.py:25
+#: ihp_results/plugins.py:26
 msgid "Malaria"
 msgstr "Paludisme"
 
-
-#: ihp_results/plugins.py:26
+#: ihp_results/plugins.py:27
 msgid "HIV/AIDS"
 msgstr "VIH/SIDA"
 
-
-#: ihp_results/plugins.py:27
+#: ihp_results/plugins.py:28
 msgid "TB"
 msgstr "Tuberculose"
 
-
-#: ihp_results/plugins.py:28
+#: ihp_results/plugins.py:29
 msgid ""
 "Health Systems Strengthening (Governance, Financing, HRH, Information "
 "Systems, Medicines, service delivery)"
-msgstr "Renforcement des systèmes de santé (gouvernance, financement, Ressources humaines de la santé, systèmes d'information, médicaments, services de livraison) "
+msgstr ""
+"Renforcement des systèmes de santé (gouvernance, financement, Ressources "
+"humaines de la santé, systèmes d'information, médicaments, services de "
+"livraison) "
 
-
-#: ihp_results/plugins.py:29
+#: ihp_results/plugins.py:30
 msgid "Nutrition"
 msgstr "Nutrition"
 
-
-#: ihp_results/plugins.py:30
+#: ihp_results/plugins.py:31
 msgid "International NGO"
 msgstr "ONG internationale "
 
-
-#: ihp_results/plugins.py:31
+#: ihp_results/plugins.py:32
 msgid "National NGO"
 msgstr "ONG nationale"
 
-
-#: ihp_results/plugins.py:32
+#: ihp_results/plugins.py:33
 msgid "Faith Based Organisation"
 msgstr "Organisation à base religieuse"
 
-
-#: ihp_results/plugins.py:33
+#: ihp_results/plugins.py:34
 msgid "Umbrella Organisation"
 msgstr "Organisation faîtière"
 
-
-#: ihp_results/plugins.py:34
+#: ihp_results/plugins.py:35
 msgid "Professional Association"
 msgstr "Association professionnelle"
 
-
-#: ihp_results/plugins.py:46
+#: ihp_results/plugins.py:47
 msgid "Joint Annual Reviews"
 msgstr "Revues conjointes annuelles"
 
-#: ihp_results/plugins.py:47
+#: ihp_results/plugins.py:48
 msgid "Monthly/quarterly coordination meetings"
 msgstr "Réunions de coordination mensuelles / trimestrielles"
 
-#: ihp_results/plugins.py:48
+#: ihp_results/plugins.py:49
 msgid "Thematic working groups"
 msgstr "Groupes de travail thématiques"
 
-#: ihp_results/plugins.py:49
+#: ihp_results/plugins.py:50
 msgid "Budget development / resource allocation"
 msgstr "Développement des budgets / allocation des ressources"
 
-#: ihp_results/plugins.py:80
+#: ihp_results/plugins.py:81
 msgid "Please choose a valid currency"
 msgstr ""
 
-#: ihp_results/plugins.py:81
+#: ihp_results/plugins.py:82
 msgid "Please enter a numeric amount"
 msgstr ""
 
-#: ihp_results/plugins.py:91
+#: ihp_results/plugins.py:92
 msgid "US Dollar"
 msgstr ""
 
-#: ihp_results/plugins.py:92
+#: ihp_results/plugins.py:93
 msgid "British Pound"
 msgstr ""
 
-#: ihp_results/plugins.py:93
+#: ihp_results/plugins.py:94
 msgid "Euro"
 msgstr ""
 
-#: ihp_results/plugins.py:94
+#: ihp_results/plugins.py:95
 msgid "Australian Dollar"
 msgstr ""
 
-#: ihp_results/plugins.py:95
+#: ihp_results/plugins.py:96
 msgid "Swedish Krona"
 msgstr ""
 
-#: ihp_results/plugins.py:96
+#: ihp_results/plugins.py:97
 msgid "CFA Franc BCEAO"
 msgstr ""
 
-#: ihp_results/plugins.py:97
+#: ihp_results/plugins.py:98
 msgid "Burundi Franc"
 msgstr ""
 
-#: ihp_results/plugins.py:98
+#: ihp_results/plugins.py:99
 msgid "Djibouti Franc"
 msgstr ""
 
-#: ihp_results/plugins.py:99
+#: ihp_results/plugins.py:100
 msgid "Congolese Franc"
 msgstr ""
 
-#: ihp_results/plugins.py:100
+#: ihp_results/plugins.py:101
 msgid "El Salvador Colon"
 msgstr ""
 
-#: ihp_results/plugins.py:101
+#: ihp_results/plugins.py:102
 msgid "Ethiopian Birr"
 msgstr ""
 
-#: ihp_results/plugins.py:102
+#: ihp_results/plugins.py:103
 msgid "Mauritanian Ouguiya"
 msgstr ""
 
-#: ihp_results/plugins.py:103
+#: ihp_results/plugins.py:104
 msgid "Mozambique New Metical"
 msgstr ""
 
-#: ihp_results/plugins.py:104
+#: ihp_results/plugins.py:105
 msgid "Nepal Rupee"
 msgstr ""
 
-#: ihp_results/plugins.py:105
+#: ihp_results/plugins.py:106
 msgid "Nigerian Naira"
 msgstr ""
 
-#: ihp_results/plugins.py:106
+#: ihp_results/plugins.py:107
 msgid "Rwandan Franc"
 msgstr ""
 
-#: ihp_results/plugins.py:107
+#: ihp_results/plugins.py:108
 msgid "Sierra Leone Leone"
 msgstr ""
 
-#: ihp_results/plugins.py:108
+#: ihp_results/plugins.py:109
 msgid "Sudanese Pound"
 msgstr ""
 
-#: ihp_results/plugins.py:109
+#: ihp_results/plugins.py:110
 msgid "Uganda Shilling"
 msgstr ""
 
