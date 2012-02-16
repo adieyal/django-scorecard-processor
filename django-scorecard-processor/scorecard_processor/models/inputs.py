@@ -88,6 +88,7 @@ class SurveyTranslation(models.Model):
 
     class Meta:
         app_label = "scorecard_processor"
+        unique_together = ('parent_object','lang')
 
 
 i18nQuestionGroupTuple = namedtuple("i18nQuestionGroupTuple","name help_text")
@@ -127,6 +128,7 @@ class QuestionGroupTranslation(models.Model):
 
     class Meta:
         app_label = "scorecard_processor"
+        unique_together = ('parent_object','lang')
 
 
 i18nQuestionTuple = namedtuple("i18nQuestionTuple","identifier question help_text")
@@ -192,6 +194,7 @@ class QuestionTranslation(models.Model):
 
     class Meta:
         app_label = "scorecard_processor"
+        unique_together = ('parent_object','lang')
 
 
 class ImportMap(models.Model):
