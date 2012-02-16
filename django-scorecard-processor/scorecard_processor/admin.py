@@ -1,7 +1,8 @@
 from django.contrib import admin
 from models import  DataSeries, DataSeriesGroup, Entity, EntityType, Survey, \
         Question, ResponseSet, Response, ResponseOverride, Scorecard, Operation, \
-        OperationArgument, Project, ReportRun, QuestionGroup
+        OperationArgument, Project, ReportRun, QuestionGroup, \
+        GlossaryDefinition, GlossaryTerm
 from django.forms.models import BaseInlineFormSet 
 
 class QuestionInline(admin.StackedInline):
@@ -50,6 +51,15 @@ class ResponseSetAdmin(admin.ModelAdmin):
     model = ResponseSet
     inlines = [ResponseInline]
 
+class GlossaryTermInline(admin.StackedInline):
+    model = GlossaryTerm
+
+class GlossaryDefinitionAdmin(admin.ModelAdmin):
+    list_display = ('__unicode__','lang', 'project')
+    list_filter = ('project', 'lang')
+    model = GlossaryDefinition
+    inlines = [GlossaryTermInline]
+
 class ResponseOverrideAdmin(admin.ModelAdmin):
     model = ResponseOverride
     list_filter = ('question__survey',)
@@ -64,6 +74,7 @@ admin.site.register(Scorecard)
 admin.site.register(ReportRun, ReportRunAdmin)
 
 admin.site.register(DataSeriesGroup, DataSeriesGroupAdmin)
+admin.site.register(GlossaryDefinition, GlossaryDefinitionAdmin)
 admin.site.register(Entity)
 admin.site.register(EntityType)
 admin.site.register(Project)

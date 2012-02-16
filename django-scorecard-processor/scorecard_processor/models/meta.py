@@ -35,11 +35,17 @@ class GlossaryDefinition(models.Model):
     class Meta:
         app_label = "scorecard_processor"
 
+    def __unicode__(self):
+        return ", ".join([t.term for t in self.glossaryterm_set.all()] or [self.definition[:10]+'...'])
+
 class GlossaryTerm(models.Model):
     term = models.CharField(max_length=100)
     definition = models.ForeignKey(GlossaryDefinition)
     class Meta:
         app_label = "scorecard_processor"
+
+    def __unicode__(self):
+        return self.term
 
 # WIP for db based cache of which objects/fields need translation
 #class GlossaryCache(models.Model):
