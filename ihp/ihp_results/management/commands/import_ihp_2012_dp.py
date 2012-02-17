@@ -4,18 +4,18 @@ import xlrd
 from scorecard_processor import models
 
 lookup = {
-    "1DP"     :"IHP+ Compacts and equivalent agreements",
-    "2DPa"    :"Aid on national budget",
-    "2DPb"    :"Capacity development support",
-    "2DPc"    :"Programme based approaches",
-    "3DP"     :"Multi-year commitments",
-    "4DP"     :"Predictability of disbursements",
-    "5DPa"    :"Procurement systems",
-    "5DPb"    :"Public financial management systems",
-    "5DPc"    :"Project Implementation Units",
-    "6DP"     :"Performance assessment frameworks",
-    "7DP"     :"Mutual assessment processes",
-    "8DP"     :"Support to civil society representation",
+#    "1DP"     :"IHP+ Compacts and equivalent agreements",
+#    "2DPa"    :"Aid on national budget",
+#    "2DPb"    :"Capacity development support",
+#    "2DPc"    :"Programme based approaches",
+#    "3DP"     :"Multi-year commitments",
+#    "4DP"     :"Predictability of disbursements",
+#    "5DPa"    :"Procurement systems",
+#    "5DPb"    :"Public financial management systems",
+#    "5DPc"    :"Project Implementation Units",
+#    "6DP"     :"Performance assessment frameworks",
+#    "7DP"     :"Mutual assessment processes",
+#    "8DP"     :"Support to civil society representation",
 }
 
 class Command(BaseCommand):
