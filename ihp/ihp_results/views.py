@@ -62,7 +62,7 @@ def edit_dsg_survey(request, entity_id, data_series_group_name, survey_id, data_
             if next_section:
                 return HttpResponseRedirect('#%s' % next_section)
             else:
-                return HttpResponseRedirect(entity.get_absolute_url())
+                return HttpResponseRedirect(entity.get_absolute_url()+"#"+data_series.name)
     else:
         form = QuestionForm(entity=entity, user=request.user, survey=survey, country=data_series, series=categories)
 

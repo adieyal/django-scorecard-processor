@@ -20,8 +20,13 @@ $('.actions').hide();
 $('ul.tabs').tabs();
 $('ul.tabs').bind('change', function (e) {
   //window.console.log() // activated tab
-  var href=$(e.target).attr('href');
-  $('#next').attr('value',href.substring(1));
+  var el=$('a',$($(e.target).parent()).next('li'))
+  if (el.length) {
+    var href=el.attr('href');
+    $('#next').attr('value',href.substring(1));
+  } else {
+    $('#next').attr('value','');
+  }
   if ($(e.target).parent().attr('id')=='intro_tab') {
     $('.actions').hide();
   } else {
