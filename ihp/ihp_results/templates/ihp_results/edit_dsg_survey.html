@@ -51,7 +51,7 @@ $('.term').each(function (i,e) {
 
 function parse_defs() {
   var pane = $('.tab-pane.active')
-  if (pane.data('parsed_def')==undefined) {
+  if ((pane.data('parsed_def')==undefined) && ($(terms).length)) {
     $('label, legend, div.intro', pane).each(function(i,e) {
       $(terms).each(function(j,f) {
         var test = $(e).html().split(f.term);
@@ -78,7 +78,9 @@ $('#definitions').bind({click:function(e){
   $('.modal:visible a.close').click();
 }})
 
-parse_defs();
+$(document).ready(function () {
+  parse_defs();
+})
 
 </script>
 {% endblock %}
