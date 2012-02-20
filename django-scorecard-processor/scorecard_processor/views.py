@@ -150,7 +150,7 @@ def entity_add_user(request, entity_id):
 @login_required
 def entity_remove_user(request, entity_id, user_id):
     entity = get_object_or_404(Entity, pk=entity_id)
-    user = get_object_or_404(Entity, pk=user_id)
+    user = get_object_or_404(User, pk=user_id)
     remove_perm('change_entity', user, entity)
     return HttpResponseRedirect(entity.get_absolute_url())
         
