@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 16:03+0200\n"
+"POT-Creation-Date: 2012-02-20 16:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,11 +16,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: settings.py:45
+#: settings.py:47
 msgid "English"
 msgstr ""
 
-#: settings.py:46
+#: settings.py:48
 msgid "Français"
 msgstr ""
 
@@ -228,11 +228,11 @@ msgstr ""
 msgid "Response to %(survey_name)s for %(entity_name)s"
 msgstr ""
 
-#: ihp_results/templates/ihp_results/edit_dsg_survey.html:121
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:128
 msgid "Continue"
 msgstr ""
 
-#: ihp_results/templates/ihp_results/edit_dsg_survey.html:127
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:134
 msgid "Save and continue"
 msgstr ""
 
@@ -286,11 +286,11 @@ msgid ""
 "\n"
 msgstr ""
 
-#: templates/index.html:31
+#: templates/index.html:23
 msgid "Get started"
 msgstr ""
 
-#: templates/index.html:36
+#: templates/index.html:27
 msgid ""
 "\n"
 "    <p>More detailed documentation and guidance on the 2012 process is "
@@ -315,6 +315,17 @@ msgstr ""
 
 #: templates/registration/login.html:12
 msgid "Welcome"
+msgstr ""
+
+#: templates/registration/login.html:16
+msgid ""
+"To use the survey tool you need to be registered.  Registration is managed "
+"by the IHP+Results team in conjunction with IHP+ focal points in all "
+"participating organisations.  Please contact your IHP+ focal point if you "
+"need to be registered to use this system.  You may already have been "
+"registered, in which you case you will have received an email from ‘IHP"
+"+Results Survey 2012’; please click on the link in that email and follow the "
+"on screen instructions to access the online survey."
 msgstr ""
 
 #: templates/registration/login.html:22
