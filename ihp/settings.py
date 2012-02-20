@@ -21,7 +21,9 @@ DATABASES = {
     }
 }
 
-AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend','ihp_results.backends.EmailModelBackend',)
+AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend','ihp_results.backends.EmailModelBackend','guardian.backends.ObjectPermissionBackend',)
+#Guardian specific
+ANONYMOUS_USER_ID = -1
 
 LOGIN_REDIRECT_URL = "/"
 PASSWORD_RESET_TIMEOUT_DAYS = 60
@@ -126,6 +128,7 @@ INSTALLED_APPS = (
     'ihp_results',
 
     'scorecard_processor',
+    'guardian',
 
     # Uncomment the next line to enable the admin:
     "django.contrib.staticfiles",

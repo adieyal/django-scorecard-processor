@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load guardian_tags %}
 {% block head_title %}Entity selection{% endblock %}
 {% block fluid_content_outer %}
   <div class="container">
@@ -22,7 +23,7 @@
           {% else %}
             <div class="span7">
               <ul>
-              {% for entity in user.entity_set.all %}
+              {% for entity in object_list %}
                   <li><a href="{{entity.get_absolute_url}}">{% if entity.abbreviation %}{{entity.abbreviation}} - {% endif %}{{entity.name}}</a></li>
               {% endfor %}
               </ul>

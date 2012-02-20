@@ -8,19 +8,24 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordResetForm
 from django.contrib.auth.models import User
 
-from scorecard_processor.models import Entity, DataSeriesGroup, Survey
+from guardian.shortcuts import get_perms, assign, remove_perm, get_objects_for_user
+
+
+from scorecard_processor.models import Entity, DataSeriesGroup, Survey, DataSeries
 
 @login_required
 def add_dsg_survey(request, entity_id, data_series_group_name, survey_id):
     entity = Entity.objects.get(pk=entity_id)
-    if not request.user.is_staff and request.user.entity_set.filter(pk=entity.pk).count() == 0:
+    if not request.user.is_staff and 'change_entity' not in get_perms(request.user, entity):
         raise Http404
     data_series_group = DataSeriesGroup.objects.get(pk=data_series_group_name)
     survey = Survey.objects.get(pk=survey_id)
     if entity.entity_type_id == 'government':
         data_series = data_series_group.dataseries_set.filter(name=entity.abbreviation)
     else:
-        data_series = data_series_group.dataseries_set.all()
+        data_series = get_objects_for_user(request.user, 'can_use', data_series_group.dataseries_set.all())
+        if len(data_series) == 0:
+            data_series = data_series_group.dataseries_set.all()
     if len(data_series) == 1:
         return HttpResponseRedirect(reverse("survey_dsg_response_edit",args=[entity.pk, data_series_group.pk, survey.pk, data_series[0].name]))
     context = {
@@ -36,7 +41,7 @@ from forms import QuestionForm
 @login_required
 def edit_dsg_survey(request, entity_id, data_series_group_name, survey_id, data_series_name):
     entity = Entity.objects.get(pk=entity_id)
-    if not request.user.is_staff and request.user.entity_set.filter(pk=entity.pk).count() == 0:
+    if not request.user.is_staff and 'change_entity' not in get_perms(request.user, entity):
         return Http404
     data_series_group = DataSeriesGroup.objects.get(pk=data_series_group_name)
     try:

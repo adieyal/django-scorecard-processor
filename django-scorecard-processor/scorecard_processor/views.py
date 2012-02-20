@@ -11,6 +11,8 @@ from models import ResponseSet, Survey, Entity, ReportRun, DataSeries, DataSerie
 from models.outputs import get_responsesets
 from forms import QuestionForm, ResponseSetForm, AddUserForm
 
+from guardian.shortcuts import get_perms, assign, remove_perm, get_objects_for_user, get_users_with_perms
+
 def index(request):
     return render_to_response('scorecard_processor/index.html',{},RequestContext(request))
 
@@ -103,6 +105,27 @@ class ResponseOverrideDelete(DeleteView):
 #################################################################
 # Entity oriented
 #################################################################
+
+@login_required
+def entity_list(request):
+    entity_list = Entity.objects.all()
+    if not request.user.is_staff:
+       entity_list = get_objects_for_user(request.user, 'change_entity', entity_list)
+
+    return render_to_response('scorecard_processor/entity_list.html', {'object_list':entity_list}, RequestContext(request))
+
+@login_required
+def entity_detail(request, object_id):
+    entity_list = Entity.objects.all()
+    if not request.user.is_staff:
+       entity_list = get_objects_for_user(request.user, 'change_entity', entity_list)
+    try:
+        entity = entity_list.get(pk=object_id)
+    except Entity.DoesNotExist:
+        raise Http404
+    user_set = get_users_with_perms(entity)
+    return render_to_response('scorecard_processor/entity_detail.html', {'user_set':user_set, 'object':entity}, RequestContext(request))
+
 @login_required
 def entity_add_user(request, entity_id):
     entity = get_object_or_404(Entity, pk=entity_id)
@@ -118,7 +141,7 @@ def entity_add_user(request, entity_id):
                 reset_form = PasswordResetForm({'email':user.email})
                 reset_form.is_valid()
                 reset_form.save(email_template_name="registration/new_account.html")
-            entity.user_set.add(user)
+            assign('change_entity', user, entity)
             return HttpResponseRedirect(entity.get_absolute_url())
     else:
         form = AddUserForm()
@@ -128,7 +151,7 @@ def entity_add_user(request, entity_id):
 def entity_remove_user(request, entity_id, user_id):
     entity = get_object_or_404(Entity, pk=entity_id)
     user = get_object_or_404(Entity, pk=user_id)
-    entity.user_set.remove(user)
+    remove_perm('change_entity', user, entity)
     return HttpResponseRedirect(entity.get_absolute_url())
         
 
@@ -140,7 +163,7 @@ def entity_remove_user(request, entity_id, user_id):
 def add_survey(request, object_id, survey_id):
     survey = get_object_or_404(Survey, pk=survey_id)
     entity = get_object_or_404(Entity, pk=object_id)
-    if not request.user.is_staff and request.user.entity_set.filter(pk=entity.pk).count() == 0:
+    if not request.user.is_staff and 'change_entity' not in get_perms(request.user, entity):
         raise Http404
     instance = ResponseSet(
                     survey=survey,
@@ -162,7 +185,7 @@ def edit_survey(request, object_id, responseset_id):
     responseset = get_object_or_404(ResponseSet, pk=responseset_id)
     survey = responseset.survey
     entity = get_object_or_404(Entity, pk=object_id)
-    if not request.user.is_staff and request.user.entity_set.filter(pk=entity.pk).count() == 0:
+    if not request.user.is_staff and 'change_entity' not in get_perms(request.user, entity):
         raise Http404
     form = QuestionForm
     

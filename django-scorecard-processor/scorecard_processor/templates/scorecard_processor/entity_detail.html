@@ -35,11 +35,11 @@
             {% endwith %}
 
             <h2 style="padding-top:10px">Associated users</h2>
-            {% if object.user_set.count == 0 %}
+            {% if user_set == 0 %}
               <p>No users are currently associated with this {{object.entity_type}}</p>
             {% else %}
               <ul>
-                {% for person in object.user_set.all %}
+                {% for person in user_set %}
                   <li>{% if user.is_staff %}[<a href="{% url entity_remove_user object.pk person.pk %}" title="Remove access">x</a>] {% endif %}{{person.get_full_name}} <strong>{{person.email}}</strong></li>
                 {% endfor %}
               </ul>

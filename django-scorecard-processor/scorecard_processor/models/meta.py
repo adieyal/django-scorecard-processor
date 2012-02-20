@@ -5,9 +5,11 @@ from django.utils import translation
 
 class Project(models.Model):
     name = models.CharField(max_length=100) 
-    user_set = models.ManyToManyField(User)
     class Meta:
         app_label = "scorecard_processor"
+        permissions = (
+                        ("can_view", "Can view the project"),
+                    )
 
     @models.permalink
     def get_absolute_url(self):
@@ -80,6 +82,9 @@ class DataSeries(models.Model):
         verbose_name_plural = 'Data Series'
         ordering = ('-group','name')
         app_label = "scorecard_processor"
+        permissions = (
+                        ("can_use", "Can use the DataSeries"),
+                    )
 
     @property
     def data_type(self):
@@ -106,12 +111,14 @@ class Entity(models.Model):
     abbreviation = models.CharField(max_length=30, blank=True, null=True)
     entity_type = models.ForeignKey(EntityType)
     project = models.ForeignKey(Project)
-    user_set = models.ManyToManyField(User)
 
     class Meta:
         app_label = "scorecard_processor"
         unique_together = (('name','project'),)
         ordering = ('entity_type','name')
+        permissions = (
+                        ("can_view", "Can view the Entity"),
+                    )
 
     @property
     def data_type(self):

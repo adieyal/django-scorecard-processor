@@ -8,4 +8,5 @@ xlwt
 xlrd
 tablib
 ordereddict
+django-guardian
 

@@ -109,13 +109,11 @@ urlpatterns = patterns('scorecard_processor.views',
 
 #Response side
     url(r'^entity/$', #TODO:limit entities to the ones a user account can access
-        login_required(object_list), 
-        {'queryset':entity_qs},
+        'entity_list',
         name="entity_list"
     ), 
     url(r'^entity/(?P<object_id>\d+)/$', 
-        login_required(object_detail),
-        {'queryset':entity_qs}, 
+        'entity_detail',
         name="show_entity"
     ),
     #Entity user management
