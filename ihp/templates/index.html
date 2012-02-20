@@ -20,16 +20,7 @@
 
 {% endblocktrans %}
 
-{% if user.entity_set.all.count > 1 %}
-  <h2>Manage your responses for:</h2>
-  <ul>
-    {% for entity in user.entity_set.all %}
-      <li><a class="" href="{{ entity.get_absolute_url }}">{{entity.name}}</a></li>
-    {% endfor %}
-  </ul>
-{% else %}
-  <a class="btn primary large" href="{{ user.entity_set.all.0.get_absolute_url|default:"/scorecard/entity/" }}">{% blocktrans %}Get started{% endblocktrans %}</a>
-{% endif %}
+<a class="btn primary large" href="{% url entity_list %}">{% blocktrans %}Get started{% endblocktrans %}</a>
 
 <div class="well" style="margin-top:20px">
   <div class="content">

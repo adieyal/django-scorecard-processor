@@ -112,6 +112,9 @@ def entity_list(request):
     if not request.user.is_staff:
        entity_list = get_objects_for_user(request.user, 'change_entity', entity_list)
 
+    if len(entity_list) == 1:
+        return HttpResponseRedirect(entity_list.get().get_absolute_url())
+
     return render_to_response('scorecard_processor/entity_list.html', {'object_list':entity_list}, RequestContext(request))
 
 @login_required
