@@ -8,6 +8,10 @@ from django.contrib.auth.models import User
 
 class Migration(DataMigration):
 
+    depends_on = (
+            ("guardian", "0005_auto__chg_field_groupobjectpermission_object_pk__chg_field_userobjectp"),
+            )
+
     def forwards(self, orm):
         "Write your forwards methods here."
         for entity in orm.Entity.objects.all():
