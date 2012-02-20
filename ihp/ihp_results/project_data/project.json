@@ -3,7 +3,6 @@
     "pk": 1, 
     "model": "scorecard_processor.project", 
     "fields": {
-      "user_set": [], 
       "name": "IHP Results"
     }
   }, 

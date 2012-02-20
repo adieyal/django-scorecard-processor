@@ -2714,17 +2714,6 @@
     }
   }, 
   {
-    "pk": 1, 
-    "model": "scorecard_processor.surveytranslation", 
-    "fields": {
-      "lang": "", 
-      "short_description": null, 
-      "parent_object": 4, 
-      "name": "2012 Enqu\u00eate pour les gouvernements", 
-      "description": null
-    }
-  }, 
-  {
     "pk": 2, 
     "model": "scorecard_processor.surveytranslation", 
     "fields": {
@@ -2732,7 +2721,18 @@
       "short_description": null, 
       "parent_object": 4, 
       "name": "2012 Enqu\u00eate pour les gouvernements", 
-      "description": null
+      "description": "<h2>RENSEIGNEMENTS IMPORTANTS, VEUILLEZ PRENDRE CONNAISSANCE DES E\u0301LE\u0301MENTS SUIVANTS AVANT D\u2019ENVOYER DES DONNE\u0301ES :</h2>\n<ul>\n<li> donne\u0301es relatives aux anne\u0301es civiles (pas aux exercices); </li><li> nous pre\u0301fe\u0301rons les donne\u0301es de 2011 comme dernie\u0300re anne\u0301e, mais si vous n\u2019en avez\npas, nous acceptons les donne\u0301es de 2010; vous serez amene\u0301 dans la partie supe\u0301rieure de l\u2019enque\u0302te pour que vous indiquiez a\u0300 quelles anne\u0301es se rapportent les donne\u0301es que vous pre\u0301sentez (donne\u0301es de base et des dernie\u0300res anne\u0301es); veuillez ensuite fournir des donne\u0301es relatives a\u0300 ces anne\u0301es respectives pour chaque question;\n</li><li> vous devez saisir les donne\u0301es financie\u0300res dans la devise la plus approprie\u0301e; veuillez choisir votre devise dans la liste de\u0301roulante dans la partie supe\u0301rieure de l\u2019enque\u0302te;\n</li><li> si vous re\u0301pondez au nom de l\u2019un des dix pays qui ont participe\u0301 au suivi 2010 d\u2019IHP+Results, vous devez seulement fournir les donne\u0301es de la dernie\u0300re anne\u0301e (2010 ou 2011) puisque vous avez de\u0301ja\u0300 rapporte\u0301 des donne\u0301es de base; si vous re\u0301pondez au nom de l'un des neuf pays qui participent pour la premie\u0300re fois, vous devez envoyer les donne\u0301es de base e\u0301galement (2005, 2006 ou 2007);\n</li><li> veuillez fournir vos sources d\u2019information (ide\u0301alement des liens Web ou des re\u0301fe\u0301rences a\u0300 des documents publie\u0301s dans les zones texte \u00ab Renseignements facultatifs supple\u0301mentaires \u00bb.</li>\n</ul>\n<p>En plus des lignes directrices pre\u0301sente\u0301es ci-dessus, nous vous conseillons d\u2019avoir une copie du document suivant : <a href=\"http://ihpresults.net/wp-content/uploads/2011/12/IHP+Results-2012-monitoring-guidance_ENG_FINAL_8Feb.pdf\">Overview Guidance</a> a\u0300 porte\u0301e de la main lorsque vous commencez a\u0300\nenvoyer vos donne\u0301es puisque c\u2019est possible que celui-ci contienne les re\u0301ponses a\u0300 vos questions. Vous pouvez e\u0301galement communiquer avec le haut fonctionnaire d\u2019IHP+Results responsable.</p>\n"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "scorecard_processor.surveytranslation", 
+    "fields": {
+      "lang": "fr", 
+      "short_description": "<h2>VEUILLEZ CHOISIR UN PAYS</h2>\n<p>Veuillez re\u0301pondre a\u0300 un outil d'enque\u0302te distinct pour chaque pays participant dans lequel vous e\u0302tes \u00ab actif \u00bb. Vous devriez seulement avoir la possibilite\u0301 d\u2019envoyer des donne\u0301es pour les pays dans lesquels il a e\u0301te\u0301 convenu que vous e\u0302tes actif. Veuillez nous informer si ce n\u2019est pas le cas.</p>", 
+      "parent_object": 3, 
+      "name": "2012 Enqu\u00eate pour les agences", 
+      "description": "<h2>RENSEIGNEMENTS IMPORTANTS, VEUILLEZ PRENDRE CONNAISSANCE DES E\u0301LE\u0301MENTS SUIVANTS AVANT D\u2019ENVOYER DES DONNE\u0301ES :</h2>\n\n<ul><li> donne\u0301es relatives aux anne\u0301es civiles (pas aux exercices); </li><li> nous pre\u0301fe\u0301rons les donne\u0301es de 2011 comme dernie\u0300re anne\u0301e, mais si vous n\u2019en avez\npas, nous acceptons les donne\u0301es de 2010; vous serez amene\u0301 dans la partie supe\u0301rieure de l\u2019enque\u0302te pour que vous indiquiez a\u0300 quelles anne\u0301es se rapportent les donne\u0301es que vous pre\u0301sentez (donne\u0301es de base et des dernie\u0300res anne\u0301es); veuillez ensuite fournir des donne\u0301es relatives a\u0300 ces anne\u0301es respectives pour chaque question;\n</li><li> vous devez saisir les donne\u0301es financie\u0300res dans la devise la plus approprie\u0301e; veuillez choisir votre devise dans la liste de\u0301roulante dans la partie supe\u0301rieure de l\u2019enque\u0302te; </li><li> dans les dix pays qui ont participe\u0301 au suivi 2010 d'IHP+Results, les partenaires de\nde\u0301veloppement doivent seulement fournir les donne\u0301es relatives a\u0300 la dernie\u0300re anne\u0301e (2010 ou 2011); a\u0300 moins que vous soyez un partenaire de de\u0301veloppement qui participe pour la premie\u0300re fois au suivi d\u2019IHP+Results (dans ce cas, vous devez envoyer les donne\u0301es de base relatives a\u0300 tous les pays dans lesquels vous e\u0302tes actif); dans les neuf pays qui re\u0301pondent a\u0300 l\u2019enque\u0302te pour la premie\u0300re fois, a\u0300 la fois les donne\u0301es de base (2005, 2006 ou 2007) et les donne\u0301es de la dernie\u0300re anne\u0301e (2010 ou 2011) doivent e\u0302tre fournies par tous les partenaires de de\u0301veloppement. L\u2019outil en ligne permet de bien comprendre nos exigences relatives aux donne\u0301es;\n</li><li> veuillez fournir vos sources d\u2019information (ide\u0301alement des liens Web ou des re\u0301fe\u0301rences a\u0300 des documents publie\u0301s dans les zones texte \u00ab Renseignements facultatifs supple\u0301mentaires \u00bb.</li></ul>\n\n<p>En plus des lignes directrices pre\u0301sente\u0301es ci-dessus, nous vous conseillons d\u2019avoir une copie du document suivant : <a href=\"http://ihpresults.net/wp-content/uploads/2011/12/IHP+Results-2012-monitoring-guidance_ENG_FINAL_8Feb.pdf\">Overview Guidance</a> a\u0300 porte\u0301e de la main lorsque vous commencez a\u0300 envoyer vos donne\u0301es puisque c\u2019est possible que celui-ci contienne les re\u0301ponses a\u0300 vos questions. Vous pouvez e\u0301galement communiquer avec le haut fonctionnaire d\u2019IHP+Results responsable. Si vous avez besoin d\u2019aide pour re\u0301pondre a\u0300 cette enque\u0302te, veuillez communiquer avec l'e\u0301quipe d\u2019IHP+Results.</p>"
     }
   }, 
   {

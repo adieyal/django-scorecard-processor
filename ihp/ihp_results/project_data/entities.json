@@ -5,7 +5,6 @@
     "fields": {
       "abbreviation": "AusAID", 
       "project": 1, 
-      "user_set": [], 
       "name": "AUSAID", 
       "entity_type": "agency"
     }
@@ -16,7 +15,6 @@
     "fields": {
       "abbreviation": "AfDB", 
       "project": 1, 
-      "user_set": [], 
       "name": "African Development Bank", 
       "entity_type": "agency"
     }
@@ -27,7 +25,6 @@
     "fields": {
       "abbreviation": "Belgium", 
       "project": 1, 
-      "user_set": [], 
       "name": "BELGIUM", 
       "entity_type": "agency"
     }
@@ -38,7 +35,6 @@
     "fields": {
       "abbreviation": "Germany", 
       "project": 1, 
-      "user_set": [], 
       "name": "Germany", 
       "entity_type": "agency"
     }
@@ -49,7 +45,6 @@
     "fields": {
       "abbreviation": "Norway", 
       "project": 1, 
-      "user_set": [], 
       "name": "NORWAY", 
       "entity_type": "agency"
     }
@@ -60,7 +55,6 @@
     "fields": {
       "abbreviation": "Spain", 
       "project": 1, 
-      "user_set": [], 
       "name": "SPAIN", 
       "entity_type": "agency"
     }
@@ -71,7 +65,6 @@
     "fields": {
       "abbreviation": "Sweden", 
       "project": 1, 
-      "user_set": [], 
       "name": "SWEDEN", 
       "entity_type": "agency"
     }
@@ -82,7 +75,6 @@
     "fields": {
       "abbreviation": "EC", 
       "project": 1, 
-      "user_set": [], 
       "name": "THE EUROPEAN COMMISSION", 
       "entity_type": "agency"
     }
@@ -93,7 +85,6 @@
     "fields": {
       "abbreviation": "GAVI", 
       "project": 1, 
-      "user_set": [], 
       "name": "THE GAVI ALLIANCE", 
       "entity_type": "agency"
     }
@@ -104,7 +95,6 @@
     "fields": {
       "abbreviation": "GFATM", 
       "project": 1, 
-      "user_set": [], 
       "name": "THE GLOBAL FUND TO FIGHT AIDS, TB & MALARIA", 
       "entity_type": "agency"
     }
@@ -115,7 +105,6 @@
     "fields": {
       "abbreviation": "Netherlands", 
       "project": 1, 
-      "user_set": [], 
       "name": "THE NETHERLANDS", 
       "entity_type": "agency"
     }
@@ -126,7 +115,6 @@
     "fields": {
       "abbreviation": "UK", 
       "project": 1, 
-      "user_set": [], 
       "name": "THE UNITED KINGDOM", 
       "entity_type": "agency"
     }
@@ -137,7 +125,6 @@
     "fields": {
       "abbreviation": "World Bank", 
       "project": 1, 
-      "user_set": [], 
       "name": "THE WORLD BANK", 
       "entity_type": "agency"
     }
@@ -148,7 +135,6 @@
     "fields": {
       "abbreviation": "WHO", 
       "project": 1, 
-      "user_set": [], 
       "name": "THE WORLD HEALTH ORGANIZATION", 
       "entity_type": "agency"
     }
@@ -159,7 +145,6 @@
     "fields": {
       "abbreviation": "UNAIDS", 
       "project": 1, 
-      "user_set": [], 
       "name": "UNAIDS", 
       "entity_type": "agency"
     }
@@ -170,7 +155,6 @@
     "fields": {
       "abbreviation": "UNFPA", 
       "project": 1, 
-      "user_set": [], 
       "name": "UNFPA", 
       "entity_type": "agency"
     }
@@ -181,7 +165,6 @@
     "fields": {
       "abbreviation": "UNICEF", 
       "project": 1, 
-      "user_set": [], 
       "name": "UNICEF", 
       "entity_type": "agency"
     }
@@ -192,7 +175,6 @@
     "fields": {
       "abbreviation": "Benin", 
       "project": 1, 
-      "user_set": [], 
       "name": "Government of Benin", 
       "entity_type": "government"
     }
@@ -203,7 +185,6 @@
     "fields": {
       "abbreviation": "Burkina Faso", 
       "project": 1, 
-      "user_set": [], 
       "name": "Government of Burkina Faso", 
       "entity_type": "government"
     }
@@ -214,7 +195,6 @@
     "fields": {
       "abbreviation": "Burundi", 
       "project": 1, 
-      "user_set": [], 
       "name": "Government of Burundi", 
       "entity_type": "government"
     }
@@ -225,7 +205,6 @@
     "fields": {
       "abbreviation": "DRC", 
       "project": 1, 
-      "user_set": [], 
       "name": "Government of DRC", 
       "entity_type": "government"
     }
@@ -236,7 +215,6 @@
     "fields": {
       "abbreviation": "Djibouti", 
       "project": 1, 
-      "user_set": [], 
       "name": "Government of Djibouti", 
       "entity_type": "government"
     }
@@ -247,7 +225,6 @@
     "fields": {
       "abbreviation": "El Salvador", 
       "project": 1, 
-      "user_set": [], 
       "name": "Government of El Salvador", 
       "entity_type": "government"
     }
@@ -258,7 +235,6 @@
     "fields": {
       "abbreviation": "Ethiopia", 
       "project": 1, 
-      "user_set": [], 
       "name": "Government of Ethiopia", 
       "entity_type": "government"
     }
@@ -269,7 +245,6 @@
     "fields": {
       "abbreviation": "Mali", 
       "project": 1, 
-      "user_set": [], 
       "name": "Government of Mali", 
       "entity_type": "government"
     }
@@ -280,7 +255,6 @@
     "fields": {
       "abbreviation": "Mauritania", 
       "project": 1, 
-      "user_set": [], 
       "name": "Government of Mauritania", 
       "entity_type": "government"
     }
@@ -291,7 +265,6 @@
     "fields": {
       "abbreviation": "Mozambique", 
       "project": 1, 
-      "user_set": [], 
       "name": "Government of Mozambique", 
       "entity_type": "government"
     }
@@ -302,7 +275,6 @@
     "fields": {
       "abbreviation": "Nepal", 
       "project": 1, 
-      "user_set": [], 
       "name": "Government of Nepal", 
       "entity_type": "government"
     }
@@ -313,7 +285,6 @@
     "fields": {
       "abbreviation": "Niger", 
       "project": 1, 
-      "user_set": [], 
       "name": "Government of Niger", 
       "entity_type": "government"
     }
@@ -324,7 +295,6 @@
     "fields": {
       "abbreviation": "Nigeria", 
       "project": 1, 
-      "user_set": [], 
       "name": "Government of Nigeria", 
       "entity_type": "government"
     }
@@ -335,7 +305,6 @@
     "fields": {
       "abbreviation": "Rwanda", 
       "project": 1, 
-      "user_set": [], 
       "name": "Government of Rwanda", 
       "entity_type": "government"
     }
@@ -346,7 +315,6 @@
     "fields": {
       "abbreviation": "Senegal", 
       "project": 1, 
-      "user_set": [], 
       "name": "Government of Senegal", 
       "entity_type": "government"
     }
@@ -357,7 +325,6 @@
     "fields": {
       "abbreviation": "Sierra Leone", 
       "project": 1, 
-      "user_set": [], 
       "name": "Government of Sierra Leone", 
       "entity_type": "government"
     }
@@ -368,7 +335,6 @@
     "fields": {
       "abbreviation": "Sudan", 
       "project": 1, 
-      "user_set": [], 
       "name": "Government of Sudan", 
       "entity_type": "government"
     }
@@ -379,7 +345,6 @@
     "fields": {
       "abbreviation": "Togo", 
       "project": 1, 
-      "user_set": [], 
       "name": "Government of Togo", 
       "entity_type": "government"
     }
@@ -390,7 +355,6 @@
     "fields": {
       "abbreviation": "Uganda", 
       "project": 1, 
-      "user_set": [], 
       "name": "Government of Uganda", 
       "entity_type": "government"
     }
