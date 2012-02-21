@@ -1,15 +1,17 @@
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404
-from django.views.generic import DetailView, ListView, DeleteView, CreateView
+from django.core.urlresolvers import reverse
+from django.views.generic import DetailView, ListView, DeleteView, CreateView, UpdateView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordResetForm
 from django.contrib.auth.models import User
+from django.db.models import permalink
 
 
 from models import ResponseSet, Survey, Entity, ReportRun, DataSeries, DataSeriesGroup, Scorecard, ResponseOverride
 from models.outputs import get_responsesets
-from forms import QuestionForm, ResponseSetForm, AddUserForm
+from forms import QuestionForm, ResponseSetForm, AddUserForm, UserForm
 
 from guardian.shortcuts import get_perms, assign, remove_perm, get_objects_for_user, get_users_with_perms
 
@@ -52,6 +54,24 @@ def run_report(request, object_id):
         {'object':obj, 'report':result},
         RequestContext(request)
     )
+
+
+#################################################################
+# Managing users
+#################################################################
+
+class UserView(UpdateView):
+    model = User
+    form_class = UserForm
+
+    def get_context_data(self, **kwargs):
+        context = super(UserView,self).get_context_data(**kwargs)
+        return context
+
+    @permalink
+    def get_success_url(self):
+        return ('show_user',(self.object.pk,))
+         
 
 #################################################################
 # Managing reporting, surveys etc.
@@ -145,7 +165,7 @@ def entity_add_user(request, entity_id):
                 reset_form.is_valid()
                 reset_form.save(email_template_name="registration/new_account.html")
             assign('change_entity', user, entity)
-            return HttpResponseRedirect(entity.get_absolute_url())
+            return HttpResponseRedirect(reverse('show_user',args=[user.pk]))
     else:
         form = AddUserForm()
     return render_to_response('scorecard_processor/entity/add_user.html', {'object':entity,'form':form}, RequestContext(request))

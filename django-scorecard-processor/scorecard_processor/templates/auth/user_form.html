@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block head_title %}Manage {{object.get_full_name|default:object.username}}{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="span15">
+    <h1>{{object.get_full_name}} <small>{{object.email}}</small></h1>
+  </div>
+</div>
+
+<style>
+
+.input_MultipleChoiceField li {display:block;float:left; width:150px}
+label strong {}
+.form-stacked label {font-weight:normal}
+</style>
+
+<div class="row">
+  <div class="span9">
+    <h2>Preferences</h2>
+    <form method=POST class="form-stacked">
+      {% csrf_token %}
+      {{form}}
+      <div class="clear">
+        <button class="btn primary" type="submit">Save</button>
+      </div>
+    </form>
+  </div>
+  <div class="span6">
+    <h2>Relations</h2>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,7 +1,9 @@
 from django import forms
 from django.db.models import Q
 from django.template.defaultfilters import slugify
+from django.utils.functional import lazy
 from bootstrap.forms import *
+from models.meta import DataSeries
 from models.inputs import ResponseSet, Response, ResponseOverride
 from models.outputs import OperationArgument
 from plugins import register
@@ -148,3 +150,30 @@ class ResponseOverrideForm(BootstrapModelForm):
         model=ResponseOverride
         exclude = ('question',)
 
+from guardian.shortcuts import get_objects_for_user, assign, remove_perm
+
+def get_form_choices():
+    return tuple(((ds.pk, ds.name) for ds in DataSeries.objects.filter(group__name="Country")))
+
+class UserForm(BootstrapForm):
+    usable_countries = forms.MultipleChoiceField(choices=lazy(get_form_choices, tuple)(), widget=forms.CheckboxSelectMultiple, label="Countries the user can <strong>respond to</strong> surveys for")
+    read_countries = forms.MultipleChoiceField(required=False, choices=lazy(get_form_choices, tuple)(), widget=forms.CheckboxSelectMultiple, label="Countries the user can <strong>view</strong> responses for" )
+    def __init__(self, *args, **kwargs):
+        self.instance = kwargs.pop('instance')
+        super(UserForm, self).__init__(*args, **kwargs)
+        self.can_use = get_objects_for_user(self.instance, 'can_use', DataSeries)
+        self.can_view = get_objects_for_user(self.instance, 'can_view', DataSeries)
+        self.initial['usable_countries']=[i.pk for i in self.can_use]
+        self.initial['read_countries']=[i.pk for i in self.can_view]
+
+    def save(self, *args, **kwargs):
+        for permission, key in [('can_use','usable_countries'),('can_view','read_countries')]:
+            before = set(self.initial[key])
+            after = set(self.cleaned_data[key])
+            removed = DataSeries.objects.filter(pk__in= before - after)
+            added = DataSeries.objects.filter(pk__in=after-before)
+            for ds in removed:
+                remove_perm(permission, self.instance, ds)
+            for ds in added:
+                assign(permission, self.instance, ds)
+        return self.instance

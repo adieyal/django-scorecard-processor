@@ -17,6 +17,7 @@ user_qs = User.objects.exclude(pk=settings.ANONYMOUS_USER_ID)
 
 from views import SurveyResponses
 from views import SurveyOverrides, ResponseOverrideView, ResponseOverrideDelete, create_override
+from views import UserView
 from views import entity_add_user, entity_remove_user
 from reports import get_entity_urls, get_project_urls
 
@@ -101,9 +102,8 @@ urlpatterns = patterns('scorecard_processor.views',
         {'queryset': user_qs}, 
         name="user_list"
     ),
-    url(r'^users/(?P<object_id>\d+)/$',
-        staff_member_required(object_detail),
-        {'queryset': user_qs}, 
+    url(r'^users/(?P<pk>\d+)/$',
+        staff_member_required(UserView.as_view()),
         name="show_user"
     ),
 
