@@ -41,22 +41,25 @@ from forms import QuestionForm
 @login_required
 def edit_dsg_survey(request, entity_id, data_series_group_name, survey_id, data_series_name):
     entity = Entity.objects.get(pk=entity_id)
-    if not request.user.is_staff and 'change_entity' not in get_perms(request.user, entity):
-        return Http404
+    survey = Survey.objects.get(pk=survey_id)
+    if not request.user.is_staff and 'change_entity' not in get_perms(request.user, entity) or survey.active == False:
+        raise Http404
+
     data_series_group = DataSeriesGroup.objects.get(pk=data_series_group_name)
+    data_series = get_objects_for_user(request.user, 'can_use', data_series_group.dataseries_set.all())
+    if len(data_series) == 0:
+        data_series = data_series_group.dataseries_set.all()
+    key = {}
     try:
-        ds_pk = int(data_series_name)
+        key['pk'] = int(data_series_name)
     except ValueError:
-        ds_pk = None
-    if ds_pk:
-        data_series = data_series_group.dataseries_set.get(pk=data_series_name)
-    else:
-        data_series = data_series_group.dataseries_set.get(name=data_series_name)
+        key['name'] = data_series_name
+    data_series = get_object_or_404(data_series, **key)
 
     if entity.entity_type_id == 'government' and data_series.name != entity.abbreviation:
         raise Http404
 
-    survey = Survey.objects.get(pk=survey_id)
+
     categories = DataSeriesGroup.objects.get(pk='Data collection year').dataseries_set.filter(visible=True)
 
     if request.POST:

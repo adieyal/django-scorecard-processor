@@ -4,7 +4,7 @@
 {% for response in responses %}
   {% get_obj_perms user for response.grouper as "perms" %}
   {% if "can_use" in perms %}
-    <li class="responseset" name="responseset_{{response.grouper}}"><a href="{% url survey_dsg_response_edit object.pk "Country" response.list.0.survey_id response.grouper.pk %}">{{response.grouper.name}}</a></li>
+    <li class="responseset" name="responseset_{{response.grouper}}"><a href="{% url survey_dsg_response_edit object.pk "Country" response.list.0.survey_id response.grouper.name %}">{{response.grouper.name}}</a></li>
   {% endif %}
 {% endfor %}
 </ul>
