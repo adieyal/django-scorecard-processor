@@ -82,3 +82,7 @@ def edit_dsg_survey(request, entity_id, data_series_group_name, survey_id, data_
         'data_series':data_series
     }
     return render_to_response('ihp_results/edit_dsg_survey.html',context,RequestContext(request))
+
+@login_required
+def view_dsg_survey(request, entity_id, data_series_group_name, survey_id, data_series_name):
+    return HttpResponse("Squirrel nuts for now")

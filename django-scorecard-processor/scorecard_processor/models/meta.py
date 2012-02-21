@@ -84,6 +84,7 @@ class DataSeries(models.Model):
         app_label = "scorecard_processor"
         permissions = (
                         ("can_use", "Can use the DataSeries"),
+                        ("can_view", "Can view the DataSeries"),
                     )
 
     @property

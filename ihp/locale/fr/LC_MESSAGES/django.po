@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-20 16:42+0200\n"
+"POT-Creation-Date: 2012-02-21 12:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -229,7 +229,6 @@ msgid "Please select a country"
 msgstr "S'il vous plaît choisir un pays"
 
 #: ihp_results/templates/ihp_results/edit_dsg_survey.html:3
-#, fuzzy, python-format
 msgid "Response to %(survey_name)s for %(entity_name)s"
 msgstr "Ajouter une nouvelle réponse à %(survey_name)s pour %(entity_name)s"
 
@@ -240,6 +239,10 @@ msgstr "Continuer"
 #: ihp_results/templates/ihp_results/edit_dsg_survey.html:134
 msgid "Save and continue"
 msgstr "Enregistrer et continuer"
+
+#: ihp_results/templates/scorecard_processor/_entity_responsesets.html:14
+msgid "view response"
+msgstr "Voir la réponse"
 
 #: templates/base.html:35
 msgid "Logged in as"
@@ -398,27 +401,3 @@ msgid ""
 msgstr ""
 "Je ne sais pas votre mot de passe? <a href \"%(reset_url)s\">cliquez dessus "
 "pour l'extraire</a>"
-
-#: templates/registration/new_account.html:2
-#, python-format
-msgid ""
-"You're receiving this e-mail because an account had been created on %"
-"(site_name)s."
-msgstr ""
-
-#: templates/registration/new_account.html:4
-msgid "Please go to the following page and choose a new password:"
-msgstr ""
-
-#: templates/registration/new_account.html:8
-msgid "Your username is:"
-msgstr ""
-
-#: templates/registration/new_account.html:10
-msgid "Thanks for using our site!"
-msgstr ""
-
-#: templates/registration/new_account.html:12
-#, python-format
-msgid "The %(site_name)s team"
-msgstr ""

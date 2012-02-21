@@ -16,7 +16,7 @@ from views import SurveyOverrides, ResponseOverrideView, ResponseOverrideDelete,
 from views import entity_add_user, entity_remove_user
 from reports import get_entity_urls, get_project_urls
 
-from ihp_results.views import add_dsg_survey, edit_dsg_survey
+from ihp_results.views import add_dsg_survey, edit_dsg_survey, view_dsg_survey
 
 urlpatterns = patterns('scorecard_processor.views',
     url(r'^$', 'index', name="scorecard_index"),
@@ -135,7 +135,7 @@ urlpatterns = patterns('scorecard_processor.views',
 
     #TODO:generalize so that this IHP specific stuff moves out of here
     url(r'^entity/(?P<entity_id>\d+)/survey_by/(?P<data_series_group_name>\w+)/add/(?P<survey_id>\d+)/$',add_dsg_survey, name="survey_dsg_response"),
-    #TODO: urls for responses per survey
     url(r'^entity/(?P<entity_id>\d+)/response_by/(?P<data_series_group_name>\w+)/edit/(?P<survey_id>\d+)/(?P<data_series_name>[\w ]+)/$',edit_dsg_survey,name="survey_dsg_response_edit"),
+    url(r'^entity/(?P<entity_id>\d+)/response_by/(?P<data_series_group_name>\w+)/view/(?P<survey_id>\d+)/(?P<data_series_name>[\w ]+)/$',view_dsg_survey,name="survey_dsg_response_view"),
 )
 

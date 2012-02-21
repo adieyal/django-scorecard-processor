@@ -1,10 +1,19 @@
-{% load guardian_tags %}
+{% load guardian_tags i18n %}
 <ul>
 {% regroup responsesets by get_data_series_by_type.Country as responses %}
 {% for response in responses %}
   {% get_obj_perms user for response.grouper as "perms" %}
-  {% if "can_use" in perms %}
-    <li class="responseset" name="responseset_{{response.grouper}}"><a href="{% url survey_dsg_response_edit object.pk "Country" response.list.0.survey_id response.grouper.name %}">{{response.grouper.name}}</a></li>
+  {% if "can_use" in perms or "can_view" in perms %}
+    <li class="responseset" name="responseset_{{response.grouper}}">
+      {% if "can_use" in perms %}
+        <a href="{% url survey_dsg_response_edit object.pk "Country" response.list.0.survey_id response.grouper.name %}">
+      {% endif %}
+      {{response.grouper.name}}
+      {% if "can_use" in perms %}</a>{% endif %}
+      {% if "can_view" in perms %}
+        (<a href="{% url survey_dsg_response_view object.pk "Country" response.list.0.survey_id response.grouper.name %}">{% trans "view response" %}</a>)
+      {% endif %}
+    </li>
   {% endif %}
 {% endfor %}
 </ul>

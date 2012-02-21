@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-20 16:42+0200\n"
+"POT-Creation-Date: 2012-02-21 12:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -236,6 +236,10 @@ msgstr ""
 msgid "Save and continue"
 msgstr ""
 
+#: ihp_results/templates/scorecard_processor/_entity_responsesets.html:14
+msgid "view response"
+msgstr ""
+
 #: templates/base.html:35
 msgid "Logged in as"
 msgstr ""
@@ -336,28 +340,4 @@ msgstr ""
 #, python-format
 msgid ""
 "Don't know your password? <a href=\"%(reset_url)s\">click to retrieve it</a>."
-msgstr ""
-
-#: templates/registration/new_account.html:2
-#, python-format
-msgid ""
-"You're receiving this e-mail because an account had been created on %"
-"(site_name)s."
-msgstr ""
-
-#: templates/registration/new_account.html:4
-msgid "Please go to the following page and choose a new password:"
-msgstr ""
-
-#: templates/registration/new_account.html:8
-msgid "Your username is:"
-msgstr ""
-
-#: templates/registration/new_account.html:10
-msgid "Thanks for using our site!"
-msgstr ""
-
-#: templates/registration/new_account.html:12
-#, python-format
-msgid "The %(site_name)s team"
 msgstr ""
