@@ -66,6 +66,7 @@ class UserView(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(UserView,self).get_context_data(**kwargs)
+        context['entities'] = get_objects_for_user(self.object, 'change_entity', Entity)
         return context
 
     @permalink

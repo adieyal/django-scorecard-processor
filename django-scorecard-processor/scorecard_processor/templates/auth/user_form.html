@@ -15,8 +15,17 @@ label strong {}
 </style>
 
 <div class="row">
+  <div class="span6">
+    <h2>Entities</h2>
+    <ul>
+      {% for entity in entities %}
+        <li><a href="{{entity.get_absolute_url}}">{{entity}}</a></li>
+      {% endfor %}
+    </ul>
+
+  </div>
   <div class="span9">
-    <h2>Preferences</h2>
+    <h2>Countries</h2>
     <form method=POST class="form-stacked">
       {% csrf_token %}
       {{form}}
@@ -24,10 +33,6 @@ label strong {}
         <button class="btn primary" type="submit">Save</button>
       </div>
     </form>
-  </div>
-  <div class="span6">
-    <h2>Relations</h2>
-
   </div>
 </div>
 
