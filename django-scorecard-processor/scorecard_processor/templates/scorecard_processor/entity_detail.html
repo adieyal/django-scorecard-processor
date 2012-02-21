@@ -40,7 +40,7 @@
             {% else %}
               <ul>
                 {% for person in user_set %}
-                  <li>{% if user.is_staff %}[<a href="{% url entity_remove_user object.pk person.pk %}" title="Remove access">x</a>] {% endif %}{{person.get_full_name}} <strong>{{person.email}}</strong></li>
+                  <li>{% if user.is_staff %}[<a href="{% url entity_remove_user object.pk person.pk %}" title="Remove access">x</a>] <a href="{% url show_user person.pk %}" title="Manage user">{% endif %}{{person.get_full_name}}{% if user.is_staff %}</a>{% endif %} <strong>{{person.email}}</strong></li>
                 {% endfor %}
               </ul>
             {% endif %}

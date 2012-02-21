@@ -29,6 +29,7 @@
               {% load nav %}
               {% if user.is_staff %}{% nav_url project_list "Projects and Surveys" %}
               {% nav_url entity_list "Your responses" %}
+              {% nav_url user_list "Users" %}
               <li><a href="/admin/">Manage app</a></li>{% endif %}
             </ul>
             {% if user.is_authenticated %}

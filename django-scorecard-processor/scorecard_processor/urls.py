@@ -1,7 +1,10 @@
 from django.conf.urls.defaults import *
+from django.conf import settings
 from django.views.generic.list_detail import object_list, object_detail
 from django.views.generic.create_update import create_object, update_object
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.auth.models import User
 
 from models import Entity, Project, Survey, Question, Scorecard, ReportRun
 entity_qs = Entity.objects.all().select_related('entity_type')
@@ -10,6 +13,7 @@ survey_qs = Survey.objects.all()
 question_qs = Question.objects.all()
 scorecard_qs = Scorecard.objects.all()
 reportrun_qs = ReportRun.objects.all()
+user_qs = User.objects.exclude(pk=settings.ANONYMOUS_USER_ID)
 
 from views import SurveyResponses
 from views import SurveyOverrides, ResponseOverrideView, ResponseOverrideDelete, create_override
@@ -91,6 +95,17 @@ urlpatterns = patterns('scorecard_processor.views',
         name="show_scorecard"
     ),
 
+# Users
+    url(r'^users/$',
+        staff_member_required(object_list),
+        {'queryset': user_qs}, 
+        name="user_list"
+    ),
+    url(r'^users/(?P<object_id>\d+)/$',
+        staff_member_required(object_detail),
+        {'queryset': user_qs}, 
+        name="show_user"
+    ),
 
 #Reports
     url(r'^project/(\d+)/reports/generic/(?P<object_id>\d+)/$',

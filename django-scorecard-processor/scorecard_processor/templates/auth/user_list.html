@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block head_title %}Users{% endblock %}
+
+{% block content %} 
+  {% if is_paginated %}
+  <div class="pages">
+    {% include '_pagination.html' %}
+  </div>
+  {% endif %}
+  <table class="bordered-table zebra-striped">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Name</th>
+        <th>Joined</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for user in object_list %}
+      <tr>
+        <td class="email">
+          <a href="{% url show_user user.pk %}" class="user{% if user.is_staff %} is_staff{% endif %}">{{user.username}}</a>
+        </td>
+        <td class="user_full_name">
+          {{user.get_full_name}}
+        </td>
+        <td class="date">
+          <span class="timeupdated">{{user.date_joined|date:"SHORT_DATETIME_FORMAT"}}</span><br />
+          <span class="timesince">{{user.date_joined|timesince}} ago</span>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+
