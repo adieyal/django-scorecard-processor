@@ -30,5 +30,6 @@ DEFAULT_FROM_EMAIL=SERVER_EMAIL
 ADMINS = (
     ('Sysadmin','sysadmin@ihpresults.net'),
 )
+MANAGERS = ADMINS
 EMAIL_SUBJECT_PREFIX='[Production] '
 
