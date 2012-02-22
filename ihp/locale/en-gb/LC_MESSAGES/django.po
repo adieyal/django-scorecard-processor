@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-21 12:48+0200\n"
+"POT-Creation-Date: 2012-02-22 12:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,20 +24,20 @@ msgstr ""
 msgid "Français"
 msgstr ""
 
-#: ihp_results/forms.py:43
+#: ihp_results/forms.py:58
 msgid "Currency"
 msgstr ""
 
-#: ihp_results/forms.py:44
+#: ihp_results/forms.py:59
 msgid "Please select your currency"
 msgstr ""
 
-#: ihp_results/forms.py:48 ihp_results/forms.py:118
-msgid "Baseline year"
+#: ihp_results/forms.py:63 ihp_results/forms.py:138
+msgid "Baseline data"
 msgstr ""
 
-#: ihp_results/forms.py:52 ihp_results/forms.py:119
-msgid "Current year"
+#: ihp_results/forms.py:67 ihp_results/forms.py:139
+msgid "Latest data"
 msgstr ""
 
 #: ihp_results/plugins.py:10
@@ -228,11 +228,11 @@ msgstr ""
 msgid "Response to %(survey_name)s for %(entity_name)s"
 msgstr ""
 
-#: ihp_results/templates/ihp_results/edit_dsg_survey.html:128
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:131
 msgid "Continue"
 msgstr ""
 
-#: ihp_results/templates/ihp_results/edit_dsg_survey.html:134
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:137
 msgid "Save and continue"
 msgstr ""
 
@@ -240,15 +240,15 @@ msgstr ""
 msgid "view response"
 msgstr ""
 
-#: templates/base.html:35
+#: templates/base.html:36
 msgid "Logged in as"
 msgstr ""
 
-#: templates/base.html:41
+#: templates/base.html:42
 msgid "Language"
 msgstr ""
 
-#: templates/base.html:47
+#: templates/base.html:48
 msgid "Set"
 msgstr ""
 

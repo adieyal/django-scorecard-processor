@@ -60,11 +60,11 @@ class QuestionForm(BootstrapForm):
                 ) 
     baseline_year = forms.ChoiceField(
                         choices=((2005, 2005), (2006,2006), (2007,2007)),
-                        label=_("Baseline year"),
+                        label=_("Baseline data"),
                     ) 
     current_year = forms.ChoiceField(
                         choices=((2011,2011), (2010,2010)),
-                        label=_("Current year"),
+                        label=_("Latest data"),
                     ) 
 
     def __init__(self, *args, **kwargs):
@@ -135,8 +135,8 @@ class QuestionForm(BootstrapForm):
                      <span class="question">%s</span>""" % (question.i18n.identifier,question.i18n.question)
         else:
             label = {
-                    "Baseline":_("Baseline year"),
-                    "2012 collection":_("Current year"),
+                    "Baseline":_("Baseline data"),
+                    "2012 collection":_("Latest data"),
                 }.get(series.name)
         field = field(
                     help_text = question.i18n.help_text,
