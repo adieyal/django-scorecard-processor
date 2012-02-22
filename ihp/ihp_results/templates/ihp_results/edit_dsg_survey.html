@@ -24,6 +24,16 @@ $('input[readonly], select[readonly], textarea[readonly]').each(function(i,e){
   //Hide form elements if they are disabled
   $(e).parent('div').parent('div').hide()
 })
+function set_currency(currency) {
+  $('select.currency_select').each(function(i,e){
+    $(e).val(currency);
+  }) 
+}
+$('select#id_currency').change(function(e){
+  set_currency($(e.target).val());
+})
+set_currency($('select#id_currency').val());
+
 $('ul.tabs').tabs();
 $('ul.tabs').bind('change', function (e) {
   //window.console.log() // activated tab
