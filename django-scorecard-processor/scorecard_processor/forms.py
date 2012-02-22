@@ -156,7 +156,7 @@ def get_form_choices():
     return tuple(((ds.pk, ds.name) for ds in DataSeries.objects.filter(group__name="Country")))
 
 class UserForm(BootstrapForm):
-    usable_countries = forms.MultipleChoiceField(choices=lazy(get_form_choices, tuple)(), widget=forms.CheckboxSelectMultiple, label="Countries the user can <strong>respond to</strong> surveys for")
+    usable_countries = forms.MultipleChoiceField(required=False, choices=lazy(get_form_choices, tuple)(), widget=forms.CheckboxSelectMultiple, label="Countries the user can <strong>respond to</strong> surveys for")
     read_countries = forms.MultipleChoiceField(required=False, choices=lazy(get_form_choices, tuple)(), widget=forms.CheckboxSelectMultiple, label="Countries the user can <strong>view</strong> responses for" )
     def __init__(self, *args, **kwargs):
         self.instance = kwargs.pop('instance')
