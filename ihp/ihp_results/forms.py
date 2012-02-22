@@ -90,7 +90,7 @@ class QuestionForm(BootstrapForm):
         self.response = {}
 
         for responseset in self.responsesets:
-            currency = response.get_meta('currency')
+            currency = responseset.get_meta('currency')
             if currency:
                 self.initial['currency'] = currency['value']
                 break
@@ -181,7 +181,7 @@ class QuestionForm(BootstrapForm):
             if value:
                 # Check for existing response
                 if key in self.response and self.response[key] != value:
-                    if self.response[key].responseset.editable:
+                    if self.response[key].response_set.editable:
                         instance = Response(
                             response_set = self.response[key].response_set,
                             respondant = self.user,

@@ -246,20 +246,20 @@ class ResponseSet(models.Model):
             (ds.group.name, ds) for ds in self.get_data_series()
         ])
 
-    def set_meta(name, value):
-        self._meta = getattr(self,'_meta',{})
-        meta, created = self.responsesetmetadata_set.get_or_create(key=name)
-        self._meta[name] = meta.value = value
+    def set_meta(self, key, value):
+        self._metadata = getattr(self,'_metadata',{})
+        meta, created = self.responsesetmetadata_set.get_or_create(key=key)
+        self._metadata[key] = meta.value = value
         meta.save()
 
-    def get_meta(name, default=None):
-        self._meta = getattr(self,'_meta',{})
-        if name not in self._meta:
+    def get_meta(self, key, default=None):
+        self._metadata = getattr(self,'_metadata',{})
+        if key not in self._metadata:
             try:
-                self._meta[key] = self.responsesetmetadata_set.get(key=name).value
+                self._metadata[key] = self.responsesetmetadata_set.get(key=key).value
             except ResponseSetMetaData.DoesNotExist:
-                self._meta[key] = None
-        return self._meta[key]
+                self._metadata[key] = None
+        return self._metadata[key]
 
     def get_responses(self):
         if not hasattr(self,'_responses'):
