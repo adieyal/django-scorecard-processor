@@ -222,6 +222,7 @@ class ResponseSet(models.Model):
     last_update = models.DateTimeField(auto_now_add = True)
     last_response_id = models.PositiveIntegerField(blank=True, null=True)
     entity = models.ForeignKey(Entity)
+    editable = models.BooleanField(default=True)
     data_series = models.ManyToManyField(DataSeries) #Country, Year, Agency
 
     class Meta:
