@@ -178,7 +178,7 @@ class QuestionForm(BootstrapForm):
         del self.cleaned_data['current_year']
         del self.cleaned_data['baseline_year']
         for key, value in self.cleaned_data.items():
-            if value:
+            if value or key in self.response:
                 # Check for existing response
                 if key in self.response and self.response[key] != value:
                     if self.response[key].response_set.editable:
@@ -224,4 +224,3 @@ class QuestionForm(BootstrapForm):
                         r = responseset.response_set.create(question=question, respondant=self.user, valid=True, current=True)
                         r.value = {'value':value}
                         r.save()
-
