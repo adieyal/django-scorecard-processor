@@ -246,6 +246,21 @@ class ResponseSet(models.Model):
             (ds.group.name, ds) for ds in self.get_data_series()
         ])
 
+    def set_meta(name, value):
+        self._meta = getattr(self,'_meta',{})
+        meta, created = self.responsesetmetadata_set.get_or_create(key=name)
+        self._meta[name] = meta.value = value
+        meta.save()
+
+    def get_meta(name, default=None):
+        self._meta = getattr(self,'_meta',{})
+        if name not in self._meta:
+            try:
+                self._meta[key] = self.responsesetmetadata_set.get(key=name).value
+            except ResponseSetMetaData.DoesNotExist:
+                self._meta[key] = None
+        return self._meta[key]
+
     def get_responses(self):
         if not hasattr(self,'_responses'):
             #Cache responses for this responseset, order by question ordering
@@ -267,6 +282,14 @@ class ResponseSet(models.Model):
 
     def get_response(self, question):
         return self.get_responses().get(question)
+
+class ResponseSetMetaData(models.Model):
+    response_set = models.ForeignKey(ResponseSet)
+    key = models.CharField(max_length=20, db_index=True)
+    value = JSONField() 
+    class Meta:
+        app_label = "scorecard_processor"
+        unique_together = ('response_set','key'),
     
 
 class Response(models.Model):

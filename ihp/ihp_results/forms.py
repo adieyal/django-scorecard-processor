@@ -89,6 +89,12 @@ class QuestionForm(BootstrapForm):
         self.questions = {}
         self.response = {}
 
+        for responseset in self.responsesets:
+            currency = response.get_meta('currency')
+            if currency:
+                self.initial['currency'] = currency['value']
+                break
+
         for response in self.responses:
             #Limit db hits for responsesets
             response.response_set = response_dict[response.response_set_id]
@@ -164,6 +170,10 @@ class QuestionForm(BootstrapForm):
         current_year = DataSeries.objects.get(name=self.cleaned_data['current_year'])
         currency = self.cleaned_data['currency']
 
+        for responseset in self.responsesets:
+            if responseset.editable:
+                responseset.set_meta('currency',{'value':currency})
+
         del self.cleaned_data['currency']
         del self.cleaned_data['current_year']
         del self.cleaned_data['baseline_year']
@@ -208,6 +218,7 @@ class QuestionForm(BootstrapForm):
                         else:
                             responseset.data_series.add(current_year)
                         self.responsesets.append(responseset)
+                        responseset.set_meta('currency',{'value':currency})
 
                     if responseset.editable:
                         r = responseset.response_set.create(question=question, respondant=self.user, valid=True, current=True)
