@@ -28,8 +28,23 @@ class QuestionFieldset(Fieldset):
     def add_field(self, field):
         self.fields.append(field)
 
+    def render_fields(self, form):
+        fields = []
+        for field in self.fields:
+            if isinstance(field, dict):
+                question = field['question']
+                label="""<span class="identifier">%s.</span> 
+                     <span class="question">%s</span>""" % (question.i18n.identifier,question.i18n.question)
+                fields.append("""<div class='question_group row'>
+                                    <label class="question">%s</label>
+                                    %s
+                                </div>""" % (label, form.render_fields(field['fields'])))
+            else:
+                fields.append(form.render_fields([field]))
+        return ''.join(fields)
+
     def as_html(self, form):
-        return u"<div class='tab-pane' id='%s'><fieldset>%s<div class='fields'>%s</div></fieldset></div>" % (self.div_id, self.legend_html, form.render_fields(self.fields))
+        return u"<div class='tab-pane' id='%s'><fieldset>%s<div class='fields'>%s</div></fieldset></div>" % (self.div_id, self.legend_html, self.render_fields(form))
 
 import plugins
 
@@ -88,19 +103,24 @@ class QuestionForm(BootstrapForm):
         for collection, year in self.collection_year.items():
             self.initial[collection_lookup[collection.name]] = year.name
 
+        series_list = self.series.values()
+        current_series = series_list[0]
+        series_list.reverse()
+
         for group in self.survey.questiongroup_set.all().select_related('question'):
             fieldset = QuestionFieldset(group)
             for question in group.question_set.all():
                 label = True
                 self.questions[question.pk] = question
                 if question.widget == 'textbox':
-                    self.add_field_from_question(question, self.series.values()[0])
-                    fieldset.add_field('q_%s_%s' % (question.pk, self.series.values()[0].pk))
+                    self.add_field_from_question(question, current_series)
+                    fieldset.add_field('q_%s_%s' % (question.pk, current_series.pk))
                 else:
-                    for series in self.series.values():
-                        self.add_field_from_question(question, series, label)
-                        fieldset.add_field('q_%s_%s' % (question.pk, series.pk))
-                        label = False
+                    fields = []
+                    for series in series_list:
+                        self.add_field_from_question(question, series, False)
+                        fields.append('q_%s_%s' % (question.pk, series.pk))
+                    fieldset.add_field({'question':question, 'fields':fields})
             self.layout.append(fieldset)
 
         for question, series in self.question_dict.items():
@@ -116,7 +136,7 @@ class QuestionForm(BootstrapForm):
         else:
             label = {
                     "Baseline":_("Baseline year"),
-                    "2012 Collection":_("Current year"),
+                    "2012 collection":_("Current year"),
                 }.get(series.name)
         field = field(
                     help_text = question.i18n.help_text,
