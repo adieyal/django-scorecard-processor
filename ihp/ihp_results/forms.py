@@ -80,7 +80,7 @@ class QuestionForm(BootstrapForm):
 
         self.responsesets = list(self.entity.responseset_set.filter(data_series=self.country).filter(data_series__in=self.series.values()))
         response_dict = dict([(r.pk,r) for r in self.responsesets])
-        self.response_types = dict([(r.get_data_series_by_type()['Data collection year'][1],r) for r in self.responsesets])
+        self.response_types = dict([(r.get_data_series_by_type()['Data collection year'],r) for r in self.responsesets])
         self.responses = Response.objects.filter(
                         current=True,
                         response_set__in=self.responsesets).\
@@ -103,6 +103,11 @@ class QuestionForm(BootstrapForm):
         collection_lookup = {"Baseline":"baseline_year","2012 collection":"current_year"}
         for collection, year in self.collection_year.items():
             self.initial[collection_lookup[collection.name]] = year.name
+            rs = self.response_types.get(collection)
+            if rs and rs.editable == False:
+               field = self.fields[collection_lookup[collection.name]]
+               field.widget.attrs['readonly'] = 'readonly'
+               field.widget.attrs['disabled'] = 'disabled'
 
         series_list = self.series.values()
         current_series = series_list[0]
@@ -135,8 +140,6 @@ class QuestionForm(BootstrapForm):
         rs = self.response_types.get(series)
         if rs and rs.editable == False:
             read_only=True
-        if series.name=="Baseline":
-            read_only = True
         field = register.get_input_plugin(question.widget).plugin
         if label:
             label="""<span class="identifier">%s.</span> 
