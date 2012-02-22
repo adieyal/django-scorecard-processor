@@ -20,6 +20,10 @@
 </style>
 <script type="text/javascript">
 $('.actions').hide();
+$('input[readonly], select[readonly], textarea[readonly]').each(function(i,e){
+  //Hide form elements if they are disabled
+  $(e).parent('div').parent('div').hide()
+})
 $('ul.tabs').tabs();
 $('ul.tabs').bind('change', function (e) {
   //window.console.log() // activated tab
@@ -115,17 +119,17 @@ $(document).ready(function () {
                   <div class="row">
                     <div class="span4">
                       <label>{{form.currency.label}}</label>
-                      {{form.currency}}
+                      <div>{{form.currency}}</div>
                     </div>
 
                     <div class="span4">
                       <label>{{form.baseline_year.label}}</label>
-                      {{form.baseline_year}}
+                      <div>{{form.baseline_year}}</div>
                     </div>
 
                     <div class="span4">
                       <label>{{form.current_year.label}}</label>
-                      {{form.current_year}}
+                      <div>{{form.current_year}}</div>
                     </div>
                   </div>
                   <button class="btn primary large pull-right" id="continue_button" style="margin-top:30px">{% blocktrans %}Continue{%endblocktrans%}</button>
