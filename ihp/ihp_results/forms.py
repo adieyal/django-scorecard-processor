@@ -80,6 +80,7 @@ class QuestionForm(BootstrapForm):
 
         self.responsesets = list(self.entity.responseset_set.filter(data_series=self.country).filter(data_series__in=self.series.values()))
         response_dict = dict([(r.pk,r) for r in self.responsesets])
+        self.response_types = dict([(r.get_data_series_by_type()['Data collection year'][1],r) for r in self.responsesets])
         self.responses = Response.objects.filter(
                         current=True,
                         response_set__in=self.responsesets).\
@@ -91,7 +92,7 @@ class QuestionForm(BootstrapForm):
         for response in self.responses:
             #Limit db hits for responsesets
             response.response_set = response_dict[response.response_set_id]
-            ds_dict = dict([(d.group.name, d) for d in response.response_set.get_data_series()])
+            ds_dict = response.response_set.get_data_series_by_type()
             self.question_dict[response.question][ds_dict['Data collection year']]=response
             if ds_dict['Data collection year'] not in self.collection_year:
                 self.collection_year[ds_dict['Data collection year']] = ds_dict['Year']
@@ -118,6 +119,7 @@ class QuestionForm(BootstrapForm):
                 else:
                     fields = []
                     for series in series_list:
+                        rs = self.response_types.get(series)
                         self.add_field_from_question(question, series, False)
                         fields.append('q_%s_%s' % (question.pk, series.pk))
                     fieldset.add_field({'question':question, 'fields':fields})
@@ -129,6 +131,12 @@ class QuestionForm(BootstrapForm):
                 self.response['q_%s_%s' % (response.question.pk, ds.pk)] = response
             
     def add_field_from_question(self, question, series, label=True):
+        read_only = False
+        rs = self.response_types.get(series)
+        if rs and rs.editable == False:
+            read_only=True
+        if series.name=="Baseline":
+            read_only = True
         field = register.get_input_plugin(question.widget).plugin
         if label:
             label="""<span class="identifier">%s.</span> 
@@ -143,6 +151,9 @@ class QuestionForm(BootstrapForm):
                     label = label,
                     required = False,
         )
+        if read_only:
+            field.widget.attrs['readonly'] = 'readonly'
+            field.widget.attrs['disabled'] = 'disabled'
         self.fields['q_%s_%s' % (question.pk,series.pk)] = field
 
     def save(self):
@@ -157,15 +168,16 @@ class QuestionForm(BootstrapForm):
             if value:
                 # Check for existing response
                 if key in self.response and self.response[key] != value:
-                    instance = Response(
-                        response_set = self.response[key].response_set,
-                        respondant = self.user,
-                        question = self.response[key].question,
-                        valid = True,
-                        current = True
-                    )
-                    instance.value = {'value':value}
-                    instance.save()
+                    if self.response[key].responseset.editable:
+                        instance = Response(
+                            response_set = self.response[key].response_set,
+                            respondant = self.user,
+                            question = self.response[key].question,
+                            valid = True,
+                            current = True
+                        )
+                        instance.value = {'value':value}
+                        instance.save()
                 else:
                     q, q_id, s_id = key.split('_')
                     question = self.questions[int(q_id)]
@@ -194,7 +206,8 @@ class QuestionForm(BootstrapForm):
                             responseset.data_series.add(current_year)
                         self.responsesets.append(responseset)
 
-                    r = responseset.response_set.create(question=question, respondant=self.user, valid=True, current=True)
-                    r.value = {'value':value}
-                    r.save()
+                    if responseset.editable:
+                        r = responseset.response_set.create(question=question, respondant=self.user, valid=True, current=True)
+                        r.value = {'value':value}
+                        r.save()
 
