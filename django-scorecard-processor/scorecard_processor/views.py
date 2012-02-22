@@ -4,14 +4,14 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.views.generic import DetailView, ListView, DeleteView, CreateView, UpdateView
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import PasswordResetForm
 from django.contrib.auth.models import User
 from django.db.models import permalink
+from django.utils.translation import ugettext_lazy as _
 
 
 from models import ResponseSet, Survey, Entity, ReportRun, DataSeries, DataSeriesGroup, Scorecard, ResponseOverride
 from models.outputs import get_responsesets
-from forms import QuestionForm, ResponseSetForm, AddUserForm, UserForm
+from forms import QuestionForm, ResponseSetForm, AddUserForm, UserForm, PasswordResetForm
 
 from guardian.shortcuts import get_perms, assign, remove_perm, get_objects_for_user, get_users_with_perms
 
@@ -164,7 +164,7 @@ def entity_add_user(request, entity_id):
             if created:
                 reset_form = PasswordResetForm({'email':user.email})
                 reset_form.is_valid()
-                reset_form.save(email_template_name="registration/new_account.html")
+                reset_form.save(email_template_name="registration/new_account.html", subject=_("Account created on %s"))
             assign('change_entity', user, entity)
             return HttpResponseRedirect(reverse('show_user',args=[user.pk]))
     else:

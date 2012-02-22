@@ -2,6 +2,11 @@ from django import forms
 from django.db.models import Q
 from django.template.defaultfilters import slugify
 from django.utils.functional import lazy
+from django.contrib.auth.forms import PasswordResetForm as DjangoPasswordResetForm
+from django.contrib.auth.forms import default_token_generator, int_to_base36, loader
+from django.contrib.sites.models import get_current_site
+from django.utils.translation import ugettext_lazy as _
+
 from bootstrap.forms import *
 from models.meta import DataSeries
 from models.inputs import ResponseSet, Response, ResponseOverride
@@ -177,3 +182,32 @@ class UserForm(BootstrapForm):
             for ds in added:
                 assign(permission, self.instance, ds)
         return self.instance
+
+
+class PasswordResetForm(DjangoPasswordResetForm):
+    def save(self, domain_override=None, email_template_name='registration/password_reset_email.html',
+             use_https=False, token_generator=default_token_generator, from_email=None, request=None, subject=_("Password reset on %s")):
+        """
+        Generates a one-use only link for resetting password and sends to the user
+        """
+        from django.core.mail import send_mail
+        for user in self.users_cache:
+            if not domain_override:
+                current_site = get_current_site(request)
+                site_name = current_site.name
+                domain = current_site.domain
+            else:
+                site_name = domain = domain_override
+            t = loader.get_template(email_template_name)
+            c = {
+                'email': user.email,
+                'domain': domain,
+                'site_name': site_name,
+                'uid': int_to_base36(user.id),
+                'user': user,
+                'token': token_generator.make_token(user),
+                'protocol': use_https and 'https' or 'http',
+            }
+            send_mail(subject % site_name,
+                t.render(Context(c)), from_email, [user.email])
+
