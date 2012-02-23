@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-23 10:15+0200\n"
+"POT-Creation-Date: 2012-02-23 10:40+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -242,8 +242,8 @@ msgid "Save and continue"
 msgstr "Enregistrer et continuer"
 
 #: ihp_results/templates/ihp_results/edit_dsg_survey.html:165
-msgid "Save"
-msgstr "Enregistrer"
+msgid "Save and submit"
+msgstr "Enregistrer et soumettre"
 
 #: ihp_results/templates/scorecard_processor/_entity_responsesets.html:14
 msgid "view response"
@@ -406,3 +406,6 @@ msgid ""
 msgstr ""
 "Je ne sais pas votre mot de passe? <a href \"%(reset_url)s\">cliquez dessus "
 "pour l'extraire</a>"
+
+#~ msgid "Save"
+#~ msgstr "Enregistrer"
