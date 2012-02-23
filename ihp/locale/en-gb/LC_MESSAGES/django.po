@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-23 10:40+0200\n"
+"POT-Creation-Date: 2012-02-23 12:47+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -216,6 +216,7 @@ msgid "New response to"
 msgstr ""
 
 #: ihp_results/templates/ihp_results/add_dsg_survey.html:8
+#: scorecard_processor/templates/scorecard_processor/respond/edit_survey.html:65
 msgid "for"
 msgstr ""
 
@@ -242,6 +243,53 @@ msgstr ""
 
 #: ihp_results/templates/scorecard_processor/_entity_responsesets.html:14
 msgid "view response"
+msgstr ""
+
+#: scorecard_processor/forms.py:189
+#, python-format
+msgid "Password reset on %s"
+msgstr ""
+
+#: scorecard_processor/views.py:167
+#, python-format
+msgid "Account created on %s"
+msgstr ""
+
+#: scorecard_processor/plugins/input/choices.py:11
+#: scorecard_processor/plugins/input/choices.py:22
+msgid "Yes"
+msgstr ""
+
+#: scorecard_processor/plugins/input/choices.py:12
+#: scorecard_processor/plugins/input/choices.py:23
+msgid "No"
+msgstr ""
+
+#: scorecard_processor/plugins/input/choices.py:13
+msgid "n/a"
+msgstr ""
+
+#: scorecard_processor/templates/_pagination.html:6
+#: scorecard_processor/templates/_pagination.html:8
+msgid "previous"
+msgstr ""
+
+#: scorecard_processor/templates/_pagination.html:21
+#: scorecard_processor/templates/_pagination.html:23
+msgid "next"
+msgstr ""
+
+#: scorecard_processor/templates/scorecard_processor/entity_detail.html:35
+msgid "Thanks for your submission"
+msgstr ""
+
+#: scorecard_processor/templates/scorecard_processor/entity_detail.html:36
+msgid "You can add another response using this button:"
+msgstr ""
+
+#: scorecard_processor/templates/scorecard_processor/respond/edit_survey.html:2
+#, python-format
+msgid "Response to %(survey.i18n.name)s for %(entity.name)s"
 msgstr ""
 
 #: templates/base.html:36

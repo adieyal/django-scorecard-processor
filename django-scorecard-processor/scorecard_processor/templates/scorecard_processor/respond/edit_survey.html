@@ -62,7 +62,7 @@
   <div class="container">
     <div class="content">
       <div class="page-header">
-        <h1>{% blocktrans %}{{survey.i18n.name}} <small>for <a href="{{entity.get_absolute_url}}">{{entity.name}}</a> - {% for series in responseset.get_data_series %}{{series.name}}{% if forloop.revcounter0 %}, {% endif %}{% endfor %}</small>{% endblocktrans %}</h1>
+        <h1>{{survey.i18n.name}} <small>{% trans "for" %} <a href="{{entity.get_absolute_url}}">{{entity.name}}</a> - {% for series in responseset.get_data_series %}{{series.name}}{% if forloop.revcounter0 %}, {% endif %}{% endfor %}</small></h1>
       </div>
       <form method="POST" class="form-stacked">
           {% csrf_token %}
