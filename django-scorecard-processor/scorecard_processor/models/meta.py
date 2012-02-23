@@ -41,7 +41,7 @@ class GlossaryDefinition(models.Model):
         return ", ".join([t.term for t in self.glossaryterm_set.all()] or [self.definition[:10]+'...'])
 
 class GlossaryTerm(models.Model):
-    term = models.CharField(max_length=100)
+    term = models.CharField(max_length=200)
     definition = models.ForeignKey(GlossaryDefinition)
     class Meta:
         app_label = "scorecard_processor"

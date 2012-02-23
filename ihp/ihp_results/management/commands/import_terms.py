@@ -34,6 +34,7 @@ class Command(BaseCommand):
                 col = 1
                 while 1:
                     if row[col].value!='':
+                        print(len(row[col].value),row[col].value)
                         t,created =definition.glossaryterm_set.get_or_create(term=row[col].value) 
                     else:
                         break
