@@ -1,16 +1,25 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% block head_title %}Entity selection{% endblock %}
 {% block script_bottom %}
 {{block.super}}
 <script type="text/javascript">
   if(document.location.hash) {
-    $('li[name='+document.location.hash.replace('#','')+']').addClass("alert-message");
+    $('li[name='+document.location.hash.replace('#','')+']').addClass("alert-message ");
+    if ($('li[name='+document.location.hash.replace('#','')+']').length) {
+      $('.add_more').addClass('alert-message');
+    }
   }
 </script>
 {% endblock %}
 {% block fluid_content_outer %}
 <style>
   li.responseset {margin-bottom:10px}
+  .add_more.alert-message h3,
+  .add_more.alert-message p {display:block}
+
+  .add_more h3,
+  .add_more p {display:none}
 </style>
   <div class="container">
     <div class="content">
@@ -22,6 +31,10 @@
       <div class="row">
           <div class="span7">
             <h2>Respond <small>Click a button to add a new response</small></h2>
+            <div class="add_more block-message success">
+              <h3>{% trans "Thanks for your submission" %}</h3>
+              <p>{% trans "You can add another response using this button:" %}</p>
+              <div class="alert-actions">
             {% with object.entity_type.survey_set.active as survey_set %}
               {% if survey_set.count == 1 %}
                 {% include 'scorecard_processor/_render_survey_link.html' with entity=object survey=survey_set.0 %}
@@ -33,6 +46,8 @@
                 </ul>
               {% endif %}
             {% endwith %}
+              </div>
+            </div>
 
             <h2 style="padding-top:10px">Associated users</h2>
             {% if user_set == 0 %}
