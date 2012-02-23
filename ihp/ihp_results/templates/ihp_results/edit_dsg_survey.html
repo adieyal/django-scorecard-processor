@@ -17,9 +17,13 @@
   .question_group {padding-left:20px}
   .question_group label.question {margin-bottom:10px;}
   .question_group > div {float:left;margin-left:20px;max-width:350px}
+
+  .actions .btn {display:none}
+    .start #continue {display:block}
+    .normal #save_continue{display:block}
+    .finish #save{display:block}
 </style>
 <script type="text/javascript">
-$('.actions').hide();
 $('input[readonly], select[readonly], textarea[readonly]').each(function(i,e){
   //Hide form elements if they are disabled
   $(e).parent('div').parent('div').hide()
@@ -44,14 +48,23 @@ $('ul.tabs').bind('change', function (e) {
   } else {
     $('#next').attr('value','');
   }
-  if ($(e.target).parent().attr('id')=='intro_tab') {
-    $('.actions').hide();
+  var tab=$(e.target).parent()
+  if (tab.attr('id') == 'intro_tab') {
+    $('.actions').removeClass('normal');
+    $('.actions').removeClass('finish');
+    $('.actions').addClass('start');
+  } else if (tab.hasClass('last_tab')) {
+    $('.actions').removeClass('start');
+    $('.actions').removeClass('normal');
+    $('.actions').addClass('finish');
   } else {
-    $('.actions').show();
+    $('.actions').removeClass('start');
+    $('.actions').removeClass('finish');
+    $('.actions').addClass('normal');
   }
   parse_defs();
 })
-$('#continue_button').bind('click', function(e) {
+$('#continue').bind('click', function(e) {
   $($('.tabs li a')[1]).click();
   e.preventDefault();
 })
@@ -120,7 +133,7 @@ $(document).ready(function () {
               <ul class="tabs">
                 <li class="active" id="intro_tab"><a href="#intro">Overview</a></li>
                 {% for group in survey.questiongroup_set.all %}
-                  <li id="tqg_{{group.pk|slugify}}"><a href="#qg_{{group.pk|slugify}}">{{forloop.counter}}</a></li>
+                  <li id="tqg_{{group.pk|slugify}}" class="{% if forloop.last %}last_tab{%endif %}"><a href="#qg_{{group.pk|slugify}}">{{forloop.counter}}</a></li>
                 {% endfor %}
               </ul>
               <div class="form tab-content">
@@ -142,13 +155,14 @@ $(document).ready(function () {
                       <div>{{form.current_year}}</div>
                     </div>
                   </div>
-                  <button class="btn primary large pull-right" id="continue_button" style="margin-top:30px">{% blocktrans %}Continue{%endblocktrans%}</button>
                 </div>
                 {{form.as_div}}
               </div>
               <input type="hidden" id="next" name="next" value="" />
-              <div class="actions" style="display:none">
-                  <button type="submit" class="pull-right btn primary large" name="button">{% blocktrans %}Save and continue{% endblocktrans %}</button> &nbsp;
+              <div class="actions start">
+                  <button               id="continue" class="btn primary large pull-right">{% blocktrans %}Continue{%endblocktrans%}</button>
+                  <button type="submit" id="save_continue" class="pull-right btn primary large">{% blocktrans %}Save and continue{% endblocktrans %}</button> &nbsp;
+                  <button type="submit" id="save" class="pull-right btn primary large">{% blocktrans %}Save{% endblocktrans %}</button> &nbsp;
               </div>
             </div>
             

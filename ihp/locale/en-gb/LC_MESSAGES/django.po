@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-22 12:48+0200\n"
+"POT-Creation-Date: 2012-02-23 10:15+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,11 +32,11 @@ msgstr ""
 msgid "Please select your currency"
 msgstr ""
 
-#: ihp_results/forms.py:63 ihp_results/forms.py:138
+#: ihp_results/forms.py:63 ihp_results/forms.py:155
 msgid "Baseline data"
 msgstr ""
 
-#: ihp_results/forms.py:67 ihp_results/forms.py:139
+#: ihp_results/forms.py:67 ihp_results/forms.py:156
 msgid "Latest data"
 msgstr ""
 
@@ -228,12 +228,16 @@ msgstr ""
 msgid "Response to %(survey_name)s for %(entity_name)s"
 msgstr ""
 
-#: ihp_results/templates/ihp_results/edit_dsg_survey.html:131
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:163
 msgid "Continue"
 msgstr ""
 
-#: ihp_results/templates/ihp_results/edit_dsg_survey.html:137
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:164
 msgid "Save and continue"
+msgstr ""
+
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:165
+msgid "Save"
 msgstr ""
 
 #: ihp_results/templates/scorecard_processor/_entity_responsesets.html:14
