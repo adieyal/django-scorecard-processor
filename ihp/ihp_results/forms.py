@@ -91,20 +91,21 @@ class QuestionForm(BootstrapForm):
 
         for responseset in self.responsesets:
             currency = responseset.get_meta('currency')
-            if currency:
+            if currency and not self.initial.get('currency'):
                 self.initial['currency'] = currency['value']
-                break
+
+            ds_dict = responseset.get_data_series_by_type()
+            if ds_dict['Data collection year'] not in self.collection_year:
+                self.collection_year[ds_dict['Data collection year']] = ds_dict['Year']
+            else:
+                if self.collection_year[ds_dict['Data collection year']] != ds_dict['Year']:
+                    raise MultiYearDataException
 
         for response in self.responses:
             #Limit db hits for responsesets
             response.response_set = response_dict[response.response_set_id]
             ds_dict = response.response_set.get_data_series_by_type()
             self.question_dict[response.question][ds_dict['Data collection year']]=response
-            if ds_dict['Data collection year'] not in self.collection_year:
-                self.collection_year[ds_dict['Data collection year']] = ds_dict['Year']
-            else:
-                if self.collection_year[ds_dict['Data collection year']] != ds_dict['Year']:
-                    raise MultiYearDataException
 
         collection_lookup = {"Baseline":"baseline_year","2012 collection":"current_year"}
         for collection, year in self.collection_year.items():
