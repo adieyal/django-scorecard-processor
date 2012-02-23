@@ -1,5 +1,1637 @@
 [
   {
+    "pk": 463, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:21", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        19
+      ], 
+      "editable": false, 
+      "entity": 2, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:21"
+    }
+  }, 
+  {
+    "pk": 462, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:21", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        18
+      ], 
+      "editable": false, 
+      "entity": 2, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:21"
+    }
+  }, 
+  {
+    "pk": 461, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:21", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        17
+      ], 
+      "editable": false, 
+      "entity": 2, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:21"
+    }
+  }, 
+  {
+    "pk": 460, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:21", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        12
+      ], 
+      "editable": false, 
+      "entity": 2, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:21"
+    }
+  }, 
+  {
+    "pk": 459, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:20", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        13
+      ], 
+      "editable": false, 
+      "entity": 2, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:20"
+    }
+  }, 
+  {
+    "pk": 458, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:20", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        14
+      ], 
+      "editable": false, 
+      "entity": 2, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:20"
+    }
+  }, 
+  {
+    "pk": 457, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:20", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        3
+      ], 
+      "editable": false, 
+      "entity": 7, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:20"
+    }
+  }, 
+  {
+    "pk": 456, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:20", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        18
+      ], 
+      "editable": false, 
+      "entity": 7, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:20"
+    }
+  }, 
+  {
+    "pk": 455, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:20", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        19
+      ], 
+      "editable": false, 
+      "entity": 8, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:20"
+    }
+  }, 
+  {
+    "pk": 454, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:20", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        18
+      ], 
+      "editable": false, 
+      "entity": 8, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:20"
+    }
+  }, 
+  {
+    "pk": 453, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:20", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        17
+      ], 
+      "editable": false, 
+      "entity": 8, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:20"
+    }
+  }, 
+  {
+    "pk": 452, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:20", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        16
+      ], 
+      "editable": false, 
+      "entity": 8, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:20"
+    }
+  }, 
+  {
+    "pk": 451, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:20", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        18
+      ], 
+      "editable": false, 
+      "entity": 9, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:20"
+    }
+  }, 
+  {
+    "pk": 450, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:20", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        17
+      ], 
+      "editable": false, 
+      "entity": 9, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:20"
+    }
+  }, 
+  {
+    "pk": 449, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:20", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        16
+      ], 
+      "editable": false, 
+      "entity": 9, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:20"
+    }
+  }, 
+  {
+    "pk": 448, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:20", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        14
+      ], 
+      "editable": false, 
+      "entity": 9, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:20"
+    }
+  }, 
+  {
+    "pk": 447, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:20", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        3
+      ], 
+      "editable": false, 
+      "entity": 3, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:20"
+    }
+  }, 
+  {
+    "pk": 446, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:19", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        18
+      ], 
+      "editable": false, 
+      "entity": 3, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:19"
+    }
+  }, 
+  {
+    "pk": 445, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:19", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        12
+      ], 
+      "editable": false, 
+      "entity": 3, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:19"
+    }
+  }, 
+  {
+    "pk": 444, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:19", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        13
+      ], 
+      "editable": false, 
+      "entity": 3, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:19"
+    }
+  }, 
+  {
+    "pk": 443, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:19", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        3
+      ], 
+      "editable": false, 
+      "entity": 4, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:19"
+    }
+  }, 
+  {
+    "pk": 442, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:19", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        19
+      ], 
+      "editable": false, 
+      "entity": 4, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:19"
+    }
+  }, 
+  {
+    "pk": 441, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:19", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        11
+      ], 
+      "editable": false, 
+      "entity": 4, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:19"
+    }
+  }, 
+  {
+    "pk": 440, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:19", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        18
+      ], 
+      "editable": false, 
+      "entity": 4, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:19"
+    }
+  }, 
+  {
+    "pk": 439, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:19", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        17
+      ], 
+      "editable": false, 
+      "entity": 4, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:19"
+    }
+  }, 
+  {
+    "pk": 438, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:19", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        16
+      ], 
+      "editable": false, 
+      "entity": 4, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:19"
+    }
+  }, 
+  {
+    "pk": 437, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:19", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        15
+      ], 
+      "editable": false, 
+      "entity": 4, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:19"
+    }
+  }, 
+  {
+    "pk": 436, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:19", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        12
+      ], 
+      "editable": false, 
+      "entity": 4, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:19"
+    }
+  }, 
+  {
+    "pk": 435, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:19", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        13
+      ], 
+      "editable": false, 
+      "entity": 4, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:19"
+    }
+  }, 
+  {
+    "pk": 434, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:19", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        14
+      ], 
+      "editable": false, 
+      "entity": 4, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:19"
+    }
+  }, 
+  {
+    "pk": 433, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:19", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        3
+      ], 
+      "editable": false, 
+      "entity": 5, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:19"
+    }
+  }, 
+  {
+    "pk": 432, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:19", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        19
+      ], 
+      "editable": false, 
+      "entity": 5, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:19"
+    }
+  }, 
+  {
+    "pk": 431, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:18", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        11
+      ], 
+      "editable": false, 
+      "entity": 5, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:18"
+    }
+  }, 
+  {
+    "pk": 430, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:18", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        18
+      ], 
+      "editable": false, 
+      "entity": 5, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:18"
+    }
+  }, 
+  {
+    "pk": 429, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:18", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        17
+      ], 
+      "editable": false, 
+      "entity": 5, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:18"
+    }
+  }, 
+  {
+    "pk": 428, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:18", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        16
+      ], 
+      "editable": false, 
+      "entity": 5, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:18"
+    }
+  }, 
+  {
+    "pk": 427, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:18", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        15
+      ], 
+      "editable": false, 
+      "entity": 5, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:18"
+    }
+  }, 
+  {
+    "pk": 426, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:18", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        12
+      ], 
+      "editable": false, 
+      "entity": 5, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:18"
+    }
+  }, 
+  {
+    "pk": 425, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:18", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        13
+      ], 
+      "editable": false, 
+      "entity": 5, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:18"
+    }
+  }, 
+  {
+    "pk": 424, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:18", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        14
+      ], 
+      "editable": false, 
+      "entity": 5, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:18"
+    }
+  }, 
+  {
+    "pk": 423, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:18", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        18
+      ], 
+      "editable": false, 
+      "entity": 6, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:18"
+    }
+  }, 
+  {
+    "pk": 422, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:18", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        17
+      ], 
+      "editable": false, 
+      "entity": 6, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:18"
+    }
+  }, 
+  {
+    "pk": 421, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:18", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        16
+      ], 
+      "editable": false, 
+      "entity": 6, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:18"
+    }
+  }, 
+  {
+    "pk": 420, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:18", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        14
+      ], 
+      "editable": false, 
+      "entity": 6, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:18"
+    }
+  }, 
+  {
+    "pk": 419, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:17", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        3
+      ], 
+      "editable": false, 
+      "entity": 10, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:17"
+    }
+  }, 
+  {
+    "pk": 418, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:17", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        11
+      ], 
+      "editable": false, 
+      "entity": 10, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:17"
+    }
+  }, 
+  {
+    "pk": 417, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:17", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        18
+      ], 
+      "editable": false, 
+      "entity": 10, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:17"
+    }
+  }, 
+  {
+    "pk": 416, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:17", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        16
+      ], 
+      "editable": false, 
+      "entity": 10, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:17"
+    }
+  }, 
+  {
+    "pk": 415, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:17", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        13
+      ], 
+      "editable": false, 
+      "entity": 10, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:17"
+    }
+  }, 
+  {
+    "pk": 414, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:17", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        3
+      ], 
+      "editable": false, 
+      "entity": 15, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:17"
+    }
+  }, 
+  {
+    "pk": 413, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:17", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        19
+      ], 
+      "editable": false, 
+      "entity": 15, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:17"
+    }
+  }, 
+  {
+    "pk": 412, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:17", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        11
+      ], 
+      "editable": false, 
+      "entity": 15, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:17"
+    }
+  }, 
+  {
+    "pk": 411, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:17", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        18
+      ], 
+      "editable": false, 
+      "entity": 15, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:17"
+    }
+  }, 
+  {
+    "pk": 410, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:17", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        17
+      ], 
+      "editable": false, 
+      "entity": 15, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:17"
+    }
+  }, 
+  {
+    "pk": 409, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:17", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        16
+      ], 
+      "editable": false, 
+      "entity": 15, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:17"
+    }
+  }, 
+  {
+    "pk": 408, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:17", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        15
+      ], 
+      "editable": false, 
+      "entity": 15, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:17"
+    }
+  }, 
+  {
+    "pk": 407, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:17", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        12
+      ], 
+      "editable": false, 
+      "entity": 15, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:17"
+    }
+  }, 
+  {
+    "pk": 406, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:17", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        13
+      ], 
+      "editable": false, 
+      "entity": 15, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:17"
+    }
+  }, 
+  {
+    "pk": 405, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:16", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        14
+      ], 
+      "editable": false, 
+      "entity": 15, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:16"
+    }
+  }, 
+  {
+    "pk": 404, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:16", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        3
+      ], 
+      "editable": false, 
+      "entity": 14, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:16"
+    }
+  }, 
+  {
+    "pk": 403, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:16", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        19
+      ], 
+      "editable": false, 
+      "entity": 14, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:16"
+    }
+  }, 
+  {
+    "pk": 402, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:16", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        11
+      ], 
+      "editable": false, 
+      "entity": 14, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:16"
+    }
+  }, 
+  {
+    "pk": 401, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:16", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        18
+      ], 
+      "editable": false, 
+      "entity": 14, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:16"
+    }
+  }, 
+  {
+    "pk": 400, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:16", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        17
+      ], 
+      "editable": false, 
+      "entity": 14, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:16"
+    }
+  }, 
+  {
+    "pk": 399, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:16", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        16
+      ], 
+      "editable": false, 
+      "entity": 14, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:16"
+    }
+  }, 
+  {
+    "pk": 398, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:16", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        15
+      ], 
+      "editable": false, 
+      "entity": 14, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:16"
+    }
+  }, 
+  {
+    "pk": 397, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:16", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        12
+      ], 
+      "editable": false, 
+      "entity": 14, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:16"
+    }
+  }, 
+  {
+    "pk": 396, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:16", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        13
+      ], 
+      "editable": false, 
+      "entity": 14, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:16"
+    }
+  }, 
+  {
+    "pk": 395, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:16", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        14
+      ], 
+      "editable": false, 
+      "entity": 14, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:16"
+    }
+  }, 
+  {
+    "pk": 394, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:16", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        3
+      ], 
+      "editable": false, 
+      "entity": 11, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:16"
+    }
+  }, 
+  {
+    "pk": 393, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:15", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        19
+      ], 
+      "editable": false, 
+      "entity": 11, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:15"
+    }
+  }, 
+  {
+    "pk": 392, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:15", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        11
+      ], 
+      "editable": false, 
+      "entity": 11, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:15"
+    }
+  }, 
+  {
+    "pk": 391, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:15", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        18
+      ], 
+      "editable": false, 
+      "entity": 11, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:15"
+    }
+  }, 
+  {
+    "pk": 390, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:15", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        17
+      ], 
+      "editable": false, 
+      "entity": 11, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:15"
+    }
+  }, 
+  {
+    "pk": 389, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:15", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        16
+      ], 
+      "editable": false, 
+      "entity": 11, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:15"
+    }
+  }, 
+  {
+    "pk": 388, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:15", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        15
+      ], 
+      "editable": false, 
+      "entity": 11, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:15"
+    }
+  }, 
+  {
+    "pk": 387, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:15", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        12
+      ], 
+      "editable": false, 
+      "entity": 11, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:15"
+    }
+  }, 
+  {
+    "pk": 386, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:15", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        13
+      ], 
+      "editable": false, 
+      "entity": 11, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:15"
+    }
+  }, 
+  {
+    "pk": 385, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:15", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        14
+      ], 
+      "editable": false, 
+      "entity": 11, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:15"
+    }
+  }, 
+  {
+    "pk": 384, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:15", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        3
+      ], 
+      "editable": false, 
+      "entity": 12, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:15"
+    }
+  }, 
+  {
+    "pk": 383, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:15", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        19
+      ], 
+      "editable": false, 
+      "entity": 12, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:15"
+    }
+  }, 
+  {
+    "pk": 382, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:15", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        11
+      ], 
+      "editable": false, 
+      "entity": 12, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:15"
+    }
+  }, 
+  {
+    "pk": 381, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:15", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        18
+      ], 
+      "editable": false, 
+      "entity": 12, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:15"
+    }
+  }, 
+  {
+    "pk": 380, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:15", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        17
+      ], 
+      "editable": false, 
+      "entity": 12, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:15"
+    }
+  }, 
+  {
+    "pk": 379, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:15", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        16
+      ], 
+      "editable": false, 
+      "entity": 12, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:15"
+    }
+  }, 
+  {
+    "pk": 378, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:15", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        15
+      ], 
+      "editable": false, 
+      "entity": 12, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:15"
+    }
+  }, 
+  {
+    "pk": 377, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:14", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        12
+      ], 
+      "editable": false, 
+      "entity": 12, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:14"
+    }
+  }, 
+  {
+    "pk": 376, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:14", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        13
+      ], 
+      "editable": false, 
+      "entity": 12, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:14"
+    }
+  }, 
+  {
+    "pk": 375, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:14", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        14
+      ], 
+      "editable": false, 
+      "entity": 12, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:14"
+    }
+  }, 
+  {
+    "pk": 374, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:14", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        19
+      ], 
+      "editable": false, 
+      "entity": 13, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:14"
+    }
+  }, 
+  {
+    "pk": 373, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:14", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        11
+      ], 
+      "editable": false, 
+      "entity": 13, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:14"
+    }
+  }, 
+  {
+    "pk": 372, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:14", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        18
+      ], 
+      "editable": false, 
+      "entity": 13, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:14"
+    }
+  }, 
+  {
+    "pk": 371, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:14", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        16
+      ], 
+      "editable": false, 
+      "entity": 13, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:14"
+    }
+  }, 
+  {
+    "pk": 370, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:14", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        15
+      ], 
+      "editable": false, 
+      "entity": 13, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:14"
+    }
+  }, 
+  {
+    "pk": 369, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:14", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        13
+      ], 
+      "editable": false, 
+      "entity": 13, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:14"
+    }
+  }, 
+  {
+    "pk": 368, 
+    "model": "scorecard_processor.responseset", 
+    "fields": {
+      "submission_date": "2012-02-23 16:12:14", 
+      "last_response_id": null, 
+      "data_series": [
+        32, 
+        20, 
+        14
+      ], 
+      "editable": false, 
+      "entity": 13, 
+      "survey": 3, 
+      "last_update": "2012-02-23 16:12:14"
+    }
+  }, 
+  {
     "pk": 367, 
     "model": "scorecard_processor.responseset", 
     "fields": {
@@ -184,326 +1816,6 @@
       "entity": 16, 
       "survey": 4, 
       "last_update": "2012-02-23 15:45:23"
-    }
-  }, 
-  {
-    "pk": 356, 
-    "model": "scorecard_processor.responseset", 
-    "fields": {
-      "submission_date": "2012-02-23 15:45:23", 
-      "last_response_id": null, 
-      "data_series": [
-        32, 
-        20, 
-        14, 
-        13, 
-        15, 
-        16, 
-        18, 
-        11, 
-        19
-      ], 
-      "editable": false, 
-      "entity": 13, 
-      "survey": 3, 
-      "last_update": "2012-02-23 15:45:23"
-    }
-  }, 
-  {
-    "pk": 355, 
-    "model": "scorecard_processor.responseset", 
-    "fields": {
-      "submission_date": "2012-02-23 15:45:22", 
-      "last_response_id": null, 
-      "data_series": [
-        32, 
-        20, 
-        14, 
-        13, 
-        12, 
-        15, 
-        16, 
-        17, 
-        18, 
-        11, 
-        19, 
-        3
-      ], 
-      "editable": false, 
-      "entity": 12, 
-      "survey": 3, 
-      "last_update": "2012-02-23 15:45:22"
-    }
-  }, 
-  {
-    "pk": 354, 
-    "model": "scorecard_processor.responseset", 
-    "fields": {
-      "submission_date": "2012-02-23 15:45:22", 
-      "last_response_id": null, 
-      "data_series": [
-        32, 
-        20, 
-        14, 
-        13, 
-        12, 
-        15, 
-        16, 
-        17, 
-        18, 
-        11, 
-        19, 
-        3
-      ], 
-      "editable": false, 
-      "entity": 11, 
-      "survey": 3, 
-      "last_update": "2012-02-23 15:45:22"
-    }
-  }, 
-  {
-    "pk": 353, 
-    "model": "scorecard_processor.responseset", 
-    "fields": {
-      "submission_date": "2012-02-23 15:45:22", 
-      "last_response_id": null, 
-      "data_series": [
-        32, 
-        20, 
-        14, 
-        13, 
-        12, 
-        15, 
-        16, 
-        17, 
-        18, 
-        11, 
-        19, 
-        3
-      ], 
-      "editable": false, 
-      "entity": 14, 
-      "survey": 3, 
-      "last_update": "2012-02-23 15:45:22"
-    }
-  }, 
-  {
-    "pk": 352, 
-    "model": "scorecard_processor.responseset", 
-    "fields": {
-      "submission_date": "2012-02-23 15:45:22", 
-      "last_response_id": null, 
-      "data_series": [
-        32, 
-        20, 
-        14, 
-        13, 
-        12, 
-        15, 
-        16, 
-        17, 
-        18, 
-        11, 
-        19, 
-        3
-      ], 
-      "editable": false, 
-      "entity": 15, 
-      "survey": 3, 
-      "last_update": "2012-02-23 15:45:22"
-    }
-  }, 
-  {
-    "pk": 351, 
-    "model": "scorecard_processor.responseset", 
-    "fields": {
-      "submission_date": "2012-02-23 15:45:22", 
-      "last_response_id": null, 
-      "data_series": [
-        32, 
-        20, 
-        13, 
-        16, 
-        18, 
-        11, 
-        3
-      ], 
-      "editable": false, 
-      "entity": 10, 
-      "survey": 3, 
-      "last_update": "2012-02-23 15:45:22"
-    }
-  }, 
-  {
-    "pk": 350, 
-    "model": "scorecard_processor.responseset", 
-    "fields": {
-      "submission_date": "2012-02-23 15:45:21", 
-      "last_response_id": null, 
-      "data_series": [
-        32, 
-        20, 
-        14, 
-        16, 
-        17, 
-        18
-      ], 
-      "editable": false, 
-      "entity": 6, 
-      "survey": 3, 
-      "last_update": "2012-02-23 15:45:21"
-    }
-  }, 
-  {
-    "pk": 349, 
-    "model": "scorecard_processor.responseset", 
-    "fields": {
-      "submission_date": "2012-02-23 15:45:21", 
-      "last_response_id": null, 
-      "data_series": [
-        32, 
-        20, 
-        14, 
-        13, 
-        12, 
-        15, 
-        16, 
-        17, 
-        18, 
-        11, 
-        19, 
-        3
-      ], 
-      "editable": false, 
-      "entity": 5, 
-      "survey": 3, 
-      "last_update": "2012-02-23 15:45:21"
-    }
-  }, 
-  {
-    "pk": 348, 
-    "model": "scorecard_processor.responseset", 
-    "fields": {
-      "submission_date": "2012-02-23 15:45:21", 
-      "last_response_id": null, 
-      "data_series": [
-        32, 
-        20, 
-        14, 
-        13, 
-        12, 
-        15, 
-        16, 
-        17, 
-        18, 
-        11, 
-        19, 
-        3
-      ], 
-      "editable": false, 
-      "entity": 4, 
-      "survey": 3, 
-      "last_update": "2012-02-23 15:45:21"
-    }
-  }, 
-  {
-    "pk": 347, 
-    "model": "scorecard_processor.responseset", 
-    "fields": {
-      "submission_date": "2012-02-23 15:45:21", 
-      "last_response_id": null, 
-      "data_series": [
-        32, 
-        20, 
-        13, 
-        12, 
-        18, 
-        3
-      ], 
-      "editable": false, 
-      "entity": 3, 
-      "survey": 3, 
-      "last_update": "2012-02-23 15:45:21"
-    }
-  }, 
-  {
-    "pk": 346, 
-    "model": "scorecard_processor.responseset", 
-    "fields": {
-      "submission_date": "2012-02-23 15:45:21", 
-      "last_response_id": null, 
-      "data_series": [
-        32, 
-        20, 
-        14, 
-        16, 
-        17, 
-        18
-      ], 
-      "editable": false, 
-      "entity": 9, 
-      "survey": 3, 
-      "last_update": "2012-02-23 15:45:21"
-    }
-  }, 
-  {
-    "pk": 345, 
-    "model": "scorecard_processor.responseset", 
-    "fields": {
-      "submission_date": "2012-02-23 15:45:21", 
-      "last_response_id": null, 
-      "data_series": [
-        32, 
-        20, 
-        16, 
-        17, 
-        18, 
-        19
-      ], 
-      "editable": false, 
-      "entity": 8, 
-      "survey": 3, 
-      "last_update": "2012-02-23 15:45:21"
-    }
-  }, 
-  {
-    "pk": 344, 
-    "model": "scorecard_processor.responseset", 
-    "fields": {
-      "submission_date": "2012-02-23 15:45:20", 
-      "last_response_id": null, 
-      "data_series": [
-        32, 
-        20, 
-        18, 
-        3
-      ], 
-      "editable": false, 
-      "entity": 7, 
-      "survey": 3, 
-      "last_update": "2012-02-23 15:45:20"
-    }
-  }, 
-  {
-    "pk": 343, 
-    "model": "scorecard_processor.responseset", 
-    "fields": {
-      "submission_date": "2012-02-23 15:45:20", 
-      "last_response_id": null, 
-      "data_series": [
-        32, 
-        20, 
-        14, 
-        13, 
-        12, 
-        17, 
-        18, 
-        19
-      ], 
-      "editable": false, 
-      "entity": 2, 
-      "survey": 3, 
-      "last_update": "2012-02-23 15:45:20"
     }
   }, 
   {
