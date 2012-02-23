@@ -8,8 +8,14 @@ lookup = {
 
 class Command(BaseCommand):
     args = '<filename.xls>'
-    help = 'Imports a 2012 legacy survey into the system'
+    help = 'Imports glossary terms into the system'
     output_transaction = True
+    option_list = BaseCommand.option_list + (
+        make_option('--lang',
+            dest='lang',
+            help='Language of the survey'),
+        )
+
 
     def handle(self, *args, **options):
         survey_file = xlrd.open_workbook(args[0])
