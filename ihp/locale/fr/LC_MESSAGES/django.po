@@ -286,11 +286,11 @@ msgstr ""
 
 #: scorecard_processor/templates/scorecard_processor/entity_detail.html:35
 msgid "Thanks for your submission"
-msgstr "Je vous remercie pour votre soumission de données"
+msgstr "Merci pour votre soumission"
 
 #: scorecard_processor/templates/scorecard_processor/entity_detail.html:36
 msgid "You can add another response using this button:"
-msgstr "Vous pouvez ajouter une autre réponse en utilisant ce bouton"
+msgstr "Vous pouvez ajouter une autre réponse en cliquant ce bouton"
 
 #: scorecard_processor/templates/scorecard_processor/respond/edit_survey.html:2
 msgid "Response to %(survey.i18n.name)s for %(entity.name)s"
