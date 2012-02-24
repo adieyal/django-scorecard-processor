@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-23 12:47+0200\n"
+"POT-Creation-Date: 2012-02-24 13:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,11 +33,11 @@ msgstr "Votre devise"
 msgid "Please select your currency"
 msgstr "S'il vous plaît choisir votre devise"
 
-#: ihp_results/forms.py:63 ihp_results/forms.py:155
+#: ihp_results/forms.py:63 ihp_results/forms.py:156
 msgid "Baseline data"
 msgstr "Données de base"
 
-#: ihp_results/forms.py:67 ihp_results/forms.py:156
+#: ihp_results/forms.py:67 ihp_results/forms.py:157
 msgid "Latest data"
 msgstr "Dernières données"
 
@@ -234,6 +234,10 @@ msgstr "S'il vous plaît choisir un pays"
 msgid "Response to %(survey_name)s for %(entity_name)s"
 msgstr "Ajouter une nouvelle réponse à %(survey_name)s pour %(entity_name)s"
 
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:94
+msgid "Click to see definition"
+msgstr "Cliquez ici pour voir la définition"
+
 #: ihp_results/templates/ihp_results/edit_dsg_survey.html:163
 msgid "Continue"
 msgstr "Continuer"
@@ -293,6 +297,7 @@ msgid "You can add another response using this button:"
 msgstr "Vous pouvez ajouter une autre réponse en cliquant ce bouton"
 
 #: scorecard_processor/templates/scorecard_processor/respond/edit_survey.html:2
+#, fuzzy, python-format
 msgid "Response to %(survey.i18n.name)s for %(entity.name)s"
 msgstr "Ajouter une nouvelle réponse à %(survey_name)s pour %(entity_name)s"
 

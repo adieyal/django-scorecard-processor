@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-23 12:47+0200\n"
+"POT-Creation-Date: 2012-02-24 13:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,11 +32,11 @@ msgstr ""
 msgid "Please select your currency"
 msgstr ""
 
-#: ihp_results/forms.py:63 ihp_results/forms.py:155
+#: ihp_results/forms.py:63 ihp_results/forms.py:156
 msgid "Baseline data"
 msgstr ""
 
-#: ihp_results/forms.py:67 ihp_results/forms.py:156
+#: ihp_results/forms.py:67 ihp_results/forms.py:157
 msgid "Latest data"
 msgstr ""
 
@@ -227,6 +227,10 @@ msgstr ""
 #: ihp_results/templates/ihp_results/edit_dsg_survey.html:3
 #, python-format
 msgid "Response to %(survey_name)s for %(entity_name)s"
+msgstr ""
+
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:94
+msgid "Click to see definition"
 msgstr ""
 
 #: ihp_results/templates/ihp_results/edit_dsg_survey.html:163
