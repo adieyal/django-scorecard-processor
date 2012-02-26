@@ -217,643 +217,6 @@
     }
   }, 
   {
-    "pk": 112, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "yes_no_choice", 
-      "group": 46, 
-      "question": "Was there an IHP+ Country Compact (or equivalent agreement) in place?", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": null, 
-      "identifier": "1"
-    }
-  }, 
-  {
-    "pk": 113, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "textbox", 
-      "group": 46, 
-      "question": "Voluntary additional information", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": "Please use this space to provide any additional information", 
-      "identifier": "1G"
-    }
-  }, 
-  {
-    "pk": 114, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "yes_no_choice", 
-      "group": 47, 
-      "question": "Did the National Health Sector Strategy (or equivalent) include current targets and budgets?", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": null, 
-      "identifier": "2"
-    }
-  }, 
-  {
-    "pk": 115, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "yes_no_choice", 
-      "group": 47, 
-      "question": "Was the National Health Sector Strategy jointly assessed? ", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": null, 
-      "identifier": "3"
-    }
-  }, 
-  {
-    "pk": 116, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "textbox", 
-      "group": 47, 
-      "question": "Voluntary additional information", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": "Please use this space to provide any additional information", 
-      "identifier": "2Ga"
-    }
-  }, 
-  {
-    "pk": 117, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "yes_no_choice", 
-      "group": 48, 
-      "question": "Was there a costed, comprehensive, evidence based HRH plan (that was integrated with the national health plan) that was being implemented or developed?", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": null, 
-      "identifier": "4"
-    }
-  }, 
-  {
-    "pk": 118, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "textbox", 
-      "group": 48, 
-      "question": "Voluntary additional information", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": "Please use this space to provide any additional information", 
-      "identifier": "2Gb"
-    }
-  }, 
-  {
-    "pk": 119, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "multi_currency", 
-      "group": 49, 
-      "question": "What was the value of the total public (domestic) contribution to the national budget (ie not including external funding)?", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": null, 
-      "identifier": "5"
-    }
-  }, 
-  {
-    "pk": 120, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "multi_currency", 
-      "group": 49, 
-      "question": "What was the total value of public (domestic) funding allocated to health (ie not including external funding)?", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": null, 
-      "identifier": "6"
-    }
-  }, 
-  {
-    "pk": 121, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "textbox", 
-      "group": 49, 
-      "question": "Voluntary additional information", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": "Please use this space to provide any additional information", 
-      "identifier": "3G"
-    }
-  }, 
-  {
-    "pk": 122, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "multi_currency", 
-      "group": 50, 
-      "question": "What was the total value (including external/donor funding) of the approved annual budget for the health sector? ", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": null, 
-      "identifier": "7"
-    }
-  }, 
-  {
-    "pk": 123, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "multi_currency", 
-      "group": 50, 
-      "question": "What was the total value of funding disbursed against the approved annual budget for the health sector?", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": null, 
-      "identifier": "8"
-    }
-  }, 
-  {
-    "pk": 124, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "textbox", 
-      "group": 50, 
-      "question": "Voluntary additional information", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": "Please use this space to provide any additional information", 
-      "identifier": "4G"
-    }
-  }, 
-  {
-    "pk": 125, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "rating_0_5_half", 
-      "group": 51, 
-      "question": "Please provide scores against the PFM/CPIA scale of performance. ", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": null, 
-      "identifier": "9"
-    }
-  }, 
-  {
-    "pk": 126, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "textbox", 
-      "group": 51, 
-      "question": "Voluntary additional information", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": "Please use this space to provide any additional information", 
-      "identifier": "5Ga"
-    }
-  }, 
-  {
-    "pk": 127, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "rating_0_5_half", 
-      "group": 52, 
-      "question": "Please provide the scores for the four point scale used to assess performance in the procurement sector for 2007 and 2009.", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": null, 
-      "identifier": "10"
-    }
-  }, 
-  {
-    "pk": 128, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "textbox", 
-      "group": 52, 
-      "question": "Voluntary additional information", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": "Please use this space to provide any additional information", 
-      "identifier": "5Gb"
-    }
-  }, 
-  {
-    "pk": 129, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "yes_no_choice", 
-      "group": 53, 
-      "question": "Was there a transparent and monitorable performance assessment framework in place to assess progress in the health sector", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": null, 
-      "identifier": "11"
-    }
-  }, 
-  {
-    "pk": 130, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "textbox", 
-      "group": 53, 
-      "question": "Voluntary additional information", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": "Please use this space to provide any additional information", 
-      "identifier": "6G"
-    }
-  }, 
-  {
-    "pk": 131, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "yes_no_choice", 
-      "group": 54, 
-      "question": "Did you undertake a mutual assessment[s] of progress in implementing health sector commitments including on aid effectiveness?", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": null, 
-      "identifier": "12"
-    }
-  }, 
-  {
-    "pk": 132, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "textbox", 
-      "group": 54, 
-      "question": "Voluntary additional information", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": "Please use this space to provide any additional information", 
-      "identifier": "7G"
-    }
-  }, 
-  {
-    "pk": 133, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "integer", 
-      "group": 55, 
-      "question": "What proportion of seats were allocated to civil society representatives on the health sector coordination mechanism? ", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": null, 
-      "identifier": "13"
-    }
-  }, 
-  {
-    "pk": 134, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "textbox", 
-      "group": 55, 
-      "question": "Voluntary additional information", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": "Please use this space to provide any additional information", 
-      "identifier": "13+"
-    }
-  }, 
-  {
-    "pk": 135, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "rep_types", 
-      "group": 55, 
-      "question": "Which of the following types of Civil Society organizations are represented in the health sector coordination mechanism? (please enter Yes (Y) in as many categories as appropriate).", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": null, 
-      "identifier": "14"
-    }
-  }, 
-  {
-    "pk": 136, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "textbox", 
-      "group": 55, 
-      "question": "Voluntary additional information", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": "Please use this space to provide any additional information", 
-      "identifier": "14+"
-    }
-  }, 
-  {
-    "pk": 137, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "cso_involved", 
-      "group": 55, 
-      "question": "At what points in the policy and planning process are CSOs routinely involved? (please enter Yes (Y) in as many categories as appropriate).", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": null, 
-      "identifier": "15"
-    }
-  }, 
-  {
-    "pk": 138, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "textbox", 
-      "group": 55, 
-      "question": "Voluntary additional information", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": "Please use this space to provide any additional information", 
-      "identifier": "15+"
-    }
-  }, 
-  {
-    "pk": 139, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "integer", 
-      "group": 56, 
-      "question": "What were the total number of Development Partner / Donor missions?", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": null, 
-      "identifier": "16"
-    }
-  }, 
-  {
-    "pk": 140, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "textbox", 
-      "group": 56, 
-      "question": "Voluntary additional information", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": "Please use this space to provide any additional information", 
-      "identifier": "16+"
-    }
-  }, 
-  {
-    "pk": 141, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "integer", 
-      "group": 56, 
-      "question": "How many development partners used a pooled funding mechanism (if it exists)? ", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": null, 
-      "identifier": "17"
-    }
-  }, 
-  {
-    "pk": 142, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "textbox", 
-      "group": 56, 
-      "question": "Voluntary additional information", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": "Please use this space to provide any additional information", 
-      "identifier": "17+"
-    }
-  }, 
-  {
-    "pk": 143, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "integer", 
-      "group": 56, 
-      "question": "How many skilled medical personnel were in service?", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": null, 
-      "identifier": "18"
-    }
-  }, 
-  {
-    "pk": 144, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "textbox", 
-      "group": 56, 
-      "question": "Voluntary additional information", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": "Please use this space to provide any additional information", 
-      "identifier": "18+"
-    }
-  }, 
-  {
-    "pk": 145, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "integer", 
-      "group": 56, 
-      "question": "Please enter the total population of your country.", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": null, 
-      "identifier": "19"
-    }
-  }, 
-  {
-    "pk": 146, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "textbox", 
-      "group": 56, 
-      "question": "Voluntary additional information", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": "Please use this space to provide any additional information", 
-      "identifier": "19+"
-    }
-  }, 
-  {
-    "pk": 147, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "integer", 
-      "group": 56, 
-      "question": "How many total outpatient department visits were there?", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": null, 
-      "identifier": "20"
-    }
-  }, 
-  {
-    "pk": 148, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "textbox", 
-      "group": 56, 
-      "question": "Voluntary additional information", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": "Please use this space to provide any additional information", 
-      "identifier": "20+"
-    }
-  }, 
-  {
-    "pk": 149, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "multi_currency", 
-      "group": 56, 
-      "question": "What was the total amount spent on the health workforce?", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": null, 
-      "identifier": "21"
-    }
-  }, 
-  {
-    "pk": 150, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "textbox", 
-      "group": 56, 
-      "question": "Voluntary additional information", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": "Please use this space to provide any additional information", 
-      "identifier": "21+"
-    }
-  }, 
-  {
-    "pk": 151, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "yes_no_choice", 
-      "group": 56, 
-      "question": "Does the HMIS provides timely, relevant and robust data on results? ", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": null, 
-      "identifier": "22"
-    }
-  }, 
-  {
-    "pk": 152, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "textbox", 
-      "group": 56, 
-      "question": "Voluntary additional information", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": "Please use this space to provide any additional information", 
-      "identifier": "22+"
-    }
-  }, 
-  {
-    "pk": 153, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "integer", 
-      "group": 56, 
-      "question": "How many Indicators are there in the National Results Framework?", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": null, 
-      "identifier": "23"
-    }
-  }, 
-  {
-    "pk": 154, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "textbox", 
-      "group": 56, 
-      "question": "Voluntary additional information", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": "Please use this space to provide any additional information", 
-      "identifier": "23+"
-    }
-  }, 
-  {
-    "pk": 155, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "integer", 
-      "group": 56, 
-      "question": "How many Indicators were actually tracked (eg to respond to requests from DPs for additional reporting)?", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": null, 
-      "identifier": "24"
-    }
-  }, 
-  {
-    "pk": 156, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "textbox", 
-      "group": 56, 
-      "question": "Voluntary additional information", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": "Please use this space to provide any additional information", 
-      "identifier": "24+"
-    }
-  }, 
-  {
-    "pk": 157, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "date", 
-      "group": 56, 
-      "question": "When was the date of the last Joint Annual Health Sector Review (JAR)? ", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": null, 
-      "identifier": "25"
-    }
-  }, 
-  {
-    "pk": 158, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "textbox", 
-      "group": 56, 
-      "question": "Voluntary additional information", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": "Please use this space to provide any additional information", 
-      "identifier": "25+"
-    }
-  }, 
-  {
-    "pk": 159, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "textbox", 
-      "group": 56, 
-      "question": "Please comment on the level of representation at the JAR?  ", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": null, 
-      "identifier": "26"
-    }
-  }, 
-  {
-    "pk": 160, 
-    "model": "scorecard_processor.question", 
-    "fields": {
-      "widget": "textbox", 
-      "group": 56, 
-      "question": "Please comment on the effectiveness of the JAR as an accountability mechanism ", 
-      "validator": "anything", 
-      "survey": 4, 
-      "help_text": null, 
-      "identifier": "27"
-    }
-  }, 
-  {
     "pk": 161, 
     "model": "scorecard_processor.question", 
     "fields": {
@@ -1145,7 +508,7 @@
     "fields": {
       "widget": "yes_no_choice", 
       "group": 66, 
-      "question": "Did you routinely use a single national performance assessment framework as the primary basis to assess progress in your country? ", 
+      "question": "Did you routinely use a single national performance assessment framework as the primary basis to assess progress of your organisation's programmes in your country? ", 
       "validator": "anything", 
       "survey": 3, 
       "help_text": null, 
@@ -1171,7 +534,7 @@
     "fields": {
       "widget": "yes_no_choice", 
       "group": 67, 
-      "question": "Did you undertake a mutual assessment(s) of progress in implementing health sector commitments, including on aid effectiveness? ", 
+      "question": "Did you participate in a mutual assessment(s) of progress in implementing health sector commitments, including on aid effectiveness? ", 
       "validator": "anything", 
       "survey": 3, 
       "help_text": null, 
@@ -1254,6 +617,643 @@
       "survey": 3, 
       "help_text": "Please use this space to provide any additional information", 
       "identifier": "General"
+    }
+  }, 
+  {
+    "pk": 192, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "yes_no_choice", 
+      "group": 70, 
+      "question": "Was there an IHP+ Country Compact (or equivalent agreement) in place?", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "1"
+    }
+  }, 
+  {
+    "pk": 193, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 70, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "1G"
+    }
+  }, 
+  {
+    "pk": 194, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "yes_no_choice", 
+      "group": 71, 
+      "question": "Did the National Health Sector Strategy (or equivalent) include current targets and budgets?", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "2"
+    }
+  }, 
+  {
+    "pk": 195, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "yes_no_choice", 
+      "group": 71, 
+      "question": "Was the National Health Sector Strategy jointly assessed? ", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "3"
+    }
+  }, 
+  {
+    "pk": 196, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 71, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "2Ga"
+    }
+  }, 
+  {
+    "pk": 197, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "yes_no_choice", 
+      "group": 72, 
+      "question": "Was there a costed, comprehensive, evidence based HRH plan (that was integrated with the national health plan) that was being implemented or developed?", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "4"
+    }
+  }, 
+  {
+    "pk": 198, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 72, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "2Gb"
+    }
+  }, 
+  {
+    "pk": 199, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "multi_currency", 
+      "group": 73, 
+      "question": "What was the value of the total public (domestic) contribution to the national budget (ie not including external funding)?", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "5"
+    }
+  }, 
+  {
+    "pk": 200, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "multi_currency", 
+      "group": 73, 
+      "question": "What was the total value of public (domestic) funding allocated to health (ie not including external funding)?", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "6"
+    }
+  }, 
+  {
+    "pk": 201, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 73, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "3G"
+    }
+  }, 
+  {
+    "pk": 202, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "multi_currency", 
+      "group": 74, 
+      "question": "What was the total value (including external/donor funding) of the approved annual budget for the health sector? ", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "7"
+    }
+  }, 
+  {
+    "pk": 203, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "multi_currency", 
+      "group": 74, 
+      "question": "What was the total value of funding disbursed against the approved annual budget for the health sector?", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "8"
+    }
+  }, 
+  {
+    "pk": 204, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 74, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "4G"
+    }
+  }, 
+  {
+    "pk": 205, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "rating_0_5_half", 
+      "group": 75, 
+      "question": "Please provide scores against the PFM/CPIA scale of performance. ", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "9"
+    }
+  }, 
+  {
+    "pk": 206, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 75, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "5Ga"
+    }
+  }, 
+  {
+    "pk": 207, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "rating_0_5_half", 
+      "group": 76, 
+      "question": "Please provide the scores for the four point scale used to assess performance in the procurement sector for 2007 and 2009.", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "10"
+    }
+  }, 
+  {
+    "pk": 208, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 76, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "5Gb"
+    }
+  }, 
+  {
+    "pk": 209, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "yes_no_choice", 
+      "group": 77, 
+      "question": "Was there a transparent and monitorable performance assessment framework in place to assess progress in the health sector", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "11"
+    }
+  }, 
+  {
+    "pk": 210, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 77, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "6G"
+    }
+  }, 
+  {
+    "pk": 211, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "yes_no_choice", 
+      "group": 78, 
+      "question": "Did you undertake a mutual assessment[s] of progress in implementing health sector commitments including on aid effectiveness?", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "12"
+    }
+  }, 
+  {
+    "pk": 212, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 78, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "7G"
+    }
+  }, 
+  {
+    "pk": 213, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "integer", 
+      "group": 79, 
+      "question": "What proportion of seats were allocated to civil society representatives on the health sector coordination mechanism? ", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "13"
+    }
+  }, 
+  {
+    "pk": 214, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 79, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "13+"
+    }
+  }, 
+  {
+    "pk": 215, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "rep_types", 
+      "group": 79, 
+      "question": "Which of the following types of Civil Society organizations are represented in the health sector coordination mechanism? (please enter Yes (Y) in as many categories as appropriate).", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "14"
+    }
+  }, 
+  {
+    "pk": 216, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 79, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "14+"
+    }
+  }, 
+  {
+    "pk": 217, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "cso_involved", 
+      "group": 79, 
+      "question": "At what points in the policy and planning process are CSOs routinely involved? (please enter Yes (Y) in as many categories as appropriate).", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "15"
+    }
+  }, 
+  {
+    "pk": 218, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 79, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "15+"
+    }
+  }, 
+  {
+    "pk": 219, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "integer", 
+      "group": 80, 
+      "question": "What were the total number of Development Partner / Donor missions?", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "16"
+    }
+  }, 
+  {
+    "pk": 220, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 80, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "16+"
+    }
+  }, 
+  {
+    "pk": 221, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "integer", 
+      "group": 80, 
+      "question": "How many development partners used a pooled funding mechanism (if it exists)? ", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "17"
+    }
+  }, 
+  {
+    "pk": 222, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 80, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "17+"
+    }
+  }, 
+  {
+    "pk": 223, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "integer", 
+      "group": 80, 
+      "question": "How many skilled medical personnel were in service?", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "18"
+    }
+  }, 
+  {
+    "pk": 224, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 80, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "18+"
+    }
+  }, 
+  {
+    "pk": 225, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "integer", 
+      "group": 80, 
+      "question": "Please enter the total population of your country.", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "19"
+    }
+  }, 
+  {
+    "pk": 226, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 80, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "19+"
+    }
+  }, 
+  {
+    "pk": 227, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "integer", 
+      "group": 80, 
+      "question": "How many total outpatient department visits were there?", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "20"
+    }
+  }, 
+  {
+    "pk": 228, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 80, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "20+"
+    }
+  }, 
+  {
+    "pk": 229, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "multi_currency", 
+      "group": 80, 
+      "question": "What was the total amount spent on the health workforce?", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "21"
+    }
+  }, 
+  {
+    "pk": 230, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 80, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "21+"
+    }
+  }, 
+  {
+    "pk": 231, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "yes_no_choice", 
+      "group": 80, 
+      "question": "Does the HMIS provides timely, relevant and robust data on results? ", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "22"
+    }
+  }, 
+  {
+    "pk": 232, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 80, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "22+"
+    }
+  }, 
+  {
+    "pk": 233, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "integer", 
+      "group": 80, 
+      "question": "How many Indicators are there in the National Results Framework?", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "23"
+    }
+  }, 
+  {
+    "pk": 234, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 80, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "23+"
+    }
+  }, 
+  {
+    "pk": 235, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "integer", 
+      "group": 80, 
+      "question": "How many Indicators were actually tracked (eg to respond to requests from DPs for additional reporting)?", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "24"
+    }
+  }, 
+  {
+    "pk": 236, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 80, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "24+"
+    }
+  }, 
+  {
+    "pk": 237, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "date", 
+      "group": 80, 
+      "question": "When was the date of the last Joint Annual Health Sector Review (JAR)? ", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "25"
+    }
+  }, 
+  {
+    "pk": 238, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 80, 
+      "question": "Voluntary additional information", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": "Please use this space to provide any additional information", 
+      "identifier": "25+"
+    }
+  }, 
+  {
+    "pk": 239, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 80, 
+      "question": "Please comment on the level of representation at the JAR?  ", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "26"
+    }
+  }, 
+  {
+    "pk": 240, 
+    "model": "scorecard_processor.question", 
+    "fields": {
+      "widget": "textbox", 
+      "group": 80, 
+      "question": "Please comment on the effectiveness of the JAR as an accountability mechanism ", 
+      "validator": "anything", 
+      "survey": 4, 
+      "help_text": null, 
+      "identifier": "27"
     }
   }, 
   {
@@ -2184,7 +2184,7 @@
     }
   }, 
   {
-    "pk": 46, 
+    "pk": 70, 
     "model": "scorecard_processor.questiongroup", 
     "fields": {
       "ordering": 1, 
@@ -2224,7 +2224,7 @@
     }
   }, 
   {
-    "pk": 47, 
+    "pk": 71, 
     "model": "scorecard_processor.questiongroup", 
     "fields": {
       "ordering": 1, 
@@ -2234,7 +2234,7 @@
     }
   }, 
   {
-    "pk": 48, 
+    "pk": 72, 
     "model": "scorecard_processor.questiongroup", 
     "fields": {
       "ordering": 1, 
@@ -2254,7 +2254,7 @@
     }
   }, 
   {
-    "pk": 49, 
+    "pk": 73, 
     "model": "scorecard_processor.questiongroup", 
     "fields": {
       "ordering": 1, 
@@ -2274,7 +2274,7 @@
     }
   }, 
   {
-    "pk": 50, 
+    "pk": 74, 
     "model": "scorecard_processor.questiongroup", 
     "fields": {
       "ordering": 1, 
@@ -2314,17 +2314,17 @@
     }
   }, 
   {
-    "pk": 51, 
+    "pk": 75, 
     "model": "scorecard_processor.questiongroup", 
     "fields": {
       "ordering": 1, 
-      "help_text": "Country procurement and public financial management systems for the health sector either (a) adhere to broadly accepted good practices or (b) have a reform programme in place to achieve these. (PD2)", 
+      "help_text": "Country procurement and public financial management systems for the health sector either (a) adhere to broadly accepted good practices or (b) have a reform programme in place to achieve these. (PD2). IHP+Results has this data so there is no need for you to complete this question.", 
       "survey": 4, 
       "name": "5Ga"
     }
   }, 
   {
-    "pk": 52, 
+    "pk": 76, 
     "model": "scorecard_processor.questiongroup", 
     "fields": {
       "ordering": 1, 
@@ -2344,7 +2344,7 @@
     }
   }, 
   {
-    "pk": 53, 
+    "pk": 77, 
     "model": "scorecard_processor.questiongroup", 
     "fields": {
       "ordering": 1, 
@@ -2364,7 +2364,7 @@
     }
   }, 
   {
-    "pk": 54, 
+    "pk": 78, 
     "model": "scorecard_processor.questiongroup", 
     "fields": {
       "ordering": 1, 
@@ -2384,23 +2384,13 @@
     }
   }, 
   {
-    "pk": 55, 
+    "pk": 79, 
     "model": "scorecard_processor.questiongroup", 
     "fields": {
       "ordering": 1, 
-      "help_text": "Evidence that Civil Society is actively represented in health sector policy processes - including health sector planning, coordination & review mechanisms", 
+      "help_text": "Evidence that Civil Society is actively represented in health sector policy processes - including health sector planning, coordination & review mechanisms. (please tick as many categories as appropriate)", 
       "survey": 4, 
       "name": "8G"
-    }
-  }, 
-  {
-    "pk": 56, 
-    "model": "scorecard_processor.questiongroup", 
-    "fields": {
-      "ordering": 1, 
-      "help_text": "", 
-      "survey": 4, 
-      "name": "Additional questions"
     }
   }, 
   {
@@ -2410,6 +2400,16 @@
       "ordering": 1, 
       "help_text": "", 
       "survey": 3, 
+      "name": "Additional questions"
+    }
+  }, 
+  {
+    "pk": 80, 
+    "model": "scorecard_processor.questiongroup", 
+    "fields": {
+      "ordering": 1, 
+      "help_text": "", 
+      "survey": 4, 
       "name": "Additional questions"
     }
   }, 
@@ -2736,7 +2736,7 @@
     }
   }, 
   {
-    "pk": 1, 
+    "pk": 81, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
@@ -2746,7 +2746,7 @@
     }
   }, 
   {
-    "pk": 2, 
+    "pk": 82, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
@@ -2756,7 +2756,7 @@
     }
   }, 
   {
-    "pk": 3, 
+    "pk": 83, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
@@ -2766,7 +2766,7 @@
     }
   }, 
   {
-    "pk": 4, 
+    "pk": 84, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
@@ -2776,7 +2776,7 @@
     }
   }, 
   {
-    "pk": 5, 
+    "pk": 85, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
@@ -2786,7 +2786,7 @@
     }
   }, 
   {
-    "pk": 6, 
+    "pk": 86, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
@@ -2796,7 +2796,7 @@
     }
   }, 
   {
-    "pk": 7, 
+    "pk": 87, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
@@ -2806,7 +2806,7 @@
     }
   }, 
   {
-    "pk": 8, 
+    "pk": 88, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
@@ -2816,7 +2816,7 @@
     }
   }, 
   {
-    "pk": 9, 
+    "pk": 89, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
@@ -2826,7 +2826,7 @@
     }
   }, 
   {
-    "pk": 10, 
+    "pk": 90, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
@@ -2836,7 +2836,7 @@
     }
   }, 
   {
-    "pk": 11, 
+    "pk": 91, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
@@ -2846,7 +2846,7 @@
     }
   }, 
   {
-    "pk": 12, 
+    "pk": 92, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
@@ -2856,7 +2856,7 @@
     }
   }, 
   {
-    "pk": 13, 
+    "pk": 93, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
@@ -2866,7 +2866,7 @@
     }
   }, 
   {
-    "pk": 14, 
+    "pk": 94, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
@@ -2876,7 +2876,7 @@
     }
   }, 
   {
-    "pk": 15, 
+    "pk": 95, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
@@ -2886,7 +2886,7 @@
     }
   }, 
   {
-    "pk": 16, 
+    "pk": 96, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
@@ -2896,7 +2896,7 @@
     }
   }, 
   {
-    "pk": 17, 
+    "pk": 97, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
@@ -2906,7 +2906,7 @@
     }
   }, 
   {
-    "pk": 18, 
+    "pk": 98, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
@@ -2916,7 +2916,7 @@
     }
   }, 
   {
-    "pk": 19, 
+    "pk": 99, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
@@ -2926,7 +2926,7 @@
     }
   }, 
   {
-    "pk": 20, 
+    "pk": 100, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
@@ -2936,27 +2936,27 @@
     }
   }, 
   {
-    "pk": 21, 
+    "pk": 101, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
       "parent_object": 172, 
-      "question": "Quel montant de l'aide au secteur de la sant\u00e9 que vous avez d\u00e9pens\u00e9  a \u00e9t\u00e9 fourni dans le carde d'engagements pluriannuels (au moins 3 ans)?"
+      "question": "Quel montant de l'aide au secteur de la sant\u00e9 que vous avez d\u00e9pens\u00e9 (Q6) a \u00e9t\u00e9 fourni dans le carde d'engagements pluriannuels (au moins 3 ans)?"
     }
   }, 
   {
-    "pk": 22, 
+    "pk": 102, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
       "parent_object": 174, 
-      "question": "Quel montant de l'aide au secteur de la sant\u00e9 avez-vous planifi\u00e9 de d\u00e9penser au niveau national? "
+      "question": "Quel montant de l'aide au secteur de la sant\u00e9 (Q6) avez-vous planifi\u00e9 de d\u00e9penser au niveau national? "
     }
   }, 
   {
-    "pk": 23, 
+    "pk": 103, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
@@ -2966,7 +2966,7 @@
     }
   }, 
   {
-    "pk": 24, 
+    "pk": 104, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
@@ -2976,7 +2976,7 @@
     }
   }, 
   {
-    "pk": 25, 
+    "pk": 105, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
@@ -2986,7 +2986,7 @@
     }
   }, 
   {
-    "pk": 26, 
+    "pk": 106, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
@@ -2996,27 +2996,27 @@
     }
   }, 
   {
-    "pk": 27, 
+    "pk": 107, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
       "parent_object": 183, 
-      "question": "Avez-vous de mani\u00e8re habituelle utilis\u00e9 un unique cadre national  d'\u00e9valuation des performances comme base premi\u00e8re d'\u00e9valuation des progr\u00e8s dans votre pays?  "
+      "question": "Avez-vous de mani\u00e8re habituelle utilis\u00e9 un unique cadre national  d'\u00e9valuation des performances comme base premi\u00e8re d'\u00e9valuation des progr\u00e8s des programmes de votre organisme dans votre pays?  "
     }
   }, 
   {
-    "pk": 28, 
+    "pk": 108, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
       "parent_object": 185, 
-      "question": "Avez-vous entrepris des \u00e9valuations mutuelles des progr\u00e8s dans la mise en \u0153uvre des engagements dans le secteur de la sant\u00e9, y compris en ce qui concerne l'efficacit\u00e9 de l'aide? "
+      "question": "Avez-vous particip\u00e9 dans les \u00e9valuations mutuelles des progr\u00e8s dans la mise en \u0153uvre des engagements dans le secteur de la sant\u00e9, y compris en ce qui concerne l'efficacit\u00e9 de l'aide? "
     }
   }, 
   {
-    "pk": 29, 
+    "pk": 109, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
@@ -3026,7 +3026,7 @@
     }
   }, 
   {
-    "pk": 30, 
+    "pk": 110, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
@@ -3036,7 +3036,7 @@
     }
   }, 
   {
-    "pk": 31, 
+    "pk": 111, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
@@ -3046,497 +3046,497 @@
     }
   }, 
   {
-    "pk": 32, 
+    "pk": 112, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
-      "parent_object": 113, 
+      "parent_object": 193, 
       "question": "Informations compl\u00e9mentaires volontaires"
     }
   }, 
   {
-    "pk": 33, 
+    "pk": 113, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
-      "parent_object": 116, 
+      "parent_object": 196, 
       "question": "Informations compl\u00e9mentaires volontaires"
     }
   }, 
   {
-    "pk": 34, 
+    "pk": 114, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
-      "parent_object": 118, 
+      "parent_object": 198, 
       "question": "Informations compl\u00e9mentaires volontaires"
     }
   }, 
   {
-    "pk": 35, 
+    "pk": 115, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
-      "parent_object": 121, 
+      "parent_object": 201, 
       "question": "Informations compl\u00e9mentaires volontaires"
     }
   }, 
   {
-    "pk": 36, 
+    "pk": 116, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
-      "parent_object": 124, 
+      "parent_object": 204, 
       "question": "Informations compl\u00e9mentaires volontaires"
     }
   }, 
   {
-    "pk": 37, 
+    "pk": 117, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
-      "parent_object": 126, 
+      "parent_object": 206, 
       "question": "Informations compl\u00e9mentaires volontaires"
     }
   }, 
   {
-    "pk": 38, 
+    "pk": 118, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
-      "parent_object": 128, 
+      "parent_object": 208, 
       "question": "Informations compl\u00e9mentaires volontaires"
     }
   }, 
   {
-    "pk": 39, 
+    "pk": 119, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
-      "parent_object": 130, 
+      "parent_object": 210, 
       "question": "Informations compl\u00e9mentaires volontaires"
     }
   }, 
   {
-    "pk": 40, 
+    "pk": 120, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
-      "parent_object": 132, 
+      "parent_object": 212, 
       "question": "Informations compl\u00e9mentaires volontaires"
     }
   }, 
   {
-    "pk": 41, 
+    "pk": 121, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
-      "parent_object": 134, 
+      "parent_object": 214, 
       "question": "Informations compl\u00e9mentaires volontaires"
     }
   }, 
   {
-    "pk": 42, 
+    "pk": 122, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
-      "parent_object": 136, 
+      "parent_object": 216, 
       "question": "Informations compl\u00e9mentaires volontaires"
     }
   }, 
   {
-    "pk": 43, 
+    "pk": 123, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
-      "parent_object": 138, 
+      "parent_object": 218, 
       "question": "Informations compl\u00e9mentaires volontaires"
     }
   }, 
   {
-    "pk": 44, 
+    "pk": 124, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
-      "parent_object": 140, 
+      "parent_object": 220, 
       "question": "Informations compl\u00e9mentaires volontaires"
     }
   }, 
   {
-    "pk": 45, 
+    "pk": 125, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
-      "parent_object": 142, 
+      "parent_object": 222, 
       "question": "Informations compl\u00e9mentaires volontaires"
     }
   }, 
   {
-    "pk": 46, 
+    "pk": 126, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
-      "parent_object": 144, 
+      "parent_object": 224, 
       "question": "Informations compl\u00e9mentaires volontaires"
     }
   }, 
   {
-    "pk": 47, 
+    "pk": 127, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
-      "parent_object": 146, 
+      "parent_object": 226, 
       "question": "Informations compl\u00e9mentaires volontaires"
     }
   }, 
   {
-    "pk": 48, 
+    "pk": 128, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
-      "parent_object": 148, 
+      "parent_object": 228, 
       "question": "Informations compl\u00e9mentaires volontaires"
     }
   }, 
   {
-    "pk": 49, 
+    "pk": 129, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
-      "parent_object": 150, 
+      "parent_object": 230, 
       "question": "Informations compl\u00e9mentaires volontaires"
     }
   }, 
   {
-    "pk": 50, 
+    "pk": 130, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
-      "parent_object": 152, 
+      "parent_object": 232, 
       "question": "Informations compl\u00e9mentaires volontaires"
     }
   }, 
   {
-    "pk": 51, 
+    "pk": 131, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
-      "parent_object": 154, 
+      "parent_object": 234, 
       "question": "Informations compl\u00e9mentaires volontaires"
     }
   }, 
   {
-    "pk": 52, 
+    "pk": 132, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
-      "parent_object": 156, 
+      "parent_object": 236, 
       "question": "Informations compl\u00e9mentaires volontaires"
     }
   }, 
   {
-    "pk": 53, 
+    "pk": 133, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "merci d'utiliser cet espace pour plus de d\u00e9tails et le contexte", 
-      "parent_object": 158, 
+      "parent_object": 238, 
       "question": "Informations compl\u00e9mentaires volontaires"
     }
   }, 
   {
-    "pk": 54, 
+    "pk": 134, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
-      "parent_object": 112, 
+      "parent_object": 192, 
       "question": "Y a-t-il un Pacte national de Partenariat IHP+ (ou accord \u00e9quivalent) en place? "
     }
   }, 
   {
-    "pk": 55, 
+    "pk": 135, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
-      "parent_object": 114, 
+      "parent_object": 194, 
       "question": "La strat\u00e9gie du secteur national de la sant\u00e9 (ou \u00e9quivalent) inclue-t-elle des objectifs et des budgets actuels?"
     }
   }, 
   {
-    "pk": 56, 
+    "pk": 136, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
-      "parent_object": 115, 
+      "parent_object": 195, 
       "question": "La strat\u00e9gie du secteur natinal de la sant\u00e9 a-t-elle \u00e9t\u00e9 \u00e9valu\u00e9e conjointement? "
     }
   }, 
   {
-    "pk": 57, 
+    "pk": 137, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
-      "parent_object": 117, 
+      "parent_object": 197, 
       "question": "Y a-t-il un plan des ressources humaines de la sant\u00e9 chiffr\u00e9, complet et fond\u00e9 sur des donn\u00e9es probantes (qui est int\u00e9gr\u00e9 dans le plan de sant\u00e9 national) en cours de mise en oeuvre ou de d\u00e9veloppement? "
     }
   }, 
   {
-    "pk": 58, 
+    "pk": 138, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
-      "parent_object": 119, 
+      "parent_object": 199, 
       "question": "Quel \u00e9tait le montant de la contribution publique (interne) au budget national (c.-\u00e0-d. sans compter les financements externes)?"
     }
   }, 
   {
-    "pk": 59, 
+    "pk": 139, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
-      "parent_object": 120, 
+      "parent_object": 200, 
       "question": "Quel \u00e9tait le montant total du financement public (interne) allou\u00e9 \u00e0 la sant\u00e9 (c.-\u00e0-d. sans compter les financements externes)?"
     }
   }, 
   {
-    "pk": 60, 
+    "pk": 140, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
-      "parent_object": 122, 
+      "parent_object": 202, 
       "question": "Quel \u00e9tait le montant total (y compris les financements externes) du budget annuel approuv\u00e9 pour le secteur de la sant\u00e9? "
     }
   }, 
   {
-    "pk": 61, 
+    "pk": 141, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
-      "parent_object": 123, 
+      "parent_object": 203, 
       "question": "Quel \u00e9tait le montant total du financement d\u00e9pens\u00e9 selon le budget annuel approuv\u00e9 pour le secteur de la sant\u00e9?"
     }
   }, 
   {
-    "pk": 62, 
+    "pk": 142, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
-      "parent_object": 125, 
+      "parent_object": 205, 
       "question": "Veuillez utiliser la colonne \"informations compl\u00e9mentaires volontaires\" pour apporter vos commentaires sur les donn\u00e9es GFP/EPIN fournies dans le document guide"
     }
   }, 
   {
-    "pk": 63, 
+    "pk": 143, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
-      "parent_object": 127, 
+      "parent_object": 207, 
       "question": "Veuillez utiliser la colonne \"informations compl\u00e9mentaires volontaires\" pour apporter vos commentaires sur les donn\u00e9es d'\u00e9valuation de l'approvisionnement fournies dans le document guide."
     }
   }, 
   {
-    "pk": 64, 
+    "pk": 144, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
-      "parent_object": 129, 
+      "parent_object": 209, 
       "question": "Y a-t-il un cadre d'\u00e9valuation transparent et contr\u00f4lable  en place afin d'\u00e9valuer les progr\u00e8s du secteur de la sant\u00e9?"
     }
   }, 
   {
-    "pk": 65, 
+    "pk": 145, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
-      "parent_object": 131, 
+      "parent_object": 211, 
       "question": "Avez-vous entrepris des \u00e9valuations mutuelles des progr\u00e8s dans la mise en \u0153uvre des engagements dans le secteur de la sant\u00e9, y compris en ce qui concerne l'efficacit\u00e9 de l'aide? "
     }
   }, 
   {
-    "pk": 66, 
+    "pk": 146, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
-      "parent_object": 133, 
+      "parent_object": 213, 
       "question": "Quelle proportion des si\u00e8ges du m\u00e9canisme de coordination du secteur de la sant\u00e9 a-t-elle \u00e9t\u00e9 attribu\u00e9e aux repr\u00e9sentants de la soci\u00e9t\u00e9 civile? "
     }
   }, 
   {
-    "pk": 67, 
+    "pk": 147, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
-      "parent_object": 135, 
+      "parent_object": 215, 
       "question": "Quels types d'organisations de la soci\u00e9t\u00e9 civile sont-ils repr\u00e9sent\u00e9s au sein du m\u00e9canisme de coordination du secteur de la sant\u00e9? Merci d'indiquer Oui (O) dans toutes les cat\u00e9gories ad\u00e9quates. "
     }
   }, 
   {
-    "pk": 68, 
+    "pk": 148, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
-      "parent_object": 137, 
+      "parent_object": 217, 
       "question": "A quels moments du processus de politique et de planification les organisations de la soci\u00e9t\u00e9 civile sont-elles habituellement impliqu\u00e9es? Merci d'indiquer Oui (O) dans toutes les cat\u00e9gories appropri\u00e9es "
     }
   }, 
   {
-    "pk": 69, 
+    "pk": 149, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
-      "parent_object": 139, 
+      "parent_object": 219, 
       "question": "Quel est le nombre total des partenaires de d\u00e9veloppement / missions de donateurs ? "
     }
   }, 
   {
-    "pk": 70, 
+    "pk": 150, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
-      "parent_object": 141, 
+      "parent_object": 221, 
       "question": "Combien de partenaires de d\u00e9veloppement ont utilis\u00e9 un m\u00e9canisme conjoint de financement (s'il y en a un)?"
     }
   }, 
   {
-    "pk": 71, 
+    "pk": 151, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
-      "parent_object": 143, 
+      "parent_object": 223, 
       "question": "Combien de personnel m\u00e9dical qualifi\u00e9 y avait-il en service? "
     }
   }, 
   {
-    "pk": 72, 
+    "pk": 152, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
-      "parent_object": 145, 
+      "parent_object": 225, 
       "question": "Veuillez indiquer la population totale de votre pays."
     }
   }, 
   {
-    "pk": 73, 
+    "pk": 153, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
-      "parent_object": 147, 
+      "parent_object": 227, 
       "question": "Combien y a-t-il eu de visites dans les services de sant\u00e9 ambulatoires ? "
     }
   }, 
   {
-    "pk": 74, 
+    "pk": 154, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
-      "parent_object": 149, 
+      "parent_object": 229, 
       "question": "Quel a \u00e9t\u00e9 le montant total d\u00e9pens\u00e9 pour la main d'\u0153uvre de sant\u00e9? "
     }
   }, 
   {
-    "pk": 75, 
+    "pk": 155, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
-      "parent_object": 151, 
+      "parent_object": 231, 
       "question": "Le service d'informatique m\u00e9dicale fournit-il des donn\u00e9es exactes, pertinentes et fiables sur les r\u00e9sultats?"
     }
   }, 
   {
-    "pk": 76, 
+    "pk": 156, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
-      "parent_object": 153, 
+      "parent_object": 233, 
       "question": "Combien y a-t-il d'indicateurs dans le Cadre national de R\u00e9sultats? "
     }
   }, 
   {
-    "pk": 77, 
+    "pk": 157, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
-      "parent_object": 155, 
+      "parent_object": 235, 
       "question": "Combien d'indicateurs ont r\u00e9ellement \u00e9t\u00e9 suivis (p.ex. pour r\u00e9ponde \u00e0 des demandes de compte-rendu suppl\u00e9mentaires des partenaires de d\u00e9veloppement)? "
     }
   }, 
   {
-    "pk": 78, 
+    "pk": 158, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
-      "parent_object": 157, 
+      "parent_object": 237, 
       "question": "Quelle \u00e9tait la date de la derni\u00e8re revue annuelle conjointe du secteur de sant\u00e9? "
     }
   }, 
   {
-    "pk": 79, 
+    "pk": 159, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
-      "parent_object": 159, 
+      "parent_object": 239, 
       "question": "Veuillez apporter des commentaires sur le niveau de repr\u00e9sentation lors des Revues annuelles conjointse du secteur de sant\u00e9?  "
     }
   }, 
   {
-    "pk": 80, 
+    "pk": 160, 
     "model": "scorecard_processor.questiontranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
-      "parent_object": 160, 
+      "parent_object": 240, 
       "question": "Veuillez apporter des commentaires sur l'efficacit\u00e9 de ces Revues annuelles comme m\u00e9canisme de redevabilit\u00e9 "
     }
   }, 
   {
-    "pk": 1, 
+    "pk": 23, 
     "model": "scorecard_processor.questiongrouptranslation", 
     "fields": {
       "lang": "fr", 
@@ -3546,7 +3546,7 @@
     }
   }, 
   {
-    "pk": 2, 
+    "pk": 24, 
     "model": "scorecard_processor.questiongrouptranslation", 
     "fields": {
       "lang": "fr", 
@@ -3556,7 +3556,7 @@
     }
   }, 
   {
-    "pk": 3, 
+    "pk": 25, 
     "model": "scorecard_processor.questiongrouptranslation", 
     "fields": {
       "lang": "fr", 
@@ -3566,7 +3566,7 @@
     }
   }, 
   {
-    "pk": 4, 
+    "pk": 26, 
     "model": "scorecard_processor.questiongrouptranslation", 
     "fields": {
       "lang": "fr", 
@@ -3576,7 +3576,7 @@
     }
   }, 
   {
-    "pk": 5, 
+    "pk": 27, 
     "model": "scorecard_processor.questiongrouptranslation", 
     "fields": {
       "lang": "fr", 
@@ -3586,7 +3586,7 @@
     }
   }, 
   {
-    "pk": 6, 
+    "pk": 28, 
     "model": "scorecard_processor.questiongrouptranslation", 
     "fields": {
       "lang": "fr", 
@@ -3596,7 +3596,7 @@
     }
   }, 
   {
-    "pk": 7, 
+    "pk": 29, 
     "model": "scorecard_processor.questiongrouptranslation", 
     "fields": {
       "lang": "fr", 
@@ -3606,7 +3606,7 @@
     }
   }, 
   {
-    "pk": 8, 
+    "pk": 30, 
     "model": "scorecard_processor.questiongrouptranslation", 
     "fields": {
       "lang": "fr", 
@@ -3616,7 +3616,7 @@
     }
   }, 
   {
-    "pk": 9, 
+    "pk": 31, 
     "model": "scorecard_processor.questiongrouptranslation", 
     "fields": {
       "lang": "fr", 
@@ -3626,7 +3626,7 @@
     }
   }, 
   {
-    "pk": 10, 
+    "pk": 32, 
     "model": "scorecard_processor.questiongrouptranslation", 
     "fields": {
       "lang": "fr", 
@@ -3636,7 +3636,7 @@
     }
   }, 
   {
-    "pk": 11, 
+    "pk": 33, 
     "model": "scorecard_processor.questiongrouptranslation", 
     "fields": {
       "lang": "fr", 
@@ -3646,7 +3646,7 @@
     }
   }, 
   {
-    "pk": 12, 
+    "pk": 34, 
     "model": "scorecard_processor.questiongrouptranslation", 
     "fields": {
       "lang": "fr", 
@@ -3656,7 +3656,7 @@
     }
   }, 
   {
-    "pk": 13, 
+    "pk": 35, 
     "model": "scorecard_processor.questiongrouptranslation", 
     "fields": {
       "lang": "fr", 
@@ -3666,92 +3666,92 @@
     }
   }, 
   {
-    "pk": 14, 
+    "pk": 36, 
     "model": "scorecard_processor.questiongrouptranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": null, 
-      "parent_object": 56, 
+      "parent_object": 80, 
       "name": "Des questions suppl\u00e9mentaires"
     }
   }, 
   {
-    "pk": 15, 
+    "pk": 37, 
     "model": "scorecard_processor.questiongrouptranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "Accord IHP+ ou entente mutuelle \u00e9quivalente en place.", 
-      "parent_object": 46, 
+      "parent_object": 70, 
       "name": "1G"
     }
   }, 
   {
-    "pk": 16, 
+    "pk": 38, 
     "model": "scorecard_processor.questiongrouptranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "Plans et strat\u00e9gie nationaux sectoriels de sant\u00e9 mis en place avec des objectifs et des budgets actuels qui ont \u00e9t\u00e9 \u00e9valu\u00e9s conjointement.", 
-      "parent_object": 47, 
+      "parent_object": 71, 
       "name": "2Ga"
     }
   }, 
   {
-    "pk": 17, 
+    "pk": 39, 
     "model": "scorecard_processor.questiongrouptranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "Un Plan relatif aux HRH chiffr\u00e9 et fond\u00e9 sur des preuves est en place et int\u00e9gr\u00e9 au plan de sant\u00e9 national.", 
-      "parent_object": 48, 
+      "parent_object": 72, 
       "name": "2Gb"
     }
   }, 
   {
-    "pk": 18, 
+    "pk": 40, 
     "model": "scorecard_processor.questiongrouptranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "Proportion de financement public allou\u00e9 \u00e0 la sant\u00e9.", 
-      "parent_object": 49, 
+      "parent_object": 73, 
       "name": "3G"
     }
   }, 
   {
-    "pk": 19, 
+    "pk": 41, 
     "model": "scorecard_processor.questiongrouptranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "Part de financement du secteur de la sant\u00e9 qui a \u00e9t\u00e9 d\u00e9caiss\u00e9e, par rapport au budget annuel approuv\u00e9.", 
-      "parent_object": 50, 
+      "parent_object": 74, 
       "name": "4G"
     }
   }, 
   {
-    "pk": 20, 
+    "pk": 42, 
     "model": "scorecard_processor.questiongrouptranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "Un cadre d\u2019\u00e9valuation de la performance transparent, convenu conjointement et dont le suivi est assur\u00e9, est utilis\u00e9 pour \u00e9valuer les progr\u00e8s accomplis dans le secteur de la sant\u00e9.", 
-      "parent_object": 53, 
+      "parent_object": 77, 
       "name": "6G"
     }
   }, 
   {
-    "pk": 21, 
+    "pk": 43, 
     "model": "scorecard_processor.questiongrouptranslation", 
     "fields": {
       "lang": "fr", 
       "help_text": "Des \u00e9valuations mutuelles telles que les revues sectorielles annuelles conjointes en mati\u00e8re de sant\u00e9 ont \u00e9t\u00e9 faites sur les progr\u00e8s accomplis en ce qui concerne la mise en oeuvre d\u2019engagements dans le secteur de la sant\u00e9, notamment en ce qui concerne l\u2019efficacit\u00e9 de l\u2019aide.", 
-      "parent_object": 54, 
+      "parent_object": 78, 
       "name": "7G"
     }
   }, 
   {
-    "pk": 22, 
+    "pk": 44, 
     "model": "scorecard_processor.questiongrouptranslation", 
     "fields": {
       "lang": "fr", 
-      "help_text": "Donn\u00e9es indiquant que la soci\u00e9t\u00e9 civile est repr\u00e9sent\u00e9e activement dans les processus relatifs aux politiques dans le secteur de la sant\u00e9, notamment la planification, la coordination et les m\u00e9canismes de revue dans le secteur de la sant\u00e9.", 
-      "parent_object": 55, 
+      "help_text": "Donn\u00e9es indiquant que la soci\u00e9t\u00e9 civile est repr\u00e9sent\u00e9e activement dans les processus relatifs aux politiques dans le secteur de la sant\u00e9, notamment la planification, la coordination et les m\u00e9canismes de revue dans le secteur de la sant\u00e9. (s'il vous pla\u00eet cocher la case de nombreuses cat\u00e9gories, le cas \u00e9ch\u00e9ant)", 
+      "parent_object": 79, 
       "name": "8G"
     }
   }

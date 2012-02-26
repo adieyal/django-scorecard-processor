@@ -5,15 +5,15 @@ import xlrd
 from scorecard_processor import models
 
 group_text = {
-"1G"  :"Accord IHP+ ou entente mutuelle équivalente en place.",
-"2Ga" :"Plans et stratégie nationaux sectoriels de santé mis en place avec des objectifs et des budgets actuels qui ont été évalués conjointement.",
-"2Gb" :"Un Plan relatif aux HRH chiffré et fondé sur des preuves est en place et intégré au plan de santé national.",
-"3G"  :"Proportion de financement public alloué à la santé.",
-"4G"  :"Part de financement du secteur de la santé qui a été décaissée, par rapport au budget annuel approuvé.",
-"5G"  :"Les systèmes d’approvisionnement des pays et de gestion des finances publiques (dans le secteur de la santé) a) adhèrent à des pratiques exemplaires généralement acceptées ou b) disposent d’un programme de réforme qui a été mis en place afin qu’ils adhèrent à ces pratiques.",
-"6G"  :"Un cadre d’évaluation de la performance transparent, convenu conjointement et dont le suivi est assuré, est utilisé pour évaluer les progrès accomplis dans le secteur de la santé.",
-"7G"  :"Des évaluations mutuelles telles que les revues sectorielles annuelles conjointes en matière de santé ont été faites sur les progrès accomplis en ce qui concerne la mise en oeuvre d’engagements dans le secteur de la santé, notamment en ce qui concerne l’efficacité de l’aide.",
-"8G"  :"Données indiquant que la société civile est représentée activement dans les processus relatifs aux politiques dans le secteur de la santé, notamment la planification, la coordination et les mécanismes de revue dans le secteur de la santé.",
+"1G":  "Accord IHP+ ou entente mutuelle équivalente en place.",
+"2Ga": "Plans et stratégie nationaux sectoriels de santé mis en place avec des objectifs et des budgets actuels qui ont été évalués conjointement.",
+"2Gb": "Un Plan relatif aux HRH chiffré et fondé sur des preuves est en place et intégré au plan de santé national.",
+"3G":  "Proportion de financement public alloué à la santé.",
+"4G":  "Part de financement du secteur de la santé qui a été décaissée, par rapport au budget annuel approuvé.",
+"5G":  "Les systèmes d’approvisionnement des pays et de gestion des finances publiques (dans le secteur de la santé) a) adhèrent à des pratiques exemplaires généralement acceptées ou b) disposent d’un programme de réforme qui a été mis en place afin qu’ils adhèrent à ces pratiques. IHP+Results a ces données de sorte qu'il n'est pas nécessaire pour vous de répondre à cette question.",
+"6G":  "Un cadre d’évaluation de la performance transparent, convenu conjointement et dont le suivi est assuré, est utilisé pour évaluer les progrès accomplis dans le secteur de la santé.",
+"7G":  "Des évaluations mutuelles telles que les revues sectorielles annuelles conjointes en matière de santé ont été faites sur les progrès accomplis en ce qui concerne la mise en oeuvre d’engagements dans le secteur de la santé, notamment en ce qui concerne l’efficacité de l’aide.",
+"8G":  "Données indiquant que la société civile est représentée activement dans les processus relatifs aux politiques dans le secteur de la santé, notamment la planification, la coordination et les mécanismes de revue dans le secteur de la santé. (s'il vous plaît cocher la case de nombreuses catégories, le cas échéant)",
 }
 
 
