@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-24 13:25+0200\n"
+"POT-Creation-Date: 2012-02-24 15:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -239,14 +239,19 @@ msgid "Click to see definition"
 msgstr "Cliquez ici pour voir la définition"
 
 #: ihp_results/templates/ihp_results/edit_dsg_survey.html:163
+msgid ""
+"Download 2011 data <a href=\"http://ihpresults.net/results/data/\">here</a>"
+msgstr "<a href=\"http://ihpresults.net/results/data/\">Télécharger</a> les données 2011"
+
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:164
 msgid "Continue"
 msgstr "Continuer"
 
-#: ihp_results/templates/ihp_results/edit_dsg_survey.html:164
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:165
 msgid "Save and continue"
 msgstr "Enregistrer et continuer"
 
-#: ihp_results/templates/ihp_results/edit_dsg_survey.html:165
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:166
 msgid "Save and submit"
 msgstr "Enregistrer et soumettre"
 
@@ -267,12 +272,12 @@ msgstr ""
 #: scorecard_processor/plugins/input/choices.py:11
 #: scorecard_processor/plugins/input/choices.py:22
 msgid "Yes"
-msgstr ""
+msgstr "Oui"
 
 #: scorecard_processor/plugins/input/choices.py:12
 #: scorecard_processor/plugins/input/choices.py:23
 msgid "No"
-msgstr ""
+msgstr "Non"
 
 #: scorecard_processor/plugins/input/choices.py:13
 msgid "n/a"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-24 13:25+0200\n"
+"POT-Creation-Date: 2012-02-24 15:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -234,14 +234,19 @@ msgid "Click to see definition"
 msgstr ""
 
 #: ihp_results/templates/ihp_results/edit_dsg_survey.html:163
-msgid "Continue"
+msgid ""
+"Download 2011 data <a href=\"http://ihpresults.net/results/data/\">here</a>"
 msgstr ""
 
 #: ihp_results/templates/ihp_results/edit_dsg_survey.html:164
-msgid "Save and continue"
+msgid "Continue"
 msgstr ""
 
 #: ihp_results/templates/ihp_results/edit_dsg_survey.html:165
+msgid "Save and continue"
+msgstr ""
+
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:166
 msgid "Save and submit"
 msgstr ""
 
