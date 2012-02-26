@@ -74,6 +74,10 @@ class QuestionForm(BootstrapForm):
         self.series = OrderedDict([(s.pk,s) for s in kwargs.pop('series')])
         self.country = kwargs.pop('country')
         self.collection_year = {}
+        try:
+            self.static = kwargs.pop('static')
+        except KeyError:
+            self.static = False
 
         super(QuestionForm, self).__init__(*args, **kwargs)
         self.layout = []
@@ -111,10 +115,11 @@ class QuestionForm(BootstrapForm):
         for collection, year in self.collection_year.items():
             self.initial[collection_lookup[collection.name]] = year.name
             rs = self.response_types.get(collection)
-            if rs and rs.editable == False:
+            if rs and (rs.editable == False or self.static):
                field = self.fields[collection_lookup[collection.name]]
                field.widget.attrs['readonly'] = 'readonly'
                field.widget.attrs['disabled'] = 'disabled'
+               field.required = False
 
         series_list = self.series.values()
         current_series = series_list[0]
@@ -143,7 +148,7 @@ class QuestionForm(BootstrapForm):
                 self.response['q_%s_%s' % (response.question.pk, ds.pk)] = response
             
     def add_field_from_question(self, question, series, label=True):
-        read_only = False
+        read_only = self.static
         rs = self.response_types.get(series)
         if rs and rs.editable == False:
             read_only=True
@@ -167,10 +172,13 @@ class QuestionForm(BootstrapForm):
         self.fields['q_%s_%s' % (question.pk,series.pk)] = field
 
     def save(self):
-        baseline_year = DataSeries.objects.get(name=self.cleaned_data['baseline_year'])
+        baseline_year = self.cleaned_data['baseline_year'] 
+        if baseline_year:
+            baseline_year = DataSeries.objects.get(name=baseline_year)
+        else:
+            baseline_year = None
         current_year = DataSeries.objects.get(name=self.cleaned_data['current_year'])
         currency = self.cleaned_data['currency']
-
         for responseset in self.responsesets:
             if responseset.editable:
                 responseset.set_meta('currency',{'value':currency})
@@ -220,6 +228,7 @@ class QuestionForm(BootstrapForm):
                             responseset.data_series.add(current_year)
                         self.responsesets.append(responseset)
                         responseset.set_meta('currency',{'value':currency})
+
 
                     if responseset.editable:
                         r = responseset.response_set.create(question=question, respondant=self.user, valid=True, current=True)

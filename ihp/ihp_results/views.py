@@ -85,4 +85,34 @@ def edit_dsg_survey(request, entity_id, data_series_group_name, survey_id, data_
 
 @login_required
 def view_dsg_survey(request, entity_id, data_series_group_name, survey_id, data_series_name):
-    return HttpResponse("Squirrel nuts for now")
+    entity = Entity.objects.get(pk=entity_id)
+    survey = Survey.objects.get(pk=survey_id)
+    if not request.user.is_staff and 'change_entity' not in get_perms(request.user, entity) or survey.active == False:
+        raise Http404
+
+    data_series_group = DataSeriesGroup.objects.get(pk=data_series_group_name)
+    data_series = get_objects_for_user(request.user, 'can_use', data_series_group.dataseries_set.all())
+    if len(data_series) == 0:
+        data_series = data_series_group.dataseries_set.all()
+    key = {}
+    try:
+        key['pk'] = int(data_series_name)
+    except ValueError:
+        key['name'] = data_series_name
+    data_series = get_object_or_404(data_series, **key)
+
+    if entity.entity_type_id == 'government' and data_series.name != entity.abbreviation:
+        raise Http404
+
+
+    categories = DataSeriesGroup.objects.get(pk='Data collection year').dataseries_set.filter(visible=True)
+
+    form = QuestionForm(entity=entity, user=request.user, survey=survey, country=data_series, series=categories, static=True)
+    context = {
+        'entity':entity,
+        'survey':survey,
+        'data_series_group':data_series_group,
+        'form':form,
+        'data_series':data_series
+    }
+    return render_to_response('ihp_results/view_dsg_survey.html',context,RequestContext(request))
