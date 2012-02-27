@@ -189,8 +189,8 @@ class QuestionForm(BootstrapForm):
         for key, value in self.cleaned_data.items():
             if value or key in self.response:
                 # Check for existing response
-                if key in self.response and self.response[key] != value:
-                    if self.response[key].response_set.editable:
+                if key in self.response:
+                    if  self.response[key].get_value() != value and self.response[key].response_set.editable:
                         instance = Response(
                             response_set = self.response[key].response_set,
                             respondant = self.user,

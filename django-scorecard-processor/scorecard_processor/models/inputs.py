@@ -1,11 +1,16 @@
 from collections import defaultdict, namedtuple
 from ordereddict import OrderedDict
+try:
+    from cStringIO import StringIO
+except ImportError:
+    from StringIO import StringIO
 
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.utils.functional import lazy
 from django.utils import translation
+from django.core.serializers import get_serializer
 
 from bootstrap.forms import BootstrapForm, Fieldset
 
@@ -13,7 +18,6 @@ from meta import DataSeries, DataSeriesGroup, Entity, EntityType, Project
 from scorecard_processor import plugins
 
 from cerial import JSONField
-
 
 class SurveyManager(models.Manager):
     use_for_related_fields = True
@@ -241,6 +245,17 @@ class ResponseSet(models.Model):
             self._data_series = self.data_series.all().select_related('group')
         return self._data_series
 
+    def serialize(self, stream=None, serializer='json'):
+        if not stream:
+            stream_obj = StringIO()
+        else:
+            stream_obj = stream
+        serializer = get_serializer(serializer)()
+        return serializer.serialize(
+            [self]+list(self.response_set.all()), 
+            stream=stream_obj
+            )
+
     def get_data_series_by_type(self):
         return dict([
             (ds.group.name, ds) for ds in self.get_data_series()
@@ -282,6 +297,7 @@ class ResponseSet(models.Model):
 
     def get_response(self, question):
         return self.get_responses().get(question)
+
 
 class ResponseSetMetaData(models.Model):
     response_set = models.ForeignKey(ResponseSet)
@@ -347,4 +363,14 @@ def invalidate_old_responses(sender, instance, **kwargs):
             instance.response_set.last_response_id = instance.pk
             instance.response_set.save()
 
+import tempfile, shutil, os
+def store_to_disk(sender, instance, **kwargs):
+    fd, path = tempfile.mkstemp()
+    tmpfile = os.fdopen(fd, 'w')
+    instance.serialize(stream=tmpfile)
+    tmpfile.close()
+    shutil.copy(path, '../data/%s.-.%s.-.%s.json' % (instance.entity.name, '.'.join([ds.name for ds in instance.get_data_series()]), instance.last_update))
+    os.remove(path)
+    
 post_save.connect(invalidate_old_responses, sender=Response, dispatch_uid="scorecard_processor.invalidate_responses")
+post_save.connect(store_to_disk, sender=ResponseSet, dispatch_uid="scorecard_processor.store_to_disk")
