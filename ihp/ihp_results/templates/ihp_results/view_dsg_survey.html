@@ -34,6 +34,7 @@
     <div class="content">
       <div class="page-header">
         <h1>{{survey.i18n.name}} <small>for <a href="{{entity.get_absolute_url}}">{{entity.name}}</a> - {{data_series}}</small></h1>
+        <form><input class="btn primary pull-right" type="button" value="{% trans "Print this page" %}" onclick="window.print();return false;" /></form> 
       </div>
       <form method="POST" class="form-stacked">
           {% csrf_token %}
