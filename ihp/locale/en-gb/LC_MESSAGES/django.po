@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-26 19:59+0200\n"
+"POT-Creation-Date: 2012-02-27 15:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -216,6 +216,7 @@ msgid "New response to"
 msgstr ""
 
 #: ihp_results/templates/ihp_results/add_dsg_survey.html:8
+#: scorecard_processor/templates/scorecard_processor/entity_detail.html:27
 #: scorecard_processor/templates/scorecard_processor/respond/edit_survey.html:65
 msgid "for"
 msgstr ""
@@ -250,6 +251,10 @@ msgstr ""
 
 #: ihp_results/templates/ihp_results/edit_dsg_survey.html:166
 msgid "Save and submit"
+msgstr ""
+
+#: ihp_results/templates/ihp_results/view_dsg_survey.html:37
+msgid "Print this page"
 msgstr ""
 
 #: ihp_results/templates/scorecard_processor/_entity_responsesets.html:14
@@ -290,6 +295,10 @@ msgstr ""
 msgid "next"
 msgstr ""
 
+#: scorecard_processor/templates/scorecard_processor/entity_detail.html:27
+msgid "Survey Responses"
+msgstr ""
+
 #: scorecard_processor/templates/scorecard_processor/entity_detail.html:35
 msgid "Thanks for your submission"
 msgstr ""
@@ -298,20 +307,32 @@ msgstr ""
 msgid "You can add another response using this button:"
 msgstr ""
 
+#: scorecard_processor/templates/scorecard_processor/entity_detail.html:52
+msgid "Associated users"
+msgstr ""
+
+#: scorecard_processor/templates/scorecard_processor/entity_detail.html:78
+msgid "Edit responses"
+msgstr ""
+
+#: scorecard_processor/templates/scorecard_processor/entity_detail.html:78
+msgid "ordered by last update"
+msgstr ""
+
 #: scorecard_processor/templates/scorecard_processor/respond/edit_survey.html:2
 #, python-format
 msgid "Response to %(survey.i18n.name)s for %(entity.name)s"
 msgstr ""
 
-#: templates/base.html:36
+#: templates/base.html:37
 msgid "Logged in as"
 msgstr ""
 
-#: templates/base.html:42
+#: templates/base.html:43
 msgid "Language"
 msgstr ""
 
-#: templates/base.html:48
+#: templates/base.html:49
 msgid "Set"
 msgstr ""
 

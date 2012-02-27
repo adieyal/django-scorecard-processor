@@ -24,7 +24,7 @@
   <div class="container">
     <div class="content">
       <div class="page-header">
-        <h1>Survey Responses <small>for {{object.name}}</small></h1>
+        <h1>{% trans "Survey Responses" %} <small>{% trans "for" %} {{object.name}}</small></h1>
       </div>
       <div class="row">
       </div>
@@ -49,7 +49,7 @@
               </div>
             </div>
 
-            <h2 style="padding-top:10px">Associated users</h2>
+            <h2 style="padding-top:10px">{% trans "Associated users" %}</h2>
             {% if user_set == 0 %}
               <p>No users are currently associated with this {{object.entity_type}}</p>
             {% else %}
@@ -74,7 +74,7 @@
           {% with object.responseset_set.all.select_related as responsesets %}
             {% if responsesets %}
               <div class="span7">
-                <h2>Edit responses <small>ordered by last update</small></h2>
+                <h2>{% trans "Edit responses" %} <small>{% trans "ordered by last update" %}</small></h2>
                 {% include 'scorecard_processor/_entity_responsesets.html' %}
               </div>
             {% endif %}
