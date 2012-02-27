@@ -365,12 +365,13 @@ def invalidate_old_responses(sender, instance, **kwargs):
 
 import tempfile, shutil, os
 def store_to_disk(sender, instance, **kwargs):
-    fd, path = tempfile.mkstemp()
-    tmpfile = os.fdopen(fd, 'w')
-    instance.serialize(stream=tmpfile)
-    tmpfile.close()
-    shutil.copy(path, '../data/%s.-.%s.-.%s.json' % (instance.entity.name, '.'.join([ds.name for ds in instance.get_data_series()]), instance.last_update))
-    os.remove(path)
+    if instance.data_series.count():
+        fd, path = tempfile.mkstemp()
+        tmpfile = os.fdopen(fd, 'w')
+        instance.serialize(stream=tmpfile)
+        tmpfile.close()
+        shutil.copy(path, '../data/%s.-.%s.-.%s.json' % (instance.entity.name, '.'.join([ds.name for ds in instance.get_data_series()]), instance.last_update))
+        os.remove(path)
     
 post_save.connect(invalidate_old_responses, sender=Response, dispatch_uid="scorecard_processor.invalidate_responses")
 post_save.connect(store_to_disk, sender=ResponseSet, dispatch_uid="scorecard_processor.store_to_disk")
