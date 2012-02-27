@@ -5,9 +5,10 @@
         {% block head %}{% endblock %}
         <title>{% block head_title_outer %}{% block head_title %}{% endblock %} | IHP+Results Online Survey{% endblock %}</title>
         {% block head_style %}
-          <link rel="stylesheet" href="{{STATIC_URL|default:"/static/"}}bootstrap/bootstrap.min.css">
+          <link rel="stylesheet" href="{{STATIC_URL|default:"/static/"}}bootstrap/bootstrap.min.css" />
           <link rel="stylesheet" type="text/css" href="{{STATIC_URL|default:"/static/"}}css/screen.css"/>
         {% endblock %}
+        <link rel="icon" type="image/png" href="http://ihpresults.net/favicon.ico" />
         <style>
           body {padding-top:60px}
           {% block style_block %}{% endblock %}
