@@ -17,15 +17,13 @@ CACHES = {
 CACHE_MIDDLEWARE_ANONYMOUS_ONLY=True
 
 
-MIDDLEWARE_CLASSES = ("ihp_results.middleware.DomainRedirectMiddleware",) + MIDDLEWARE_CLASSES
-
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'survey2012@ihpresults.net'
-EMAIL_HOST_PASSWORD = '7813258ef8c6b632dde8cc80f6bda62f'
+EMAIL_HOST_USER = 'moz2012@ihpresults.net'
+EMAIL_HOST_PASSWORD = 'd0c3251252aa3ba6a806464d2de418b2'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-SERVER_EMAIL='"IHP+Results Survey 2012" <survey2012@ihpresults.net>'
+SERVER_EMAIL='"Mozambique Survey 2012" <moz2012@ihpresults.net>'
 DEFAULT_FROM_EMAIL=SERVER_EMAIL
 ADMINS = (
     ('Sysadmin','sysadmin@ihpresults.net'),
