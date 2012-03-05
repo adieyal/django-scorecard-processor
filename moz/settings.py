@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Django settings for ihp project.
+# Django settings for mozambique/ihp
 
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
@@ -97,7 +97,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'ihp.urls'
+ROOT_URLCONF = 'moz.urls'
 TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.auth.context_processors.auth",
     "django.core.context_processors.debug",
