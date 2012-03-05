@@ -1,0 +1,427 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-02-27 15:09+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: settings.py:47
+msgid "English"
+msgstr ""
+
+#: settings.py:48
+msgid "Français"
+msgstr ""
+
+#: ihp_results/forms.py:58
+msgid "Currency"
+msgstr ""
+
+#: ihp_results/forms.py:59
+msgid "Please select your currency"
+msgstr ""
+
+#: ihp_results/forms.py:63 ihp_results/forms.py:161
+msgid "Baseline data"
+msgstr ""
+
+#: ihp_results/forms.py:67 ihp_results/forms.py:162
+msgid "Latest data"
+msgstr ""
+
+#: ihp_results/plugins.py:10
+msgid "Financial support"
+msgstr ""
+
+#: ihp_results/plugins.py:11
+msgid "Technical assistance (non-financial)"
+msgstr ""
+
+#: ihp_results/plugins.py:12
+msgid "Lobbying/advocay - non-financial"
+msgstr ""
+
+#: ihp_results/plugins.py:13
+msgid "Other (please specify in Voluntary additional information)"
+msgstr ""
+
+#: ihp_results/plugins.py:24
+msgid "Maternal Health"
+msgstr ""
+
+#: ihp_results/plugins.py:25
+msgid "Child Health"
+msgstr ""
+
+#: ihp_results/plugins.py:26
+msgid "Malaria"
+msgstr ""
+
+#: ihp_results/plugins.py:27
+msgid "HIV/AIDS"
+msgstr ""
+
+#: ihp_results/plugins.py:28
+msgid "TB"
+msgstr ""
+
+#: ihp_results/plugins.py:29
+msgid ""
+"Health Systems Strengthening (Governance, Financing, HRH, Information "
+"Systems, Medicines, service delivery)"
+msgstr ""
+
+#: ihp_results/plugins.py:30
+msgid "Nutrition"
+msgstr ""
+
+#: ihp_results/plugins.py:31
+msgid "International NGO"
+msgstr ""
+
+#: ihp_results/plugins.py:32
+msgid "National NGO"
+msgstr ""
+
+#: ihp_results/plugins.py:33
+msgid "Faith Based Organisation"
+msgstr ""
+
+#: ihp_results/plugins.py:34
+msgid "Umbrella Organisation"
+msgstr ""
+
+#: ihp_results/plugins.py:35
+msgid "Professional Association"
+msgstr ""
+
+#: ihp_results/plugins.py:47
+msgid "Joint Annual Reviews"
+msgstr ""
+
+#: ihp_results/plugins.py:48
+msgid "Monthly/quarterly coordination meetings"
+msgstr ""
+
+#: ihp_results/plugins.py:49
+msgid "Thematic working groups"
+msgstr ""
+
+#: ihp_results/plugins.py:50
+msgid "Budget development / resource allocation"
+msgstr ""
+
+#: ihp_results/plugins.py:81
+msgid "Please choose a valid currency"
+msgstr ""
+
+#: ihp_results/plugins.py:82
+msgid "Please enter a numeric amount"
+msgstr ""
+
+#: ihp_results/plugins.py:92
+msgid "US Dollar"
+msgstr ""
+
+#: ihp_results/plugins.py:93
+msgid "British Pound"
+msgstr ""
+
+#: ihp_results/plugins.py:94
+msgid "Euro"
+msgstr ""
+
+#: ihp_results/plugins.py:95
+msgid "Australian Dollar"
+msgstr ""
+
+#: ihp_results/plugins.py:96
+msgid "Swedish Krona"
+msgstr ""
+
+#: ihp_results/plugins.py:97
+msgid "CFA Franc BCEAO"
+msgstr ""
+
+#: ihp_results/plugins.py:98
+msgid "Burundi Franc"
+msgstr ""
+
+#: ihp_results/plugins.py:99
+msgid "Djibouti Franc"
+msgstr ""
+
+#: ihp_results/plugins.py:100
+msgid "Congolese Franc"
+msgstr ""
+
+#: ihp_results/plugins.py:101
+msgid "El Salvador Colon"
+msgstr ""
+
+#: ihp_results/plugins.py:102
+msgid "Ethiopian Birr"
+msgstr ""
+
+#: ihp_results/plugins.py:103
+msgid "Mauritanian Ouguiya"
+msgstr ""
+
+#: ihp_results/plugins.py:104
+msgid "Mozambique New Metical"
+msgstr ""
+
+#: ihp_results/plugins.py:105
+msgid "Nepal Rupee"
+msgstr ""
+
+#: ihp_results/plugins.py:106
+msgid "Nigerian Naira"
+msgstr ""
+
+#: ihp_results/plugins.py:107
+msgid "Rwandan Franc"
+msgstr ""
+
+#: ihp_results/plugins.py:108
+msgid "Sierra Leone Leone"
+msgstr ""
+
+#: ihp_results/plugins.py:109
+msgid "Sudanese Pound"
+msgstr ""
+
+#: ihp_results/plugins.py:110
+msgid "Uganda Shilling"
+msgstr ""
+
+#: ihp_results/templates/ihp_results/add_dsg_survey.html:3
+#, python-format
+msgid "Add a new response to %(survey_name)s for %(entity_name)s"
+msgstr ""
+
+#: ihp_results/templates/ihp_results/add_dsg_survey.html:8
+msgid "New response to"
+msgstr ""
+
+#: ihp_results/templates/ihp_results/add_dsg_survey.html:8
+#: scorecard_processor/templates/scorecard_processor/entity_detail.html:27
+#: scorecard_processor/templates/scorecard_processor/respond/edit_survey.html:65
+msgid "for"
+msgstr ""
+
+#: ihp_results/templates/ihp_results/add_dsg_survey.html:15
+msgid "Please select a country"
+msgstr ""
+
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:3
+#: ihp_results/templates/ihp_results/view_dsg_survey.html:3
+#, python-format
+msgid "Response to %(survey_name)s for %(entity_name)s"
+msgstr ""
+
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:94
+msgid "Click to see definition"
+msgstr ""
+
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:163
+msgid ""
+"Download 2011 data <a target=\"_blank\" href=\"http://ihpresults.net/results/"
+"data/\">here</a>"
+msgstr ""
+
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:164
+msgid "Continue"
+msgstr ""
+
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:165
+msgid "Save and continue"
+msgstr ""
+
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:166
+msgid "Save and submit"
+msgstr ""
+
+#: ihp_results/templates/ihp_results/view_dsg_survey.html:37
+msgid "Print this page"
+msgstr ""
+
+#: ihp_results/templates/scorecard_processor/_entity_responsesets.html:14
+msgid "view response"
+msgstr ""
+
+#: scorecard_processor/forms.py:189
+#, python-format
+msgid "Password reset on %s"
+msgstr ""
+
+#: scorecard_processor/views.py:167
+#, python-format
+msgid "Account created on %s"
+msgstr ""
+
+#: scorecard_processor/plugins/input/choices.py:11
+#: scorecard_processor/plugins/input/choices.py:22
+msgid "Yes"
+msgstr ""
+
+#: scorecard_processor/plugins/input/choices.py:12
+#: scorecard_processor/plugins/input/choices.py:23
+msgid "No"
+msgstr ""
+
+#: scorecard_processor/plugins/input/choices.py:13
+msgid "n/a"
+msgstr ""
+
+#: scorecard_processor/templates/_pagination.html:6
+#: scorecard_processor/templates/_pagination.html:8
+msgid "previous"
+msgstr ""
+
+#: scorecard_processor/templates/_pagination.html:21
+#: scorecard_processor/templates/_pagination.html:23
+msgid "next"
+msgstr ""
+
+#: scorecard_processor/templates/scorecard_processor/entity_detail.html:27
+msgid "Survey Responses"
+msgstr ""
+
+#: scorecard_processor/templates/scorecard_processor/entity_detail.html:35
+msgid "Thanks for your submission"
+msgstr ""
+
+#: scorecard_processor/templates/scorecard_processor/entity_detail.html:36
+msgid "You can add another response using this button:"
+msgstr ""
+
+#: scorecard_processor/templates/scorecard_processor/entity_detail.html:52
+msgid "Associated users"
+msgstr ""
+
+#: scorecard_processor/templates/scorecard_processor/entity_detail.html:78
+msgid "Edit responses"
+msgstr ""
+
+#: scorecard_processor/templates/scorecard_processor/entity_detail.html:78
+msgid "ordered by last update"
+msgstr ""
+
+#: scorecard_processor/templates/scorecard_processor/respond/edit_survey.html:2
+#, python-format
+msgid "Response to %(survey.i18n.name)s for %(entity.name)s"
+msgstr ""
+
+#: templates/base.html:37
+msgid "Logged in as"
+msgstr ""
+
+#: templates/base.html:43
+msgid "Language"
+msgstr ""
+
+#: templates/base.html:49
+msgid "Set"
+msgstr ""
+
+#: templates/index.html:7
+msgid ""
+"<h1>2012 IHP+Results Monitoring Process <small>Online Survey Tool</small></"
+"h1>\n"
+"<p>Welcome to the 3rd annual monitoring of the International Health "
+"Partnership (IHP+) Global Compact commitments, by IHP+Results. You can use "
+"this online survey tool to submit data to IHP+Results on your organisations "
+"performance. Alternatively you can use an Excel tool.  But there are certain "
+"advantages to completing the survey online:\n"
+"\n"
+"<ol>\n"
+"    <li>Your organisation’s data will be automatically saved within our "
+"database so you do not have to store and find multiple Excel files (ie we "
+"manage your version control!).</li>\n"
+"    <li>If you are managing or overseeing returns from many countries, you "
+"can access them all here, and switch between them without having to open "
+"different files.</li>\n"
+"    <li>Participants from the 2nd round of IHP+ monitoring (in 2010) can see "
+"their previously submitted data as reminder of how you tackled the exercise "
+"previously.</li>\n"
+"    <li>You will be prompted if you enter an unexpected piece of data (e.g. "
+"entering text into a numeric field).  This should promote consistency across "
+"all survey responses.</li>\n"
+"    <li>You can access key terms and definitions in the same space rather "
+"than having to look them up in a separate document.</li>\n"
+"</ol>\n"
+"\n"
+"\n"
+"<p>To use the survey tool you need to be registered.  Registration is "
+"managed by the IHP+Results team in conjunction with IHP+ focal points in all "
+"participating organisations.  Please contact your IHP+ focal point if you "
+"need to be registered to use this system.  You may already have been "
+"registered, in which you case you will have received an email from ‘IHP"
+"+Results Survey 2012’; please click on the link in that email and follow the "
+"on screen instructions to access the online survey.</p>\n"
+"\n"
+msgstr ""
+
+#: templates/index.html:23
+msgid "Get started"
+msgstr ""
+
+#: templates/index.html:27
+msgid ""
+"\n"
+"    <p>More detailed documentation and guidance on the 2012 process is "
+"available at <a href=\"http://www.ihpresults.net/2012monitoring\" target="
+"\"_new\">http://www.ihpresults.net/2012monitoring</a>.</p> \n"
+"    <p>Here you will find:</p>\n"
+"    <ul>\n"
+"        <li>Overview Guidance</li>\n"
+"        <li>Detailed Key Terms and Definitions</li>\n"
+"        <li>Excel versions of the Survey Tools</li>\n"
+"    </ol>\n"
+"    "
+msgstr ""
+
+#: templates/admin/base_site.html:4
+msgid "Django site admin"
+msgstr ""
+
+#: templates/admin/base_site.html:7
+msgid "Django administration"
+msgstr ""
+
+#: templates/registration/login.html:12
+msgid "Welcome"
+msgstr ""
+
+#: templates/registration/login.html:16
+msgid ""
+"To use the survey tool you need to be registered.  Registration is managed "
+"by the IHP+Results team in conjunction with IHP+ focal points in all "
+"participating organisations.  Please contact your IHP+ focal point if you "
+"need to be registered to use this system.  You may already have been "
+"registered, in which you case you will have received an email from ‘IHP"
+"+Results Survey 2012’; please click on the link in that email and follow the "
+"on screen instructions to access the online survey."
+msgstr ""
+
+#: templates/registration/login.html:22
+msgid "Log in"
+msgstr ""
+
+#: templates/registration/login.html:23
+#, python-format
+msgid ""
+"Don't know your password? <a href=\"%(reset_url)s\">click to retrieve it</a>."
+msgstr ""

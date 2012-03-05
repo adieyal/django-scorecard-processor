@@ -1,0 +1,15 @@
+.form-stacked fieldset p {margin-bottom:18px}
+.input_DateSelectField select {width:auto}
+input, textarea, select {
+  background-color:#fff;
+}
+.help-block {font-size:13px;color:#444}
+
+body .topbar-inner .brand {background:#fff;border-right:solid 3px #ddd;padding:5px 15px;}
+body .topbar-inner .brand,
+body .topbar-inner .brand:hover 
+  {background:#fff !important;}
+body .topbar .nav {margin-top:3px}
+body .topbar-inner {background:#0E3D3D;border-bottom:3px solid #EFAA38}
+body a, body a:visited {color:#F68B1F}
+body a:hover {color:#D66B0F}

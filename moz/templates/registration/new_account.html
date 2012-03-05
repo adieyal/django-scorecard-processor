@@ -1,0 +1,28 @@
+{% load i18n %}{% load url from future %}{% autoescape off %}
+English:
+
+You're receiving this e-mail because an account has been created on IHP+Results.
+
+Please go to the following page and choose a new password:
+{{ protocol }}://{{ domain }}{% url 'django.contrib.auth.views.password_reset_confirm' uidb36=uid token=token %}
+
+Your username is: {{ user.username }}
+
+Thanks for using our site!
+The IHP+Results team
+
+
+
+French:
+
+Vous recevez ce courriel parce que votre compte a été créé sur le site web IHP+Results.
+
+S'il vous plaît visitez le lien en bas et choisissez un nouveau mot de passe:
+{{ protocol }}://{{ domain }}{% url 'django.contrib.auth.views.password_reset_confirm' uidb36=uid token=token %}
+
+Votre nom d'utilisateur est: {{ user.username }}
+
+Merci de votre collaboration sur notre site!
+
+L'équipe IHP+Résultats
+{% endautoescape %}

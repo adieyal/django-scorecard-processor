@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+{% load i18n %}
+<html>
+    <head>
+        {% block head %}{% endblock %}
+        <title>{% block head_title_outer %}{% block head_title %}{% endblock %} | IHP+Results Online Survey{% endblock %}</title>
+        {% block head_style %}
+          <link rel="stylesheet" href="{{STATIC_URL|default:"/static/"}}bootstrap/bootstrap.min.css" />
+          <link rel="stylesheet" type="text/css" href="{{STATIC_URL|default:"/static/"}}css/screen.css"/>
+        {% endblock %}
+        <link rel="icon" type="image/png" href="http://ihpresults.net/favicon.ico" />
+        <style>
+          body {padding-top:60px}
+          {% block style_block %}{% endblock %}
+        </style>
+    </head>
+    <body id="{% block body_id %}{% endblock %}" class="{% block body_classes %}{% endblock %}">
+      <!--[if IE]>
+      <style type="text/css">
+        {% block IE_style %}
+        {% endblock %}
+      </style>
+      <![endif]-->
+      <div class="topbar">
+        <div class="topbar-inner">
+          <div class="container-fluid">
+            <a class="brand" href="/"><img src="{{STATIC_URL|default:"/static/"}}/ihp/ihpresults-logo.png" title="IHP+Results" height="32px"/></a>
+
+            <ul class="nav">
+              {% load nav %}
+              {% if user.is_staff %}{% nav_url project_list "Projects and Surveys" %}
+              {% nav_url entity_list "Your responses" %}
+              {% nav_url user_list "Users" %}
+              <li><a href="/admin/">Manage app</a></li>{% endif %}
+            </ul>
+            {% if user.is_authenticated %}
+              <p class="pull-right" style="color:#fff">{% blocktrans %}Logged in as{% endblocktrans %} <strong>{{user.get_full_name|default:user.username}}</strong> <a class="btn danger" href="{% url django.contrib.auth.views.logout %}">log out</a></p>
+            {% else %}
+              <p class="pull-right"><a href="{% url django.contrib.auth.views.login %}">Log in</a></p>
+            {% endif %}
+            <form action="/i18n/setlang/" method="post" class="pull-right" style="margin:10px 20px 0 0">
+              {% csrf_token %}
+              <label for="language" style="color:#fff;margin-right:10px;width:auto">{% blocktrans %}Language{% endblocktrans %}</label>
+              <select name="language" class="span3">
+                {% for lang in LANGUAGES %}
+                  <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %}selected=selected{%endif %}>{{ lang.1 }}</option>
+                {% endfor %}
+              </select>
+              <button class="btn" type="submit" value="Set" />{% blocktrans %}Set{% endblocktrans %}</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+      {% block fluid_content_outer %}
+      <div class="container">
+        {% block before_content %}
+        {% endblock %}
+
+        {% block content_outer %}
+            <div class="content">
+                {% block content %}{% endblock %}
+            </div>
+        {% endblock %}
+      </div>
+      {% endblock %}
+      {% block page_bottom %}
+        {% block script_bottom %}
+          <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+          <script src="{{STATIC_URL|default:"/static/"}}bootstrap/js/bootstrap.js"></script>
+          <script type="text/javascript">
+          </script>
+        {% endblock %}
+      {% endblock %}
+    </body>
+</html>
