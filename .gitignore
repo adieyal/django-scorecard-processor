@@ -2,6 +2,6 @@
 /test/
 pip-log.txt
 *swp
-example_app/testing.db
-example_app/debugging.log
+*/testing.db
+*/debugging.log
 /data/
