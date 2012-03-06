@@ -18,7 +18,7 @@
             {% for dataseriesgroup in survey.project.dataseriesgroup_set.all.select_related %}
               {% with dataseriesgroup.get_dataseries as dataseries %}
               {% if dataseries.count == 1 %}
-                <input type="hidden" value="{{dataseries.0.pk}}" />
+                <input type="hidden" name="data_series" value="{{dataseries.0.pk}}" />
               {% else %}
                 <div class="clearfix">
                   <label>{{dataseriesgroup.name}}</label>
