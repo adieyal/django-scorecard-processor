@@ -1,0 +1,26 @@
+[
+  {
+    "pk": 1, 
+    "model": "scorecard_processor.project", 
+    "fields": {
+      "name": "Mozambique collection"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "scorecard_processor.dataseries", 
+    "fields": {
+      "visible": true, 
+      "group": "Data collection year", 
+      "name": "2011"
+    }
+  }, 
+  {
+    "pk": "Data collection year", 
+    "model": "scorecard_processor.dataseriesgroup", 
+    "fields": {
+      "project": 1, 
+      "reverse_ordering": false
+    }
+  }
+]
