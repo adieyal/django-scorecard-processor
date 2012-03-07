@@ -85,7 +85,6 @@ def _import_response(xls, agency, user):
                     response.value = {'value':value}
                     response.save()
                     responses[question] = response
-                    print(response.get_value())
         else:
             response = responses.get(question)
             try:
