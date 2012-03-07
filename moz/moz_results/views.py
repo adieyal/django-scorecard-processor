@@ -66,18 +66,26 @@ def _import_response(xls, agency, user):
             if value != '':
                 key = row[4].value
                 key = choice_map[key.strip().lower()]
-                value = {'y':False,'n':True}.get(value.lower())
-                value = {key:value}
+                value = {'y':True,'n':False}.get(value.lower())
+
                 response = responses.get(question)
-                if response and response.get_value() != value:
+                if response:
                     update = response.get_value()
-                    update.update(value)
-                    value = update
+                    if value:
+                        update = update + [key]
+                        update = set(update)
+                    else:
+                        update = set(update) - set([key])
+                    value = list(update)
                     response = None
+                else:
+                    value = [key]
                 if not response and value:
                     response = response_set.response_set.create(question=question, respondant=user, current=True)
                     response.value = {'value':value}
                     response.save()
+                    responses[question] = response
+                    print(response.get_value())
         else:
             response = responses.get(question)
             try:
@@ -93,6 +101,7 @@ def _import_response(xls, agency, user):
                 else:
                     response.value = {'value':value}
                 response.save()
+                responses[question] = response
         
         if comment:
             try:
