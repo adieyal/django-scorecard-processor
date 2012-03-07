@@ -51,10 +51,12 @@ def _import_response(xls, agency, user):
             section_name = None
         if section_name != '':
             section = section_name
+
         try:
             q_num = str(int(row[3].value))
         except:
             tick_mode = True
+
         value = row[6].value
         try:
             comment = row[7].value
@@ -66,8 +68,8 @@ def _import_response(xls, agency, user):
             if value != '':
                 key = row[4].value
                 key = choice_map[key.strip().lower()]
+                print(key)
                 value = {'y':True,'n':False}.get(value.lower())
-
                 response = responses.get(question)
                 if response:
                     update = response.get_value() or []
@@ -91,21 +93,22 @@ def _import_response(xls, agency, user):
                     response.save()
                     responses[question] = response
         else:
-            response = responses.get(question)
-            try:
-                value = int(value)
-            except:
-                value = None
-            if response and response.get_value() != value:
-                response = None
-            if not response and value:
-                response = response_set.response_set.create(question=question, respondant=user, current=True)
-                if q_num != '9':
-                    response.value = {'value':''.join([currency,str(value)])}
-                else:
-                    response.value = {'value':value}
-                response.save()
-                responses[question] = response
+            if q_num != '10':
+                response = responses.get(question)
+                try:
+                    value = int(value)
+                except:
+                    value = None
+                if response and response.get_value() != value:
+                    response = None
+                if not response and value:
+                    response = response_set.response_set.create(question=question, respondant=user, current=True)
+                    if q_num != '9':
+                        response.value = {'value':''.join([currency,str(value)])}
+                    else:
+                        response.value = {'value':value}
+                    response.save()
+                    responses[question] = response
         
         if comment:
             try:
