@@ -71,6 +71,8 @@ def _import_response(xls, agency, user):
                 response = responses.get(question)
                 if response:
                     update = response.get_value() or []
+                    if not isinstance(update,list):
+                        update == []
                     if value:
                         update = update + [key]
                         update = set(update)
