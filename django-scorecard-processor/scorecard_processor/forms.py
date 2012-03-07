@@ -36,8 +36,8 @@ class ResponseSetForm(forms.ModelForm):
         model = ResponseSet
         exclude = ('survey','entity','submission_date','last_update','respondant')
 
-    def _get_responseset(self, survey, data_series):
-        qs = self.Meta.model.objects.filter(survey=survey)
+    def _get_responseset(self, survey, entity, data_series):
+        qs = self.Meta.model.objects.filter(survey=survey, entity=entity)
         #response = self.Meta.model.objects.get(survey=instance.survey, data_series__exact=self.cleaned_data['data_series'])
         for ds in data_series:
             qs = qs.filter(data_series=ds)
@@ -51,7 +51,7 @@ class ResponseSetForm(forms.ModelForm):
         commit = kwargs.get('commit',True)
         kwargs['commit'] = False
         instance = super(ResponseSetForm, self).save(*args,**kwargs)
-        response = self._get_responseset(instance.survey, self.cleaned_data['data_series'])
+        response = self._get_responseset(instance.survey, instance.entity, self.cleaned_data['data_series'])
         if response:
             return response
         if commit:
