@@ -68,13 +68,12 @@ def _import_response(xls, agency, user):
             if value != '':
                 key = row[4].value
                 key = choice_map[key.strip().lower()]
-                print(key)
                 value = {'y':True,'n':False}.get(value.lower())
                 response = responses.get(question)
                 if response:
-                    update = response.get_value() or []
+                    update = response.get_value()
                     if not isinstance(update,list):
-                        update == []
+                        update = []
                     if value:
                         update = update + [key]
                         update = set(update)
