@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block head_title %}Import a survey response{% endblock %}
+{% block fluid_content_outer %}
+  <div class="container">
+    <div class="content">
+      <div class="page-header">
+        <h1>Import response</h1>
+      </div>
+      <div class="row">
+          <div class="span14">
+            <form method=POST enctype="multipart/form-data" class="form-stacked">
+              {% csrf_token %}
+              {{form}}
+              <div class="actions">
+                <button class="btn primary" type="submit">Import</button>
+              </div>
+            </form>
+          </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+

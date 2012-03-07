@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     (r'^$', direct_to_template, {'template':'index.html'}),
     (r'^accounts/', include('django.contrib.auth.urls')),
     (r'^scorecard/', include('scorecard_processor.urls')),
+    (r'^moz/', include('moz_results.urls')),
 
     (r'^i18n/', include('django.conf.urls.i18n')),
     # Uncomment the admin/doc line below to enable admin documentation:

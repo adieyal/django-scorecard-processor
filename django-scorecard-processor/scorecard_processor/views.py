@@ -198,7 +198,6 @@ def add_survey(request, object_id, survey_id):
         form = form(request.POST, instance = instance)
         if form.is_valid():
             responseset = form.save()
-            print(responseset.entity)
             return HttpResponseRedirect(responseset.get_absolute_url())
     else:
         form = form(instance = instance)

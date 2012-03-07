@@ -1,0 +1,7 @@
+                <ul>
+                {% for responseset in responsesets %}
+                  <li class="responseset" name="responseset_{{responseset.pk}}"><a href="{{responseset.get_absolute_url}}">{% for series in responseset.get_data_series %}{{series.name}}{% if forloop.revcounter0 %}, {% endif %}{% endfor %}</a><br/> <strong>last update:</strong> {{responseset.last_update}}<br /> <strong>survey:</strong> {{responseset.survey.name}}</li>
+                {% endfor %}
+                </ul>
+
+<a href="{% url import_response object.pk %} " class="btn">Import response</a>
