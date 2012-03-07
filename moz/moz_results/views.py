@@ -37,9 +37,9 @@ def _import_response(xls, agency, user):
     currency = survey.row(2)[3].value
     data_series = models.DataSeries.objects.get(name='2011')
     try:
-        response_set = agency.responseset_set.get(entity=entity, data_series=data_series, survey=models.Survey.objects.get(name="Survey for agencies"))
+        response_set = agency.responseset_set.get(data_series=data_series, survey=models.Survey.objects.get(name="Survey for agencies"))
     except:
-        response_set = agency.responseset_set.create(entity=entity, survey=models.Survey.objects.get(name="Survey for agencies"))
+        response_set = agency.responseset_set.create(survey=models.Survey.objects.get(name="Survey for agencies"))
         response_set.data_series.add(data_series)
     questions = dict([(q.identifier,q) for q in response_set.survey.get_questions()])
     responses = response_set.get_responses()
@@ -104,7 +104,7 @@ def _import_response(xls, agency, user):
                     value = None
                 if response and response.get_value() != value:
                     response = None
-                if not response and value:
+                if not response and value != None:
                     response = response_set.response_set.create(question=question, respondant=user, current=True)
                     if q_num != '9':
                         response.value = {'value':''.join([currency,str(value)])}
