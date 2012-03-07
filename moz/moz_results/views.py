@@ -70,7 +70,7 @@ def _import_response(xls, agency, user):
 
                 response = responses.get(question)
                 if response:
-                    update = response.get_value()
+                    update = response.get_value() or []
                     if value:
                         update = update + [key]
                         update = set(update)
@@ -79,7 +79,10 @@ def _import_response(xls, agency, user):
                     value = list(update)
                     response = None
                 else:
-                    value = [key]
+                    if value:
+                        value = [key]
+                    else:
+                        value = []
                 if not response and value:
                     response = response_set.response_set.create(question=question, respondant=user, current=True)
                     response.value = {'value':value}
