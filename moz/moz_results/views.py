@@ -36,7 +36,11 @@ def _import_response(xls, agency, user):
     survey = xlrd.open_workbook(xls.path).sheet_by_name('Survey Tool')
     currency = survey.row(2)[3].value
     data_series = models.DataSeries.objects.get(name='2011')
-    response_set, created = agency.responseset_set.get_or_create(data_series=data_series, survey=models.Survey.objects.get(name="Survey for agencies"))
+    try:
+        response_set = agency.responseset_set.get(entity=entity, data_series=data_series, survey=models.Survey.objects.get(name="Survey for agencies"))
+    except:
+        response_set = agency.responseset_set.create(entity=entity, survey=models.Survey.objects.get(name="Survey for agencies"))
+        response_set.data_series.add(data_series)
     questions = dict([(q.identifier,q) for q in response_set.survey.get_questions()])
     responses = response_set.get_responses()
     tick_mode = False
