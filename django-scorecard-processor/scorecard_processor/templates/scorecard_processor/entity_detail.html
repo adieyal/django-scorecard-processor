@@ -72,12 +72,10 @@
             {% endcomment %}
           </div>
           {% with object.responseset_set.all.select_related as responsesets %}
-            {% if responsesets %}
               <div class="span7">
                 <h2>{% trans "Edit responses" %} <small>{% trans "ordered by last update" %}</small></h2>
                 {% include 'scorecard_processor/_entity_responsesets.html' %}
               </div>
-            {% endif %}
           {% endwith %}
       </div>
     </div>
