@@ -46,7 +46,7 @@ class IndicatorReport(ProjectReport):
             for operation, data in result:
                 operations[operation] = operations.get(operation,[])
                 if operation.identifier =="5DPa":
-                    data[0] = (data[0][0],Decimal(indicator_5DPa[entity.name]))
+                    data[0] = (data[0][0],Scalar(Decimal(indicator_5DPa[entity.name])))
                 operations[operation].append((entity,data))
         return operations
 
