@@ -1,6 +1,6 @@
 from django.db import models
 from scorecard_processor.models import Entity
-import plugins
+import plugins, reports
 
 # Create your models here.
 def attachment_storage(instance, filename):

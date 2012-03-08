@@ -5,7 +5,7 @@
     "fields": {
       "abbreviation": null, 
       "project": 1, 
-      "name": "ACCD", 
+      "name": "CDC", 
       "entity_type": "Agency"
     }
   }, 
@@ -15,7 +15,7 @@
     "fields": {
       "abbreviation": null, 
       "project": 1, 
-      "name": "AfDB", 
+      "name": "Canada", 
       "entity_type": "Agency"
     }
   }, 
@@ -25,27 +25,7 @@
     "fields": {
       "abbreviation": null, 
       "project": 1, 
-      "name": "Belgium", 
-      "entity_type": "Agency"
-    }
-  }, 
-  {
-    "pk": 6, 
-    "model": "scorecard_processor.entity", 
-    "fields": {
-      "abbreviation": null, 
-      "project": 1, 
-      "name": "Brasilian Embassy", 
-      "entity_type": "Agency"
-    }
-  }, 
-  {
-    "pk": 5, 
-    "model": "scorecard_processor.entity", 
-    "fields": {
-      "abbreviation": null, 
-      "project": 1, 
-      "name": "CDC", 
+      "name": "EU", 
       "entity_type": "Agency"
     }
   }, 
@@ -55,72 +35,12 @@
     "fields": {
       "abbreviation": null, 
       "project": 1, 
-      "name": "Canada", 
-      "entity_type": "Agency"
-    }
-  }, 
-  {
-    "pk": 7, 
-    "model": "scorecard_processor.entity", 
-    "fields": {
-      "abbreviation": null, 
-      "project": 1, 
-      "name": "Clinton Foundation", 
-      "entity_type": "Agency"
-    }
-  }, 
-  {
-    "pk": 8, 
-    "model": "scorecard_processor.entity", 
-    "fields": {
-      "abbreviation": null, 
-      "project": 1, 
-      "name": "Denmark", 
-      "entity_type": "Agency"
-    }
-  }, 
-  {
-    "pk": 9, 
-    "model": "scorecard_processor.entity", 
-    "fields": {
-      "abbreviation": null, 
-      "project": 1, 
-      "name": "EU", 
-      "entity_type": "Agency"
-    }
-  }, 
-  {
-    "pk": 10, 
-    "model": "scorecard_processor.entity", 
-    "fields": {
-      "abbreviation": null, 
-      "project": 1, 
-      "name": "Finland", 
-      "entity_type": "Agency"
-    }
-  }, 
-  {
-    "pk": 11, 
-    "model": "scorecard_processor.entity", 
-    "fields": {
-      "abbreviation": null, 
-      "project": 1, 
       "name": "Flanders", 
       "entity_type": "Agency"
     }
   }, 
   {
-    "pk": 12, 
-    "model": "scorecard_processor.entity", 
-    "fields": {
-      "abbreviation": null, 
-      "project": 1, 
-      "name": "GAVI", 
-      "entity_type": "Agency"
-    }
-  }, 
-  {
-    "pk": 14, 
+    "pk": 5, 
     "model": "scorecard_processor.entity", 
     "fields": {
       "abbreviation": null, 
@@ -130,17 +50,7 @@
     }
   }, 
   {
-    "pk": 13, 
-    "model": "scorecard_processor.entity", 
-    "fields": {
-      "abbreviation": null, 
-      "project": 1, 
-      "name": "Germany", 
-      "entity_type": "Agency"
-    }
-  }, 
-  {
-    "pk": 15, 
+    "pk": 6, 
     "model": "scorecard_processor.entity", 
     "fields": {
       "abbreviation": null, 
@@ -150,7 +60,7 @@
     }
   }, 
   {
-    "pk": 16, 
+    "pk": 7, 
     "model": "scorecard_processor.entity", 
     "fields": {
       "abbreviation": null, 
@@ -160,17 +70,7 @@
     }
   }, 
   {
-    "pk": 17, 
-    "model": "scorecard_processor.entity", 
-    "fields": {
-      "abbreviation": null, 
-      "project": 1, 
-      "name": "Japan", 
-      "entity_type": "Agency"
-    }
-  }, 
-  {
-    "pk": 18, 
+    "pk": 8, 
     "model": "scorecard_processor.entity", 
     "fields": {
       "abbreviation": null, 
@@ -180,17 +80,7 @@
     }
   }, 
   {
-    "pk": 19, 
-    "model": "scorecard_processor.entity", 
-    "fields": {
-      "abbreviation": null, 
-      "project": 1, 
-      "name": "Norway", 
-      "entity_type": "Agency"
-    }
-  }, 
-  {
-    "pk": 20, 
+    "pk": 9, 
     "model": "scorecard_processor.entity", 
     "fields": {
       "abbreviation": null, 
@@ -200,17 +90,7 @@
     }
   }, 
   {
-    "pk": 21, 
-    "model": "scorecard_processor.entity", 
-    "fields": {
-      "abbreviation": null, 
-      "project": 1, 
-      "name": "Sweden", 
-      "entity_type": "Agency"
-    }
-  }, 
-  {
-    "pk": 22, 
+    "pk": 10, 
     "model": "scorecard_processor.entity", 
     "fields": {
       "abbreviation": null, 
@@ -220,7 +100,7 @@
     }
   }, 
   {
-    "pk": 25, 
+    "pk": 14, 
     "model": "scorecard_processor.entity", 
     "fields": {
       "abbreviation": null, 
@@ -230,17 +110,7 @@
     }
   }, 
   {
-    "pk": 23, 
-    "model": "scorecard_processor.entity", 
-    "fields": {
-      "abbreviation": null, 
-      "project": 1, 
-      "name": "UNAIDS", 
-      "entity_type": "Agency"
-    }
-  }, 
-  {
-    "pk": 26, 
+    "pk": 11, 
     "model": "scorecard_processor.entity", 
     "fields": {
       "abbreviation": null, 
@@ -250,7 +120,7 @@
     }
   }, 
   {
-    "pk": 24, 
+    "pk": 12, 
     "model": "scorecard_processor.entity", 
     "fields": {
       "abbreviation": null, 
@@ -260,7 +130,7 @@
     }
   }, 
   {
-    "pk": 27, 
+    "pk": 13, 
     "model": "scorecard_processor.entity", 
     "fields": {
       "abbreviation": null, 
@@ -270,17 +140,7 @@
     }
   }, 
   {
-    "pk": 28, 
-    "model": "scorecard_processor.entity", 
-    "fields": {
-      "abbreviation": null, 
-      "project": 1, 
-      "name": "WHO", 
-      "entity_type": "Agency"
-    }
-  }, 
-  {
-    "pk": 29, 
+    "pk": 15, 
     "model": "scorecard_processor.entity", 
     "fields": {
       "abbreviation": null, 
