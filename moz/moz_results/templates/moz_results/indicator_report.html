@@ -16,12 +16,21 @@ $(document).ready(function() {
       data : [{% for agency, data in items %}{% for series, v in data %}{{v.get_value}}{% endfor %}{% if not forloop.last %},{% endif%}{% endfor %}],
       name : '{{operation.description}}'
     }],
-    yAxis : {
-      max : 100,
-      title : {
-        text : '%'
-      }
-    },
+    {% if operation.identifier != "5DPc" %}
+      yAxis : {
+        {% if operation.identifier != "4DP" %}max : 100,{% endif %}
+        title : {
+          text : '%'
+        }
+      },
+    {% else %}
+      yAxis : {
+        max : 10,
+        title : {
+          text : 'units'
+        }
+      },
+    {% endif %}
     chart : {
       defaultSeriesType : 'column',
       renderTo : 'graph_{{operation.identifier}}'
