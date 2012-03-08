@@ -13,7 +13,7 @@
     "fields": {
       "indicator": true, 
       "configuration": "", 
-      "description": "2DPa", 
+      "description": "Percent of aid flows to the health sector that are reported on the national health sector budget", 
       "scorecard": 1, 
       "operation": "num_denom", 
       "identifier": "2DPa"
@@ -25,7 +25,7 @@
     "fields": {
       "indicator": true, 
       "configuration": "", 
-      "description": "3DP", 
+      "description": "Percent of health sector aid provided through multi-year commitments", 
       "scorecard": 1, 
       "operation": "num_denom", 
       "identifier": "3DP"
@@ -37,7 +37,7 @@
     "fields": {
       "indicator": true, 
       "configuration": "", 
-      "description": "4DP", 
+      "description": "Percent of health sector aid disbursements released according to agreed frameworks in annual or multi-year frameworks", 
       "scorecard": 1, 
       "operation": "num_denom", 
       "identifier": "4DP"
@@ -49,7 +49,7 @@
     "fields": {
       "indicator": true, 
       "configuration": "", 
-      "description": "5DPa", 
+      "description": "Percent of health sector aid that uses country procurement systems", 
       "scorecard": 1, 
       "operation": "one_minus_num_denom", 
       "identifier": "5DPa"
@@ -61,7 +61,7 @@
     "fields": {
       "indicator": true, 
       "configuration": "", 
-      "description": "5DPb", 
+      "description": "Percent of health sector aid that uses public financial management systems", 
       "scorecard": 1, 
       "operation": "num_denom", 
       "identifier": "5DPb"
@@ -73,7 +73,7 @@
     "fields": {
       "indicator": true, 
       "configuration": "", 
-      "description": "5DPc", 
+      "description": "Number of parallel project implementation units in country", 
       "scorecard": 1, 
       "operation": "sum_items", 
       "identifier": "5DPc"
