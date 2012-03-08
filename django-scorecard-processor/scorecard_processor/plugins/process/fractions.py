@@ -48,21 +48,21 @@ class NumDenomPlugin(base.ProcessPlugin):
             for response in self.get_arguments().numerator.get_values():
                 grouper = get_grouper(pair_values,response)
                 filter_responses[grouper] = filter_responses.get(grouper,{})
-                filter_responses[grouper]['num'] = response.get_value()
+                filter_responses[grouper]['num'] = response.get_calculated_value()
 
 
             for response in self.get_arguments().denominator.get_values():
                 grouper = get_grouper(pair_values,response)
                 if grouper in filter_responses:
-                    filter_responses[grouper]['denom'] = response.get_value()
+                    filter_responses[grouper]['denom'] = response.get_calculated_value()
 
             for frac in filter_responses.values():
                 if 'num' in frac and 'denom' in frac:
                     numerator.append(float(frac['num']))
                     denominator.append(float(frac['denom']))
         else:
-            numerator = [float(x.get_value()) for x in self.get_arguments().numerator.get_values()]
-            denominator = [float(x.get_value()) for x in self.get_arguments().denominator.get_values()]
+            numerator = [float(x.get_calculated_value()) for x in self.get_arguments().numerator.get_values()]
+            denominator = [float(x.get_calculated_value()) for x in self.get_arguments().denominator.get_values()]
 
         if numerator == [] or denominator == []:
             return None

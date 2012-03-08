@@ -327,11 +327,12 @@ class Response(models.Model):
         app_label = "scorecard_processor"
 
     def get_value(self):
-        #TODO: should read something like question.get_validator()(self.value).get_value()
-        #This method should output the value cast to the kind of value this field is
-        if hasattr(self.question.plugin.plugin, 'get_value'):
-            return self.question.plugin.plugin().get_value(self.value)
         return self.value.get('value')
+
+    def get_calculated_value(self):
+        if hasattr(self.question.plugin.plugin, 'get_calculated_value'):
+            return self.question.plugin.plugin().get_calculated_value(self.value)
+        return self.get_value()
 
 
 class ResponseOverride(models.Model):

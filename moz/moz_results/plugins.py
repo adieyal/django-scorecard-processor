@@ -148,7 +148,7 @@ class CurrencySelector(MultiValueField):
             return ''.join([unicode(d) for d in data_list]) 
         return ''
 
-    def get_value(self, data, currency = 'USD'):
+    def get_calculated_value(self, data, currency = 'USD'):
         currency = data['value'][0:3]
         value = data['value'][3:]
         if currency != 'USD':
