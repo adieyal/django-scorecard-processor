@@ -13,6 +13,23 @@ from scorecard_processor.reports import EntityReport, ProjectReport
 from scorecard_processor.models import EntityType, Entity, DataSeries, DataSeriesGroup, Scorecard
 from scorecard_processor.models.outputs import get_responsesets
 
+indicator_5DPa = {"CDC": "0",
+"Canada":  "89.78",
+"EU":  "100",
+"Flanders":  "35.99",
+"GFATM": "0",
+"Ireland": "100",
+"Italy": "33.82",
+"Netherlands": "76.63",
+"Spain": "65.76",
+"Switzerland": "71.16",
+"UNFPA": "4.88",
+"UNICEF":  "11.3",
+"USA": "0",
+"UK":  "85.7",
+"World Bank":  "0"}
+
+
 class IndicatorReport(ProjectReport):
     template_name = 'moz_results/indicator_report.html'
     url = r'^indicator/(?P<scorecard_id>\d+)/$'
@@ -28,7 +45,8 @@ class IndicatorReport(ProjectReport):
             result = scorecard.get_values(data)
             for operation, data in result:
                 operations[operation] = operations.get(operation,[])
-
+                if operation.identifier =="5DPa":
+                    data[0] = (data[0][0],Decimal(indicator_5DPa[entity.name]))
                 operations[operation].append((entity,data))
         return operations
 
