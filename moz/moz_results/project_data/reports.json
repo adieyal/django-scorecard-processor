@@ -15,7 +15,7 @@
       "configuration": "", 
       "description": "2DPa", 
       "scorecard": 1, 
-      "operation": "one_minus_num_denom", 
+      "operation": "num_denom", 
       "identifier": "2DPa"
     }
   }, 
@@ -63,7 +63,7 @@
       "configuration": "", 
       "description": "5DPb", 
       "scorecard": 1, 
-      "operation": "one_minus_num_denom", 
+      "operation": "num_denom", 
       "identifier": "5DPb"
     }
   }, 
@@ -105,7 +105,7 @@
     "pk": 5, 
     "model": "scorecard_processor.operationargument", 
     "fields": {
-      "instance_id": 7, 
+      "instance_id": 4, 
       "position": 0, 
       "operation": 3, 
       "instance_content_type": 21, 
@@ -171,7 +171,7 @@
     "pk": 6, 
     "model": "scorecard_processor.operationargument", 
     "fields": {
-      "instance_id": 4, 
+      "instance_id": 7, 
       "position": 1, 
       "operation": 3, 
       "instance_content_type": 21, 
