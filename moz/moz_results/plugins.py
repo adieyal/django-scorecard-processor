@@ -74,6 +74,18 @@ class CurrencyWidget(MultiWidget):
 
 from scorecard_processor.plugins.input.currency import FixedCurrency
 
+conversions = {
+    "BRL": 0.6,
+    "GBP": 1.6,
+    "CAD": 1.01,
+    "EUR": 1.39,
+    "DKK": 0.19,
+    "JPY": 0.01,
+    "MZN": 0.03,
+    "NOK": 0.18,
+    "SEK": 0.15,
+    "CHF": 1.13,
+}
 class CurrencySelector(MultiValueField):
     name = "Currency selector and input"
     widget = CurrencyWidget
@@ -108,6 +120,13 @@ class CurrencySelector(MultiValueField):
                      ('SLL', _('Sierra Leone Leone')),
                      ('SDG', _('Sudanese Pound')),
                      ('UGX', _('Uganda Shilling')),
+                     ("BRL", "Brazilian Real"),
+                     ("CAD", "Canadian Dollar"),
+                     ("DKK", "Danish Krone"),
+                     ("JPY", "Japanese Yen"),
+                     ("NOK", "Norwegian Kroner"),
+                     ("SEK", "Swedish Krona"),
+                     ("CHF", "Swiss Francs"),
                 )
         fields = (
             ChoiceField(error_messages={'invalid': self.errors['invalid_currency']},
@@ -128,6 +147,13 @@ class CurrencySelector(MultiValueField):
                 return None
             return ''.join([unicode(d) for d in data_list]) 
         return ''
+
+    def get_value(self, data, currency = 'USD'):
+        currency = data['value'][0:3]
+        value = data['value'][3:]
+        if currency != 'USD':
+            return float(value)*conversions[currency]
+        return value
 
 
 register.register('input','IHP field','multi_currency', CurrencySelector)

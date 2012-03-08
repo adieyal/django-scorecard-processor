@@ -152,6 +152,10 @@ class Question(models.Model):
         ordering = ('group__ordering','id',)
 
     @property
+    def plugin(self):
+        return plugins.get_input_plugin(self.widget)
+
+    @property
     def i18n(self):
         lang = translation.get_language()
         self._i18n_cache = getattr(self,'_i18n_cache',{})
@@ -169,7 +173,7 @@ class Question(models.Model):
 
     def get_widget(self):
         form = BootstrapForm()
-        form.fields[self.identifier] = plugins.get_input_plugin(self.widget).plugin(
+        form.fields[self.identifier] = self.plugin.plugin(
             label="""<span class="identifier">%s.</span> 
             <span class="question">%s</span>""" % (self.identifier,self.question),
             help_text=self.help_text,
@@ -325,6 +329,8 @@ class Response(models.Model):
     def get_value(self):
         #TODO: should read something like question.get_validator()(self.value).get_value()
         #This method should output the value cast to the kind of value this field is
+        if hasattr(self.question.plugin.plugin, 'get_value'):
+            return self.question.plugin.plugin().get_value(self.value)
         return self.value.get('value')
 
 
