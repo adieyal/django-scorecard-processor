@@ -16,6 +16,8 @@ class Sum(base.ProcessPlugin):
                 pass
         if len(values)>1:
             return self.output_type(reduce(lambda x,y: x + y, values))
+        if len(values)==1:
+            return self.output_type(values[0])
         return self.output_type(0)
 
 register.register('process','Math','sum_items',Sum)
