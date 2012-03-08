@@ -1,0 +1,46 @@
+from decimal import Decimal
+from django.shortcuts import get_object_or_404
+from django.core.urlresolvers import reverse
+try:
+    from collections import OrderedDict
+except ImportError:
+    from ordereddict import OrderedDict
+
+from collections import defaultdict
+
+from scorecard_processor.plugins.types import Scalar, NOT_APPLICABLE
+from scorecard_processor.reports import EntityReport, ProjectReport
+from scorecard_processor.models import EntityType, Entity, DataSeries, DataSeriesGroup, Scorecard
+from scorecard_processor.models.outputs import get_responsesets
+
+class IndicatorReport(ProjectReport):
+    template_name = 'moz_results/indicator_report.html'
+    url = r'^indicator/(?P<scorecard_id>\d+)/$'
+
+    def get_data(self):
+        scorecard_id = self.kwargs['scorecard_id']
+        scorecard = get_object_or_404(Scorecard, pk=scorecard_id)
+        entity_type = [EntityType.objects.get(name='Agency')]
+        rs = get_responsesets(scorecard, aggregate_by_entity=True, compare_series=DataSeriesGroup.objects.get(name='Data collection year'), limit_to_entitytype=entity_type)
+
+        operations = OrderedDict()
+        for entity, data in rs.items():
+            result = scorecard.get_values(data)
+            for operation, data in result:
+                operations[operation] = operations.get(operation,[])
+
+                operations[operation].append((entity,data))
+        return operations
+
+    def get_report_links(self, project=None):
+        links = []
+        name = self.get_url_name()
+        project = project or getattr(self,'project')
+        for scorecard in project.scorecard_set.all():
+            links.append((
+                reverse(name,args=[project.pk, scorecard.pk]),
+                ': '.join(("Entity report",scorecard.name))
+            ))
+        return links
+
+IndicatorReport.register('result_by_indicator')
