@@ -75,7 +75,7 @@ $(document).ready(function() {
       {% for operation, items in data.items %}
         <div class="row" style="margin-bottom:30px">
           <div class="span16">
-              <h2>{{operation.description}}</h2>
+              <h3>{{operation.description}} ({{operation.identifier}})</h3>
               <div class="graphblock" style="width:100%"><div id="graph_{{operation.identifier}}" class="graph"></div></div>
               <table class="zebra-striped">
                 <tr>
@@ -93,7 +93,7 @@ $(document).ready(function() {
 
         <div class="row" style="margin-bottom:30px">
           <div class="span14">
-            <h2>Nature of support to civil society to be actively represented in health sector policy processes</h2>
+            <h2>Nature of support to civil society to be actively represented in health sector policy processes (8DP)</h2>
             <table class="zebra-striped bordered-table">
               <thead>
                 <tr>
@@ -111,16 +111,17 @@ $(document).ready(function() {
                   {% for agency, keys in 8DP %}<td>{% if 'technical' in keys %}<img src="{{STATIC_URL}}moz/tick.png">{% else %}{% endif %}</td>{% endfor %}
                 </tr>
                 <tr>
-                  <th>Lobbying/advocay - non-financial</th>
+                  <th>Lobbying/advocacy (non-financial)</th>
                   {% for agency, keys in 8DP %}<td>{% if 'lobbying' in keys %}<img src="{{STATIC_URL}}moz/tick.png">{% else %}{% endif %}</td>{% endfor %}
                 </tr>
               </tbody>
             </table>
+            <p><img src="{{STATIC_URL}}moz/tick.png"> = Contributed support in this area </p>
           </div>
         </div>
         <div class="row" style="margin-bottom:30px">
           <div class="span14">
-              <h1>All indicators</h1>
+              <h2>Summary of Development Partner self reported data</h2>
               <table class="zebra-striped">
 
                 {% for operation, items in data.items %}
@@ -134,7 +135,7 @@ $(document).ready(function() {
                     <tbody>
                   {% endif %}
                     <tr>
-                      <th style="width:200px">{{operation.description}}</th> 
+                      <th>{{operation.identifier}}</th> 
                       {% for agency, data in items %}{% for series, v in data %}<td>{{v.get_value|default:0}}</td>{% endfor %}{% endfor %}
                     </tr>
                   {% if forloop.last %}
