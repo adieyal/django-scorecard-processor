@@ -1,5 +1,6 @@
 from decimal import Decimal
 from django.shortcuts import get_object_or_404
+from django.conf.urls.defaults import *
 from django.core.urlresolvers import reverse
 try:
     from collections import OrderedDict
@@ -12,6 +13,7 @@ from scorecard_processor.plugins.types import Scalar, NOT_APPLICABLE
 from scorecard_processor.reports import EntityReport, ProjectReport
 from scorecard_processor.models import EntityType, Entity, DataSeries, DataSeriesGroup, Scorecard
 from scorecard_processor.models.outputs import get_responsesets
+
 
 indicator_5DPa = {"CDC": "0",
 "Canada":  "89.78",
@@ -33,6 +35,10 @@ indicator_5DPa = {"CDC": "0",
 class IndicatorReport(ProjectReport):
     template_name = 'moz_results/indicator_report.html'
     url = r'^indicator/(?P<scorecard_id>\d+)/$'
+
+    @classmethod
+    def get_url(cls):
+       return url(cls.url, cls.as_view(), name=cls.get_url_name())
 
     def get_data(self):
         scorecard_id = self.kwargs['scorecard_id']
