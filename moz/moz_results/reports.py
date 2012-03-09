@@ -60,7 +60,7 @@ class IndicatorReport(ProjectReport):
         context=super(IndicatorReport, self).get_context_data(self,**kwargs)
         indicator = []
         question = Question.objects.get(identifier='10')
-        response_sets = ResponseSet.objects.all().select_related('entity')
+        response_sets = ResponseSet.objects.all().select_related('entity').order_by('entity__name')
         for responseset in response_sets:
             r = responseset.get_response(question)
             if r:
