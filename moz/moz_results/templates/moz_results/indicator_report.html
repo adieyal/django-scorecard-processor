@@ -94,7 +94,7 @@ $(document).ready(function() {
         <div class="row" style="margin-bottom:30px">
           <div class="span14">
             <h2>Nature of support to civil society to be actively represented in health sector policy processes</h2>
-            <table class="zebra-striped">
+            <table class="zebra-striped bordered-table">
               <thead>
                 <tr>
                   <th></th>
@@ -104,15 +104,15 @@ $(document).ready(function() {
               <tbody>
                 <tr>
                   <th>Financial support</th>
-                  {% for agency, keys in 8DP %}<td>{% if 'financial' in keys %}<img src="{{STATIC_URL}}moz/tick.png">{% else %}<img src="{{STATIC_URL}}moz/cross.png">{% endif %}</td>{% endfor %}
+                  {% for agency, keys in 8DP %}<td>{% if 'financial' in keys %}<img src="{{STATIC_URL}}moz/tick.png">{% else %}{% endif %}</td>{% endfor %}
                 </tr>
                 <tr>
                   <th>Technical assistance (non-financial)</th>
-                  {% for agency, keys in 8DP %}<td>{% if 'technical' in keys %}<img src="{{STATIC_URL}}moz/tick.png">{% else %}<img src="{{STATIC_URL}}moz/cross.png">{% endif %}</td>{% endfor %}
+                  {% for agency, keys in 8DP %}<td>{% if 'technical' in keys %}<img src="{{STATIC_URL}}moz/tick.png">{% else %}{% endif %}</td>{% endfor %}
                 </tr>
                 <tr>
                   <th>Lobbying/advocay - non-financial</th>
-                  {% for agency, keys in 8DP %}<td>{% if 'lobbying' in keys %}<img src="{{STATIC_URL}}moz/tick.png">{% else %}<img src="{{STATIC_URL}}moz/cross.png">{% endif %}</td>{% endfor %}
+                  {% for agency, keys in 8DP %}<td>{% if 'lobbying' in keys %}<img src="{{STATIC_URL}}moz/tick.png">{% else %}{% endif %}</td>{% endfor %}
                 </tr>
               </tbody>
             </table>
