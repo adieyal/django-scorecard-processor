@@ -53,11 +53,11 @@ $(document).ready(function() {
       categories : [{% for agency, data in items %}'{{agency.name}}'{% if not forloop.last %},{% endif%}{% endfor %}]
     },
     title : {
-      text : '{{operation.identifier}}'
+      text : ''
     }
   }
     );
-    $('tspan').last().text('Source: DP data returns');
+    $('tspan').last().text('Source: ');
 
 {% endfor %}
 
@@ -75,8 +75,8 @@ $(document).ready(function() {
       {% for operation, items in data.items %}
         <div class="row" style="margin-bottom:30px">
           <div class="span16">
-              <h2>{{operation.identifier}}</h2>
-              <p>{{operation.description}}</p>
+              <h2>{{operation.description}}</h2>
+              <div class="graphblock" style="width:100%"><div id="graph_{{operation.identifier}}" class="graph"></div></div>
               <table class="zebra-striped">
                 <tr>
                   <td>Agency</td>
@@ -87,15 +87,13 @@ $(document).ready(function() {
                   {% for agency, data in items %}{% for series, v in data %}<td>{{v.get_value|default:0}}</td>{% endfor %}{% endfor %}
                 </tr>
               </table>
-              <div class="graphblock" style="width:100%"><div id="graph_{{operation.identifier}}" class="graph"></div></div>
           </div>
         </div>
       {% endfor %}
 
         <div class="row" style="margin-bottom:30px">
           <div class="span14">
-            <h1>8DP</h1>
-            <p>Nature of support to civil society to be actively represented in health sector policy processes</p>
+            <h2>Nature of support to civil society to be actively represented in health sector policy processes</h2>
             <table class="zebra-striped">
               <thead>
                 <tr>
@@ -136,7 +134,7 @@ $(document).ready(function() {
                     <tbody>
                   {% endif %}
                     <tr>
-                      <th>{{operation.identifier}}</th> 
+                      <th style="width:200px">{{operation.description}}</th> 
                       {% for agency, data in items %}{% for series, v in data %}<td>{{v.get_value|default:0}}</td>{% endfor %}{% endfor %}
                     </tr>
                   {% if forloop.last %}
