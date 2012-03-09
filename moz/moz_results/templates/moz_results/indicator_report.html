@@ -112,6 +112,19 @@ $(document).ready(function() {
                       {% for agency, data in items %}{% for series, v in data %}<td>{{v.get_value|default:0}}</td>{% endfor %}{% endfor %}
                     </tr>
                   {% if forloop.last %}
+                    <tr>
+                      <th>Financial support</th>
+                      {% for agency, keys in 8DP %}<td>{% if 'financial' in keys %}<img src="{{STATIC_URL}}moz/tick.png">{% else %}<img src="{{STATIC_URL}}moz/cross.png">{% endif %}</td>{% endfor %}
+                    </tr>
+                    <tr>
+                      <th>Technical assistance (non-financial)</th>
+                      {% for agency, keys in 8DP %}<td>{% if 'technical' in keys %}<img src="{{STATIC_URL}}moz/tick.png">{% else %}<img src="{{STATIC_URL}}moz/cross.png">{% endif %}</td>{% endfor %}
+                    </tr>
+                    <tr>
+                      <th>Lobbying/advocay - non-financial</th>
+                      {% for agency, keys in 8DP %}<td>{% if 'lobbying' in keys %}<img src="{{STATIC_URL}}moz/tick.png">{% else %}<img src="{{STATIC_URL}}moz/cross.png">{% endif %}</td>{% endfor %}
+                    </tr>
+                      
                     </tbody>
                   {% endif %}
                 {% endfor %}

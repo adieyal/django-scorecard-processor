@@ -11,7 +11,7 @@ from collections import defaultdict
 
 from scorecard_processor.plugins.types import Scalar, NOT_APPLICABLE
 from scorecard_processor.reports import EntityReport, ProjectReport
-from scorecard_processor.models import EntityType, Entity, DataSeries, DataSeriesGroup, Scorecard
+from scorecard_processor.models import EntityType, Entity, DataSeries, DataSeriesGroup, Scorecard, Question, ResponseSet
 from scorecard_processor.models.outputs import get_responsesets
 
 
@@ -55,6 +55,20 @@ class IndicatorReport(ProjectReport):
                     data[0] = (data[0][0],Scalar(Decimal(indicator_5DPa[entity.name])))
                 operations[operation].append((entity,data))
         return operations
+
+    def get_context_data(self,**kwargs):
+        context=super(IndicatorReport, self).get_context_data(self,**kwargs)
+        indicator = []
+        question = Question.objects.get(identifier='10')
+        response_sets = ResponseSet.objects.all().select_related('entity')
+        for responseset in response_sets:
+            r = responseset.get_response(question)
+            if r:
+                indicator.append((responseset.entity, r.get_value()))
+            else:
+                indicator.append((responseset.entity, []))
+        context['8DP'] = indicator
+        return context
 
     def get_report_links(self, project=None):
         links = []
