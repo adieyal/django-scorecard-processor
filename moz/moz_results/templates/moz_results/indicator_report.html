@@ -94,6 +94,34 @@ $(document).ready(function() {
 
         <div class="row" style="margin-bottom:30px">
           <div class="span14">
+            <h1>8DP</h1>
+            <p>Nature of support to civil society to be actively represented in health sector policy processes</p>
+            <table class="zebra-striped">
+              <thead>
+                <tr>
+                  <th></th>
+                  {% for agency, keys in 8DP %}<th>{{agency.name}}</th>{% endfor %}
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>Financial support</th>
+                  {% for agency, keys in 8DP %}<td>{% if 'financial' in keys %}<img src="{{STATIC_URL}}moz/tick.png">{% else %}<img src="{{STATIC_URL}}moz/cross.png">{% endif %}</td>{% endfor %}
+                </tr>
+                <tr>
+                  <th>Technical assistance (non-financial)</th>
+                  {% for agency, keys in 8DP %}<td>{% if 'technical' in keys %}<img src="{{STATIC_URL}}moz/tick.png">{% else %}<img src="{{STATIC_URL}}moz/cross.png">{% endif %}</td>{% endfor %}
+                </tr>
+                <tr>
+                  <th>Lobbying/advocay - non-financial</th>
+                  {% for agency, keys in 8DP %}<td>{% if 'lobbying' in keys %}<img src="{{STATIC_URL}}moz/tick.png">{% else %}<img src="{{STATIC_URL}}moz/cross.png">{% endif %}</td>{% endfor %}
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row" style="margin-bottom:30px">
+          <div class="span14">
               <h1>All indicators</h1>
               <table class="zebra-striped">
 
