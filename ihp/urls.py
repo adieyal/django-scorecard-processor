@@ -12,6 +12,8 @@ urlpatterns = patterns('',
     (r'^scorecard/', include('scorecard_processor.urls')),
     (r'^scorecard/entity/', include('ihp_results.entity_urls')),
 
+    (r'^ihp_results/', include('ihp_results.urls')),
+
     (r'^i18n/', include('django.conf.urls.i18n')),
     # Uncomment the admin/doc line below to enable admin documentation:
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
