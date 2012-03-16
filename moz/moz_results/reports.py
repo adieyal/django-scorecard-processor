@@ -29,7 +29,9 @@ indicator_5DPa = {"CDC": "0",
 "UNICEF":  "11.3",
 "USA": "0",
 "UK":  "85.7",
-"World Bank":  "0"}
+"World Bank":  "0",
+#"World Health Organisation":"",
+}
 
 
 class IndicatorReport(ProjectReport):
