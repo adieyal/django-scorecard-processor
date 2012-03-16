@@ -303,6 +303,30 @@ class ResponseSet(models.Model):
         return self.get_responses().get(question)
 
 
+# Create your models here.
+def upload_storage(instance, filename):
+    return 'responseset_uploads/%s/%s' % (instance.responseset.pk, filename)
+
+class Upload(models.Model):
+    responseset = models.ForeignKey(ResponseSet)
+    file = models.FileField(upload_to=upload_storage, help_text="Upload a new response")
+
+    class Meta:
+        app_label = "scorecard_processor"
+
+    def __unicode__(self):
+        return u'%s on %s' % (self.file, self.entity)
+
+    @property
+    def filename(self):
+        return self.file.name.split('/')[-1]
+
+    @property
+    def extension(self):
+        return self.filename.split('.')[-1]
+
+
+
 class ResponseSetMetaData(models.Model):
     response_set = models.ForeignKey(ResponseSet)
     key = models.CharField(max_length=20, db_index=True)
