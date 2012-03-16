@@ -30,7 +30,7 @@ indicator_5DPa = {"CDC": "0",
 "USA": "0",
 "UK":  "85.7",
 "World Bank":  "0",
-#"World Health Organisation":"",
+"World Health Organisation":"0",
 }
 
 
