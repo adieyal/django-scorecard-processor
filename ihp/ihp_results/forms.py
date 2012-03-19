@@ -93,6 +93,14 @@ class QuestionForm(BootstrapForm):
         self.questions = {}
         self.response = {}
 
+        if self.static:
+            for fieldname in ['currency','baseline_year','current_year']:
+               field = self.fields[fieldname]
+               field.widget.attrs['readonly'] = 'readonly'
+               field.widget.attrs['disabled'] = 'disabled'
+               field.required = False
+            
+
         for responseset in self.responsesets:
             currency = responseset.get_meta('currency')
             if currency and not self.initial.get('currency'):

@@ -39,6 +39,22 @@
       <form method="POST" class="form-stacked">
           {% csrf_token %}
           <div class="row">
+            <div class="offset1 span4">
+              <label>{{form.currency.label}}</label>
+              <div>{{form.currency}}</div>
+            </div>
+
+            <div class="span4">
+              <label>{{form.baseline_year.label}}</label>
+              <div>{{form.baseline_year}}</div>
+            </div>
+
+            <div class="span4">
+              <label>{{form.current_year.label}}</label>
+              <div>{{form.current_year}}</div>
+            </div>
+          </div>
+          <div class="row" style="margin-top:30px">
             <div class="offset1 span13">
               {{form.as_div}}
             </div>
