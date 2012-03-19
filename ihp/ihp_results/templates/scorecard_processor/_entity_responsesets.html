@@ -17,4 +17,4 @@
   {% endif %}
 {% endfor %}
 </ul>
-<a href="{% url import_response object.pk %} " class="btn">Import response</a>
+{% if user.is_staff %}<a href="{% url import_response object.pk %} " class="btn">Import response</a>{% endif %}
