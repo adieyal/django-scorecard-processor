@@ -12,6 +12,7 @@ from guardian.shortcuts import get_perms, assign, remove_perm, get_objects_for_u
 
 
 from scorecard_processor.models import Entity, DataSeriesGroup, Survey, DataSeries
+from plugins import MultiChoiceField, CurrencySelector
 
 @login_required
 def add_dsg_survey(request, entity_id, data_series_group_name, survey_id):
@@ -147,22 +148,95 @@ def import_response(request, agency_id):
 
 import xlrd
 def _import_response(xls, agency, user):
-    survey = xlrd.open_workbook(xls.path).sheet_by_name('Survey Tool')
-    currency = survey.row(2)[3].value
-    data_series = models.DataSeries.objects.get(name='2011')
-    try:
-        response_set = agency.responseset_set.get(data_series=data_series, survey=models.Survey.objects.get(name="Survey for agencies"))
-    except:
-        response_set = agency.responseset_set.create(survey=models.Survey.objects.get(name="Survey for agencies"))
-        response_set.data_series.add(data_series)
-    questions = dict([(q.identifier,q) for q in response_set.survey.get_questions()])
-    responses = response_set.get_responses()
+    response = xlrd.open_workbook(xls.path).sheet_by_name('Survey Tool')
+    if response.row(7)[0].value == '1DP':
+        return _process_response(xls, agency, user, response, config=config["dp"])
+    else:
+        return _process_response(xls, agency, user, response, config=config["gov"])
+
+config = {
+    'gov':{
+        'survey':'2012 Survey for Governments',
+        'currency':(1,2),
+        'country':(0,2),
+        'baseline_year':(2,2),
+        'latest_year':(3,2),
+        'start_row':7,
+        'question_column':2,
+        'baseline_column':4,
+        'current_column':5,
+        'comment_column':6,
+        'choice_column':4,
+        'skip_rows':[]
+    },
+    'dp':{
+        'survey':'2012 Survey for Agencies',
+        'currency':(2,3),
+        'country':(0,3),
+        'baseline_year':(3,3),
+        'latest_year':(4,3),
+        'start_row':7,
+        'question_column':3,
+        'baseline_column':5,
+        'current_column':6,
+        'comment_column':7,
+        'choice_column':4,
+        'skip_rows':[]
+    },
+}
+
+
+def _process_response(xls, agency, user, response, config):
+    survey = models.Survey.objects.get(name=config['survey'])
+    currency = response.cell(*config['currency']).value
+    country = response.cell(*config['country']).value
+    baseline_year = response.cell(*config['baseline_year']).value
+    if len(baseline_year)>4:
+        baseline_year = None
+    current_year = response.cell(*config['latest_year']).value
+    if len(current_year)>4:
+        current_year = None
+
+
+    if baseline_year:
+        data_series = [
+            models.DataSeries.objects.get(name=baseline_year),
+            models.DataSeries.objects.get(name=country),
+            models.DataSeries.objects.get(name="Baseline"),
+        ]
+        baseline = agency.get_responseset_set(data_series=data_series, survey=survey)
+        if not baseline:
+            baseline = agency.responseset_set.create(survey=survey)
+            for ds in data_series:
+                baseline.data_series.add(ds)
+    else:
+        baseline = None
+
+
+    data_series = [
+        models.DataSeries.objects.get(name=current_year),
+        models.DataSeries.objects.get(name=country),
+        models.DataSeries.objects.get(name="Baseline"),
+    ]
+    current = agency.get_responseset_set(data_series=data_series, survey=survey)
+    if not current:
+        current = agency.responseset_set.create(survey=survey)
+        for ds in data_series:
+            current.data_series.add(ds)
+
+    questions = dict([(q.identifier,q) for q in survey.get_questions()])
+    if baseline:
+        baseline_responses = baseline.get_responses()
+    else:
+        baseline_responses = {}
+    current_responses = current.get_responses()
     tick_mode = False
-    choice_map = dict([(i[1]._proxy____unicode_cast().lower(),i[0]) for i in plugins.AidTypes().choices])
-    for row_num in xrange(7,survey.nrows):
-        if row_num in [7,10,11,12,13,21,22] or row_num > 27:
+#    choice_map = dict([(i[1]._proxy____unicode_cast().lower(),i[0]) for i in plugins.AidTypes().choices])
+    for row_num in xrange(config['start_row'],response.nrows):
+        if row_num in config['skip_rows']:
             continue
-        row = survey.row(row_num)
+
+        row = response.row(row_num)
         try:
             section_name = str(row[0].value)
         except:
@@ -171,61 +245,69 @@ def _import_response(xls, agency, user):
             section = section_name
 
         try:
-            q_num = str(int(row[3].value))
+            q_num = str(int(row[config['question_column']].value))
         except:
             tick_mode = True
 
-        value = row[6].value
+        baseline_value = row[config['baseline_column']].value
+        current_value = row[config['current_column']].value
         try:
-            comment = row[7].value
+            comment = row[config['comment_column']].value
         except:
             comment = None
 
         question = questions[q_num]
-        if tick_mode:
-            if value != '':
-                key = row[4].value
-                key = choice_map[key.strip().lower()]
-                value = {'y':True,'n':False}.get(value.lower())
-                response = responses.get(question)
-                if response:
-                    update = response.get_value()
-                    if not isinstance(update,list):
-                        update = []
-                    if value:
-                        update = update + [key]
-                        update = set(update)
+
+        iterate = [(current_value, current_responses)]
+        if baseline:
+            iterate.append((baseline_value, baseline_responses))
+
+        for value, responses in iterate:
+            if tick_mode:
+                choice_map = dict([(i[1]._proxy____unicode_cast().lower(),i[0]) for i in question.plugin.choices])
+                if value != '':
+                    key = row[config['choice_column']].value
+                    key = choice_map[key.strip().lower()]
+                    value = {'y':True,'n':False}.get(value.lower())
+                    response = responses.get(question)
+                    if response:
+                        update = response.get_value()
+                        if not isinstance(update,list):
+                            update = []
+                        if value:
+                            update = update + [key]
+                            update = set(update)
+                        else:
+                            update = set(update) - set([key])
+                        value = list(update)
+                        response = None
                     else:
-                        update = set(update) - set([key])
-                    value = list(update)
-                    response = None
-                else:
-                    if value:
-                        value = [key]
-                    else:
-                        value = []
-                if not response and value:
-                    response = response_set.response_set.create(question=question, respondant=user, current=True)
-                    response.value = {'value':value}
-                    response.save()
-                    responses[question] = response
-        else:
-            if q_num != '10':
-                response = responses.get(question)
-                try:
-                    value = int(value)
-                except:
-                    value = None
-                if response and response.get_value() != value:
-                    response = None
-                if not response and value != None:
-                    response = response_set.response_set.create(question=question, respondant=user, current=True)
-                    if q_num != '9':
-                        response.value = {'value':''.join([currency,str(value)])}
-                    else:
+                        if value:
+                            value = [key]
+                        else:
+                            value = []
+                    if not response and value:
+                        response = response_set.response_set.create(question=question, respondant=user, current=True)
                         response.value = {'value':value}
-                    response.save()
-                    responses[question] = response
+                        response.save()
+                        responses[question] = response
+            else:
+                if not isinstance(question.plugin.plugin, MultiChoiceField):
+                    response = responses.get(question)
+                    try:
+                        value = int(value)
+                    except:
+                        value = None
+                    if response and response.get_value() != value:
+                        response = None
+                    if not response and value != None:
+                        response = response_set.response_set.create(question=question, respondant=user, current=True)
+                        if isinstance(question.plugin.plugin, CurrencySelector):
+                            response.value = {'value':''.join([currency,str(value)])}
+                        else:
+                            response.value = {'value':value}
+                        response.save()
+                        responses[question] = response
         
         if comment:
             try:
@@ -240,3 +322,4 @@ def _import_response(xls, agency, user):
                 response.value = {'value':comment}
                 response.save()
     return response_set
+

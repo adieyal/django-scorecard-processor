@@ -125,6 +125,16 @@ class Entity(models.Model):
     def data_type(self):
         return self.entity_type.pk
 
+    def get_response_set(self, survey, data_series):
+        qs = self.response_set.filter(survey=survey)
+        for ds in data_series:
+            qs = qs.filter(data_series=ds)
+        if len(qs) == 0:
+            return None
+        if len(qs) == 1:
+            return qs[0]
+        return qs
+
     @models.permalink
     def get_absolute_url(self):
         return ('show_entity',(str(self.pk),))
