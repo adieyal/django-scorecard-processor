@@ -143,7 +143,7 @@ def import_response(request, agency_id):
         if form.is_valid():
             attachment = form.save()
             response_set = _import_response(attachment.file, agency, request.user)
-            return HttpResponseRedirect(response_set.get_absolute_url())
+            return HttpResponseRedirect(reverse('survey_dsg_response_view',args=[str(agency.pk),'Country', str(response_set.survey.pk), response_set.get_data_series_by_type()['Country'].name]))
     else:
         form = form(instance=attachment)
     return render_to_response('ihp_results/import_response.html', {'form':form}, RequestContext(request))
