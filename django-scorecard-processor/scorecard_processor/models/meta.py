@@ -126,7 +126,7 @@ class Entity(models.Model):
         return self.entity_type.pk
 
     def get_response_set(self, survey, data_series):
-        qs = self.response_set.filter(survey=survey)
+        qs = self.responseset_set.filter(survey=survey)
         for ds in data_series:
             qs = qs.filter(data_series=ds)
         if len(qs) == 0:

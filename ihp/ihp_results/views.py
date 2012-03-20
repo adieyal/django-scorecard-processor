@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Create your views here.
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseRedirect, Http404
@@ -7,6 +8,7 @@ from django.views.generic import DetailView, ListView, DeleteView, CreateView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordResetForm
 from django.contrib.auth.models import User
+from django.utils import translation
 
 from guardian.shortcuts import get_perms, assign, remove_perm, get_objects_for_user
 
@@ -186,25 +188,27 @@ config = {
 }
 
 
-def _process_response(xls, agency, user, response, config):
+def _process_response(xls, agency, user, submission, config):
     survey = models.Survey.objects.get(name=config['survey'])
-    currency = response.cell(*config['currency']).value
-    country = response.cell(*config['country']).value
-    baseline_year = response.cell(*config['baseline_year']).value
-    if len(baseline_year)>4:
-        baseline_year = None
-    current_year = response.cell(*config['latest_year']).value
-    if len(current_year)>4:
-        current_year = None
+    currency = submission.cell(*config['currency']).value
+    country = submission.cell(*config['country']).value
+    french = submission.cell(config['start_row']-1,0).value == u"N° Indicateur"
+    if french:
+        translation.activate('fr')
 
+    try:
+        baseline_year = models.DataSeries.objects.get(name=unicode(submission.cell(*config['baseline_year']).value)[:4])
+    except:
+        baseline_year = None
+    current_year = models.DataSeries.objects.get(name=unicode(submission.cell(*config['latest_year']).value)[:4])
 
     if baseline_year:
         data_series = [
-            models.DataSeries.objects.get(name=baseline_year),
+            baseline_year,
             models.DataSeries.objects.get(name=country),
             models.DataSeries.objects.get(name="Baseline"),
         ]
-        baseline = agency.get_responseset_set(data_series=data_series, survey=survey)
+        baseline = agency.get_response_set(data_series=data_series, survey=survey)
         if not baseline:
             baseline = agency.responseset_set.create(survey=survey)
             for ds in data_series:
@@ -214,11 +218,11 @@ def _process_response(xls, agency, user, response, config):
 
 
     data_series = [
-        models.DataSeries.objects.get(name=current_year),
+        current_year,
         models.DataSeries.objects.get(name=country),
         models.DataSeries.objects.get(name="Baseline"),
     ]
-    current = agency.get_responseset_set(data_series=data_series, survey=survey)
+    current = agency.get_response_set(data_series=data_series, survey=survey)
     if not current:
         current = agency.responseset_set.create(survey=survey)
         for ds in data_series:
@@ -232,11 +236,11 @@ def _process_response(xls, agency, user, response, config):
     current_responses = current.get_responses()
     tick_mode = False
 #    choice_map = dict([(i[1]._proxy____unicode_cast().lower(),i[0]) for i in plugins.AidTypes().choices])
-    for row_num in xrange(config['start_row'],response.nrows):
+    for row_num in xrange(config['start_row'],submission.nrows):
         if row_num in config['skip_rows']:
             continue
 
-        row = response.row(row_num)
+        row = submission.row(row_num)
         try:
             section_name = str(row[0].value)
         except:
@@ -248,6 +252,8 @@ def _process_response(xls, agency, user, response, config):
             q_num = str(int(row[config['question_column']].value))
         except:
             tick_mode = True
+        else:
+            tick_mode = False
 
         baseline_value = row[config['baseline_column']].value
         current_value = row[config['current_column']].value
@@ -258,20 +264,23 @@ def _process_response(xls, agency, user, response, config):
 
         question = questions[q_num]
 
-        iterate = [(current_value, current_responses)]
+        iterate = [(current_value, current_responses, current)]
         if baseline:
-            iterate.append((baseline_value, baseline_responses))
+            iterate.append((baseline_value, baseline_responses, baseline))
 
-        for value, responses in iterate:
+        for value, responses, response_set in iterate:
             if tick_mode:
-                choice_map = dict([(i[1]._proxy____unicode_cast().lower(),i[0]) for i in question.plugin.choices])
+                choice_map = dict([(i[1]._proxy____unicode_cast().lower(),i[0]) for i in question.plugin.plugin().choices])
                 if value != '':
                     key = row[config['choice_column']].value
-                    key = choice_map[key.strip().lower()]
+                    try:
+                        key = choice_map[key.strip().lower()]
+                    except KeyError:
+                        continue
                     value = {'y':True,'n':False}.get(value.lower())
                     response = responses.get(question)
                     if response:
-                        update = response.get_value()
+                        update = submission.get_value()
                         if not isinstance(update,list):
                             update = []
                         if value:
@@ -314,11 +323,11 @@ def _process_response(xls, agency, user, response, config):
                 comment_q = questions[section]
             except:
                 continue
-            response = responses.get(comment_q)
+            response = current_responses.get(comment_q)
             if response and response.get_value() != comment:
                 response = None
             if not response:
-                response = response_set.response_set.create(question=comment_q, respondant=user, current=True)
+                response = current.response_set.create(question=comment_q, respondant=user, current=True)
                 response.value = {'value':comment}
                 response.save()
     return response_set
