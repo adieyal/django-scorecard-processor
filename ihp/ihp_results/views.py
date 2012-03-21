@@ -280,7 +280,7 @@ def _process_response(xls, agency, user, submission, config):
                     value = {'y':True,'n':False}.get(value.lower())
                     response = responses.get(question)
                     if response:
-                        update = submission.get_value()
+                        update = response.get_value()
                         if not isinstance(update,list):
                             update = []
                         if value:
@@ -303,15 +303,18 @@ def _process_response(xls, agency, user, submission, config):
             else:
                 if not isinstance(question.plugin.plugin, MultiChoiceField):
                     response = responses.get(question)
-                    try:
-                        value = int(value)
-                    except:
-                        value = None
+                    if isinstance(value,basestring) and value.lower() in ['yes','no']:
+                        value = value.lower()
+                    else:
+                        try:
+                            value = int(value)
+                        except:
+                            value = None
                     if response and response.get_value() != value:
                         response = None
                     if not response and value != None:
                         response = response_set.response_set.create(question=question, respondant=user, current=True)
-                        if isinstance(question.plugin.plugin, CurrencySelector):
+                        if isinstance(question.plugin.plugin(), CurrencySelector):
                             response.value = {'value':''.join([currency,str(value)])}
                         else:
                             response.value = {'value':value}
