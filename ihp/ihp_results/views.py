@@ -220,7 +220,7 @@ def _process_response(xls, agency, user, submission, config):
     data_series = [
         current_year,
         models.DataSeries.objects.get(name=country),
-        models.DataSeries.objects.get(name="Baseline"),
+        models.DataSeries.objects.get(name="2012 collection"),
     ]
     current = agency.get_response_set(data_series=data_series, survey=survey)
     if not current:
