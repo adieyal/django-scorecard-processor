@@ -20,6 +20,8 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         survey_file = xlrd.open_workbook(args[0])
         lang = options.get('lang','en-gb')
+        if not lang:
+            lang = 'en-gb'
         
         project=models.Project.objects.get()
 

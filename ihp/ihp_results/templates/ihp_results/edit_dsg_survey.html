@@ -91,7 +91,17 @@ function parse_defs() {
       $(terms).each(function(j,f) {
         var test = $(e).html().split(f.term);
         if (test.length > 1) {
-          $(e).html(test.join("<a class='glossary_term' data-id='"+f.id+"' title='{% trans "Click to see definition" %}'>"+f.term+"</a>"));
+          var result = $(test.join("<a class='glossary_term' data-id='"+f.id+"' title='{% trans "Click to see definition" %}'>"+f.term+"</a>"));
+          var join = true;
+          $('.glossary_term', result).each(function(z,x){
+            if ($(x).attr('data-id').indexOf('glossary_term')>0) {
+              join = false;
+              return false;
+            }
+          })
+          if (join){
+            $(e).html(result);
+          }
           //Do we want to keep finding more defs?
         }
       });
