@@ -187,12 +187,14 @@ class QuestionForm(BootstrapForm):
         self.fields['q_%s_%s' % (question.pk,series.pk)] = field
 
     def save(self):
-        baseline_year = self.cleaned_data['baseline_year'] 
+        collection_year = dict([(x.name,y.name) for x,y in self.collection_year.items()])
+        baseline_year = collection_year.get('Baseline', self.cleaned_data.get('baseline_year', None))
         if baseline_year:
             baseline_year = DataSeries.objects.get(name=baseline_year)
         else:
             baseline_year = None
-        current_year = DataSeries.objects.get(name=self.cleaned_data['current_year'])
+        current_year = collection_year.get('2012 collection', self.cleaned_data.get('current_year', None))
+        current_year = DataSeries.objects.get(name=current_year)
         currency = self.cleaned_data['currency']
         for responseset in self.responsesets:
             if responseset.editable:
