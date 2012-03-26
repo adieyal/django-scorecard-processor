@@ -818,7 +818,7 @@
     "pk": 207, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "rating_0_5_half", 
+      "widget": "four_point", 
       "group": 76, 
       "question": "Please provide the scores for the four point scale used to assess performance in the procurement sector for 2007 and 2009.", 
       "validator": "anything", 
@@ -1585,7 +1585,7 @@
     "pk": 53, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "rating_0_5_half", 
+      "widget": "four_point", 
       "group": 21, 
       "question": "Please provide the scores for the four point scale used to assess performance in the procurement sector for 2007 and 2009.", 
       "validator": "anything", 
@@ -2328,7 +2328,7 @@
     "model": "scorecard_processor.questiongroup", 
     "fields": {
       "ordering": 1, 
-      "help_text": "", 
+      "help_text": "IHP+Results has this data so there is no need for you to complete this question.", 
       "survey": 4, 
       "name": "5Gb"
     }
