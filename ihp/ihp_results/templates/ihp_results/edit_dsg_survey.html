@@ -24,7 +24,7 @@
     .finish #save{display:block}
 </style>
 <script type="text/javascript">
-$('input[readonly], select[readonly], textarea[readonly]').each(function(i,e){
+$('input.hidden, select.hidden, textarea.hidden').each(function(i,e){
   //Hide form elements if they are disabled
   $(e).parent('div').parent('div').hide()
 })

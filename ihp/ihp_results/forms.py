@@ -98,9 +98,11 @@ class QuestionForm(BootstrapForm):
                field = self.fields[fieldname]
                field.widget.attrs['readonly'] = 'readonly'
                field.widget.attrs['disabled'] = 'disabled'
+               field.widget.attrs['class'] = 'hidden'
                field.required = False
             
 
+        collection_lookup = {"Baseline":"baseline_year","2012 collection":"current_year"}
         for responseset in self.responsesets:
             currency = responseset.get_meta('currency')
             if currency and not self.initial.get('currency'):
@@ -109,6 +111,10 @@ class QuestionForm(BootstrapForm):
             ds_dict = responseset.get_data_series_by_type()
             if ds_dict['Data collection year'] not in self.collection_year:
                 self.collection_year[ds_dict['Data collection year']] = ds_dict['Year']
+                field = self.fields[collection_lookup[ds_dict['Data collection year'].name]]
+                field.widget.attrs['readonly'] = 'readonly'
+                field.widget.attrs['disabled'] = 'disabled'
+                field.required = False
             else:
                 if self.collection_year[ds_dict['Data collection year']] != ds_dict['Year']:
                     raise MultiYearDataException
@@ -119,7 +125,6 @@ class QuestionForm(BootstrapForm):
             ds_dict = response.response_set.get_data_series_by_type()
             self.question_dict[response.question][ds_dict['Data collection year']]=response
 
-        collection_lookup = {"Baseline":"baseline_year","2012 collection":"current_year"}
         for collection, year in self.collection_year.items():
             self.initial[collection_lookup[collection.name]] = year.name
             rs = self.response_types.get(collection)
@@ -127,6 +132,7 @@ class QuestionForm(BootstrapForm):
                field = self.fields[collection_lookup[collection.name]]
                field.widget.attrs['readonly'] = 'readonly'
                field.widget.attrs['disabled'] = 'disabled'
+               field.widget.attrs['class'] = 'hidden'
                field.required = False
 
         series_list = self.series.values()
@@ -177,6 +183,7 @@ class QuestionForm(BootstrapForm):
         if read_only:
             field.widget.attrs['readonly'] = 'readonly'
             field.widget.attrs['disabled'] = 'disabled'
+            field.widget.attrs['class'] = 'hidden'
         self.fields['q_%s_%s' % (question.pk,series.pk)] = field
 
     def save(self):
