@@ -1,6 +1,21 @@
 from django.utils.translation import ugettext_lazy as _
 from scorecard_processor.plugins.input.multi_choices import register, MultiChoiceField
+from scorecard_processor.plugins.input.choices import ChoiceField
 from decimal import Decimal
+
+class FourPointScale(ChoiceField):
+    name = "Four point perfomance scale"
+    def __init__(self, *args, **kwargs):
+        super(FourPointScale,self).__init__(*args,**kwargs)
+        self.choices = (
+                ('',''),
+                ('a','A'),
+                ('b','B'),
+                ('c','C'),
+                ('d','D'),
+            )
+
+register.register('input','IHP field','four_point', FourPointScale)
 
 class AidTypes(MultiChoiceField):
     name = "Aid types"
