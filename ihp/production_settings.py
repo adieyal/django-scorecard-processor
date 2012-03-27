@@ -1,7 +1,6 @@
 from settings import *
 from bundle_config import config
 
-ADMIN_MEDIA_PREFIX = "/static/grappelli/"
 
 CACHES = {
   'default': {
