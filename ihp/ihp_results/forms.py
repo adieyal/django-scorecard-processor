@@ -204,7 +204,7 @@ class QuestionForm(BootstrapForm):
         del self.cleaned_data['current_year']
         del self.cleaned_data['baseline_year']
         for key, value in self.cleaned_data.items():
-            if value or key in self.response:
+            if value != '' or key in self.response:
                 # Check for existing response
                 if key in self.response:
                     if  self.response[key].get_value() != value and self.response[key].response_set.editable:
