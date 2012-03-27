@@ -10,7 +10,11 @@ def attachment_storage(instance, filename):
 class Attachment(models.Model):
     #Possibly store metadata about the files/attachment?
     entity = models.ForeignKey(Entity)
+    submission_date = models.DateTimeField(auto_now_add=True)
     file = models.FileField(upload_to=attachment_storage, help_text="Upload a new file")
+
+    class Meta:
+        ordering = ('-submission_date',)
 
     def __unicode__(self):
         return u'%s on %s' % (self.file, self.entity)

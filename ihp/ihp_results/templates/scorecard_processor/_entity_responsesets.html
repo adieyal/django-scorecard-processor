@@ -18,3 +18,11 @@
 {% endfor %}
 </ul>
 {% if user.is_staff %}<a href="{% url import_response object.pk %} " class="btn">Import response</a>{% endif %}
+{% if object.attachment_set.count %}
+<h3>Previous uploads</h3>
+  <ul>
+  {% for attachment in object.attachment_set.all %}
+    <li><a href="{{MEDIA_URL}}{{attachment.file}}">{{attachment.filename}}</a><br /><small>Submitted: {{attachment.submission_date}}</small></li>
+  {% endfor %}
+  </ul>
+{% endif %}
