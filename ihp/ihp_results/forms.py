@@ -1,3 +1,4 @@
+import re
 from collections import defaultdict
 from ordereddict import OrderedDict
 
@@ -73,7 +74,7 @@ class QuestionForm(BootstrapForm):
         self.user = kwargs.pop('user')
         self.series = OrderedDict([(s.pk,s) for s in kwargs.pop('series')])
         self.country = kwargs.pop('country')
-        self.collection_year = {}
+        self.collection_year = defaultdict(list)
         try:
             self.static = kwargs.pop('static')
         except KeyError:
@@ -109,15 +110,11 @@ class QuestionForm(BootstrapForm):
                 self.initial['currency'] = currency['value']
 
             ds_dict = responseset.get_data_series_by_type()
-            if ds_dict['Data collection year'] not in self.collection_year:
-                self.collection_year[ds_dict['Data collection year']] = ds_dict['Year']
-                field = self.fields[collection_lookup[ds_dict['Data collection year'].name]]
-                field.widget.attrs['readonly'] = 'readonly'
-                field.widget.attrs['disabled'] = 'disabled'
-                field.required = False
-            else:
-                if self.collection_year[ds_dict['Data collection year']] != ds_dict['Year']:
-                    raise MultiYearDataException
+            self.collection_year[ds_dict['Data collection year']].append(ds_dict['Year'])
+            field = self.fields[collection_lookup[ds_dict['Data collection year'].name]]
+            field.widget.attrs['readonly'] = 'readonly'
+            field.widget.attrs['disabled'] = 'disabled'
+            field.required = False
 
         for response in self.responses:
             #Limit db hits for responsesets
@@ -126,7 +123,7 @@ class QuestionForm(BootstrapForm):
             self.question_dict[response.question][ds_dict['Data collection year']]=response
 
         for collection, year in self.collection_year.items():
-            self.initial[collection_lookup[collection.name]] = year.name
+            self.initial[collection_lookup[collection.name]] = year[0].name
             rs = self.response_types.get(collection)
             if rs and (rs.editable == False or self.static):
                field = self.fields[collection_lookup[collection.name]]
@@ -158,7 +155,11 @@ class QuestionForm(BootstrapForm):
 
         for question, series in self.question_dict.items():
             for ds, response in series.items():
-                self.initial['q_%s_%s' % (response.question.pk, ds.pk)] = response.get_value()
+                key = 'q_%s_%s' % (response.question.pk, ds.pk)
+                self.initial[key] = response.get_value()
+                year = response.response_set.get_data_series_by_type()['Year']
+                if year.name != self.collection_year[ds][0].name:
+                    self.initial[key] = ' '.join([self.initial[key], '(%s)' % year])
                 self.response['q_%s_%s' % (response.question.pk, ds.pk)] = response
             
     def add_field_from_question(self, question, series, label=True):
@@ -186,8 +187,31 @@ class QuestionForm(BootstrapForm):
             field.widget.attrs['class'] = 'hidden'
         self.fields['q_%s_%s' % (question.pk,series.pk)] = field
 
+    def is_valid(self):
+        matcher = re.compile(r'\((\d+)\)')
+        data = self.data.copy()
+        self.custom_year = getattr(self,'custom_year', {})
+        for key in data.keys():
+            field = data.getlist(key)
+            year = None
+            new_value = []
+            for item in field:
+                check = matcher.split(item)
+                if len(check)>1:
+                    year = check[1]
+                    new_value.append(check[0])
+                else:
+                    new_value.append(item)
+            data.setlist(key, new_value)
+            if year:
+                if len(key.split('_'))>3:
+                    key = '_'.join(key.split('_')[:-1])
+                self.custom_year[key] = year
+        self.data = data
+        return super(QuestionForm, self).is_valid()
+
     def save(self):
-        collection_year = dict([(x.name,y.name) for x,y in self.collection_year.items()])
+        collection_year = dict([(x.name,y[0].name) for x,y in self.collection_year.items()])
         baseline_year = collection_year.get('Baseline', self.cleaned_data.get('baseline_year', None))
         if baseline_year:
             baseline_year = DataSeries.objects.get(name=baseline_year)
@@ -204,8 +228,10 @@ class QuestionForm(BootstrapForm):
         del self.cleaned_data['current_year']
         del self.cleaned_data['baseline_year']
         for key, value in self.cleaned_data.items():
+            if key in self.custom_year:
+                #TODO: actually save the shit :/
+                pass
             if value != '' or key in self.response:
-                # Check for existing response
                 if key in self.response:
                     if  self.response[key].get_value() != value and self.response[key].response_set.editable:
                         instance = Response(
