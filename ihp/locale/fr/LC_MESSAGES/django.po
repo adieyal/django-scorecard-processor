@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-27 15:09+0200\n"
+"POT-Creation-Date: 2012-03-29 11:13+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,60 +25,60 @@ msgstr ""
 msgid "Français"
 msgstr ""
 
-#: ihp_results/forms.py:58
+#: ihp_results/forms.py:59
 msgid "Currency"
 msgstr "Votre devise"
 
-#: ihp_results/forms.py:59
+#: ihp_results/forms.py:60
 msgid "Please select your currency"
 msgstr "S'il vous plaît choisir votre devise"
 
-#: ihp_results/forms.py:63 ihp_results/forms.py:161
+#: ihp_results/forms.py:64 ihp_results/forms.py:176
 msgid "Baseline data"
 msgstr "Données de base"
 
-#: ihp_results/forms.py:67 ihp_results/forms.py:162
+#: ihp_results/forms.py:68 ihp_results/forms.py:177
 msgid "Latest data"
 msgstr "Dernières données"
 
-#: ihp_results/plugins.py:10
+#: ihp_results/plugins.py:25
 msgid "Financial support"
 msgstr "Soutien financier"
 
-#: ihp_results/plugins.py:11
+#: ihp_results/plugins.py:26
 msgid "Technical assistance (non-financial)"
 msgstr "Assistance technique (non financier)"
 
-#: ihp_results/plugins.py:12
-msgid "Lobbying/advocay - non-financial"
+#: ihp_results/plugins.py:27
+msgid "Lobbying/advocacy - non-financial"
 msgstr "Lobbying - plaidoyer - non financier"
 
-#: ihp_results/plugins.py:13
+#: ihp_results/plugins.py:28
 msgid "Other (please specify in Voluntary additional information)"
 msgstr ""
 "Autre (veuillez préciser dans l'informations complémentaires volontaires)"
 
-#: ihp_results/plugins.py:24
+#: ihp_results/plugins.py:39
 msgid "Maternal Health"
 msgstr "Santé maternelle"
 
-#: ihp_results/plugins.py:25
+#: ihp_results/plugins.py:40
 msgid "Child Health"
 msgstr "Santé infantile"
 
-#: ihp_results/plugins.py:26
+#: ihp_results/plugins.py:41
 msgid "Malaria"
 msgstr "Paludisme"
 
-#: ihp_results/plugins.py:27
+#: ihp_results/plugins.py:42
 msgid "HIV/AIDS"
 msgstr "VIH/SIDA"
 
-#: ihp_results/plugins.py:28
+#: ihp_results/plugins.py:43
 msgid "TB"
 msgstr "Tuberculose"
 
-#: ihp_results/plugins.py:29
+#: ihp_results/plugins.py:44
 msgid ""
 "Health Systems Strengthening (Governance, Financing, HRH, Information "
 "Systems, Medicines, service delivery)"
@@ -87,127 +87,127 @@ msgstr ""
 "humaines de la santé, systèmes d'information, médicaments, services de "
 "livraison) "
 
-#: ihp_results/plugins.py:30
+#: ihp_results/plugins.py:45
 msgid "Nutrition"
 msgstr "Nutrition"
 
-#: ihp_results/plugins.py:31
+#: ihp_results/plugins.py:46
 msgid "International NGO"
 msgstr "ONG internationale "
 
-#: ihp_results/plugins.py:32
+#: ihp_results/plugins.py:47
 msgid "National NGO"
 msgstr "ONG nationale"
 
-#: ihp_results/plugins.py:33
+#: ihp_results/plugins.py:48
 msgid "Faith Based Organisation"
 msgstr "Organisation à base religieuse"
 
-#: ihp_results/plugins.py:34
+#: ihp_results/plugins.py:49
 msgid "Umbrella Organisation"
 msgstr "Organisation faîtière"
 
-#: ihp_results/plugins.py:35
+#: ihp_results/plugins.py:50
 msgid "Professional Association"
 msgstr "Association professionnelle"
 
-#: ihp_results/plugins.py:47
+#: ihp_results/plugins.py:62
 msgid "Joint Annual Reviews"
 msgstr "Revues conjointes annuelles"
 
-#: ihp_results/plugins.py:48
+#: ihp_results/plugins.py:63
 msgid "Monthly/quarterly coordination meetings"
 msgstr "Réunions de coordination mensuelles / trimestrielles"
 
-#: ihp_results/plugins.py:49
+#: ihp_results/plugins.py:64
 msgid "Thematic working groups"
 msgstr "Groupes de travail thématiques"
 
-#: ihp_results/plugins.py:50
+#: ihp_results/plugins.py:65
 msgid "Budget development / resource allocation"
 msgstr "Développement des budgets / allocation des ressources"
 
-#: ihp_results/plugins.py:81
+#: ihp_results/plugins.py:96
 msgid "Please choose a valid currency"
 msgstr "S'il vous plaît choisir une devise valide"
 
-#: ihp_results/plugins.py:82
+#: ihp_results/plugins.py:97
 msgid "Please enter a numeric amount"
 msgstr "S'il vous plaît entrer un montant numérique"
 
-#: ihp_results/plugins.py:92
+#: ihp_results/plugins.py:107
 msgid "US Dollar"
 msgstr ""
 
-#: ihp_results/plugins.py:93
+#: ihp_results/plugins.py:108
 msgid "British Pound"
 msgstr ""
 
-#: ihp_results/plugins.py:94
+#: ihp_results/plugins.py:109
 msgid "Euro"
 msgstr ""
 
-#: ihp_results/plugins.py:95
+#: ihp_results/plugins.py:110
 msgid "Australian Dollar"
 msgstr ""
 
-#: ihp_results/plugins.py:96
+#: ihp_results/plugins.py:111
 msgid "Swedish Krona"
 msgstr ""
 
-#: ihp_results/plugins.py:97
+#: ihp_results/plugins.py:112
 msgid "CFA Franc BCEAO"
 msgstr ""
 
-#: ihp_results/plugins.py:98
+#: ihp_results/plugins.py:113
 msgid "Burundi Franc"
 msgstr ""
 
-#: ihp_results/plugins.py:99
+#: ihp_results/plugins.py:114
 msgid "Djibouti Franc"
 msgstr ""
 
-#: ihp_results/plugins.py:100
+#: ihp_results/plugins.py:115
 msgid "Congolese Franc"
 msgstr ""
 
-#: ihp_results/plugins.py:101
+#: ihp_results/plugins.py:116
 msgid "El Salvador Colon"
 msgstr ""
 
-#: ihp_results/plugins.py:102
+#: ihp_results/plugins.py:117
 msgid "Ethiopian Birr"
 msgstr ""
 
-#: ihp_results/plugins.py:103
+#: ihp_results/plugins.py:118
 msgid "Mauritanian Ouguiya"
 msgstr ""
 
-#: ihp_results/plugins.py:104
+#: ihp_results/plugins.py:119
 msgid "Mozambique New Metical"
 msgstr ""
 
-#: ihp_results/plugins.py:105
+#: ihp_results/plugins.py:120
 msgid "Nepal Rupee"
 msgstr ""
 
-#: ihp_results/plugins.py:106
+#: ihp_results/plugins.py:121
 msgid "Nigerian Naira"
 msgstr ""
 
-#: ihp_results/plugins.py:107
+#: ihp_results/plugins.py:122
 msgid "Rwandan Franc"
 msgstr ""
 
-#: ihp_results/plugins.py:108
+#: ihp_results/plugins.py:123
 msgid "Sierra Leone Leone"
 msgstr ""
 
-#: ihp_results/plugins.py:109
+#: ihp_results/plugins.py:124
 msgid "Sudanese Pound"
 msgstr ""
 
-#: ihp_results/plugins.py:110
+#: ihp_results/plugins.py:125
 msgid "Uganda Shilling"
 msgstr ""
 
@@ -221,8 +221,6 @@ msgid "New response to"
 msgstr "Nouvelle réponse à"
 
 #: ihp_results/templates/ihp_results/add_dsg_survey.html:8
-#: scorecard_processor/templates/scorecard_processor/entity_detail.html:27
-#: scorecard_processor/templates/scorecard_processor/respond/edit_survey.html:65
 msgid "for"
 msgstr "pour"
 
@@ -240,7 +238,7 @@ msgstr "Ajouter une nouvelle réponse à %(survey_name)s pour %(entity_name)s"
 msgid "Click to see definition"
 msgstr "Cliquez ici pour voir la définition"
 
-#: ihp_results/templates/ihp_results/edit_dsg_survey.html:163
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:173
 msgid ""
 "Download 2011 data <a target=\"_blank\" href=\"http://ihpresults.net/results/"
 "data/\">here</a>"
@@ -248,15 +246,15 @@ msgstr ""
 "<a target=\"_blank\" href=\"http://ihpresults.net/results/data/"
 "\">Télécharger</a> les données 2011"
 
-#: ihp_results/templates/ihp_results/edit_dsg_survey.html:164
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:174
 msgid "Continue"
 msgstr "Continuer"
 
-#: ihp_results/templates/ihp_results/edit_dsg_survey.html:165
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:175
 msgid "Save and continue"
 msgstr "Enregistrer et continuer"
 
-#: ihp_results/templates/ihp_results/edit_dsg_survey.html:166
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:176
 msgid "Save and submit"
 msgstr "Enregistrer et soumettre"
 
@@ -267,68 +265,6 @@ msgstr "Imprimer cette page"
 #: ihp_results/templates/scorecard_processor/_entity_responsesets.html:14
 msgid "view response"
 msgstr "Voir la réponse"
-
-#: scorecard_processor/forms.py:189
-#, python-format
-msgid "Password reset on %s"
-msgstr ""
-
-#: scorecard_processor/views.py:167
-#, python-format
-msgid "Account created on %s"
-msgstr ""
-
-#: scorecard_processor/plugins/input/choices.py:11
-#: scorecard_processor/plugins/input/choices.py:22
-msgid "Yes"
-msgstr "Oui"
-
-#: scorecard_processor/plugins/input/choices.py:12
-#: scorecard_processor/plugins/input/choices.py:23
-msgid "No"
-msgstr "Non"
-
-#: scorecard_processor/plugins/input/choices.py:13
-msgid "n/a"
-msgstr ""
-
-#: scorecard_processor/templates/_pagination.html:6
-#: scorecard_processor/templates/_pagination.html:8
-msgid "previous"
-msgstr ""
-
-#: scorecard_processor/templates/_pagination.html:21
-#: scorecard_processor/templates/_pagination.html:23
-msgid "next"
-msgstr ""
-
-#: scorecard_processor/templates/scorecard_processor/entity_detail.html:27
-msgid "Survey Responses"
-msgstr "Les réponses au sondage"
-
-#: scorecard_processor/templates/scorecard_processor/entity_detail.html:35
-msgid "Thanks for your submission"
-msgstr "Merci pour votre soumission"
-
-#: scorecard_processor/templates/scorecard_processor/entity_detail.html:36
-msgid "You can add another response using this button:"
-msgstr "Vous pouvez ajouter une autre réponse en cliquant ce bouton"
-
-#: scorecard_processor/templates/scorecard_processor/entity_detail.html:52
-msgid "Associated users"
-msgstr "Utilisateurs associés"
-
-#: scorecard_processor/templates/scorecard_processor/entity_detail.html:78
-msgid "Edit responses"
-msgstr "Modifier les réponses"
-
-#: scorecard_processor/templates/scorecard_processor/entity_detail.html:78
-msgid "ordered by last update"
-msgstr "ordonnée par dernière mise à jour"
-
-#: scorecard_processor/templates/scorecard_processor/respond/edit_survey.html:2
-msgid "Response to %(survey.i18n.name)s for %(entity.name)s"
-msgstr "Ajouter une nouvelle réponse à %(survey_name)s pour %(entity_name)s"
 
 #: templates/base.html:37
 msgid "Logged in as"
@@ -487,6 +423,33 @@ msgid ""
 msgstr ""
 "Je ne sais pas votre mot de passe? <a href \"%(reset_url)s\">cliquez dessus "
 "pour l'extraire</a>"
+
+#~ msgid "Yes"
+#~ msgstr "Oui"
+
+#~ msgid "No"
+#~ msgstr "Non"
+
+#~ msgid "Survey Responses"
+#~ msgstr "Les réponses au sondage"
+
+#~ msgid "Thanks for your submission"
+#~ msgstr "Merci pour votre soumission"
+
+#~ msgid "You can add another response using this button:"
+#~ msgstr "Vous pouvez ajouter une autre réponse en cliquant ce bouton"
+
+#~ msgid "Associated users"
+#~ msgstr "Utilisateurs associés"
+
+#~ msgid "Edit responses"
+#~ msgstr "Modifier les réponses"
+
+#~ msgid "ordered by last update"
+#~ msgstr "ordonnée par dernière mise à jour"
+
+#~ msgid "Response to %(survey.i18n.name)s for %(entity.name)s"
+#~ msgstr "Ajouter une nouvelle réponse à %(survey_name)s pour %(entity_name)s"
 
 #~ msgid "Save"
 #~ msgstr "Enregistrer"
