@@ -190,7 +190,7 @@ config = {
 
 def _process_response(xls, agency, user, submission, config):
     survey = models.Survey.objects.get(name=config['survey'])
-    currency = submission.cell(*config['currency']).value
+    currency = submission.cell(*config['currency']).value[:3]
     country = submission.cell(*config['country']).value
     french = submission.cell(config['start_row']-1,0).value == u"N° Indicateur"
     if french:
@@ -227,6 +227,11 @@ def _process_response(xls, agency, user, submission, config):
         current = agency.responseset_set.create(survey=survey)
         for ds in data_series:
             current.data_series.add(ds)
+
+    for responseset in baseline, current:
+        if responseset and responseset.editable:
+            responseset.set_meta('currency',{'value':currency})
+
 
     questions = dict([(q.identifier,q) for q in survey.get_questions()])
     if baseline:
@@ -303,6 +308,13 @@ def _process_response(xls, agency, user, submission, config):
             else:
                 if not isinstance(question.plugin.plugin, MultiChoiceField):
                     response = responses.get(question)
+
+                    if isinstance(question.plugin.plugin(), CurrencySelector):
+                        if isinstance(value, basestring):
+                            value = value.replace(' ','') #strip spaces
+                            if len(value.split(',')[-1]) > 2:
+                                value = value.replace(',','')
+
                     if isinstance(value,basestring) and value.lower() in ['yes','no']:
                         value = value.lower()
                     else:
@@ -310,14 +322,15 @@ def _process_response(xls, agency, user, submission, config):
                             value = int(value)
                         except:
                             value = None
+
+                    if value and isinstance(question.plugin.plugin(), CurrencySelector):
+                        value = ''.join([currency,str(value)])
+
                     if response and response.get_value() != value:
                         response = None
                     if not response and value != None:
                         response = response_set.response_set.create(question=question, respondant=user, current=True)
-                        if isinstance(question.plugin.plugin(), CurrencySelector):
-                            response.value = {'value':''.join([currency,str(value)])}
-                        else:
-                            response.value = {'value':value}
+                        response.value = {'value':value}
                         response.save()
                         responses[question] = response
         
