@@ -104,6 +104,7 @@ class CurrencySelector(MultiValueField):
         self.required = kwargs.get('required', False)
         localize = kwargs.get('localize', False)
         choices = (
+                     ('', ''),
                      ('USD', _('US Dollar')),
                      ('GBP', _('British Pound')),
                      ('EUR', _('Euro')),
