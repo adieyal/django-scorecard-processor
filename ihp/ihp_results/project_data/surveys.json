@@ -688,12 +688,12 @@
     "pk": 197, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "yes_no_choice", 
+      "widget": "yes_no_dev", 
       "group": 72, 
       "question": "Was there a costed, comprehensive, evidence based HRH plan (that was integrated with the national health plan) that was being implemented or developed?", 
       "validator": "anything", 
       "survey": 4, 
-      "help_text": null, 
+      "help_text": "", 
       "identifier": "4"
     }
   }, 
