@@ -158,7 +158,7 @@ class QuestionForm(BootstrapForm):
                 key = 'q_%s_%s' % (response.question.pk, ds.pk)
                 self.initial[key] = response.get_value()
                 year = response.response_set.get_data_series_by_type()['Year']
-                if year.name != self.collection_year[ds][0].name:
+                if self.initial[key] and year.name != self.collection_year[ds][0].name:
                     self.initial[key] = ' '.join([self.initial[key], '(%s)' % year])
                 self.response['q_%s_%s' % (response.question.pk, ds.pk)] = response
             
