@@ -315,6 +315,9 @@ def _process_response(xls, agency, user, submission, config):
                             if len(value.split(',')[-1]) > 2:
                                 value = value.replace(',','')
 
+                    if value.lower() in ['oui','non']:
+                        value = {'oui':'yes', 'non':'no'}[value.lower()]
+
                     if isinstance(value,basestring) and value.lower() in ['yes','no']:
                         value = value.lower()
                     else:
