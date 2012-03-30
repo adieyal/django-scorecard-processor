@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-29 11:13+0200\n"
+"POT-Creation-Date: 2012-03-30 13:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,52 +33,64 @@ msgstr "Votre devise"
 msgid "Please select your currency"
 msgstr "S'il vous plaît choisir votre devise"
 
-#: ihp_results/forms.py:64 ihp_results/forms.py:176
+#: ihp_results/forms.py:64 ihp_results/forms.py:177
 msgid "Baseline data"
 msgstr "Données de base"
 
-#: ihp_results/forms.py:68 ihp_results/forms.py:177
+#: ihp_results/forms.py:68 ihp_results/forms.py:178
 msgid "Latest data"
 msgstr "Dernières données"
 
-#: ihp_results/plugins.py:25
+#: ihp_results/plugins.py:26
+msgid "Yes"
+msgstr "Oui"
+
+#: ihp_results/plugins.py:27
+msgid "No"
+msgstr "Non"
+
+#: ihp_results/plugins.py:28
+msgid "Under development"
+msgstr "en cours de développement"
+
+#: ihp_results/plugins.py:38
 msgid "Financial support"
 msgstr "Soutien financier"
 
-#: ihp_results/plugins.py:26
+#: ihp_results/plugins.py:39
 msgid "Technical assistance (non-financial)"
 msgstr "Assistance technique (non financier)"
 
-#: ihp_results/plugins.py:27
+#: ihp_results/plugins.py:40
 msgid "Lobbying/advocacy - non-financial"
 msgstr "Lobbying - plaidoyer - non financier"
 
-#: ihp_results/plugins.py:28
+#: ihp_results/plugins.py:41
 msgid "Other (please specify in Voluntary additional information)"
 msgstr ""
 "Autre (veuillez préciser dans l'informations complémentaires volontaires)"
 
-#: ihp_results/plugins.py:39
+#: ihp_results/plugins.py:52
 msgid "Maternal Health"
 msgstr "Santé maternelle"
 
-#: ihp_results/plugins.py:40
+#: ihp_results/plugins.py:53
 msgid "Child Health"
 msgstr "Santé infantile"
 
-#: ihp_results/plugins.py:41
+#: ihp_results/plugins.py:54
 msgid "Malaria"
 msgstr "Paludisme"
 
-#: ihp_results/plugins.py:42
+#: ihp_results/plugins.py:55
 msgid "HIV/AIDS"
 msgstr "VIH/SIDA"
 
-#: ihp_results/plugins.py:43
+#: ihp_results/plugins.py:56
 msgid "TB"
 msgstr "Tuberculose"
 
-#: ihp_results/plugins.py:44
+#: ihp_results/plugins.py:57
 msgid ""
 "Health Systems Strengthening (Governance, Financing, HRH, Information "
 "Systems, Medicines, service delivery)"
@@ -87,127 +99,127 @@ msgstr ""
 "humaines de la santé, systèmes d'information, médicaments, services de "
 "livraison) "
 
-#: ihp_results/plugins.py:45
+#: ihp_results/plugins.py:58
 msgid "Nutrition"
 msgstr "Nutrition"
 
-#: ihp_results/plugins.py:46
+#: ihp_results/plugins.py:59
 msgid "International NGO"
 msgstr "ONG internationale "
 
-#: ihp_results/plugins.py:47
+#: ihp_results/plugins.py:60
 msgid "National NGO"
 msgstr "ONG nationale"
 
-#: ihp_results/plugins.py:48
+#: ihp_results/plugins.py:61
 msgid "Faith Based Organisation"
 msgstr "Organisation à base religieuse"
 
-#: ihp_results/plugins.py:49
+#: ihp_results/plugins.py:62
 msgid "Umbrella Organisation"
 msgstr "Organisation faîtière"
 
-#: ihp_results/plugins.py:50
+#: ihp_results/plugins.py:63
 msgid "Professional Association"
 msgstr "Association professionnelle"
 
-#: ihp_results/plugins.py:62
+#: ihp_results/plugins.py:75
 msgid "Joint Annual Reviews"
 msgstr "Revues conjointes annuelles"
 
-#: ihp_results/plugins.py:63
+#: ihp_results/plugins.py:76
 msgid "Monthly/quarterly coordination meetings"
 msgstr "Réunions de coordination mensuelles / trimestrielles"
 
-#: ihp_results/plugins.py:64
+#: ihp_results/plugins.py:77
 msgid "Thematic working groups"
 msgstr "Groupes de travail thématiques"
 
-#: ihp_results/plugins.py:65
+#: ihp_results/plugins.py:78
 msgid "Budget development / resource allocation"
 msgstr "Développement des budgets / allocation des ressources"
 
-#: ihp_results/plugins.py:96
+#: ihp_results/plugins.py:109
 msgid "Please choose a valid currency"
 msgstr "S'il vous plaît choisir une devise valide"
 
-#: ihp_results/plugins.py:97
+#: ihp_results/plugins.py:110
 msgid "Please enter a numeric amount"
 msgstr "S'il vous plaît entrer un montant numérique"
 
-#: ihp_results/plugins.py:107
+#: ihp_results/plugins.py:121
 msgid "US Dollar"
 msgstr ""
 
-#: ihp_results/plugins.py:108
+#: ihp_results/plugins.py:122
 msgid "British Pound"
 msgstr ""
 
-#: ihp_results/plugins.py:109
+#: ihp_results/plugins.py:123
 msgid "Euro"
 msgstr ""
 
-#: ihp_results/plugins.py:110
+#: ihp_results/plugins.py:124
 msgid "Australian Dollar"
 msgstr ""
 
-#: ihp_results/plugins.py:111
+#: ihp_results/plugins.py:125
 msgid "Swedish Krona"
 msgstr ""
 
-#: ihp_results/plugins.py:112
+#: ihp_results/plugins.py:126
 msgid "CFA Franc BCEAO"
 msgstr ""
 
-#: ihp_results/plugins.py:113
+#: ihp_results/plugins.py:127
 msgid "Burundi Franc"
 msgstr ""
 
-#: ihp_results/plugins.py:114
+#: ihp_results/plugins.py:128
 msgid "Djibouti Franc"
 msgstr ""
 
-#: ihp_results/plugins.py:115
+#: ihp_results/plugins.py:129
 msgid "Congolese Franc"
 msgstr ""
 
-#: ihp_results/plugins.py:116
+#: ihp_results/plugins.py:130
 msgid "El Salvador Colon"
 msgstr ""
 
-#: ihp_results/plugins.py:117
+#: ihp_results/plugins.py:131
 msgid "Ethiopian Birr"
 msgstr ""
 
-#: ihp_results/plugins.py:118
+#: ihp_results/plugins.py:132
 msgid "Mauritanian Ouguiya"
 msgstr ""
 
-#: ihp_results/plugins.py:119
+#: ihp_results/plugins.py:133
 msgid "Mozambique New Metical"
 msgstr ""
 
-#: ihp_results/plugins.py:120
+#: ihp_results/plugins.py:134
 msgid "Nepal Rupee"
 msgstr ""
 
-#: ihp_results/plugins.py:121
+#: ihp_results/plugins.py:135
 msgid "Nigerian Naira"
 msgstr ""
 
-#: ihp_results/plugins.py:122
+#: ihp_results/plugins.py:136
 msgid "Rwandan Franc"
 msgstr ""
 
-#: ihp_results/plugins.py:123
+#: ihp_results/plugins.py:137
 msgid "Sierra Leone Leone"
 msgstr ""
 
-#: ihp_results/plugins.py:124
+#: ihp_results/plugins.py:138
 msgid "Sudanese Pound"
 msgstr ""
 
-#: ihp_results/plugins.py:125
+#: ihp_results/plugins.py:139
 msgid "Uganda Shilling"
 msgstr ""
 
@@ -423,12 +435,6 @@ msgid ""
 msgstr ""
 "Je ne sais pas votre mot de passe? <a href \"%(reset_url)s\">cliquez dessus "
 "pour l'extraire</a>"
-
-#~ msgid "Yes"
-#~ msgstr "Oui"
-
-#~ msgid "No"
-#~ msgstr "Non"
 
 #~ msgid "Survey Responses"
 #~ msgstr "Les réponses au sondage"

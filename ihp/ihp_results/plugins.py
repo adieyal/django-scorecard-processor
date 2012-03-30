@@ -17,6 +17,19 @@ class FourPointScale(ChoiceField):
 
 register.register('input','IHP field','four_point', FourPointScale)
 
+class YesNoDevelopment(ChoiceField):
+    name = "Yes/No/Under development"
+    def __init__(self, *args, **kwargs):
+        super(FourPointScale,self).__init__(*args,**kwargs)
+        self.choices = (
+                ('',''),
+                ('yes',_('Yes')),
+                ('no',_('No')),
+                ('under_development',_('Under development')),
+            )
+
+register.register('input','IHP field','yes_no_dev', YesNoDevelopment)
+
 class AidTypes(MultiChoiceField):
     name = "Aid types"
     def __init__(self, *args, **kwargs):

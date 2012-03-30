@@ -7,7 +7,7 @@ rm /tmp/ihp/*db
 cp -R django-scorecard-processor/scorecard_processor /tmp/ihp/
 cd /tmp/ihp/
 epio upload -a ihp_prod
-curl http://ihp_prod.ep.io > /dev/null &
+(curl http://survey2012.ihpresults.net;curl http://survey2012.ihpresults.net)  > /dev/null &
 epio django sync_permissions -a ihp_prod 
 epio django syncdb -a ihp_prod -- --noinput
 epio django migrate -a ihp_prod

@@ -282,7 +282,7 @@ def _process_response(xls, agency, user, submission, config):
                         key = choice_map[key.strip().lower()]
                     except KeyError:
                         continue
-                    value = {'y':True,'n':False,'oui':True,'non':False}.get(value.lower())
+                    value = {'y':True,'n':False,'qui':True,'oui':True,'non':False}.get(value.lower())
                     response = responses.get(question)
                     if response:
                         update = response.get_value()
@@ -315,8 +315,8 @@ def _process_response(xls, agency, user, submission, config):
                             if len(value.split(',')[-1]) > 2:
                                 value = value.replace(',','')
 
-                    if isinstance(value,basestring) and value.lower() in ['oui','non']:
-                        value = {'oui':'yes', 'non':'no'}[value.lower()]
+                    if isinstance(value,basestring) and value.lower() in ['qui','oui','non']:
+                        value = {'qui':'yes','oui':'yes', 'non':'no'}[value.lower()]
 
                     if isinstance(value,basestring) and value.lower() in ['yes','no']:
                         value = value.lower()
