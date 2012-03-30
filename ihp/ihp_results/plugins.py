@@ -20,7 +20,7 @@ register.register('input','IHP field','four_point', FourPointScale)
 class YesNoDevelopment(ChoiceField):
     name = "Yes/No/Under development"
     def __init__(self, *args, **kwargs):
-        super(FourPointScale,self).__init__(*args,**kwargs)
+        super(YesNoDevelopment,self).__init__(*args,**kwargs)
         self.choices = (
                 ('',''),
                 ('yes',_('Yes')),

@@ -150,7 +150,11 @@ def import_response(request, agency_id):
 
 import xlrd
 def _import_response(xls, agency, user):
-    response = xlrd.open_workbook(xls.path).sheet_by_name('Survey Tool')
+    try:
+        response = xlrd.open_workbook(xls.path).sheet_by_name('Survey Tool')
+    except xlrd.XLRDError:
+        response = xlrd.open_workbook(xls.path).sheet_by_name('Questionnaire')
+
     if response.row(7)[0].value == '1DP':
         return _process_response(xls, agency, user, response, config=config["dp"])
     else:
