@@ -150,15 +150,20 @@ def import_response(request, agency_id):
 
 import xlrd
 def _import_response(xls, agency, user):
+    fr_config = None
     try:
         response = xlrd.open_workbook(xls.path).sheet_by_name('Survey Tool')
     except xlrd.XLRDError:
         response = xlrd.open_workbook(xls.path).sheet_by_name('Questionnaire')
+        fr_config = config['gov_fr']
 
     if response.row(7)[0].value == '1DP':
         return _process_response(xls, agency, user, response, config=config["dp"])
     else:
-        return _process_response(xls, agency, user, response, config=config["gov"])
+        if fr_config:
+            return _process_response(xls, agency, user, response, config=fr_config)
+        else:
+            return _process_response(xls, agency, user, response, config=config["gov"])
 
 config = {
     'gov':{
@@ -172,7 +177,21 @@ config = {
         'baseline_column':4,
         'current_column':5,
         'comment_column':6,
-        'choice_column':4,
+        'choice_column':3,
+        'skip_rows':[]
+    },
+    'gov_fr':{
+        'survey':'2012 Survey for Governments',
+        'currency':(1,1),
+        'country':(0,1),
+        'baseline_year':(2,1),
+        'latest_year':(3,1),
+        'start_row':6,
+        'question_column':1,
+        'baseline_column':3,
+        'current_column':4,
+        'comment_column':5,
+        'choice_column':2,
         'skip_rows':[]
     },
     'dp':{
@@ -196,7 +215,7 @@ def _process_response(xls, agency, user, submission, config):
     survey = models.Survey.objects.get(name=config['survey'])
     currency = submission.cell(*config['currency']).value[:3]
     country = submission.cell(*config['country']).value
-    french = submission.cell(config['start_row']-1,0).value == u"N° Indicateur"
+    french = submission.cell(config['start_row']-1,0).value.lower() == u"n° indicateur"
     if french:
         translation.activate('fr')
 

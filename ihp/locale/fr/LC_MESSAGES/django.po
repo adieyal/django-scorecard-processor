@@ -97,7 +97,7 @@ msgid ""
 msgstr ""
 "Renforcement des systèmes de santé (gouvernance, financement, Ressources "
 "humaines de la santé, systèmes d'information, médicaments, services de "
-"livraison) "
+"livraison)"
 
 #: ihp_results/plugins.py:58
 msgid "Nutrition"
@@ -105,7 +105,7 @@ msgstr "Nutrition"
 
 #: ihp_results/plugins.py:59
 msgid "International NGO"
-msgstr "ONG internationale "
+msgstr "ONG internationale"
 
 #: ihp_results/plugins.py:60
 msgid "National NGO"
