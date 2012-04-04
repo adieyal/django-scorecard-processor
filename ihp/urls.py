@@ -1,5 +1,6 @@
 from django.conf.urls.defaults import *
 from django.views.generic.simple import direct_to_template, redirect_to
+handler500 = 'ihp_results.views.exception_handler'
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin

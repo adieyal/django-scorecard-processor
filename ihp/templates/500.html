@@ -3,8 +3,14 @@
 {% block content %}
 <div class="container">
   <div class="hero-unit">
-    <h1>500 error <small>that's a server problem</small></h1>
-    <p>The developer has been notified.</p>
+    {% if problem %}
+      <h1>Import error</h1>
+      <p>{{problem}}</p>
+      <p><a href="">Try again</a></p>
+    {% else %}
+      <h1>500 error <small>that's a server problem</small></h1>
+      <p>The developer has been notified.</p>
+    {% endif %}
   </div>
 </div>
 {% endblock %}

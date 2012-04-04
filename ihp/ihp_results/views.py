@@ -9,6 +9,10 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordResetForm
 from django.contrib.auth.models import User
 from django.utils import translation
+from django import http
+from django.views.decorators.csrf import requires_csrf_token
+from django.template import Context, RequestContext, loader
+
 
 from guardian.shortcuts import get_perms, assign, remove_perm, get_objects_for_user
 
@@ -120,6 +124,14 @@ def view_dsg_survey(request, entity_id, data_series_group_name, survey_id, data_
     }
     return render_to_response('ihp_results/view_dsg_survey.html',context,RequestContext(request))
 
+@requires_csrf_token
+def exception_handler(request):
+    t = loader.get_template('500.html')
+    context = {}
+    if hasattr(request,'problem'):
+        context['problem'] = request.problem
+    return http.HttpResponseServerError(t.render(Context(context)))
+
 
 
 from scorecard_processor import models
@@ -142,11 +154,18 @@ def import_response(request, agency_id):
         form = form(request.POST, request.FILES, instance=attachment)
         if form.is_valid():
             attachment = form.save()
-            response_set = _import_response(attachment.file, agency, request.user)
+            try:
+                response_set = _import_response(attachment.file, agency, request.user)
+            except ImportError, e:
+                request.problem = e
+                raise e
             return HttpResponseRedirect(reverse('survey_dsg_response_view',args=[str(agency.pk),'Country', str(response_set.survey.pk), response_set.get_data_series_by_type()['Country'].name]))
     else:
         form = form(instance=attachment)
     return render_to_response('ihp_results/import_response.html', {'form':form}, RequestContext(request))
+
+class ImportError(Exception):
+    pass
 
 import xlrd
 def _import_response(xls, agency, user):
@@ -154,8 +173,26 @@ def _import_response(xls, agency, user):
     try:
         response = xlrd.open_workbook(xls.path).sheet_by_name('Survey Tool')
     except xlrd.XLRDError:
-        response = xlrd.open_workbook(xls.path).sheet_by_name('Questionnaire')
-        fr_config = config['gov_fr']
+        response = None
+
+    if not response:
+        try:
+            response = xlrd.open_workbook(xls.path).sheet_by_name('Questionnaire')
+        except xlrd.XLRDError:
+            response = None 
+        if response:
+            fr_config = config['gov_fr']
+
+    if not response:
+        try:
+            response = xlrd.open_workbook(xls.path).sheet_by_name('questionnaire')
+        except xlrd.XLRDError:
+            response = None 
+        if response:
+            fr_config = config['gov_fr']
+
+    if not response:
+        raise ImportError("Couldn't find a sheet named 'Survey Tool', 'Questionnaire' or 'questionnaire'")
 
     if response.row(7)[0].value == '1DP':
         return _process_response(xls, agency, user, response, config=config["dp"])
