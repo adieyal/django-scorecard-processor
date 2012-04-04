@@ -156,7 +156,7 @@ def import_response(request, agency_id):
             attachment = form.save()
             try:
                 response_set = _import_response(attachment.file, agency, request.user)
-            except ImportError, e:
+            except MyImportError, e:
                 request.problem = e
                 raise e
             return HttpResponseRedirect(reverse('survey_dsg_response_view',args=[str(agency.pk),'Country', str(response_set.survey.pk), response_set.get_data_series_by_type()['Country'].name]))
@@ -164,7 +164,7 @@ def import_response(request, agency_id):
         form = form(instance=attachment)
     return render_to_response('ihp_results/import_response.html', {'form':form}, RequestContext(request))
 
-class ImportError(Exception):
+class MyImportError(Exception):
     pass
 
 import xlrd
@@ -192,7 +192,7 @@ def _import_response(xls, agency, user):
             fr_config = config['gov_fr']
 
     if not response:
-        raise ImportError("Couldn't find a sheet named 'Survey Tool', 'Questionnaire' or 'questionnaire'")
+        raise MyImportError("Couldn't find a sheet named 'Survey Tool', 'Questionnaire' or 'questionnaire'")
 
     if response.row(7)[0].value == '1DP':
         return _process_response(xls, agency, user, response, config=config["dp"])
@@ -260,14 +260,20 @@ def _process_response(xls, agency, user, submission, config):
         baseline_year = models.DataSeries.objects.get(name=unicode(submission.cell(*config['baseline_year']).value)[:4])
     except:
         baseline_year = None
-    current_year = models.DataSeries.objects.get(name=unicode(submission.cell(*config['latest_year']).value)[:4])
+    try:
+        current_year = models.DataSeries.objects.get(name=unicode(submission.cell(*config['latest_year']).value)[:4])
+    except DataSeries.DoesNotExist:
+        raise MyImportError("Can't find a valid year, Please check the drop downs.")
 
     if baseline_year:
-        data_series = [
-            baseline_year,
-            models.DataSeries.objects.get(name=country),
-            models.DataSeries.objects.get(name="Baseline"),
-        ]
+        try:
+            data_series = [
+                baseline_year,
+                models.DataSeries.objects.get(name=country),
+                models.DataSeries.objects.get(name="Baseline"),
+            ]
+        except DataSeries.DoesNotExist:
+            raise MyImportError("Couldn't find a valid country, please check drop downs") 
         baseline = agency.get_response_set(data_series=data_series, survey=survey)
         if not baseline:
             baseline = agency.responseset_set.create(survey=survey)
