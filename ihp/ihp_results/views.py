@@ -349,7 +349,7 @@ def _process_response(xls, agency, user, submission, config):
                         except:
                             value = None
 
-                    if value and isinstance(question.plugin.plugin(), CurrencySelector):
+                    if value!=None and isinstance(question.plugin.plugin(), CurrencySelector):
                         value = ''.join([currency,str(value)])
 
                     if response and response.get_value() != value:
