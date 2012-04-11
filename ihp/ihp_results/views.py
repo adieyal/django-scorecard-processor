@@ -251,7 +251,7 @@ config = {
 def _process_response(xls, agency, user, submission, config):
     survey = models.Survey.objects.get(name=config['survey'])
     currency = submission.cell(*config['currency']).value[:3]
-    country = submission.cell(*config['country']).value
+    country = submission.cell(*config['country']).value.strip()
     french = submission.cell(config['start_row']-1,0).value.lower() == u"n° indicateur"
     if french:
         translation.activate('fr')
