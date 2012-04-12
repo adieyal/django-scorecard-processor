@@ -133,6 +133,7 @@ class CurrencySelector(MultiValueField):
                      ('MZN', _('Mozambique New Metical')),
                      ('NPR', _('Nepal Rupee')),
                      ('NGN', _('Nigerian Naira')),
+                     ('NOK', _('Norwegian krone')),
                      ('RWF', _('Rwandan Franc')),
                      ('SLL', _('Sierra Leone Leone')),
                      ('SDG', _('Sudanese Pound')),
