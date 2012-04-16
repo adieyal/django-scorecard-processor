@@ -177,19 +177,19 @@ class QuestionForm(BootstrapForm):
                     "Baseline":_("Baseline data"),
                     "2012 collection":_("Latest data"),
                 }.get(series.name)
-        #if issubclass(field, forms.DateField):
-        #    field = field(
-        #                help_text = question.i18n.help_text,
-        #                label = label,
-        #                required = False,
-        #                widget = field.widget(years=('2005','2006','2007','2008','2009','2010','2011','2012'))
-        #    )
-        #else:
-        field = field(
-                    help_text = question.i18n.help_text,
-                    label = label,
-                    required = False,
-        )
+        if issubclass(field, forms.DateField):
+            field = field(
+                        help_text = question.i18n.help_text,
+                        label = label,
+                        required = False,
+                        widget = field.widget(years=('2005','2006','2007','2008','2009','2010','2011','2012'))
+            )
+        else:
+            field = field(
+                        help_text = question.i18n.help_text,
+                        label = label,
+                        required = False,
+            )
         if read_only:
             field.widget.attrs['readonly'] = 'readonly'
             field.widget.attrs['disabled'] = 'disabled'
