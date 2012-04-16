@@ -381,10 +381,10 @@ def _process_response(xls, agency, user, submission, config):
                             if len(value.split(',')[-1]) > 2:
                                 value = value.replace(',','')
 
-                    if isinstance(value,basestring) and value.lower() in ['qui','oui','non']:
-                        value = {'qui':'yes','oui':'yes', 'non':'no'}[value.lower()]
+                    if isinstance(value,basestring) and value.lower() in ['qui','oui','non',u'en cours de développement','under development']:
+                        value = {'qui':'yes','oui':'yes', 'non':'no',u'en cours de développement':'under_development','under development':'under_development'}[value.lower()]
 
-                    if isinstance(value,basestring) and value.lower() in ['yes','no']:
+                    if isinstance(value,basestring) and value.lower() in ['yes','no','under_development']:
                         value = value.lower()
                     else:
                         try:
