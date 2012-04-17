@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # Create your views here.
+from decimal import Decimal
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.template import RequestContext
@@ -388,7 +389,7 @@ def _process_response(xls, agency, user, submission, config):
                         value = value.lower()
                     else:
                         try:
-                            value = int(value)
+                            value = Decimal(value)
                         except:
                             value = None
 
