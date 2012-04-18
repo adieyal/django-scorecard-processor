@@ -389,7 +389,7 @@ def _process_response(xls, agency, user, submission, config):
                         value = value.lower()
                     else:
                         try:
-                            value = Decimal(value)
+                            value = Decimal(value).quantize(Decimal('1.00'))
                         except:
                             value = None
 
