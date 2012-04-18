@@ -349,7 +349,7 @@ def _process_response(xls, agency, user, submission, config):
                         key = choice_map[key.strip().lower()]
                     except KeyError:
                         continue
-                    value = {'y':True,'n':False,'qui':True,'oui':True,'non':False}.get(value.lower())
+                    value = {'y':True,'n':False,'qui':True,'oui':True,'non':False,'si':True,'no':False}.get(value.lower())
                     response = responses.get(question)
                     if response:
                         update = response.get_value()
