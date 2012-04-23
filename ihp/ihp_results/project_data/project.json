@@ -106,15 +106,6 @@
     }
   }, 
   {
-    "pk": 4, 
-    "model": "scorecard_processor.dataseries", 
-    "fields": {
-      "visible": true, 
-      "group": "Country", 
-      "name": "Botswana"
-    }
-  }, 
-  {
     "pk": 14, 
     "model": "scorecard_processor.dataseries", 
     "fields": {

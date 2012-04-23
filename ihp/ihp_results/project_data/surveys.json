@@ -560,10 +560,10 @@
     "fields": {
       "widget": "aid_types", 
       "group": 68, 
-      "question": "What support, if any, did you provide to civil society organisations to enable them to participate in health sector policy processes - including health sector planning, coordination and review mechanisms? (please enter Yes (Y) in as many categories as appropriate).", 
+      "question": "What support, if any, did you provide to civil society organisations to enable them to participate in health sector policy processes - including health sector planning, coordination and review mechanisms? (please tick as many categories as appropriate).", 
       "validator": "anything", 
       "survey": 3, 
-      "help_text": null, 
+      "help_text": "", 
       "identifier": "16"
     }
   }, 
@@ -823,7 +823,7 @@
       "question": "Please provide the scores for the four point scale used to assess performance in the procurement sector for 2007 and 2009.", 
       "validator": "anything", 
       "survey": 4, 
-      "help_text": null, 
+      "help_text": "", 
       "identifier": "10"
     }
   }, 
@@ -1585,7 +1585,7 @@
     "pk": 53, 
     "model": "scorecard_processor.question", 
     "fields": {
-      "widget": "four_point", 
+      "widget": "rating_0_5_half", 
       "group": 21, 
       "question": "Please provide the scores for the four point scale used to assess performance in the procurement sector for 2007 and 2009.", 
       "validator": "anything", 
@@ -3753,6 +3753,16 @@
       "help_text": "Donn\u00e9es indiquant que la soci\u00e9t\u00e9 civile est repr\u00e9sent\u00e9e activement dans les processus relatifs aux politiques dans le secteur de la sant\u00e9, notamment la planification, la coordination et les m\u00e9canismes de revue dans le secteur de la sant\u00e9. (s'il vous pla\u00eet cocher la case de nombreuses cat\u00e9gories, le cas \u00e9ch\u00e9ant)", 
       "parent_object": 79, 
       "name": "8G"
+    }
+  }, 
+  {
+    "pk": 45, 
+    "model": "scorecard_processor.questiongrouptranslation", 
+    "fields": {
+      "lang": "fr", 
+      "help_text": "IHP +Results a ces donn\u00e9es de sorte qu'il n'est pas n\u00e9cessaire pour vous de r\u00e9pondre \u00e0 cette question.", 
+      "parent_object": 76, 
+      "name": "5Gb"
     }
   }
 ]
