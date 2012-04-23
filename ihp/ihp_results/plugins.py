@@ -159,5 +159,12 @@ class CurrencySelector(MultiValueField):
             return ''.join([unicode(d) for d in data_list]) 
         return ''
 
+    def get_calculated_value(self, value):
+        response = self.widget.decompress(value['value'])[1]
+        if response:
+            return response
+        else:
+            return None
+
 
 register.register('input','IHP field','multi_currency', CurrencySelector)

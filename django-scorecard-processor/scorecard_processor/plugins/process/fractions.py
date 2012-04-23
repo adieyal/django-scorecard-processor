@@ -58,8 +58,9 @@ class NumDenomPlugin(base.ProcessPlugin):
 
             for frac in filter_responses.values():
                 if 'num' in frac and 'denom' in frac:
-                    numerator.append(float(frac['num']))
-                    denominator.append(float(frac['denom']))
+                    if frac['num'] != None and frac['denom'] != None:
+                        numerator.append(float(frac['num']))
+                        denominator.append(float(frac['denom']))
         else:
             numerator = [float(x.get_calculated_value()) for x in self.get_arguments().numerator.get_values()]
             denominator = [float(x.get_calculated_value()) for x in self.get_arguments().denominator.get_values()]

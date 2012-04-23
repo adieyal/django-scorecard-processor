@@ -10,10 +10,12 @@ class Sum(base.ProcessPlugin):
     def process(self):
         values = []
         for item in self.get_arguments().items.get_values():
-            try:
-                values.append(decimal.Decimal(item.get_value()))
-            except decimal.InvalidOperation:
-                pass
+            value = item.get_value()
+            if value:
+                try:
+                    values.append(decimal.Decimal(value))
+                except decimal.InvalidOperation:
+                    pass
         if len(values)>1:
             return self.output_type(reduce(lambda x,y: x + y, values))
         if len(values)==1:
