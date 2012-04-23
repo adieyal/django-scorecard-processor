@@ -65,7 +65,7 @@
             <h2>{{entity_type.grouper|capfirst}}</h2>
             <ul>
             {% for entity in entity_type.list %}
-              <li><a href="{{entity.get_absolute_url}}">{% if entity.abbreviation %}{{entity.abbreviation}} - {% endif %}{{entity.name}}</a></li>
+              {% include 'scorecard_processor/_project_entity_display.html' %}
             {% endfor %}
             </ul>
           </div>

@@ -125,6 +125,11 @@ def view_dsg_survey(request, entity_id, data_series_group_name, survey_id, data_
     }
     return render_to_response('ihp_results/view_dsg_survey.html',context,RequestContext(request))
 
+
+@login_required
+def entity_report(request, agency_id):
+    agency = get_object_or_404(models.Entity, pk = agency_id)
+
 @requires_csrf_token
 def exception_handler(request):
     t = loader.get_template('500.html')

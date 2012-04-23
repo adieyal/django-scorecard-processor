@@ -100,7 +100,7 @@ class AgencyReport(ProjectReport):
             entity_type = [EntityType.objects.get(name='agency')]
         else:
             entity_type = [EntityType.objects.get(name='government')]
-        rs = get_responsesets(scorecard, aggregate_by_entity=True, compare_series=DataSeriesGroup.objects.get(name='Data collection year'), limit_to_entitytype=entity_type)
+        rs = get_responsesets(scorecard, aggregate_by_entity=True, compare_series=DataSeriesGroup.objects.get(name='Data collection year').dataseries_set.filter(visible=True), limit_to_entitytype=entity_type)
 
         operations = OrderedDict()
         for entity, data in rs.items():
