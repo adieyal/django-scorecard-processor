@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block head_title %}Agency results - {{project.name}}{% endblock %}
+{% block script_bottom %}
+{{block.super}}
+<script type="text/javascript">
+  $(function() {
+    $('dl.concat').each(function (i,e) {      
+      var data = $($(e).parent()).html();
+      var a = $('<a rel="popover" class="label" title="Responses">...</a>');
+      a.attr('data-content', data);
+      $($(e).parent()).append(a);
+      $(e).remove();
+    })
+
+    $('[rel=popover]').popover({html:true,live:true});
+  });
+</script>
+
+{% endblock %}
+{% block fluid_content_outer %}
+  <style>
+    caption {font-size:large;text-align:left;margin:10px 0}
+    table {margin-bottom:40px;}
+    table td {text-align:center}
+    thead th {text-align:center}
+    td a.label {cursor:help}
+    .popover .inner {width:500px;}
+    td dl.concat {width:120px;}
+  </style>
+  <div class="fluid-container">
+    <div class="content">
+      <div class="page-header">
+        <h1>{{scorecard.name}} results for {{entity.name}}</h1>
+      </div>
+      <table style="width:auto" class="bordered-table zebra-striped condensed-table">
+        {% for operation, items in data %}
+          {% if forloop.counter == 1 %}
+            <thead>
+              <tr>
+                <th></th>
+                {% for series, v in items %}
+                   <th colspan={{v|length}}>{{series.abbreviation|default:series.name}}</th>
+                {% endfor %}
+              </tr>
+            </thead>
+            <tbody>
+          {% endif %}
+          <tr>
+            <th title="{{operation.description}}">{{operation.identifier}}</th>
+            {% for series, result in items %}
+              <td>{% if result.as_html %}{{result.as_html}}{% else %}<img src="{{STATIC_URL}}ihp_results/{{result}}.png" />{% endif %}</td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

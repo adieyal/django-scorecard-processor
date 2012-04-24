@@ -17,7 +17,7 @@ from target_criteria import indicators, criteria_funcs, MissingValueException, C
 
 
 class CountryReport(EntityReport):
-    template_name = 'ihp_results/entity_report.html'
+    template_name = 'ihp_results/reports/country_report.html'
     url = r'^country/(?P<scorecard_id>\d+)/$'
 
     def get_data(self):
@@ -53,7 +53,7 @@ class Rating(object):
     NONE = 'none'
 
 class AgencyReport(ProjectReport):
-    template_name = 'ihp_results/agency_report.html'
+    template_name = 'ihp_results/reports/agency_report.html'
     url = r'^agency/(?P<scorecard_id>\d+)/$'
 
     def get_rating(self, indicator, base_val, cur_val):

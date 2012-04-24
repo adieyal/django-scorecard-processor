@@ -14,6 +14,7 @@ from django import http
 from django.views.decorators.csrf import requires_csrf_token
 from django.template import Context, RequestContext, loader
 
+from ordereddict import OrderedDict
 
 from guardian.shortcuts import get_perms, assign, remove_perm, get_objects_for_user
 
@@ -125,22 +126,58 @@ def view_dsg_survey(request, entity_id, data_series_group_name, survey_id, data_
     }
     return render_to_response('ihp_results/view_dsg_survey.html',context,RequestContext(request))
 
-
 @login_required
 def entity_report(request, agency_id):
     entity = get_object_or_404(models.Entity, pk = agency_id)
     scorecard = models.Scorecard.objects.filter(name__contains='2012').get(name__contains=entity.entity_type.name)
     rs = models.get_responsesets(scorecard, limit_to_entity=[entity], aggregate_by_entity=True, compare_series=DataSeriesGroup.objects.get(name='Data collection year').dataseries_set.filter(visible=True))
-    return HttpResponse(repr(rs),content_type="text/plain")
+    output = scorecard.get_values(rs[entity])
+
+    context = {
+        'entity':entity,
+        'scorecard':scorecard,
+        'project':scorecard.project,
+        'data':output,
+    }
+    return render_to_response('ihp_results/reports/entity.html',context,RequestContext(request))
         
 
 @login_required
 def indicator_by_entity(request, scorecard_id, identifier):
     scorecard = get_object_or_404(models.Scorecard, pk = scorecard_id)
+    rs = models.get_responsesets(scorecard, aggregate_by_entity=True, compare_series=DataSeriesGroup.objects.get(name='Data collection year').dataseries_set.filter(visible=True))
+    operation = scorecard.operation_set.get(identifier=identifier)
+
+    output = OrderedDict()
+    for entity, data in rs.items():
+        output[entity] = OrderedDict()
+        for ds, responses in data:
+            output[entity][ds] = operation.get_data(responses)
+    context = {
+        'scorecard':scorecard,
+        'operation':operation,
+        'data':output,
+    }
+
+    return render_to_response('ihp_results/reports/indicator_entity.html',context,RequestContext(request))
 
 @login_required
 def indicator_by_group(request, scorecard_id, data_series_group_name, identifier):
     scorecard = get_object_or_404(models.Scorecard, pk = scorecard_id)
+    rs = models.get_responsesets(scorecard, aggregate_on=DataSeriesGroup.objects.get(name=data_series_group_name), compare_series=DataSeriesGroup.objects.get(name='Data collection year').dataseries_set.filter(visible=True))
+
+    output = OrderedDict()
+    for country, data in rs.items():
+        output[country] = OrderedDict()
+        for ds, responses in data:
+            output[country][ds] = operation.get_data(responses)
+
+    context = {
+        'scorecard':scorecard,
+        'operation':operation,
+        'data':output,
+    }
+    return render_to_response('ihp_results/reports/indicator_country.html',context,RequestContext(request))
 
 @requires_csrf_token
 def exception_handler(request):
