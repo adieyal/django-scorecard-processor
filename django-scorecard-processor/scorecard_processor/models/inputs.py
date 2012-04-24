@@ -242,7 +242,7 @@ class ResponseSet(models.Model):
         return ('survey_response_edit',(str(self.entity.pk),str(self.pk)))
 
     def __unicode__(self):
-        return "ResponseSet for %s about %s" % (self.survey, self.entity)
+        return "ResponseSet %s for %s about %s" % (self.pk, self.survey, self.entity)
 
     def get_data_series(self):
         if not hasattr(self, '_data_series'):

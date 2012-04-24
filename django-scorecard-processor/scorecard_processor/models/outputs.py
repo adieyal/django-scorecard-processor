@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 import time
 from collections import defaultdict
+from ordereddict import OrderedDict
 
 from django.core.cache import cache
 from django.db import models
@@ -173,21 +174,32 @@ def flatten_response_queryset(response_sets, survey_cache):
 
 def split_sets(split, response_sets, survey_cache, split_entities = False):
     result = []
+
     if split:
         for ds in split:
             result.append((ds, flatten_response_queryset(response_sets.filter(data_series=ds), survey_cache)))
     else:
         split = [None]
         result.append((None, flatten_response_queryset(response_sets, survey_cache)))
+
     if split_entities:
-        result_dict = defaultdict(list)
+        result_dict = defaultdict(OrderedDict)
+        series = []
+        for ds, qs in result:
+            series.append(ds)
+
         for ds, qs in result:
             filter_dict = defaultdict(list)
-            for rs in flatten_response_queryset(response_sets, survey_cache):
+            for rs in qs:
                 filter_dict[rs.entity].append(rs)
             for entity, data in filter_dict.items():
-                result_dict[entity].append((ds, data))
+                if entity not in result_dict.keys():
+                    for s in series:
+                        result_dict[entity][s] = []
+                result_dict[entity][ds] = data
         result = dict(result_dict)
+        for entity in result.keys():
+            result[entity] = result[entity].items()
     return result
 
 def get_responsesets(scorecard, compare_series=None, limit_to_dataseries=[], limit_to_entity=[], limit_to_entitytype=[], aggregate_on=None, aggregate_by_entity=None):
