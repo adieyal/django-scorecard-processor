@@ -40,6 +40,12 @@
                       <li><a href="{{report.get_absolute_url}}">{{report.name}}</a> (<a href="{{report.get_absolute_url}}run/">view output</a>)</li>
                     {% endfor %}
                     </ul>
+                    By indicator:
+                    <p>
+                    {% for indicator in scorecard.operation_set.indicators %}
+                      <a href="{{indicator.get_report_url}}">{{indicator.identifier}}</a>, 
+                    {% endfor %}
+                    </p>
                     </li>
                   {% endfor %}
                   </ul>

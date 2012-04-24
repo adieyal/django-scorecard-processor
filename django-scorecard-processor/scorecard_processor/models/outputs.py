@@ -54,6 +54,7 @@ class Scorecard(models.Model):
         return result
 
 class OperationManager(models.Manager):
+    use_for_related_fields = True
     def indicators(self):
         return self.filter(indicator=True)
 
@@ -84,6 +85,10 @@ class Operation(models.Model):
             self.plugin = plugins.register.get_process_plugin(self.operation).plugin
         else:
             self.plugin = None
+
+    @models.permalink
+    def get_report_url(self):
+        return ('indicator_report',(str(self.scorecard.project.pk), str(self.scorecard.pk), self.identifier))
 
     def get_arguments(self):
         if not hasattr(self,'_get_arguments'):
