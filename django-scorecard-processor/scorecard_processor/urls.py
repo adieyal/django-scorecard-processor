@@ -118,10 +118,6 @@ urlpatterns = patterns('scorecard_processor.views',
     url(r'^project/(?P<project_id>\d+)/reports/', 
         include(get_project_urls())
     ),
-    url(r'^project/(\d+)/reports/by_indicator/(?P<object_id>\d+)/(?P<indicator>\w+)/run/$',
-        "indicator_report",
-        name="indicator_report"
-    ),
 
 
 #Response side

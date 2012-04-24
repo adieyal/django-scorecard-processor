@@ -130,6 +130,14 @@ def view_dsg_survey(request, entity_id, data_series_group_name, survey_id, data_
 def entity_report(request, agency_id):
     agency = get_object_or_404(models.Entity, pk = agency_id)
 
+@login_required
+def indicator_by_entity(request, scorecard_id, identifier):
+    scorecard = get_object_or_404(models.Scorecard, pk = scorecard_id)
+
+@login_required
+def indicator_by_group(request, scorecard_id, data_series_group_name, identifier):
+    scorecard = get_object_or_404(models.Scorecard, pk = scorecard_id)
+
 @requires_csrf_token
 def exception_handler(request):
     t = loader.get_template('500.html')
@@ -285,6 +293,8 @@ def _process_response(xls, agency, user, submission, config):
             baseline = agency.responseset_set.create(survey=survey)
             for ds in data_series:
                 baseline.data_series.add(ds)
+        if not baseline.editable:
+            baseline = None
     else:
         baseline = None
 

@@ -86,10 +86,6 @@ class Operation(models.Model):
         else:
             self.plugin = None
 
-    @models.permalink
-    def get_report_url(self):
-        return ('indicator_report',(str(self.scorecard.project.pk), str(self.scorecard.pk), self.identifier))
-
     def get_arguments(self):
         if not hasattr(self,'_get_arguments'):
             self._get_arguments = []

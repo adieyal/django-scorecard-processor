@@ -91,9 +91,6 @@ def create_override(request, question_id):
         form = ResponseOverrideForm(request.POST, instance=override)
     return render_to_response('scorecard_processor/create_responseoverride.html', {'form':form}, RequestContext(request))
 
-@login_required
-def indicator_report(request, object_id, indicator):
-    pass
 
 class SurveyOverrides(DetailView):
     model = Survey
