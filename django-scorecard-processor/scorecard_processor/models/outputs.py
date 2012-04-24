@@ -16,12 +16,18 @@ from meta import DataSeriesGroup, DataSeries, Project, Entity, EntityType
 
 from scorecard_processor import plugins
 
+class ScorecardManager(models.Manager):
+    use_for_related_fields = True
+    def visible(self):
+        return self.filter(visible=True)
+
 class Scorecard(models.Model):
     """Could have multiple transformations grouped for the same 'output', e.g.
     government score card, Country scorecard, 2011 scorecard"""
     name = models.CharField(max_length=50)
     visible = models.BooleanField(default=True)
     project = models.ForeignKey(Project)
+    objects = ScorecardManager()
 
     class Meta:
         app_label = "scorecard_processor"

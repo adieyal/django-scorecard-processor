@@ -137,11 +137,15 @@ class AgencyReport(ProjectReport):
                 operations[operation].append((entity,data))
         return operations
 
-    def get_report_links(self, project=None):
+    def get_report_links(self, project=None, only_visible=True):
         links = []
         name = self.get_url_name()
         project = project or getattr(self,'project')
-        for scorecard in project.scorecard_set.all():
+        scorecard_set = project.scorecard_set.all()
+        if only_visible:
+            scorecard_set = scorecard_set.filter(visible=True)
+
+        for scorecard in scorecard_set:
             links.append((
                 reverse(name,args=[project.pk, scorecard.pk]),
                 ': '.join(("Entity report",scorecard.name))

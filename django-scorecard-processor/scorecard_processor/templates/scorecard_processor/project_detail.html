@@ -32,7 +32,7 @@
               <div class="span8"> 
                 <h3>Scorecards <a class="btn small" href="/admin/scorecard_processor/scorecard/add/">+</a></h3>
                   <ul>
-                  {% for scorecard in object.scorecard_set.all %}
+                  {% for scorecard in object.scorecard_set.visible %}
                     <li><a href="{{scorecard.get_absolute_url}}">{{scorecard.name}}</a><br />
                     Reports: 
                     <ul>
