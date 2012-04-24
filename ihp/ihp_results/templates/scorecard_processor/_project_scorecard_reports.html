@@ -1,0 +1,12 @@
+Entity by indicator:
+<p>
+{% for indicator in scorecard.operation_set.indicators %}
+  <a href="{% url scorecard_entity_indicator_report scorecard.pk indicator.identifier %}">{{indicator.identifier}}</a>, 
+{% endfor %}
+</p>
+Country by indicator:
+<p>
+{% for indicator in scorecard.operation_set.indicators %}
+  <a href="{% url scorecard_group_indicator_report scorecard.pk "Country" indicator.identifier %}">{{indicator.identifier}}</a>, 
+{% endfor %}
+</p>
