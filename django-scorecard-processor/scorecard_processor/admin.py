@@ -64,13 +64,17 @@ class ResponseOverrideAdmin(admin.ModelAdmin):
     model = ResponseOverride
     list_filter = ('question__survey',)
 
+class ScorecardAdmin(admin.ModelAdmin):
+    list_display = ('__unicode__','project','visible')
+    model = Scorecard
+
 admin.site.register(Survey, SurveyAdmin)
 admin.site.register(ResponseSet, ResponseSetAdmin)
 admin.site.register(ResponseOverride, ResponseOverrideAdmin)
 
 admin.site.register(QuestionGroup, QuestionGroupAdmin)
 admin.site.register(Question, QuestionAdmin)
-admin.site.register(Scorecard)
+admin.site.register(Scorecard, ScorecardAdmin)
 admin.site.register(ReportRun, ReportRunAdmin)
 
 admin.site.register(DataSeriesGroup, DataSeriesGroupAdmin)

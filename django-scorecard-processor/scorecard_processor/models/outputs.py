@@ -20,6 +20,7 @@ class Scorecard(models.Model):
     """Could have multiple transformations grouped for the same 'output', e.g.
     government score card, Country scorecard, 2011 scorecard"""
     name = models.CharField(max_length=50)
+    visible = models.BooleanField(default=True)
     project = models.ForeignKey(Project)
 
     class Meta:
