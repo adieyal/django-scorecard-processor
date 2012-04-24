@@ -336,7 +336,7 @@
     "model": "scorecard_processor.operation", 
     "fields": {
       "indicator": true, 
-      "configuration": null, 
+      "configuration": "", 
       "description": "5DPa", 
       "scorecard": 4, 
       "operation": "one_minus_num_denom", 
@@ -360,7 +360,7 @@
     "model": "scorecard_processor.operation", 
     "fields": {
       "indicator": true, 
-      "configuration": null, 
+      "configuration": "", 
       "description": "5DPb", 
       "scorecard": 4, 
       "operation": "one_minus_num_denom", 
@@ -384,7 +384,7 @@
     "model": "scorecard_processor.operation", 
     "fields": {
       "indicator": true, 
-      "configuration": null, 
+      "configuration": "", 
       "description": "5DPc", 
       "scorecard": 4, 
       "operation": "sum_items", 
@@ -456,7 +456,7 @@
     "model": "scorecard_processor.operation", 
     "fields": {
       "indicator": true, 
-      "configuration": null, 
+      "configuration": "", 
       "description": "6DP", 
       "scorecard": 4, 
       "operation": "keyword_frequency", 
@@ -504,7 +504,7 @@
     "model": "scorecard_processor.operation", 
     "fields": {
       "indicator": true, 
-      "configuration": null, 
+      "configuration": "", 
       "description": "7DP", 
       "scorecard": 4, 
       "operation": "keyword_frequency", 
@@ -1022,7 +1022,7 @@
     "pk": 50, 
     "model": "scorecard_processor.operationargument", 
     "fields": {
-      "instance_id": 181, 
+      "instance_id": 177, 
       "position": 0, 
       "operation": 34, 
       "instance_content_type": 15, 
@@ -1033,7 +1033,7 @@
     "pk": 52, 
     "model": "scorecard_processor.operationargument", 
     "fields": {
-      "instance_id": 185, 
+      "instance_id": 179, 
       "position": 0, 
       "operation": 35, 
       "instance_content_type": 15, 
@@ -1044,7 +1044,7 @@
     "pk": 54, 
     "model": "scorecard_processor.operationargument", 
     "fields": {
-      "instance_id": 187, 
+      "instance_id": 181, 
       "position": 0, 
       "operation": 36, 
       "instance_content_type": 15, 
@@ -1055,7 +1055,7 @@
     "pk": 55, 
     "model": "scorecard_processor.operationargument", 
     "fields": {
-      "instance_id": 189, 
+      "instance_id": 183, 
       "position": 0, 
       "operation": 37, 
       "instance_content_type": 15, 
@@ -1066,7 +1066,7 @@
     "pk": 56, 
     "model": "scorecard_processor.operationargument", 
     "fields": {
-      "instance_id": 190, 
+      "instance_id": 185, 
       "position": 0, 
       "operation": 38, 
       "instance_content_type": 15, 
@@ -1407,7 +1407,7 @@
     "pk": 51, 
     "model": "scorecard_processor.operationargument", 
     "fields": {
-      "instance_id": 179, 
+      "instance_id": 176, 
       "position": 1, 
       "operation": 34, 
       "instance_content_type": 15, 
@@ -1418,7 +1418,7 @@
     "pk": 53, 
     "model": "scorecard_processor.operationargument", 
     "fields": {
-      "instance_id": 183, 
+      "instance_id": 176, 
       "position": 1, 
       "operation": 35, 
       "instance_content_type": 15, 
