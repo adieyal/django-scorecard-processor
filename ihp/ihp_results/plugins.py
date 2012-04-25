@@ -8,11 +8,11 @@ class FourPointScale(ChoiceField):
     def __init__(self, *args, **kwargs):
         super(FourPointScale,self).__init__(*args,**kwargs)
         self.choices = (
-                ('',''),
-                ('a','A'),
-                ('b','B'),
-                ('c','C'),
-                ('d','D'),
+                ('',_('')),
+                ('a',_('A')),
+                ('b',_('B')),
+                ('c',_('C')),
+                ('d',_('D')),
             )
 
 register.register('input','IHP field','four_point', FourPointScale)
@@ -22,7 +22,7 @@ class YesNoDevelopment(ChoiceField):
     def __init__(self, *args, **kwargs):
         super(YesNoDevelopment,self).__init__(*args,**kwargs)
         self.choices = (
-                ('',''),
+                ('',_('')),
                 ('yes',_('Yes')),
                 ('no',_('No')),
                 ('under_development',_('Under development')),
@@ -117,7 +117,7 @@ class CurrencySelector(MultiValueField):
         self.required = kwargs.get('required', False)
         localize = kwargs.get('localize', False)
         self.choices = (
-                     ('', ''),
+                     ('', _('')),
                      ('USD', _('US Dollar')),
                      ('GBP', _('British Pound')),
                      ('EUR', _('Euro')),

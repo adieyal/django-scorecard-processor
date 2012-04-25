@@ -1,6 +1,8 @@
 from settings import *
 from bundle_config import config
 
+DEBUG=True
+TEMPLATE_DEBUG=DEBUG
 
 CACHES = {
   'default': {
