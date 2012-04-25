@@ -408,7 +408,7 @@ def _process_response(xls, agency, user, submission, config):
 
         for value, responses, response_set in iterate:
             if tick_mode:
-                choice_map = dict([(i[1]._proxy____unicode_cast().lower(),i[0]) for i in question.plugin.plugin().choices])
+                choice_map = dict([(i[1]._proxy____unicode_cast().lower(),i[0]) for i in question.plugin.plugin().choices if i[0]!=''])
                 if value != '':
                     key = row[config['choice_column']].value
                     try:
