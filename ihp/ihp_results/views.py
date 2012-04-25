@@ -142,6 +142,8 @@ def entity_report(request, agency_id):
     return render_to_response('ihp_results/reports/entity.html',context,RequestContext(request))
         
 
+from pprint import pprint
+
 @login_required
 def indicator_by_entity(request, scorecard_id, identifier):
     scorecard = get_object_or_404(models.Scorecard, pk = scorecard_id)
@@ -153,18 +155,23 @@ def indicator_by_entity(request, scorecard_id, identifier):
         output[entity] = OrderedDict()
         for ds, responses in data:
             output[entity][ds] = operation.get_data(responses)
+
     context = {
         'scorecard':scorecard,
+        'project':scorecard.project,
         'operation':operation,
         'data':output,
     }
+
+    pprint(dict(output))
 
     return render_to_response('ihp_results/reports/indicator_entity.html',context,RequestContext(request))
 
 @login_required
 def indicator_by_group(request, scorecard_id, data_series_group_name, identifier):
     scorecard = get_object_or_404(models.Scorecard, pk = scorecard_id)
-    rs = models.get_responsesets(scorecard, aggregate_on=DataSeriesGroup.objects.get(name=data_series_group_name), compare_series=DataSeriesGroup.objects.get(name='Data collection year').dataseries_set.filter(visible=True))
+    dataseries_group = DataSeriesGroup.objects.get(name=data_series_group_name)
+    rs = models.get_responsesets(scorecard, aggregate_on=dataseries_group, compare_series=DataSeriesGroup.objects.get(name='Data collection year').dataseries_set.filter(visible=True))
     operation = scorecard.operation_set.get(identifier=identifier)
 
     output = OrderedDict()
@@ -175,7 +182,9 @@ def indicator_by_group(request, scorecard_id, data_series_group_name, identifier
 
     context = {
         'scorecard':scorecard,
+        'project':scorecard.project,
         'operation':operation,
+        'dataseries_group':dataseries_group,
         'data':output,
     }
     return render_to_response('ihp_results/reports/indicator_country.html',context,RequestContext(request))

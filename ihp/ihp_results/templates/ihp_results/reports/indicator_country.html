@@ -46,7 +46,7 @@
             <tbody>
           {% endif %}
           <tr>
-            <th title="{{entity.name}}">{{entity.abbreviation}}</th>
+            <th title="{{entity.name}}">{{entity.name}}</th>
             {% for result in items.values %}
               <td>{% if result.as_html %}{{result.as_html}}{% else %}<img src="{{STATIC_URL}}ihp_results/{{result}}.png" />{% endif %}</td>
             {% endfor %}
