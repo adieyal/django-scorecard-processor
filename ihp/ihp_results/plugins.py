@@ -116,7 +116,7 @@ class CurrencySelector(MultiValueField):
             errors.update(kwargs['error_messages'])
         self.required = kwargs.get('required', False)
         localize = kwargs.get('localize', False)
-        choices = (
+        self.choices = (
                      ('', ''),
                      ('USD', _('US Dollar')),
                      ('GBP', _('British Pound')),
@@ -141,13 +141,13 @@ class CurrencySelector(MultiValueField):
                 )
         fields = (
             ChoiceField(error_messages={'invalid': self.errors['invalid_currency']},
-                      localize=localize, choices=choices, required=self.required),
+                      localize=localize, choices=self.choices, required=self.required),
             FixedCurrency(widget=TextInput,
                       error_messages={'invalid': self.errors['invalid_value']},
                       localize=localize, required=self.required),
         )
         if 'widget' not in kwargs:
-            kwargs['widget'] = self.widget(choices=choices, attrs={'class':'currency_select medium'})
+            kwargs['widget'] = self.widget(choices=self.choices, attrs={'class':'currency_select medium'})
         super(CurrencySelector, self).__init__(fields, *args, **kwargs)
 
     def compress(self, data_list):
