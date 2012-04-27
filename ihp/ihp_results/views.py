@@ -171,7 +171,7 @@ def indicator_by_entity(request, scorecard_id, identifier):
 def indicator_by_group(request, scorecard_id, data_series_group_name, identifier):
     scorecard = get_object_or_404(models.Scorecard, pk = scorecard_id)
     dataseries_group = DataSeriesGroup.objects.get(name=data_series_group_name)
-    rs = models.get_responsesets(scorecard, aggregate_on=dataseries_group, compare_series=DataSeriesGroup.objects.get(name='Data collection year').dataseries_set.filter(visible=True))
+    rs = models.get_responsesets(scorecard, aggregate_on=dataseries_group, compare_series=[ds for ds in DataSeriesGroup.objects.get(name='Data collection year').get_dataseries() if ds.visible])
     operation = scorecard.operation_set.get(identifier=identifier)
 
     output = OrderedDict()

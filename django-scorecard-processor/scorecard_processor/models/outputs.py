@@ -226,7 +226,7 @@ def get_responsesets(scorecard, compare_series=None, limit_to_dataseries=[], lim
 
     if not result_sets and compare_series:
         try:
-            result_sets = [ds for ds in compare_series.dataseries_set.all()]
+            result_sets = [ds for ds in compare_series.get_dataseries()]
         except Exception:
             result_sets = compare_series
             
