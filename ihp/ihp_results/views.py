@@ -147,7 +147,7 @@ from pprint import pprint
 @login_required
 def indicator_by_entity(request, scorecard_id, identifier):
     scorecard = get_object_or_404(models.Scorecard, pk = scorecard_id)
-    rs = models.get_responsesets(scorecard, aggregate_by_entity=True, compare_series=DataSeriesGroup.objects.get(name='Data collection year').dataseries_set.filter(visible=True))
+    rs = models.get_responsesets(scorecard, aggregate_by_entity=True, compare_series=[ds for ds in DataSeriesGroup.objects.get(name='Data collection year').get_dataseries() if ds.visible])
     operation = scorecard.operation_set.get(identifier=identifier)
 
     output = OrderedDict()
