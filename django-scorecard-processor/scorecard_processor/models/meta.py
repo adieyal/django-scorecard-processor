@@ -89,7 +89,7 @@ class DataSeries(models.Model):
 
     @property
     def data_type(self):
-        return self.group.pk
+        return self.group_id
 
     def __unicode__(self):
         return "%s: %s" % (self.group.pk, self.name)

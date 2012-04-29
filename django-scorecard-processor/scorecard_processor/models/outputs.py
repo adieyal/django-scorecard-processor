@@ -82,6 +82,16 @@ class Operation(models.Model):
         app_label = "scorecard_processor"
         ordering = ('identifier',)
 
+    @property
+    def data_type(self):
+        if self.indicator:
+            return "Indicator"
+        return "Operation"
+
+    @property
+    def name(self):
+        return self.identifier
+
     def __init__(self, *args, **kwargs):
         super(Operation,self).__init__(*args, **kwargs)
         if self.operation:
@@ -283,6 +293,8 @@ class ReportRun(models.Model):
 
     compare_series = models.ForeignKey(DataSeriesGroup, blank=True, null=True, related_name="indicator_series_set", help_text="(optional) Group results per indicator by data series in this group")
 
+    reverse_axis = models.BooleanField(default=False, help_text="Flip the x and y axis for outputting results")
+
     #Optional filters for underlying responsesets
     limit_to_dataseries = models.ManyToManyField(DataSeries, blank=True, null=True, help_text="(optional) Limit which responses are used as raw data, based on the data series they belong to") #Optionally limit to dataseries
     limit_to_entity = models.ManyToManyField(Entity, blank=True, null=True, help_text="(optional) Limit which entities are reported on") #Optionally limit to entities
@@ -323,6 +335,14 @@ class ReportRun(models.Model):
                 for entity, data in qs.items():
                     result.append((entity, self.scorecard.get_values(data)))
                 results[key] = plugins.Vector(result)
+
+        if self.reverse_axis:
+            flipped = OrderedDict()
+            for key, scorecard in results.items():
+                for operation, values in scorecard:
+                    flipped[operation] = flipped.get(operation, [])
+                    flipped[operation].append((key, values))
+            results = flipped
 
         return results
 

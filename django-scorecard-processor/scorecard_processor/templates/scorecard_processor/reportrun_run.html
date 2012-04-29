@@ -88,7 +88,7 @@
                       <tr class="titles">
                         <th rowspan=2 style="vertical-align:bottom">{% if item.0.data_type %}{{item.0.data_type}}{% else %}{% for k in item.0 %}{{k.data_type}}{% if forloop.revcounter0 %}, {% endif %}{% endfor %}{% endif %}</th>
                         {% for k, v in item.1 %}
-                            <th title="{{k.description}}" colspan="{{v|length}}" style="text-align:center">{{k.identifier}}</th>
+                            <th title="{{k.description}}" colspan="{{v|length}}" style="text-align:center">{{k.name}}</th>
                         {% endfor %}
                       </tr>
                       <tr class="sub_titles">
@@ -104,7 +104,7 @@
                     <tbody>
                   {% endif %}
                     <tr>
-                    <th>{{item.0.name}}</th>
+                    <th title="{{k.description}}">{{item.0.name}}</th>
                     {% for i, items in item.1 %}
                           {% for series, v in items %}
                             <td>{% if v %}{{v.as_html}}{% endif %}</td>
@@ -122,7 +122,7 @@
                       <tr>
                         <th rowspan=2 valign=bottom>{% if key.data_type %}{{key.data_type}}{% else %}{% for k in key %}{{k.data_type}}{% if forloop.revcounter0 %}, {% endif %}{% endfor %}{% endif %}</th>
                         {% for k, v in result %}
-                            <th title="{{k.description}}" colspan="{{v|length}}" style="text-align:center">{{k.identifier}}</th>
+                            <th title="{{k.description}}" colspan="{{v|length}}" style="text-align:center">{{k.name}}</th>
                         {% endfor %}
                       </tr>
                       <tr>
@@ -138,7 +138,7 @@
                     <tbody>
                 {% endif %}
                 <tr>
-                  <th>{{key.name}}</th>
+                  <th title="{{k.description}}" >{{key.name}}</th>
                   {% for i, items in result %}
                         {% for series, v in items %}
                           <td>{% if v %}{{v.as_html}}{% endif %}</td>
