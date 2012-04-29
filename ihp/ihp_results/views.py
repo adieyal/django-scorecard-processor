@@ -20,6 +20,7 @@ from guardian.shortcuts import get_perms, assign, remove_perm, get_objects_for_u
 
 
 from scorecard_processor.models import Entity, DataSeriesGroup, Survey, DataSeries
+from scorecard_processor.utils import render_json
 from plugins import MultiChoiceField, CurrencySelector
 
 @login_required
@@ -127,7 +128,7 @@ def view_dsg_survey(request, entity_id, data_series_group_name, survey_id, data_
     return render_to_response('ihp_results/view_dsg_survey.html',context,RequestContext(request))
 
 @login_required
-def entity_report(request, agency_id):
+def entity_report(request, agency_id, output_format='html'):
     entity = get_object_or_404(models.Entity, pk = agency_id)
     scorecard = models.Scorecard.objects.filter(name__contains='2012').get(name__contains=entity.entity_type.name)
     rs = models.get_responsesets(scorecard, limit_to_entity=[entity], aggregate_by_entity=True, compare_series=DataSeriesGroup.objects.get(name='Data collection year').dataseries_set.filter(visible=True))
@@ -139,13 +140,16 @@ def entity_report(request, agency_id):
         'project':scorecard.project,
         'data':output,
     }
-    return render_to_response('ihp_results/reports/entity.html',context,RequestContext(request))
+    if output_format=='html':
+        return render_to_response('ihp_results/reports/entity.html',context,RequestContext(request))
+    else:
+        return render_json(context)
         
 
 from pprint import pprint
 
 @login_required
-def indicator_by_entity(request, scorecard_id, identifier):
+def indicator_by_entity(request, scorecard_id, identifier, output_format='html'):
     scorecard = get_object_or_404(models.Scorecard, pk = scorecard_id)
 
     if 'government' in scorecard.name.lower():
@@ -158,9 +162,7 @@ def indicator_by_entity(request, scorecard_id, identifier):
 
     output = OrderedDict()
     for entity, data in rs.items():
-        output[entity] = OrderedDict()
-        for ds, responses in data:
-            output[entity][ds] = operation.get_data(responses)
+        output[entity] = [(ds, operation.get_data(responses)) for ds, responses in data]
 
     context = {
         'scorecard':scorecard,
@@ -169,10 +171,13 @@ def indicator_by_entity(request, scorecard_id, identifier):
         'data':output,
     }
 
-    return render_to_response('ihp_results/reports/indicator_entity.html',context,RequestContext(request))
+    if output_format == 'html':
+        return render_to_response('ihp_results/reports/indicator_entity.html',context,RequestContext(request))
+    else:
+        return render_json(context)
 
 @login_required
-def indicator_by_group(request, scorecard_id, data_series_group_name, identifier):
+def indicator_by_group(request, scorecard_id, data_series_group_name, identifier, output_format='html'):
     scorecard = get_object_or_404(models.Scorecard, pk = scorecard_id)
     dataseries_group = DataSeriesGroup.objects.get(name=data_series_group_name)
 
@@ -186,9 +191,7 @@ def indicator_by_group(request, scorecard_id, data_series_group_name, identifier
 
     output = OrderedDict()
     for country, data in rs.items():
-        output[country] = OrderedDict()
-        for ds, responses in data:
-            output[country][ds] = operation.get_data(responses)
+        output[country] = [(ds, operation.get_data(responses)) for ds, responses in data]
 
     context = {
         'scorecard':scorecard,
@@ -197,7 +200,11 @@ def indicator_by_group(request, scorecard_id, data_series_group_name, identifier
         'dataseries_group':dataseries_group,
         'data':output,
     }
-    return render_to_response('ihp_results/reports/indicator_country.html',context,RequestContext(request))
+
+    if output_format == 'html':
+        return render_to_response('ihp_results/reports/indicator_country.html',context,RequestContext(request))
+    else:
+        return render_json(context)
 
 @requires_csrf_token
 def exception_handler(request):

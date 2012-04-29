@@ -11,6 +11,9 @@ class Project(models.Model):
                         ("can_view", "Can view the project"),
                     )
 
+    def _as_dict(self):
+        return {'name':self.name}
+
     @models.permalink
     def get_absolute_url(self):
         return ('show_project',[str(self.pk)])
@@ -63,6 +66,9 @@ class DataSeriesGroup(models.Model):
         ordering = ('name',)
         app_label = "scorecard_processor"
 
+    def _as_dict(self):
+        return {'name':self.name}
+
     def get_dataseries(self):
         qs = self.dataseries_set.filter(visible=True)
         if self.reverse_ordering:
@@ -86,6 +92,9 @@ class DataSeries(models.Model):
                         ("can_use", "Can use the DataSeries"),
                         ("can_view", "Can view the DataSeries"),
                     )
+
+    def _as_dict(self):
+        return {'name':self.name}
 
     @property
     def data_type(self):
@@ -120,6 +129,13 @@ class Entity(models.Model):
         permissions = (
                         ("can_view", "Can view the Entity"),
                     )
+
+    def _as_dict(self):
+        return {
+                'name':self.name,
+                'abbreviation':self.abbreviation,
+                'entity_type':self.entity_type_id,
+            }
 
     @property
     def data_type(self):

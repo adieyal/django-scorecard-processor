@@ -38,6 +38,9 @@ class Scorecard(models.Model):
     def __unicode__(self):
         return "Scorecard: %s" % (self.name)
 
+    def _as_dict(self):
+        return {'name':self.name}
+
     @models.permalink
     def get_absolute_url(self):
         return ('show_scorecard',(str(self.project.pk),str(self.pk)))
@@ -81,6 +84,14 @@ class Operation(models.Model):
     class Meta:
         app_label = "scorecard_processor"
         ordering = ('identifier',)
+
+    def _as_dict(self):
+        return {
+                'identifier':self.identifier,
+                'description':self.description,
+                'operation':self.operation,
+                'operation_description':self.get_operation_display(),
+            }
 
     @property
     def data_type(self):
@@ -303,6 +314,12 @@ class ReportRun(models.Model):
 
     class Meta:
         app_label = "scorecard_processor"
+
+    def _as_dict(self):
+        return {
+            'name':self.name,
+            'description':self.description,
+        }
 
     def __unicode__(self):
         return self.name

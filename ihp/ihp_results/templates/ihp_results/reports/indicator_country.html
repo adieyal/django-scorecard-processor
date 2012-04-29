@@ -38,7 +38,7 @@
             <thead>
               <tr>
                 <th></th>
-                {% for series in items.keys %}
+                {% for series, values in items %}
                    <th colspan={{v|length}}>{{series.abbreviation|default:series.name}}</th>
                 {% endfor %}
               </tr>
@@ -47,7 +47,7 @@
           {% endif %}
           <tr>
             <th title="{{entity.name}}">{{entity.name}}</th>
-            {% for result in items.values %}
+            {% for series, result in items %}
               <td>{% if result.as_html %}{{result.as_html}}{% else %}<img src="{{STATIC_URL}}ihp_results/{{result}}.png" />{% endif %}</td>
             {% endfor %}
           </tr>

@@ -12,6 +12,7 @@ from django.utils.translation import ugettext_lazy as _
 from models import ResponseSet, Survey, Entity, ReportRun, DataSeries, DataSeriesGroup, Scorecard, ResponseOverride
 from models.outputs import get_responsesets
 from forms import QuestionForm, ResponseSetForm, AddUserForm, UserForm, PasswordResetForm
+from utils import render_json
 
 from guardian.shortcuts import get_perms, assign, remove_perm, get_objects_for_user, get_users_with_perms
 
@@ -46,14 +47,17 @@ class SurveyResponses(ListView):
         return context
 
 @login_required
-def run_report(request, object_id):
+def run_report(request, object_id, output_format='html'):
     obj = get_object_or_404(ReportRun, pk=object_id)
     result = obj.run()
-    return render_to_response(
-        'scorecard_processor/reportrun_run.html',
-        {'object':obj, 'report':result},
-        RequestContext(request)
-    )
+    if output_format == 'html':
+        return render_to_response(
+            'scorecard_processor/reportrun_run.html',
+            {'object':obj, 'report':result},
+            RequestContext(request)
+        )
+    else:
+        return render_json({'data':result,'report':obj})
 
 
 #################################################################

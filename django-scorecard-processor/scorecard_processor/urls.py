@@ -115,6 +115,10 @@ urlpatterns = patterns('scorecard_processor.views',
         "run_report",
         name="run_report"
     ),
+    url(r'^project/(\d+)/reports/generic/(?P<object_id>\d+)/run/(?P<output_format>\w+)/$',
+        "run_report",
+        name="run_report"
+    ),
     url(r'^project/(?P<project_id>\d+)/reports/', 
         include(get_project_urls())
     ),
