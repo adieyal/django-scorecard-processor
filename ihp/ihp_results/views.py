@@ -147,7 +147,13 @@ from pprint import pprint
 @login_required
 def indicator_by_entity(request, scorecard_id, identifier):
     scorecard = get_object_or_404(models.Scorecard, pk = scorecard_id)
-    rs = models.get_responsesets(scorecard, aggregate_by_entity=True, compare_series=[ds for ds in DataSeriesGroup.objects.get(name='Data collection year').get_dataseries() if ds.visible])
+
+    if 'government' in scorecard.name.lower():
+        entity_type = models.EntityType.objects.get(name='government')
+    else:
+        entity_type = models.EntityType.objects.get(name='agency')
+
+    rs = models.get_responsesets(scorecard, aggregate_by_entity=True, limit_to_entitytype=[entity_type], compare_series=[ds for ds in DataSeriesGroup.objects.get(name='Data collection year').get_dataseries() if ds.visible])
     operation = scorecard.operation_set.get(identifier=identifier)
 
     output = OrderedDict()
@@ -163,15 +169,19 @@ def indicator_by_entity(request, scorecard_id, identifier):
         'data':output,
     }
 
-    pprint(dict(output))
-
     return render_to_response('ihp_results/reports/indicator_entity.html',context,RequestContext(request))
 
 @login_required
 def indicator_by_group(request, scorecard_id, data_series_group_name, identifier):
     scorecard = get_object_or_404(models.Scorecard, pk = scorecard_id)
     dataseries_group = DataSeriesGroup.objects.get(name=data_series_group_name)
-    rs = models.get_responsesets(scorecard, aggregate_on=dataseries_group, compare_series=[ds for ds in DataSeriesGroup.objects.get(name='Data collection year').get_dataseries() if ds.visible])
+
+    if 'government' in scorecard.name.lower():
+        entity_type = models.EntityType.objects.get(name='government')
+    else:
+        entity_type = models.EntityType.objects.get(name='agency')
+
+    rs = models.get_responsesets(scorecard, aggregate_on=dataseries_group, limit_to_entitytype=[entity_type], compare_series=[ds for ds in DataSeriesGroup.objects.get(name='Data collection year').get_dataseries() if ds.visible])
     operation = scorecard.operation_set.get(identifier=identifier)
 
     output = OrderedDict()

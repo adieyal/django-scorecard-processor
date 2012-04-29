@@ -1,7 +1,33 @@
 from django.utils.translation import ugettext_lazy as _
 from scorecard_processor.plugins.input.multi_choices import register, MultiChoiceField
 from scorecard_processor.plugins.input.choices import ChoiceField
+from scorecard_processor.plugins import base
 from decimal import Decimal
+
+class CountValues(base.ProcessPlugin):
+    name = "Percentage of lists with 'threshold' or more items"
+    argument_list = ['items']
+    input_type = base.Vector
+    output_type = base.Scalar
+    options = { 'threshold': int }
+    defaults = { 'threshold':1 }
+
+    def process(self):
+        values = self.get_arguments().items.get_values()
+        output_values = []
+
+        for value in values:
+            output_values.append(len(value.get_value()) >= self.get_config('threshold'))
+
+        if len(values):
+            output = (100 * Decimal(output_values.count(True)) / Decimal(len(output_values))).quantize(Decimal('1.0'))
+        else:
+            output = Decimal("0.0")
+
+        return self.output_type(output)
+
+register.register('process','IHP field','list_perc', CountValues)
+
 
 class FourPointScale(ChoiceField):
     name = "Four point perfomance scale"

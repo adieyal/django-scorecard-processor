@@ -280,7 +280,7 @@
     "model": "scorecard_processor.dataseriesgroup", 
     "fields": {
       "project": 1, 
-      "reverse_ordering": false
+      "reverse_ordering": true
     }
   }, 
   {

@@ -9,6 +9,8 @@ from django.db.models.query import QuerySet, Q
 from django.contrib.auth.models import User
 from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
+from django.utils.functional import lazy
+
 
 from cerial import PickleField, JSONField
 
@@ -69,7 +71,7 @@ class Operation(models.Model):
     #TODO: operations should be chained? e.g. div(sum(Q1),sum(Q2)) vs. NumDenom(Q1,Q2)
     #TODO: rework as django-mptt?
     scorecard = models.ForeignKey(Scorecard)
-    operation = models.CharField(max_length=50, choices=plugins.process_plugins_as_choices(), help_text="How should this data be processed") 
+    operation = models.CharField(max_length=50, choices=lazy(plugins.process_plugins_as_choices,list)(), help_text="How should this data be processed") 
     identifier = models.CharField(max_length=25, help_text="A short identifier for the operation, e.g. budget_spend, 1G")
     description = models.CharField(max_length=200, help_text="Descriptive name for this indicator e.g. Portion of budget spent(%), Total amount spent ($m)")
     configuration = JSONField(null=True, blank=True) #For the case of creating check mark outputs
