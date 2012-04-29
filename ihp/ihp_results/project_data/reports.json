@@ -1335,7 +1335,6 @@
       "aggregate_by_entity": true, 
       "scorecard": 1, 
       "limit_to_dataseries": [
-        21, 
         22, 
         20
       ], 
@@ -1377,6 +1376,66 @@
       "scorecard": 2, 
       "limit_to_dataseries": [
         21, 
+        22, 
+        20
+      ], 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "scorecard_processor.reportrun", 
+    "fields": {
+      "aggregate_on": "Country", 
+      "name": "Aggregated Agency indicators by country", 
+      "compare_series": "Data collection year", 
+      "limit_to_entity": [], 
+      "limit_to_entitytype": [
+        "agency"
+      ], 
+      "aggregate_by_entity": false, 
+      "scorecard": 4, 
+      "limit_to_dataseries": [
+        22, 
+        20
+      ], 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "scorecard_processor.reportrun", 
+    "fields": {
+      "aggregate_on": null, 
+      "name": "Unweighted, Aggregated Agency scorecards", 
+      "compare_series": "Data collection year", 
+      "limit_to_entity": [], 
+      "limit_to_entitytype": [
+        "agency"
+      ], 
+      "aggregate_by_entity": true, 
+      "scorecard": 4, 
+      "limit_to_dataseries": [
+        22, 
+        20
+      ], 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "scorecard_processor.reportrun", 
+    "fields": {
+      "aggregate_on": "Country", 
+      "name": "All agency indicators, split by country", 
+      "compare_series": "Data collection year", 
+      "limit_to_entity": [], 
+      "limit_to_entitytype": [
+        "agency"
+      ], 
+      "aggregate_by_entity": true, 
+      "scorecard": 4, 
+      "limit_to_dataseries": [
         22, 
         20
       ], 
