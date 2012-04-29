@@ -228,7 +228,8 @@ def get_responsesets(scorecard, compare_series=None, limit_to_dataseries=[], lim
     if limit_to_dataseries and len(limit_to_dataseries):
         qs = qs.filter(data_series__in=limit_to_dataseries)
         if compare_series:
-            result_sets = [ds for ds in limit_to_dataseries.filter(group=compare_series)] or None
+            limit = limit_to_dataseries.filter(group=compare_series)
+            result_sets = [ds for ds in compare_series.get_dataseries() if ds in limit] or None
 
     if len(limit_to_entity):
         qs = qs.filter(entity__in=limit_to_entity)
@@ -240,7 +241,7 @@ def get_responsesets(scorecard, compare_series=None, limit_to_dataseries=[], lim
         try:
             result_sets = [ds for ds in compare_series.get_dataseries()]
         except Exception:
-            result_sets = compare_series
+            result_sets = [ds for ds in compare_series[0].group.get_dataseries() if ds in compare_series]
             
     
     if aggregate_on:
