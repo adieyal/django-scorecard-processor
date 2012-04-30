@@ -48,7 +48,7 @@
           <tr>
             <th title="{{operation.description}}">{{operation.identifier}}</th>
             {% for series, result in items %}
-              <td>{% if result.as_html %}{{result.as_html}}{% else %}{% if result==None %}{% else %}<img src="{{STATIC_URL}}ihp_results/{{result}}.png" />{% endif %}{% endif %}</td>
+              <td>{% if result.as_html %}{{result.as_html}}{% else %}{% if result == None %}{% else %}<img src="{{STATIC_URL}}ihp_results/{{result}}.png" />{% endif %}{% endif %}</td>
             {% endfor %}
           </tr>
         {% endfor %}
