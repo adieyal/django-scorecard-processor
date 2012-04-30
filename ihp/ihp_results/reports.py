@@ -148,7 +148,7 @@ class AgencyReport(ProjectReport):
         for scorecard in scorecard_set:
             links.append((
                 reverse(name,args=[project.pk, scorecard.pk]),
-                ': '.join(("Entity report",scorecard.name))
+                ': '.join(("Consolidated report",scorecard.name))
             ))
         return links
 

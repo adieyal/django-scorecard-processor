@@ -34,6 +34,7 @@ class Scorecard(models.Model):
 
     class Meta:
         app_label = "scorecard_processor"
+        ordering = ("name",)
 
     def __unicode__(self):
         return "Scorecard: %s" % (self.name)
@@ -206,21 +207,22 @@ def split_sets(split, response_sets, survey_cache, split_entities = False):
         result.append((None, flatten_response_queryset(response_sets, survey_cache)))
 
     if split_entities:
-        result_dict = defaultdict(OrderedDict)
+        result_dict = OrderedDict()
         series = []
         for ds, qs in result:
             series.append(ds)
 
         for ds, qs in result:
-            filter_dict = defaultdict(list)
+            filter_dict = OrderedDict()
             for rs in qs:
-                filter_dict[rs.entity].append(rs)
+                filter_dict.setdefault(rs.entity, []).append(rs)
+
             for entity, data in filter_dict.items():
                 if entity not in result_dict.keys():
                     for s in series:
-                        result_dict[entity][s] = []
+                        # Ensure all dataseries are present in entity output
+                        result_dict.setdefault(entity, OrderedDict())[s] = []
                 result_dict[entity][ds] = data
-        result = dict(result_dict)
         for entity in result.keys():
             result[entity] = result[entity].items()
     return result
@@ -256,13 +258,13 @@ def get_responsesets(scorecard, compare_series=None, limit_to_dataseries=[], lim
             
     
     if aggregate_on:
-        rs_dict = defaultdict(lambda: defaultdict(list)) 
-        for dataseries in aggregate_on.dataseries_set.all():
+        rs_dict = OrderedDict()
+        for dataseries in aggregate_on.get_dataseries():
             ds_qs = qs.filter(data_series=dataseries)
             if ds_qs.count():
                 if aggregate_by_entity:
                     for entity, data in split_sets(result_sets, ds_qs, surveys, split_entities=True).items():
-                        rs_dict[entity][dataseries] = data
+                        rs_dict.setdefault(entity, OrderedDict())[dataseries] = data
                 else:
                     rs_dict[dataseries] = split_sets(result_sets, ds_qs, surveys)
     else:
@@ -339,7 +341,7 @@ class ReportRun(models.Model):
                 aggregate_by_entity=self.aggregate_by_entity)
 
     def run(self):
-        results = {}
+        results = OrderedDict()
         for key, qs in self.get_responsesets().items():
             if isinstance(qs, list):
                 if len(qs) == 0:

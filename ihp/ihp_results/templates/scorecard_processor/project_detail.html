@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block head_title %}Survey selection for {{object.name}}{% endblock %}
+{% block fluid_content_outer %}
+  <style>
+    .entity {
+      margin-bottom:8px
+    }
+  </style>
+  <div class="container">
+    <div class="content">
+      <div class="page-header">
+        <h1>{{object.name}} <small>manage surveys</small></h1>
+      </div>
+      <div class="row">
+        <div class="span8">
+          <div class="row">
+            
+            <h3 class="span8">Data by agency/gov</h3>
+            {% regroup object.entity_set.all by entity_type.plural as entity_list %}
+            {% for entity_type in entity_list %}
+              <h4 class="span8">{{entity_type.grouper|capfirst}}</h4>
+              {% for entity in entity_type.list %}
+                <div class="span2 entity">
+                  {{entity.abbreviation}}<br />
+                  <a href="{{entity.get_absolute_url}}">Responses</a> <br />
+                  <a href="{% url ihp_entity_report entity.pk %}">Graph & Table</a>
+                </div>
+              {% endfor %}
+            {% endfor %}
+          </div>
+        </div>
+        <div class="span8">
+          <h3>Surveys</h3>
+            
+            <ul>
+            {% for survey in object.survey_set.all %}
+              {% if survey.active %}<li><a href="{{survey.get_absolute_url}}">{{survey.name}}</a> (<a href="{{survey.get_absolute_url}}responses/">view {% with survey.responseset_set.count as count %}{{count}} response{{count|pluralize}}{% endwith %}</a>)</li>{% endif %}
+            {% endfor %}
+            </ul>
+            <div class="row">
+              <div class="span8"> 
+                <h3>Scorecards & Aggregate reports</h3>
+                  <ul>
+                  {% for scorecard in object.scorecard_set.visible %}
+                    <li>{{scorecard.name}} (<a href="{{scorecard.get_absolute_url}}">view logic</a>)<br />
+                    Reports: 
+                    <ul>
+                    {% for report in scorecard.reportrun_set.all %}
+                      <li><a href="{{report.get_absolute_url}}run/">{{report.name}}</a></li>
+                    {% endfor %}
+                    </ul>
+
+                    Indicator by agency/gov:
+                    <p>
+                    {% for indicator in scorecard.operation_set.indicators %}
+                      <a href="{% url scorecard_entity_indicator_report scorecard.pk indicator.identifier %}">{{indicator.identifier}}</a>, 
+                    {% endfor %}
+                    </p>
+                    Indicator by Country:
+                    <p>
+                    {% for indicator in scorecard.operation_set.indicators %}
+                      <a href="{% url scorecard_group_indicator_report scorecard.pk "Country" indicator.identifier %}">{{indicator.identifier}}</a>, 
+                    {% endfor %}
+                    </p>
+                    </li>
+                  {% endfor %}
+                  </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="span8"> 
+                <h3>Other Reports</h3>
+                  <ul>
+                  {% for link, name in object.get_report_links %}
+                    <li><a href="{{link}}">{{name}}</a><br />
+                  {% endfor %}
+                  </ul>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+          <h3>Entities <a class="btn small" href="/admin/scorecard_processor/entity/add/">+</a></h3>
+
+        </div>
+    </div>
+  </div>
+{% endblock %}
