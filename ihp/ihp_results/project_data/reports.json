@@ -9,6 +9,15 @@
     }
   }, 
   {
+    "pk": 4, 
+    "model": "scorecard_processor.scorecard", 
+    "fields": {
+      "project": 1, 
+      "visible": true, 
+      "name": "Agency Indicators 2012"
+    }
+  }, 
+  {
     "pk": 2, 
     "model": "scorecard_processor.scorecard", 
     "fields": {
@@ -24,15 +33,6 @@
       "project": 1, 
       "visible": true, 
       "name": "Government indicators 2012"
-    }
-  }, 
-  {
-    "pk": 4, 
-    "model": "scorecard_processor.scorecard", 
-    "fields": {
-      "project": 1, 
-      "visible": true, 
-      "name": "Agency Indicators 2012"
     }
   }, 
   {
@@ -1312,6 +1312,7 @@
       "limit_to_entitytype": [
         "agency"
       ], 
+      "reverse_axis": false, 
       "aggregate_by_entity": true, 
       "scorecard": 1, 
       "limit_to_dataseries": [
@@ -1332,6 +1333,7 @@
       "limit_to_entitytype": [
         "agency"
       ], 
+      "reverse_axis": false, 
       "aggregate_by_entity": true, 
       "scorecard": 1, 
       "limit_to_dataseries": [
@@ -1352,6 +1354,7 @@
       "limit_to_entitytype": [
         "agency"
       ], 
+      "reverse_axis": false, 
       "aggregate_by_entity": false, 
       "scorecard": 1, 
       "limit_to_dataseries": [
@@ -1372,6 +1375,7 @@
       "limit_to_entitytype": [
         "government"
       ], 
+      "reverse_axis": false, 
       "aggregate_by_entity": true, 
       "scorecard": 2, 
       "limit_to_dataseries": [
@@ -1393,6 +1397,7 @@
       "limit_to_entitytype": [
         "agency"
       ], 
+      "reverse_axis": true, 
       "aggregate_by_entity": false, 
       "scorecard": 4, 
       "limit_to_dataseries": [
@@ -1413,6 +1418,7 @@
       "limit_to_entitytype": [
         "agency"
       ], 
+      "reverse_axis": false, 
       "aggregate_by_entity": true, 
       "scorecard": 4, 
       "limit_to_dataseries": [
@@ -1433,6 +1439,7 @@
       "limit_to_entitytype": [
         "agency"
       ], 
+      "reverse_axis": true, 
       "aggregate_by_entity": true, 
       "scorecard": 4, 
       "limit_to_dataseries": [
