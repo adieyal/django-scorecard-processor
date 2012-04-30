@@ -33,18 +33,18 @@ $(document).ready(function() {
           name : '{{data.values.0.1.0.name}}'
         }
       ],
-      {% if operation.identifier != "5DPc" %}
-        yAxis : {
-          {% if operation.identifier != "4DP" %}max : 100,{% endif %}
-          title : {
-            text : '%'
-          }
-        },
-      {% else %}
+      {% if operation.identifier == "5DPc" or operation.identifier == "5Ga"%}
         yAxis : {
           max : 10,
           title : {
             text : 'number of PIUs'
+          }
+        },
+      {% else %}
+        yAxis : {
+          {% if operation.identifier != "4DP" %}max : 100,{% endif %}
+          title : {
+            text : '%'
           }
         },
       {% endif %}
