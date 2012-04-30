@@ -215,6 +215,7 @@ def split_sets(split, response_sets, survey_cache, split_entities = False):
         for ds, qs in result:
             filter_dict = OrderedDict()
             for rs in qs:
+                #Assign all responsesets to the entity that owns them
                 filter_dict.setdefault(rs.entity, []).append(rs)
 
             for entity, data in filter_dict.items():
@@ -223,8 +224,9 @@ def split_sets(split, response_sets, survey_cache, split_entities = False):
                         # Ensure all dataseries are present in entity output
                         result_dict.setdefault(entity, OrderedDict())[s] = []
                 result_dict[entity][ds] = data
-        for entity in result.keys():
-            result[entity] = result[entity].items()
+        for entity, data in result_dict.items():
+            result_dict[entity] = data.items()
+        result = result_dict
     return result
 
 def get_responsesets(scorecard, compare_series=None, limit_to_dataseries=[], limit_to_entity=[], limit_to_entitytype=[], aggregate_on=None, aggregate_by_entity=None):
@@ -269,6 +271,7 @@ def get_responsesets(scorecard, compare_series=None, limit_to_dataseries=[], lim
                     rs_dict[dataseries] = split_sets(result_sets, ds_qs, surveys)
     else:
         rs_dict = split_sets(result_sets, qs, surveys, split_entities=True)
+
     """
     returns (aggregate_on):
     {
@@ -356,13 +359,23 @@ class ReportRun(models.Model):
                     result.append((entity, self.scorecard.get_values(data)))
                 results[key] = plugins.Vector(result)
 
+
         if self.reverse_axis:
-            flipped = OrderedDict()
-            for key, scorecard in results.items():
-                for operation, values in scorecard:
-                    flipped[operation] = flipped.get(operation, [])
-                    flipped[operation].append((key, values))
-            results = flipped
+            if self.aggregate_on and self.aggregate_by_entity:
+                for entity, data in results.items():
+                    flipped = OrderedDict()
+                    for key, scorecard in data.get_values():
+                        for operation, values in scorecard:
+                            flipped[operation] = flipped.get(operation, [])
+                            flipped[operation].append((key, values))
+                    results[entity] = plugins.Vector(flipped.items())
+            else:
+                flipped = OrderedDict()
+                for key, scorecard in results.items():
+                    for operation, values in scorecard:
+                        flipped[operation] = flipped.get(operation, [])
+                        flipped[operation].append((key, values))
+                results = flipped
 
         return results
 
