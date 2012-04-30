@@ -130,7 +130,7 @@ def view_dsg_survey(request, entity_id, data_series_group_name, survey_id, data_
 @login_required
 def entity_report(request, agency_id, output_format='html'):
     entity = get_object_or_404(models.Entity, pk = agency_id)
-    scorecard = models.Scorecard.objects.filter(name__contains='2012').get(name__contains=entity.entity_type.name)
+    scorecard = models.Scorecard.objects.filter(name__contains='2012').get(name__icontains=entity.entity_type.name)
     rs = models.get_responsesets(scorecard, limit_to_entity=[entity], aggregate_by_entity=True, compare_series=DataSeriesGroup.objects.get(name='Data collection year').dataseries_set.filter(visible=True))
     output = scorecard.get_values(rs[entity])
 
