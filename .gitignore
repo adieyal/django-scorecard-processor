@@ -5,3 +5,5 @@ pip-log.txt
 */testing.db
 */debugging.log
 /data/
+.idea/*
+env/

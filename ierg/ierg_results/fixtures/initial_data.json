@@ -1,0 +1,25 @@
+[
+    {
+        "pk": 1, 
+        "model": "scorecard_processor.project", 
+        "fields": {
+            "name": "COIA"
+        }
+    }, 
+    {
+        "pk": "Country", 
+        "model": "scorecard_processor.dataseriesgroup", 
+        "fields": {
+            "project": 1, 
+            "reverse_ordering": false
+        }
+    }, 
+    {
+        "pk": "Country", 
+        "model": "scorecard_processor.entitytype", 
+        "fields": {
+            "project": 1, 
+            "plural": "Countries"
+        }
+    }
+]
