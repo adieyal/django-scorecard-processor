@@ -17,9 +17,9 @@ class Command(BaseCommand):
 
 
     #TODO: We can get this from option or database later
+    SHEET_NAME = '1.1BirthRegistration'
     COLUM_NAME_ROW_STRING = "A3:H3"
     START_LINE = 3
-    SHEET_NAME = '1.1BirthRegistration'
 
     USER = User.objects.all()[1] #TODO: Fix this later
 
@@ -34,7 +34,6 @@ class Command(BaseCommand):
 
 
         survey_name = options.get('name')
-
         if not survey_name:
             raise CommandError("Require a name for the survey")
 
@@ -61,23 +60,21 @@ class Command(BaseCommand):
         survey.question_set.all().delete()
         survey.questiongroup_set.all().delete()
 
-
-
         question = models.Question.objects.create(survey=survey, group=None,
             identifier=self.SHEET_NAME, question=self.SHEET_NAME)
+
 
         for i in xrange(self.START_LINE, sheet.get_highest_row()):
             cell = sheet.cell(row=i, column=0)
 
-            try:
-                entity = models.Entity.objects.create(name=cell.value, entity_type=entity_type, project=project)
-            except :
-                raise CommandError("This name and project already exist in database, flush db and try again") #TODO: Clarify this moment
+            entity, created = models.Entity.objects.get_or_create(name=cell.value,
+                entity_type=entity_type, project=project)
 
-            ds = models.DataSeries.objects.create(name=cell.value, group=ds_group)
+            ds, created = models.DataSeries.objects.get_or_create(name=cell.value,
+                group=ds_group)
 
-
-            response_set = models.ResponseSet.objects.create(survey=survey, entity=entity)
+            response_set, created = models.ResponseSet.objects.get_or_create(survey=survey,
+                entity=entity)
             response_set.data_series.add(ds)
 
             value = {}
@@ -91,14 +88,4 @@ class Command(BaseCommand):
 
 
         print "Done."
-
-
-
-
-
-
-
-
-
-
 
