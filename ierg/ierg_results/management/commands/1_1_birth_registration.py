@@ -7,6 +7,7 @@ class Command(IergCommand):
     SHEET_NAME = '1.1BirthRegistration'
     COLUM_NAME_ROW_STRING = "A3:H3"
     START_LINE = 3
+    FINISH_LINE = 78
 
 
     def get_json(self, sheet, column_names, i):

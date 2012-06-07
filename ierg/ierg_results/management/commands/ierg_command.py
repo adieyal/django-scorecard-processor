@@ -59,7 +59,7 @@ class IergCommand(BaseCommand):
             identifier=self.SHEET_NAME, question=self.SHEET_NAME)
 
 
-        for i in xrange(self.START_LINE, sheet.get_highest_row()):
+        for i in xrange(self.START_LINE, self.FINISH_LINE):
             cell = sheet.cell(row=i, column=0)
 
             entity, created = models.Entity.objects.get_or_create(
