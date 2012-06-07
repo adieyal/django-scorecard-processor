@@ -4,8 +4,8 @@ from ierg_results.management.commands.ierg_command import IergCommand
 
 class Command(IergCommand):
     #TODO: We can get this from option or database later
-    SHEET_NAME = '1.1BirthRegistration'
-    COLUM_NAME_ROW_STRING = "A3:H3"
+    SHEET_NAME = '6.1 Reviews of health spending'
+    COLUM_NAME_ROW_STRING = "A3:E3"
     START_LINE = 3
 
 
