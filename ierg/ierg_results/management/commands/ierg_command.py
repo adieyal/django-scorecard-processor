@@ -1,4 +1,4 @@
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
 from django.contrib.auth.models import User
 from django.utils import simplejson
 from openpyxl.reader.excel import load_workbook
@@ -10,9 +10,12 @@ class IergCommand(BaseCommand):
     args = '<filename.xlsx>'
     help = 'Imports xls file into system'
     option_list = BaseCommand.option_list + (
-        make_option('--name',
-            dest='name',
+        make_option('--survey_name',
+            dest='survey_name',
             help='Give the survey a name'),
+        make_option('--excel_file_id',
+            dest='excel_file_id',
+            help='Give the excel file id'),
         )
     output_transaction = True
 
@@ -22,27 +25,21 @@ class IergCommand(BaseCommand):
 
 
     def handle(self, *args, **options):
-        try:
-            wb = load_workbook(filename=args[0])
-        except IndexError:
-            raise CommandError("Require a filename")
-        except :
-            raise CommandError("Invalid file")
+        excel_file_id = options.get('excel_file_id')
+        excel_file = models.ExcelFile.objects.get(id=excel_file_id)
 
-        survey_name = options.get('name')
-        if not survey_name:
-            raise CommandError("Require a name for the survey")
+        wb = load_workbook(filename=args[0])
+
+        survey_name = options.get('survey_name')
 
         sheet = wb.get_sheet_by_name(name=self.SHEET_NAME)
 
-        column_names = {k:v.value for k, v in enumerate(sheet.range(self.COLUM_NAME_ROW_STRING)[0])}
+        column_names = {k:v.value for k, v in\
+            enumerate(sheet.range(self.COLUM_NAME_ROW_STRING)[0])}
 
-        try:
-            ds_group = models.DataSeriesGroup.objects.get(name=column_names[0])
-            entity_type = models.EntityType.objects.get(name=column_names[0])
-            del column_names[0]
-        except models.DataSeriesGroup.DoesNotExist, models.EntityType.DoesNotExist:
-            raise CommandError("Invalid file format")
+        ds_group = models.DataSeriesGroup.objects.get(name=column_names[0])
+        entity_type = models.EntityType.objects.get(name=column_names[0])
+        del column_names[0]
 
 
         survey, created = models.Survey.objects.get_or_create(
@@ -72,13 +69,17 @@ class IergCommand(BaseCommand):
                 survey=survey, entity=entity)
             response_set.data_series.add(ds)
 
-            json = self.get_json(sheet, column_names, i)
+            try:
+                json = self.get_json(sheet, column_names, i)
+            except TypeError, exc:
+                excel_file.parse_log += '%s\n' % exc
 
             response = models.Response.objects.create(question=question,
                 response_set=response_set, respondant=self.USER, value=json)
 
 
-        print "Done"
+        excel_file.parse_log += 'Done\n'
+        excel_file.save()
 
 
     def get_json(self, sheet, column_names, i):
