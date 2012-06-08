@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # Django settings for ihp project.
+import posixpath
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -62,21 +63,20 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = '../data/'
+MEDIA_ROOT = 'data/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = '/uploads/'
-
-STATIC_URL = '/static/'
+MEDIA_URL = "/site_media/media/"
+STATIC_URL = "/site_media/static/"
 STATIC_ROOT = ''
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
 #ADMIN_MEDIA_PREFIX = '/media/'
-ADMIN_MEDIA_PREFIX = STATIC_URL + "grappelli/"
+ADMIN_MEDIA_PREFIX = posixpath.join(STATIC_URL, "admin/")
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'ibn+k=3xv*#n%34t0z*2l0_*lgi6hlu5$b2v9__7u(bmoaogep'
@@ -129,7 +129,7 @@ INSTALLED_APPS = (
 
     # Uncomment the next line to enable the admin:
     "django.contrib.staticfiles",
-    #"grappelli",
+    "grappelli",
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
