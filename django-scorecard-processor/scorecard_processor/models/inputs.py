@@ -402,7 +402,7 @@ def store_to_disk(sender, instance, **kwargs):
         instance.serialize(stream=tmpfile)
         tmpfile.close()
         print path
-        shutil.copy(path, '../data/%s.-.%s.-.%s.json' % (instance.entity.name, '.'.join([ds.name for ds in instance.get_data_series()]), instance.last_update))
+        shutil.copy(path, '/home/coia/webapps/ierg/django-scorecard-processor/ierg/../data/%s.-.%s.-.%s.json' % (instance.entity.name, '.'.join([ds.name for ds in instance.get_data_series()]), instance.last_update))
         os.remove(path)
     
 post_save.connect(invalidate_old_responses, sender=Response, dispatch_uid="scorecard_processor.invalidate_responses")
