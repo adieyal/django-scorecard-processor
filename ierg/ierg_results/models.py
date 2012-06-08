@@ -2,6 +2,30 @@ from django.db import models
 from django.core.management import call_command
 
 
+class Region(models.Model):
+    name = models.CharField(max_length=255)
+
+    class Meta:
+        ordering = ['name']
+        app_label = 'ierg_results'
+
+    def __unicode__(self):
+        return '%s' % self.name
+
+
+class Country(models.Model):
+    name = models.CharField(max_length=255)
+    region = models.ForeignKey(Region, related_name='countries')
+
+    class Meta:
+        ordering = ['name']
+        verbose_name_plural = "countries"
+        app_label = 'ierg_results'
+
+    def __unicode__(self):
+        return '%s' % self.name
+
+
 class ExcelFile(models.Model):
     excel_file = models.FileField(upload_to='excel_files', max_length=255)
     parse_log = models.TextField(blank=True)
