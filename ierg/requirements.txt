@@ -1,6 +1,6 @@
 -e git://github.com/earle/django-bootstrap.git@ebe553a0b7f023124f334f2f5d45bd252220b5fe#egg=bootstrap
 south
--e https://github.com/btn/django-cerial#egg=cerial
+-e git://github.com/bradwhittington/django-cerial.git#egg=cerial
 django-grappelli
 redis>2.4.5
 django-redis-cache
