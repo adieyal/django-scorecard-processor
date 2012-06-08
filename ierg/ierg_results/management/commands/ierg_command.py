@@ -79,7 +79,7 @@ class IergCommand(BaseCommand):
 
             excel_file.parse_log += '%s - parse completed\n' % self.SHEET_NAME
         except Exception, exc:
-            excel_file.parse_log += '%s - %s\n' % (self.SHEET_NAME, exc)
+            excel_file.parse_log += '%s - exception: %s\n' % (self.SHEET_NAME, exc)
         finally:
             excel_file.save()
 

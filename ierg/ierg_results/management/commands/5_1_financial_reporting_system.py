@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.utils import simplejson
 from ierg_results.management.commands.ierg_command import IergCommand
 
@@ -12,7 +13,8 @@ class Command(IergCommand):
 
     def get_json(self, sheet, column_names, i):
         value = {}
+        dthandler = lambda obj: obj.isoformat() if isinstance(obj, datetime) else None
         for j in column_names:
             value[column_names[j]] = sheet.cell(row=i, column=j).value
-        return simplejson.dumps(value)
+        return simplejson.dumps(value, default=dthandler)
 
