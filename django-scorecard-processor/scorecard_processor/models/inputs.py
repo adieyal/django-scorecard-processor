@@ -401,6 +401,7 @@ def store_to_disk(sender, instance, **kwargs):
         tmpfile = os.fdopen(fd, 'w')
         instance.serialize(stream=tmpfile)
         tmpfile.close()
+        print path
         shutil.copy(path, '../data/%s.-.%s.-.%s.json' % (instance.entity.name, '.'.join([ds.name for ds in instance.get_data_series()]), instance.last_update))
         os.remove(path)
     
