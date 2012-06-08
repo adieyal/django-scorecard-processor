@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.management import call_command
+from scorecard_processor.models import Entity, DataSeries, Response, ResponseSet, Question, Survey
 
 
 class Region(models.Model):
@@ -42,6 +43,13 @@ class ExcelFile(models.Model):
         new = False if self.id else True
         super(ExcelFile, self).save(*args, **kwargs)
         if new:
+            Entity.objects.all().delete()
+            DataSeries.objects.all().delete()
+            Response.objects.all().delete()
+            ResponseSet.objects.all().delete()
+            Question.objects.all().delete()
+            Survey.objects.all().delete()
+
             call_command('1_1_birth_registration', file_path=self.excel_file.path,
                 survey_name='BirthRegistration', excel_file_id=self.id)
             call_command('1_2_death_registration', file_path=self.excel_file.path,

@@ -1,4 +1,4 @@
-from django.core.management.base import BaseCommand
+from django.core.management.base import BaseCommand, CommandError
 from django.contrib.auth.models import User
 from django.utils import simplejson
 from openpyxl.reader.excel import load_workbook
@@ -30,11 +30,15 @@ class IergCommand(BaseCommand):
 
     def handle(self, *args, **options):
         try:
+            excel_file_id = options.get('excel_file_id')
+            excel_file = ExcelFile.objects.get(id=excel_file_id)
+        except Exception, e:
+            raise CommandError("This file does not exist")
+
+        try:
             file_path = options.get('file_path')
             survey_name = options.get('survey_name')
-            excel_file_id = options.get('excel_file_id')
 
-            excel_file = ExcelFile.objects.get(id=excel_file_id)
             wb = load_workbook(filename=file_path)
             sheet = wb.get_sheet_by_name(name=self.SHEET_NAME)
 
@@ -79,8 +83,8 @@ class IergCommand(BaseCommand):
 
 
             excel_file.parse_log += '%s - parse completed\n' % self.SHEET_NAME
-        except Exception, exc:
-            excel_file.parse_log += '%s - exception: %s\n' % (self.SHEET_NAME, exc)
+        except Exception, e:
+            excel_file.parse_log += '%s - exception: %s\n' % (self.SHEET_NAME, e)
         finally:
             excel_file.save()
 
