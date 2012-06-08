@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.utils import simplejson
 from openpyxl.reader.excel import load_workbook
 from scorecard_processor import models
+from ierg_results.models import ExcelFile
 from optparse import make_option
 
 
@@ -33,7 +34,7 @@ class IergCommand(BaseCommand):
             survey_name = options.get('survey_name')
             excel_file_id = options.get('excel_file_id')
 
-            excel_file = models.ExcelFile.objects.get(id=excel_file_id)
+            excel_file = ExcelFile.objects.get(id=excel_file_id)
             wb = load_workbook(filename=file_path)
             sheet = wb.get_sheet_by_name(name=self.SHEET_NAME)
 

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from models import  DataSeries, DataSeriesGroup, Entity, EntityType, Survey, \
-        Question, ResponseSet, Response, ResponseOverride, ExcelFile, Scorecard, \
+        Question, ResponseSet, Response, ResponseOverride, Scorecard, \
         Operation, OperationArgument, Project, ReportRun, QuestionGroup, \
         GlossaryDefinition, GlossaryTerm
 from django.forms.models import BaseInlineFormSet 
@@ -68,10 +68,6 @@ class ScorecardAdmin(admin.ModelAdmin):
     list_display = ('__unicode__','project','visible')
     model = Scorecard
 
-class ExcelFileAdmin(admin.ModelAdmin):
-    list_display = ['__unicode__', 'uploaded']
-    readonly_fields = ['parse_log']
-
 
 admin.site.register(Survey, SurveyAdmin)
 admin.site.register(ResponseSet, ResponseSetAdmin)
@@ -81,7 +77,6 @@ admin.site.register(QuestionGroup, QuestionGroupAdmin)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Scorecard, ScorecardAdmin)
 admin.site.register(ReportRun, ReportRunAdmin)
-admin.site.register(ExcelFile, ExcelFileAdmin)
 
 admin.site.register(DataSeriesGroup, DataSeriesGroupAdmin)
 admin.site.register(GlossaryDefinition, GlossaryDefinitionAdmin)
