@@ -140,7 +140,7 @@ i18nQuestionTuple = namedtuple("i18nQuestionTuple","identifier question help_tex
 class Question(models.Model):
     survey = models.ForeignKey(Survey)
     group = models.ForeignKey(QuestionGroup, null=True, blank=True)
-    identifier = models.CharField(max_length=10) #1, 2a, 2b
+    identifier = models.CharField(max_length=100) #1, 2a, 2b
     question = models.TextField()
     help_text = models.TextField(blank=True, null=True)
     widget = models.CharField(max_length=30, default='text', choices=lazy(plugins.input_plugins_as_choices,list)())

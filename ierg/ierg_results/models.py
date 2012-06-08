@@ -27,6 +27,18 @@ class Country(models.Model):
         return '%s' % self.name
 
 
+class Target(models.Model):
+    identifier = models.CharField(max_length=255)
+    target = models.CharField(max_length=255)
+
+    class Meta:
+        ordering = ['identifier']
+        app_label = 'ierg_results'
+
+    def __unicode__(self):
+        return '%s' % self.identifier
+
+
 class ExcelFile(models.Model):
     excel_file = models.FileField(upload_to='excel_files', max_length=255)
     parse_log = models.TextField(blank=True)
