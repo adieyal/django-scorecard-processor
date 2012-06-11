@@ -4,7 +4,7 @@ from django.conf.urls.defaults import *
 from django.contrib import admin
 from django.views.generic.simple import direct_to_template
 
-from ierg_results.views import graph, aggregate, summary
+from ierg_results.views import graph, aggregate, summary, box, achieved
 
 admin.autodiscover()
 
@@ -25,6 +25,8 @@ urlpatterns = patterns('',
     (r'^graph/', graph),
     (r'^aggregate/', aggregate),
     (r'^summary/', summary),
+    (r'^box/', box),
+    (r'^achieved/', achieved),
 
     (r'^static/(?P<path>.*)$','django.views.static.serve',{'document_root': 'static'}),
 
