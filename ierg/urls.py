@@ -4,6 +4,8 @@ from django.conf.urls.defaults import *
 from django.contrib import admin
 from django.views.generic.simple import direct_to_template
 
+from ierg_results.views import graph
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -19,6 +21,8 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
     (r'^grappelli/', include('grappelli.urls')),
+    
+    (r'^graph/', graph),
 
     (r'^static/(?P<path>.*)$','django.views.static.serve',{'document_root': 'static'}),
 
