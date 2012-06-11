@@ -4,7 +4,7 @@ from django.conf.urls.defaults import *
 from django.contrib import admin
 from django.views.generic.simple import direct_to_template
 
-from ierg_results.views import graph
+from ierg_results.views import graph, aggregate, summary
 
 admin.autodiscover()
 
@@ -23,9 +23,10 @@ urlpatterns = patterns('',
     (r'^grappelli/', include('grappelli.urls')),
     
     (r'^graph/', graph),
+    (r'^aggregate/', aggregate),
+    (r'^summary/', summary),
 
     (r'^static/(?P<path>.*)$','django.views.static.serve',{'document_root': 'static'}),
 
 )
-
 

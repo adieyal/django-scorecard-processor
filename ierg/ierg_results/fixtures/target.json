@@ -4,7 +4,7 @@
         "model": "ierg_results.target", 
         "fields": {
             "identifier": "1.1BirthRegistration", 
-            "target": ">=75%"
+            "target": "75"
         }
     },
     {
@@ -12,7 +12,7 @@
         "model": "ierg_results.target", 
         "fields": {
             "identifier": "1.2DeathRegistration", 
-            "target": ">=60%"
+            "target": "60"
         }
     },
     {
@@ -20,7 +20,7 @@
         "model": "ierg_results.target", 
         "fields": {
             "identifier": "1.3MaternalDeathReviews", 
-            "target": ">=90%"
+            "target": "90"
         }
     },
     {
@@ -28,7 +28,7 @@
         "model": "ierg_results.target", 
         "fields": {
             "identifier": "1.4COD", 
-            "target": ">60%"
+            "target": "60"
         }
     },
     {
@@ -36,7 +36,7 @@
         "model": "ierg_results.target", 
         "fields": {
             "identifier": "1.4a", 
-            "target": "100%/0%"
+            "target": "100/0"
         }
     },
     {
@@ -44,7 +44,7 @@
         "model": "ierg_results.target", 
         "fields": {
             "identifier": "1.4b", 
-            "target": "100%/0%"
+            "target": "100/0"
         }
     },
     {
@@ -52,7 +52,7 @@
         "model": "ierg_results.target", 
         "fields": {
             "identifier": "1.4c", 
-            "target": "100%/0%"
+            "target": "100/0"
         }
     },
     {
@@ -60,7 +60,7 @@
         "model": "ierg_results.target", 
         "fields": {
             "identifier": "1.4d", 
-            "target": "100%/0%"
+            "target": "100/0"
         }
     },
     {
@@ -68,7 +68,7 @@
         "model": "ierg_results.target", 
         "fields": {
             "identifier": "1.5QoC", 
-            "target": "100%/0%"
+            "target": "100/0"
         }
     },
     {
@@ -76,7 +76,7 @@
         "model": "ierg_results.target", 
         "fields": {
             "identifier": "1.6", 
-            "target": "100%/0%"
+            "target": "100/0"
         }
     },
     {
@@ -84,7 +84,7 @@
         "model": "ierg_results.target", 
         "fields": {
             "identifier": "1.7CRVSimprovement", 
-            "target": "100%/0%"
+            "target": "100/0"
         }
     },
     {
@@ -92,7 +92,7 @@
         "model": "ierg_results.target", 
         "fields": {
             "identifier": "1.7a", 
-            "target": "100%/0%"
+            "target": "100/0"
         }
     },
     {
@@ -100,7 +100,7 @@
         "model": "ierg_results.target", 
         "fields": {
             "identifier": "2.1 Health_info", 
-            "target": "100%/0%"
+            "target": "100/0"
         }
     },
     {
@@ -108,7 +108,7 @@
         "model": "ierg_results.target", 
         "fields": {
             "identifier": "2.2 Coverage indicators", 
-            "target": "100%/0%"
+            "target": "100/0"
         }
     },
     {
@@ -116,7 +116,7 @@
         "model": "ierg_results.target", 
         "fields": {
             "identifier": "2.3 Impact indicators", 
-            "target": "100%/0%"
+            "target": "100/0"
         }
     },
     {
@@ -124,7 +124,7 @@
         "model": "ierg_results.target", 
         "fields": {
             "identifier": "3.1 eHealth strategy", 
-            "target": "100%/0%"
+            "target": "100/0"
         }
     },
     {
@@ -132,7 +132,7 @@
         "model": "ierg_results.target", 
         "fields": {
             "identifier": "3.1a", 
-            "target": "100%/0%"
+            "target": "100/0"
         }
     },
     {
@@ -140,7 +140,7 @@
         "model": "ierg_results.target", 
         "fields": {
             "identifier": "3.2 Web based reporting", 
-            "target": "100%/0%"
+            "target": "100/0"
         }
     },
     {
@@ -148,7 +148,7 @@
         "model": "ierg_results.target", 
         "fields": {
             "identifier": "4.1 Total Health Expenditure", 
-            "target": "100%/0%"
+            "target": "100/0"
         }
     },
     {
@@ -156,7 +156,7 @@
         "model": "ierg_results.target", 
         "fields": {
             "identifier": "4.2 NHA conducted", 
-            "target": "100%/0%"
+            "target": "100/0"
         }
     },
     {
@@ -164,7 +164,7 @@
         "model": "ierg_results.target", 
         "fields": {
             "identifier": "4.3 RMNCH expenditure", 
-            "target": "100%/0%"
+            "target": "100/0"
         }
     },
     {
@@ -172,7 +172,7 @@
         "model": "ierg_results.target", 
         "fields": {
             "identifier": "5.1 Financial reporting system", 
-            "target": "100%/0%"
+            "target": "100/0"
         }
     },
     {
@@ -180,7 +180,7 @@
         "model": "ierg_results.target", 
         "fields": {
             "identifier": "6.1 Reviews of health spending", 
-            "target": "100%/0%"
+            "target": "100/0"
         }
     },
     {
@@ -188,7 +188,7 @@
         "model": "ierg_results.target", 
         "fields": {
             "identifier": "7.1 Reviews of performance", 
-            "target": "100%/0%"
+            "target": "100/0"
         }
     },
     {
@@ -196,7 +196,7 @@
         "model": "ierg_results.target", 
         "fields": {
             "identifier": "8.1 Performance report public", 
-            "target": "100%/0%"
+            "target": "100/0"
         }
     }
 ]
