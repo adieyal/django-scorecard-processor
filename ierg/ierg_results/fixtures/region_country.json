@@ -1157,7 +1157,7 @@
         "pk": 140, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "the former Yugoslav Republic of Macedonia",
+            "name": "Tajikistan",
             "region": 4
         }
     },
@@ -1165,7 +1165,7 @@
         "pk": 141, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Turkey",
+            "name": "the former Yugoslav Republic of Macedonia",
             "region": 4
         }
     },
@@ -1173,7 +1173,7 @@
         "pk": 142, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Turkmenistan",
+            "name": "Turkey",
             "region": 4
         }
     },
@@ -1181,7 +1181,7 @@
         "pk": 143, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Ukraine",
+            "name": "Turkmenistan",
             "region": 4
         }
     },
@@ -1189,7 +1189,7 @@
         "pk": 144, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "United Kingdom of Great Britain and Northern Ireland",
+            "name": "Ukraine",
             "region": 4
         }
     },
@@ -1197,7 +1197,7 @@
         "pk": 145, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Uzbekistan",
+            "name": "United Kingdom of Great Britain and Northern Ireland",
             "region": 4
         }
     },
@@ -1205,15 +1205,15 @@
         "pk": 146, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Afghanistan",
-            "region": 5
+            "name": "Uzbekistan",
+            "region": 4
         }
     },
     {
         "pk": 147, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Bahrain",
+            "name": "Afghanistan",
             "region": 5
         }
     },
@@ -1221,7 +1221,7 @@
         "pk": 148, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Djibouti",
+            "name": "Bahrain",
             "region": 5
         }
     },
@@ -1229,7 +1229,7 @@
         "pk": 149, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Egypt",
+            "name": "Djibouti",
             "region": 5
         }
     },
@@ -1237,7 +1237,7 @@
         "pk": 150, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Iran (Islamic Republic of)",
+            "name": "Egypt",
             "region": 5
         }
     },
@@ -1245,7 +1245,7 @@
         "pk": 151, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Iraq",
+            "name": "Iran (Islamic Republic of)",
             "region": 5
         }
     },
@@ -1253,7 +1253,7 @@
         "pk": 152, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Jordan",
+            "name": "Iraq",
             "region": 5
         }
     },
@@ -1261,7 +1261,7 @@
         "pk": 153, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Kuwait",
+            "name": "Jordan",
             "region": 5
         }
     },
@@ -1269,7 +1269,7 @@
         "pk": 154, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Lebanon",
+            "name": "Kuwait",
             "region": 5
         }
     },
@@ -1277,7 +1277,7 @@
         "pk": 155, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Libya",
+            "name": "Lebanon",
             "region": 5
         }
     },
@@ -1285,7 +1285,7 @@
         "pk": 156, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Morocco",
+            "name": "Libya",
             "region": 5
         }
     },
@@ -1293,7 +1293,7 @@
         "pk": 157, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Oman",
+            "name": "Morocco",
             "region": 5
         }
     },
@@ -1301,7 +1301,7 @@
         "pk": 158, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Pakistan",
+            "name": "Oman",
             "region": 5
         }
     },
@@ -1309,7 +1309,7 @@
         "pk": 159, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Qatar",
+            "name": "Pakistan",
             "region": 5
         }
     },
@@ -1317,7 +1317,7 @@
         "pk": 160, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Saudi Arabia",
+            "name": "Qatar",
             "region": 5
         }
     },
@@ -1325,7 +1325,7 @@
         "pk": 161, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Somalia",
+            "name": "Saudi Arabia",
             "region": 5
         }
     },
@@ -1333,7 +1333,7 @@
         "pk": 162, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "South Sudan",
+            "name": "Somalia",
             "region": 5
         }
     },
@@ -1341,7 +1341,7 @@
         "pk": 163, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Sudan",
+            "name": "South Sudan",
             "region": 5
         }
     },
@@ -1349,7 +1349,7 @@
         "pk": 164, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Syrian Arab Republic",
+            "name": "Sudan",
             "region": 5
         }
     },
@@ -1357,7 +1357,7 @@
         "pk": 165, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Tunisia",
+            "name": "Syrian Arab Republic",
             "region": 5
         }
     },
@@ -1365,7 +1365,7 @@
         "pk": 166, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "United Arab Emirates",
+            "name": "Tunisia",
             "region": 5
         }
     },
@@ -1373,7 +1373,7 @@
         "pk": 167, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Yemen",
+            "name": "United Arab Emirates",
             "region": 5
         }
     },
@@ -1381,15 +1381,15 @@
         "pk": 168, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Australia",
-            "region": 6
+            "name": "Yemen",
+            "region": 5
         }
     },
     {
         "pk": 169, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Brunei Darussalam",
+            "name": "Australia",
             "region": 6
         }
     },
@@ -1397,7 +1397,7 @@
         "pk": 170, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Cambodia",
+            "name": "Brunei Darussalam",
             "region": 6
         }
     },
@@ -1405,7 +1405,7 @@
         "pk": 171, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "China",
+            "name": "Cambodia",
             "region": 6
         }
     },
@@ -1413,7 +1413,7 @@
         "pk": 172, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Cook Islands",
+            "name": "China",
             "region": 6
         }
     },
@@ -1421,7 +1421,7 @@
         "pk": 173, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Fiji",
+            "name": "Cook Islands",
             "region": 6
         }
     },
@@ -1429,7 +1429,7 @@
         "pk": 174, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Japan",
+            "name": "Fiji",
             "region": 6
         }
     },
@@ -1437,7 +1437,7 @@
         "pk": 175, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Kiribati",
+            "name": "Japan",
             "region": 6
         }
     },
@@ -1445,7 +1445,7 @@
         "pk": 176, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Lao People's Democratic Republic",
+            "name": "Kiribati",
             "region": 6
         }
     },
@@ -1453,7 +1453,7 @@
         "pk": 177, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Malaysia",
+            "name": "Lao People's Democratic Republic",
             "region": 6
         }
     },
@@ -1461,7 +1461,7 @@
         "pk": 178, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Marshall Islands",
+            "name": "Malaysia",
             "region": 6
         }
     },
@@ -1469,7 +1469,7 @@
         "pk": 179, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Micronesia (Federated States of)",
+            "name": "Marshall Islands",
             "region": 6
         }
     },
@@ -1477,7 +1477,7 @@
         "pk": 180, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Mongolia",
+            "name": "Micronesia (Federated States of)",
             "region": 6
         }
     },
@@ -1485,7 +1485,7 @@
         "pk": 181, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Nauru",
+            "name": "Mongolia",
             "region": 6
         }
     },
@@ -1493,7 +1493,7 @@
         "pk": 182, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "New Zealand",
+            "name": "Nauru",
             "region": 6
         }
     },
@@ -1501,7 +1501,7 @@
         "pk": 183, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Niue",
+            "name": "New Zealand",
             "region": 6
         }
     },
@@ -1509,7 +1509,7 @@
         "pk": 184, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Palau",
+            "name": "Niue",
             "region": 6
         }
     },
@@ -1517,7 +1517,7 @@
         "pk": 185, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Papua New Guinea",
+            "name": "Palau",
             "region": 6
         }
     },
@@ -1525,7 +1525,7 @@
         "pk": 186, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Philippines",
+            "name": "Papua New Guinea",
             "region": 6
         }
     },
@@ -1533,7 +1533,7 @@
         "pk": 187, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Republic of Korea",
+            "name": "Philippines",
             "region": 6
         }
     },
@@ -1541,7 +1541,7 @@
         "pk": 188, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Samoa",
+            "name": "Republic of Korea",
             "region": 6
         }
     },
@@ -1549,7 +1549,7 @@
         "pk": 189, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Singapore",
+            "name": "Samoa",
             "region": 6
         }
     },
@@ -1557,7 +1557,7 @@
         "pk": 190, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Solomon Islands",
+            "name": "Singapore",
             "region": 6
         }
     },
@@ -1565,7 +1565,7 @@
         "pk": 191, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Tokelau",
+            "name": "Solomon Islands",
             "region": 6
         }
     },
@@ -1573,7 +1573,7 @@
         "pk": 192, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Tonga",
+            "name": "Tokelau",
             "region": 6
         }
     },
@@ -1581,7 +1581,7 @@
         "pk": 193, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Tuvalu",
+            "name": "Tonga",
             "region": 6
         }
     },
@@ -1589,12 +1589,20 @@
         "pk": 194, 
         "model": "ierg_results.country", 
         "fields": {
-            "name": "Vanuatu",
+            "name": "Tuvalu",
             "region": 6
         }
     },
     {
         "pk": 195, 
+        "model": "ierg_results.country", 
+        "fields": {
+            "name": "Vanuatu",
+            "region": 6
+        }
+    },
+    {
+        "pk": 196, 
         "model": "ierg_results.country", 
         "fields": {
             "name": "Viet Nam",
