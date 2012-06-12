@@ -43,18 +43,20 @@ def graph(request):
     for value in values:
         loads_value = simplejson.loads(value['value'])
         source = None
+        value_item = None
         for i in xrange(1, len(loads_value)):
             source_i = loads_value.get('Source %i' % i, 0)
             if source_i is 0:
                 break
             elif source_i is not None:
                 source = source_i
+                value_item = loads_value.get('Value %i' % i, None)
         source_id = None
         for source_item in sources:
             if source_item['name'] == source:
                 source_id = source_item['id']
         countries.append({'name': value['response_set__entity__name'],
-            'source': source_id})
+            'value': value_item, 'source': source_id})
 
     json = {}
     if region_id != 'all':
