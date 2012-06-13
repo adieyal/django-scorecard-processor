@@ -3,6 +3,9 @@ from django.core.management import call_command
 from scorecard_processor.models import Entity, DataSeries, Response, ResponseSet, Question, Survey
 
 
+EXCEL_FILES_SECTION = 'excel_files'
+
+
 class Region(models.Model):
     name = models.CharField(max_length=255)
 
@@ -40,7 +43,7 @@ class Target(models.Model):
 
 
 class ExcelFile(models.Model):
-    excel_file = models.FileField(upload_to='excel_files', max_length=255)
+    excel_file = models.FileField(upload_to=EXCEL_FILES_SECTION, max_length=255)
     parse_log = models.TextField(blank=True)
     uploaded = models.DateTimeField(auto_now_add=True)
 
@@ -49,7 +52,7 @@ class ExcelFile(models.Model):
         app_label = 'ierg_results'
 
     def __unicode__(self):
-        return '%s' % self.excel_file.name
+        return '%s' % self.excel_file.name.replace(EXCEL_FILES_SECTION+'/', '')
 
     def save(self, *args, **kwargs):
         new = False if self.id else True

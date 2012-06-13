@@ -1,5 +1,6 @@
 from django.contrib import admin
 from ierg_results.models import Region, Country, Target, ExcelFile
+from ierg_results.forms import ExcelFileAdminForm
 
 
 class RegionAdmin(admin.ModelAdmin):
@@ -15,6 +16,7 @@ class TargetAdmin(admin.ModelAdmin):
 
 
 class ExcelFileAdmin(admin.ModelAdmin):
+    form = ExcelFileAdminForm
     list_display = ['__unicode__', 'uploaded']
     readonly_fields = ['parse_log']
 
