@@ -4,15 +4,21 @@ from ierg_results.management.commands.ierg_command import IergCommand
 
 class Command(IergCommand):
     #TODO: We can get this from option or database later
-    SHEET_NAME = '4.3 RMNCH expenditure'
-    COLUM_NAME_ROW_STRING = "A4:I4"
+    SHEET_NAME = '2.2 Coverage indicators'
+    SURVEY_NAME = 'Coverage indicators'
+    IDENTIFIER = '2.2.8'
+    QUESTION = 'Antibiotic treatment for pneumonia'
+    COLUM_NAME_ROW_STRING = "A4:AI4"
+    RATING_COLUMN = 31
+    VALUE_COLUMNS = xrange(32, 35)
     START_LINE = 4
     FINISH_LINE = 79
 
 
     def get_json(self, sheet, column_names, i):
         value = {}
-        for j in column_names:
+        value[column_names[self.RATING_COLUMN]] = sheet.cell(row=i, column=self.RATING_COLUMN).value
+        for j in self.VALUE_COLUMNS:
             value[column_names[j]] = sheet.cell(row=i, column=j).value
         return simplejson.dumps(value)
 

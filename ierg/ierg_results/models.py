@@ -65,40 +65,39 @@ class ExcelFile(models.Model):
             Question.objects.all().delete()
             Survey.objects.all().delete()
 
-            call_command('1_1_birth_registration', file_path=self.excel_file.path,
-                survey_name='BirthRegistration', excel_file_id=self.id)
-            call_command('1_2_death_registration', file_path=self.excel_file.path,
-                survey_name='DeathRegistration', excel_file_id=self.id)
-            call_command('1_3_maternal_death_reviews', file_path=self.excel_file.path,
-                survey_name='MaternalDeathReviews', excel_file_id=self.id)
-            call_command('1_4_cod', file_path=self.excel_file.path,
-                survey_name='COD', excel_file_id=self.id)
-            call_command('1_5_qoc', file_path=self.excel_file.path,
-                survey_name='QoC', excel_file_id=self.id)
-            call_command('1_7_crvs_improvement', file_path=self.excel_file.path,
-                survey_name='CRVSImprovement', excel_file_id=self.id)
-            call_command('2_1_health_info', file_path=self.excel_file.path,
-                survey_name='HealthInfo', excel_file_id=self.id)
-            call_command('2_2_coverage_indicators', file_path=self.excel_file.path,
-                survey_name='CoverageIndicators', excel_file_id=self.id)
-            call_command('2_3_impact_indicators', file_path=self.excel_file.path,
-                survey_name='ImpactIndicators', excel_file_id=self.id)
-            call_command('3_1_ehealth_strategy', file_path=self.excel_file.path,
-                survey_name='EhealthStrategy', excel_file_id=self.id)
-            call_command('3_2_web_based_reporting', file_path=self.excel_file.path,
-                survey_name='WebBasedReporting', excel_file_id=self.id)
-            call_command('4_1_total_health_expenditure', file_path=self.excel_file.path,
-                survey_name='TotalHealthExpenditure', excel_file_id=self.id)
-            call_command('4_2_nha_conducted', file_path=self.excel_file.path,
-                survey_name='NhaConducted', excel_file_id=self.id)
-            call_command('4_3_rmnch_expenditure', file_path=self.excel_file.path,
-                survey_name='RmnchExpenditure', excel_file_id=self.id)
-            call_command('5_1_financial_reporting_system', file_path=self.excel_file.path,
-                survey_name='FinancialReportingSystem', excel_file_id=self.id)
-            call_command('6_1_reviews_of_health_spending', file_path=self.excel_file.path,
-                survey_name='ReviewsOfHealthSpending', excel_file_id=self.id)
-            call_command('7_1_reviews_of_performance', file_path=self.excel_file.path,
-                survey_name='ReviewsOfPerformance', excel_file_id=self.id)
-            call_command('8_1_performance_report_public', file_path=self.excel_file.path,
-                survey_name='PerformanceReportPublic', excel_file_id=self.id)
+            fid = self.id
+            path = self.excel_file.path
+            call_command('1_1_indicator', file_path=path, excel_file_id=fid)
+            call_command('1_2_indicator', file_path=path, excel_file_id=fid)
+            call_command('1_3_indicator', file_path=path, excel_file_id=fid)
+            call_command('1_3_1_sub-indicator', file_path=path, excel_file_id=fid)
+            call_command('1_3_2_sub-indicator', file_path=path, excel_file_id=fid)
+            call_command('1_3_3_sub-indicator', file_path=path, excel_file_id=fid)
+            call_command('1_3_4_sub-indicator', file_path=path, excel_file_id=fid)
+            call_command('1_3_5_sub-indicator', file_path=path, excel_file_id=fid)
+            call_command('1_5_sub-indicator', file_path=path, excel_file_id=fid)
+            call_command('1_6_sub-indicator', file_path=path, excel_file_id=fid)
+            call_command('1_7_indicator', file_path=path, excel_file_id=fid)
+            call_command('1_7_1_sub-indicator', file_path=path, excel_file_id=fid)
+            call_command('2_1_sub-indicator', file_path=path, excel_file_id=fid)
+            call_command('2_2_indicator', file_path=path, excel_file_id=fid)
+            call_command('2_2_1_sub-indicator', file_path=path, excel_file_id=fid)
+            call_command('2_2_2_sub-indicator', file_path=path, excel_file_id=fid)
+            call_command('2_2_3_sub-indicator', file_path=path, excel_file_id=fid)
+            call_command('2_2_4_sub-indicator', file_path=path, excel_file_id=fid)
+            call_command('2_2_5_sub-indicator', file_path=path, excel_file_id=fid)
+            call_command('2_2_6_sub-indicator', file_path=path, excel_file_id=fid)
+            call_command('2_2_7_sub-indicator', file_path=path, excel_file_id=fid)
+            call_command('2_2_8_sub-indicator', file_path=path, excel_file_id=fid)
+            call_command('2_3_indicator', file_path=path, excel_file_id=fid)
+            call_command('3_1_indicator', file_path=path, excel_file_id=fid)
+            call_command('3_1_1_sub-indicator', file_path=path, excel_file_id=fid)
+            call_command('3_2_indicator', file_path=path, excel_file_id=fid)
+            call_command('4_1_indicator', file_path=path, excel_file_id=fid)
+            call_command('4_2_indicator', file_path=path, excel_file_id=fid)
+            call_command('4_3_indicator', file_path=path, excel_file_id=fid)
+            call_command('5_1_indicator', file_path=path, excel_file_id=fid)
+            call_command('6_1_indicator', file_path=path, excel_file_id=fid)
+            call_command('7_1_indicator', file_path=path, excel_file_id=fid)
+            call_command('8_1_indicator', file_path=path, excel_file_id=fid)
 

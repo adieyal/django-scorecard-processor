@@ -14,9 +14,6 @@ class IergCommand(BaseCommand):
         make_option('--file_path',
             dest='file_path',
             help='Give the file path'),
-        make_option('--survey_name',
-            dest='survey_name',
-            help='Give the survey a name'),
         make_option('--excel_file_id',
             dest='excel_file_id',
             help='Give the excel file id'),
@@ -33,11 +30,10 @@ class IergCommand(BaseCommand):
             excel_file_id = options.get('excel_file_id')
             excel_file = ExcelFile.objects.get(id=excel_file_id)
         except Exception, e:
-            raise CommandError("This file does not exist")
+            raise CommandError("This file does not exist.")
 
         try:
             file_path = options.get('file_path')
-            survey_name = options.get('survey_name')
 
             wb = load_workbook(filename=file_path)
             sheet = wb.get_sheet_by_name(name=self.SHEET_NAME)
@@ -50,17 +46,14 @@ class IergCommand(BaseCommand):
             del column_names[0]
 
             survey, created = models.Survey.objects.get_or_create(
-                name=survey_name, project=self.PROJECT)
+                name=self.SURVEY_NAME, project=self.PROJECT)
 
             if created:
                 survey.data_series_groups.add(ds_group)
                 survey.entity_types.add(entity_type)
 
-            survey.question_set.all().delete()
-            survey.questiongroup_set.all().delete()
-
             question = models.Question.objects.create(survey=survey, group=None,
-                identifier=self.SHEET_NAME, question=self.SHEET_NAME)
+                identifier=self.IDENTIFIER, question=self.QUESTION)
 
 
             for i in xrange(self.START_LINE, self.FINISH_LINE):
@@ -82,9 +75,9 @@ class IergCommand(BaseCommand):
                     response_set=response_set, respondant=self.USER, value=json)
 
 
-            excel_file.parse_log += '%s - parse completed\n' % self.SHEET_NAME
+            excel_file.parse_log += '%s - parse completed\n' % self.IDENTIFIER
         except Exception, e:
-            excel_file.parse_log += '%s - exception: %s\n' % (self.SHEET_NAME, e)
+            excel_file.parse_log += '%s - exception: %s\n' % (self.IDENTIFIER, e)
         finally:
             excel_file.save()
 
