@@ -2,32 +2,31 @@ from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 from django.utils import simplejson
 from scorecard_processor.models import Response
-from ierg_results.models import Region, Country, Target
+from ierg_results.models import Region, Country, Indicator
 
 
 def graph(request):
     region_id = request.GET.get('region', 0)
-    target_id = request.GET.get('target', 0)
+    indicator = request.GET.get('indicator', 0)
     if region_id != 'all':
         region = get_object_or_404(Region, id=region_id)
-    target = get_object_or_404(Target, id=target_id)
-    identifier = target.identifier
+    target = get_object_or_404(Indicator, indicator=indicator).target
 
     if region_id != 'all':
         region_countries = Country.objects.filter(region=region).\
             values_list('name', flat=True)
-        values = Response.objects.filter(question__identifier=identifier,
+        values = Response.objects.filter(question__identifier=indicator,
             response_set__entity__name__in=region_countries).\
             values('value', 'response_set__entity__name')
     else:
-        values = Response.objects.filter(question__identifier=identifier).\
+        values = Response.objects.filter(question__identifier=indicator).\
             values('value', 'response_set__entity__name')
 
     sources = []
     for value in values:
         loads_value = simplejson.loads(value['value'])
         source = None
-        for i in xrange(1, len(loads_value)):
+        for i in xrange(1, 10):
             source_i = loads_value.get('Source %i' % i, 0)
             if source_i is 0:
                 break
@@ -44,7 +43,7 @@ def graph(request):
         loads_value = simplejson.loads(value['value'])
         source = None
         value_item = None
-        for i in xrange(1, len(loads_value)):
+        for i in xrange(1, 10):
             source_i = loads_value.get('Source %i' % i, 0)
             if source_i is 0:
                 break
@@ -63,8 +62,8 @@ def graph(request):
         json['region'] = region.name
     else:
         json['region'] = 'All regions'
-    json['identifier'] = identifier
-    json['target'] = target.target
+    json['indicator'] = indicator
+    json['target'] = target
     json['sources'] = sources
     json['countries'] = countries
     json = simplejson.dumps(json)
@@ -74,18 +73,18 @@ def graph(request):
 
 def aggregate(request):
     region_id = request.GET.get('region', 0)
-    target_id = request.GET.get('target', 0)
+    indicator = request.GET.get('indicator', 0)
     if region_id != 'all':
         region = get_object_or_404(Region, id=region_id)
-    identifier = get_object_or_404(Target, id=target_id).identifier
+    target = get_object_or_404(Indicator, indicator=indicator).target
 
     if region_id != 'all':
         region_countries = Country.objects.filter(region=region).\
             values_list('name', flat=True)
-        values = Response.objects.filter(question__identifier=identifier,
+        values = Response.objects.filter(question__identifier=indicator,
             response_set__entity__name__in=region_countries).values('value')
     else:
-        values = Response.objects.filter(question__identifier=identifier).\
+        values = Response.objects.filter(question__identifier=indicator).\
             values('value')
      
     sources = []
@@ -94,7 +93,7 @@ def aggregate(request):
         loads_value = simplejson.loads(value['value'])
         source = None
         score_item = None
-        for i in xrange(1, len(loads_value)):
+        for i in xrange(1, 10):
             source_i = loads_value.get('Source %i' % i, 0)
             if source_i is 0:
                 break
@@ -115,7 +114,7 @@ def aggregate(request):
         json['region'] = region.name
     else:
         json['region'] = 'All regions'
-    json['identifier'] = identifier
+    json['indicator'] = indicator
     json['sources'] = sources
     json['score'] = score
     json = simplejson.dumps(json)
@@ -125,19 +124,18 @@ def aggregate(request):
 
 def summary(request):
     region_id = request.GET.get('region', 0)
-    target_id = request.GET.get('target', 0)
+    indicator = request.GET.get('indicator', 0)
     if region_id != 'all':
         region = get_object_or_404(Region, id=region_id)
-    target = get_object_or_404(Target, id=target_id)
-    identifier = target.identifier
+    target = get_object_or_404(Indicator, indicator=indicator).target
 
     if region_id != 'all':
         region_countries = Country.objects.filter(region=region).\
             values_list('name', flat=True)
-        values = Response.objects.filter(question__identifier=identifier,
+        values = Response.objects.filter(question__identifier=indicator,
             response_set__entity__name__in=region_countries).values('value')
     else:
-        values = Response.objects.filter(question__identifier=identifier).\
+        values = Response.objects.filter(question__identifier=indicator).\
             values('value')
 
     sources = []
@@ -148,7 +146,7 @@ def summary(request):
         loads_value = simplejson.loads(value['value'])
         source = None
         score_item = None
-        for i in xrange(1, len(loads_value)):
+        for i in xrange(1, 10):
             source_i = loads_value.get('Source %i' % i, 0)
             if source_i is 0:
                 break
@@ -159,7 +157,7 @@ def summary(request):
             sources.append(source)
         if score_item is None:
             no_data += 1
-        elif score_item >= float(target.target):
+        elif score_item >= float(target):
             achieved += 1
         else:
             not_achieved += 1
@@ -177,7 +175,7 @@ def summary(request):
         json['region'] = region.name
     else:
         json['region'] = 'All regions'
-    json['identifier'] = identifier
+    json['indicator'] = indicator
     json['sources'] = sources
     json['scores'] = {}
     json['scores']['no_data'] = {'countries': no_data,
@@ -186,16 +184,15 @@ def summary(request):
         'value': achieved_value}
     json['scores']['not_achieved_target'] = {'countries': not_achieved,
         'value': not_achieved_value}
-    json['target'] = target.target
+    json['target'] = target
     json = simplejson.dumps(json)
 
     return HttpResponse(json, content_type='application/json')
 
 
 def box(request):
-    target_id = request.GET.get('target', 0)
-    target = get_object_or_404(Target, id=target_id)
-    identifier = target.identifier
+    indicator = request.GET.get('indicator', 0)
+    target = get_object_or_404(Indicator, indicator=indicator).target
 
     db_regions = Region.objects.all()
 
@@ -206,7 +203,7 @@ def box(request):
 
         region_countries = Country.objects.filter(region=db_region).\
             values_list('name', flat=True)
-        values = Response.objects.filter(question__identifier=identifier,
+        values = Response.objects.filter(question__identifier=indicator,
             response_set__entity__name__in=region_countries).\
             values('value', 'response_set__entity__name')
 
@@ -216,7 +213,7 @@ def box(request):
         for value in values:
             loads_value = simplejson.loads(value['value'])
             current_v = None
-            for i in xrange(1, len(loads_value)):
+            for i in xrange(1, 10):
                 current_vi = loads_value.get('Value %i' % i, 0)
                 if current_vi is 0:
                     break
@@ -253,14 +250,14 @@ def box(request):
         region['num_countries'] = values.count()
         regions.append(region)
 
-    values = Response.objects.filter(question__identifier=identifier).\
+    values = Response.objects.filter(question__identifier=indicator).\
         values('value')
 
     sources = []
     for value in values:
         loads_value = simplejson.loads(value['value'])
         source = None
-        for i in xrange(1, len(loads_value)):
+        for i in xrange(1, 10):
             source_i = loads_value.get('Source %i' % i, 0)
             if source_i is 0:
                 break
@@ -273,8 +270,8 @@ def box(request):
         sources[k] = {'id': k + 1, 'name': v}
 
     json = {}
-    json['identifier'] = identifier
-    json['target'] = target.target
+    json['indicator'] = indicator
+    json['target'] = target
     json['regions'] = regions
     json['sources'] = sources
     json = simplejson.dumps(json)
@@ -284,27 +281,26 @@ def box(request):
 
 def achieved(request):
     region_id = request.GET.get('region', 0)
-    target_id = request.GET.get('target', 0)
+    indicator = request.GET.get('indicator', 0)
     if region_id != 'all':
         region = get_object_or_404(Region, id=region_id)
-    target = get_object_or_404(Target, id=target_id)
-    identifier = target.identifier
+    target = get_object_or_404(Indicator, indicator=indicator).target
 
     if region_id != 'all':
         region_countries = Country.objects.filter(region=region).\
             values_list('name', flat=True)
-        values = Response.objects.filter(question__identifier=identifier,
+        values = Response.objects.filter(question__identifier=indicator,
             response_set__entity__name__in=region_countries).\
             values('value', 'response_set__entity__name')
     else:
-        values = Response.objects.filter(question__identifier=identifier).\
+        values = Response.objects.filter(question__identifier=indicator).\
             values('value', 'response_set__entity__name')
 
     sources = []
     for value in values:
         loads_value = simplejson.loads(value['value'])
         source = None
-        for i in xrange(1, len(loads_value)):
+        for i in xrange(1, 10):
             source_i = loads_value.get('Source %i' % i, 0)
             if source_i is 0:
                 break
@@ -323,7 +319,7 @@ def achieved(request):
         country['name'] = value['response_set__entity__name']
         source = None
         score = None
-        for i in xrange(1, len(loads_value)):
+        for i in xrange(1, 10):
             source_i = loads_value.get('Source %i' % i, 0)
             if source_i is 0:
                 break
@@ -333,7 +329,7 @@ def achieved(request):
         country['score'] = score
         if score is None:
             country['rating'] = 'missing'
-        elif score >= float(target.target):
+        elif score >= float(target):
             country['rating'] = 'tick'
         else:
             country['rating'] = 'cross'
@@ -349,8 +345,8 @@ def achieved(request):
         json['region'] = region.name
     else:
         json['region'] = 'All regions'
-    json['identifier'] = identifier
-    json['target'] = target.target
+    json['indicator'] = indicator
+    json['target'] = target
     json['sources'] = sources
     json['countries'] = countries
     json = simplejson.dumps(json)

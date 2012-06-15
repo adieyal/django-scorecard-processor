@@ -8,18 +8,18 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding model 'Target'
-        db.create_table('ierg_results_target', (
+        # Adding model 'Indicator'
+        db.create_table('ierg_results_indicator', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('identifier', self.gf('django.db.models.fields.CharField')(max_length=255)),
-            ('target', self.gf('django.db.models.fields.CharField')(max_length=255)),
+            ('indicator', self.gf('django.db.models.fields.CharField')(max_length=10)),
+            ('target', self.gf('django.db.models.fields.CharField')(max_length=10)),
         ))
-        db.send_create_signal('ierg_results', ['Target'])
+        db.send_create_signal('ierg_results', ['Indicator'])
 
 
     def backwards(self, orm):
-        # Deleting model 'Target'
-        db.delete_table('ierg_results_target')
+        # Deleting model 'Indicator'
+        db.delete_table('ierg_results_indicator')
 
 
     models = {
@@ -36,16 +36,16 @@ class Migration(SchemaMigration):
             'parse_log': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
             'uploaded': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'})
         },
+        'ierg_results.indicator': {
+            'Meta': {'ordering': "['indicator']", 'object_name': 'Indicator'},
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'indicator': ('django.db.models.fields.CharField', [], {'max_length': '10'}),
+            'target': ('django.db.models.fields.CharField', [], {'max_length': '10'})
+        },
         'ierg_results.region': {
             'Meta': {'ordering': "['name']", 'object_name': 'Region'},
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '255'})
-        },
-        'ierg_results.target': {
-            'Meta': {'ordering': "['identifier']", 'object_name': 'Target'},
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'identifier': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
-            'target': ('django.db.models.fields.CharField', [], {'max_length': '255'})
         }
     }
 

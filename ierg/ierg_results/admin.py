@@ -1,5 +1,5 @@
 from django.contrib import admin
-from ierg_results.models import Region, Country, Target, ExcelFile
+from ierg_results.models import Region, Country, Indicator, ExcelFile
 from ierg_results.forms import ExcelFileAdminForm
 
 
@@ -11,7 +11,7 @@ class CountryAdmin(admin.ModelAdmin):
     list_display = ['__unicode__', 'region']
 
 
-class TargetAdmin(admin.ModelAdmin):
+class IndicatorAdmin(admin.ModelAdmin):
     list_display = ['__unicode__', 'target']
 
 
@@ -23,6 +23,6 @@ class ExcelFileAdmin(admin.ModelAdmin):
 
 admin.site.register(Region, RegionAdmin)
 admin.site.register(Country, CountryAdmin)
-admin.site.register(Target, TargetAdmin)
+admin.site.register(Indicator, IndicatorAdmin)
 admin.site.register(ExcelFile, ExcelFileAdmin)
 

@@ -1,0 +1,266 @@
+[ 
+    {
+        "pk": 1, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "1.1", 
+            "target": "75"
+        }
+    },
+    {
+        "pk": 2, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "1.2", 
+            "target": "60"
+        }
+    },
+    {
+        "pk": 3, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "1.3", 
+            "target": "90"
+        }
+    },
+    {
+        "pk": 4, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "1.3.1", 
+            "target": "Y"
+        }
+    },
+    {
+        "pk": 5, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "1.3.2", 
+            "target": "Y"
+        }
+    },
+    {
+        "pk": 6, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "1.3.3", 
+            "target": "Y"
+        }
+    },
+    {
+        "pk": 7, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "1.3.4", 
+            "target": "Y"
+        }
+    },
+    {
+        "pk": 8, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "1.3.5", 
+            "target": "Y"
+        }
+    },
+    {
+        "pk": 9, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "1.5", 
+            "target": "60"
+        }
+    },
+    {
+        "pk": 10, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "1.6", 
+            "target": "60"
+        }
+    },
+    {
+        "pk": 11, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "1.7", 
+            "target": "Y"
+        }
+    },
+    {
+        "pk": 12, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "1.7.1", 
+            "target": "Y"
+        }
+    },
+    {
+        "pk": 13, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "2.1", 
+            "target": ""
+        }
+    },
+    {
+        "pk": 14, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "2.2", 
+            "target": "Y"
+        }
+    },
+    {
+        "pk": 15, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "2.2.1", 
+            "target": "Y"
+        }
+    },
+    {
+        "pk": 16, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "2.2.2", 
+            "target": "Y"
+        }
+    },
+    {
+        "pk": 17, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "2.2.3", 
+            "target": "Y"
+        }
+    },
+    {
+        "pk": 18, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "2.2.4", 
+            "target": "Y"
+        }
+    },
+    {
+        "pk": 19, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "2.2.5", 
+            "target": "Y"
+        }
+    },
+    {
+        "pk": 20, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "2.2.6", 
+            "target": "Y"
+        }
+    },
+    {
+        "pk": 21, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "2.2.7", 
+            "target": "Y"
+        }
+    },
+    {
+        "pk": 22, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "2.2.8", 
+            "target": "Y"
+        }
+    },
+    {
+        "pk": 23, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "2.3", 
+            "target": "Y"
+        }
+    },
+    {
+        "pk": 24, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "3.1", 
+            "target": "Y"
+        }
+    },
+    {
+        "pk": 25, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "3.1.1", 
+            "target": "Y"
+        }
+    },
+    {
+        "pk": 26, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "3.2", 
+            "target": "Y"
+        }
+    },
+    {
+        "pk": 27, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "4.1", 
+            "target": "Y"
+        }
+    },
+    {
+        "pk": 28, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "4.2", 
+            "target": "Y"
+        }
+    },
+    {
+        "pk": 29, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "4.3", 
+            "target": "Y"
+        }
+    },
+    {
+        "pk": 30, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "5.1", 
+            "target": "Y"
+        }
+    },
+    {
+        "pk": 31, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "6.1", 
+            "target": "Y"
+        }
+    },
+    {
+        "pk": 32, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "7.1", 
+            "target": "Y"
+        }
+    },
+    {
+        "pk": 33, 
+        "model": "ierg_results.indicator", 
+        "fields": {
+            "indicator": "8.1", 
+            "target": "Y"
+        }
+    }
+]

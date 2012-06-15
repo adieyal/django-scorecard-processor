@@ -30,16 +30,16 @@ class Country(models.Model):
         return '%s' % self.name
 
 
-class Target(models.Model):
-    identifier = models.CharField(max_length=255)
-    target = models.CharField(max_length=255)
+class Indicator(models.Model):
+    indicator = models.CharField(max_length=10)
+    target = models.CharField(max_length=10)
 
     class Meta:
-        ordering = ['identifier']
+        ordering = ['indicator']
         app_label = 'ierg_results'
 
     def __unicode__(self):
-        return '%s' % self.identifier
+        return '%s' % self.indicator
 
 
 class ExcelFile(models.Model):
