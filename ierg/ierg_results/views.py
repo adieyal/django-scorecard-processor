@@ -235,17 +235,17 @@ def box(request):
         l_50 = (len(all_value) - 1) * 0.50
         l_75 = (len(all_value) - 1) * 0.75
         if l_25 % 1 == 0:
-            region['q1'] = all_value[int(l_25)]
+            region['q1'] = round(all_value[int(l_25)], 2)
         else:
-            region['q1'] = (all_value[int(l_25)] + all_value[int(l_25) + 1]) / 2
+            region['q1'] = round((all_value[int(l_25)] + all_value[int(l_25) + 1]) / 2, 2)
         if l_50 % 1 == 0:
-            region['q2'] = all_value[int(l_50)]
+            region['q2'] = round(all_value[int(l_50)], 2)
         else:
-            region['q2'] = (all_value[int(l_50)] + all_value[int(l_50) + 1]) / 2
+            region['q2'] = round((all_value[int(l_50)] + all_value[int(l_50) + 1]) / 2, 2)
         if l_75 % 1 == 0:
-            region['q3'] = all_value[int(l_75)]
+            region['q3'] = round(all_value[int(l_75)], 2)
         else:
-            region['q3'] = (all_value[int(l_75)] + all_value[int(l_75) + 1]) / 2
+            region['q3'] = round((all_value[int(l_75)] + all_value[int(l_75) + 1]) / 2, 2)
 
         region['num_countries'] = values.count()
         regions.append(region)
