@@ -20,6 +20,7 @@ class IergCommand(BaseCommand):
         )
     output_transaction = True
 
+    NUM_LINE = 75
     #TODO: Fix this later
     USER = User.objects.all()[1]
     PROJECT = models.Project.objects.get()
@@ -55,8 +56,7 @@ class IergCommand(BaseCommand):
             question = models.Question.objects.create(survey=survey, group=None,
                 identifier=self.IDENTIFIER, question=self.QUESTION)
 
-
-            for i in xrange(self.START_LINE, self.FINISH_LINE):
+            for i in xrange(self.START_LINE, self.START_LINE + self.NUM_LINE):
                 cell = sheet.cell(row=i, column=0)
 
                 entity, created = models.Entity.objects.get_or_create(

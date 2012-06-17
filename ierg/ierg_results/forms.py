@@ -10,7 +10,7 @@ class ExcelFileAdminForm(forms.ModelForm):
     def clean_excel_file(self):
         excel_file = self.cleaned_data['excel_file']
         ext = excel_file.name.rsplit('.', 1)[-1]
-        if ext != 'xlsx':
+        if ext != 'xls' and ext != 'xlsx':
             raise forms.ValidationError('Invalid file format.')
         return excel_file
 
