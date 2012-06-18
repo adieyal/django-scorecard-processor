@@ -1,3 +1,4 @@
+from django.shortcuts import get_object_or_404
 from django.utils import simplejson
 from scorecard_processor.models import Response
 from ierg_results.models import Country
@@ -64,4 +65,22 @@ def set_quartiles(all_value, region):
     else:
         region['q3'] = round((all_value[int(l_75)] + all_value[int(l_75) + 1]) / 2, 2)
     return region
+
+
+def get_indicator_value(country, indicator_id):
+    value = get_object_or_404(Response, question__identifier=indicator_id,
+        response_set__entity__name=country.name).value
+    indicator_value = None
+    if indicator_id == 1.1 or indicator_id == 1.2:
+        for i in xrange(1, 10):
+            indicator_value_i = value.get('Value %i' % i, 0)
+            if indicator_value_i is 0:
+                break
+            elif indicator_value_i is not None:
+                indicator_value = indicator_value_i
+    elif indicator_id == 8.1:
+        indicator_value = value.get('Yes/No Report available 2010 or later')
+    else:
+        indicator_value = value.get('Yes/No')
+    return indicator_value
 

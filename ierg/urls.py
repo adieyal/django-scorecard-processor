@@ -4,7 +4,7 @@ from django.conf.urls.defaults import *
 from django.contrib import admin
 from django.views.generic.simple import direct_to_template
 
-from ierg_results.views import graph, aggregate, summary, box, achieved
+from ierg_results.views import graph, aggregate, summary, box, achieved, scorecard_country
 
 admin.autodiscover()
 
@@ -27,6 +27,7 @@ urlpatterns = patterns('',
     (r'^summary/', summary),
     (r'^box/', box),
     (r'^achieved/', achieved),
+    (r'^scorecard/country/(?P<country_id>\d+)/json/', scorecard_country),
 
     (r'^static/(?P<path>.*)$','django.views.static.serve',{'document_root': 'static'}),
 

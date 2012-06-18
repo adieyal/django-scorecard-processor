@@ -1,8 +1,10 @@
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 from django.utils import simplejson
-from ierg_results.models import Region, Indicator
-from ierg_results.utils import get_values, calc_values, get_sources, set_quartiles
+from scorecard_processor.models import Response
+from ierg_results.models import Region, Country, Indicator
+from ierg_results.utils import get_values, calc_values, get_sources,\
+                               set_quartiles, get_indicator_value
 
 
 def graph(request):
@@ -252,6 +254,26 @@ def achieved(request):
     json['target'] = target
     json['sources'] = sources
     json['countries'] = countries
+    json = simplejson.dumps(json)
+
+    return HttpResponse(json, content_type='application/json')
+
+
+def scorecard_country(request, country_id):
+    country = get_object_or_404(Country, id=country_id)
+    indicators_id = [1.1, 1.2, 1.3, 1.7, 2.2, 2.3, 3.1, 3.2, 4.1, 4.3, 5.1, 6.1, 7.1, 8.1]
+
+    indicators = []
+    for indicator_id in indicators_id:
+        indicator_object = {}
+        indicator_object['id'] = indicator_id
+        indicator_object['value'] = get_indicator_value(country, indicator_id)
+        indicators.append(indicator_object)
+
+    json = {}
+    json['country_name'] = country.name
+    json['country_flag'] = country.name
+    json['indicators'] = indicators
     json = simplejson.dumps(json)
 
     return HttpResponse(json, content_type='application/json')
