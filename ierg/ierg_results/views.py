@@ -1,43 +1,19 @@
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 from django.utils import simplejson
-from scorecard_processor.models import Response
-from ierg_results.models import Region, Country, Indicator
-from ierg_results.utils import calc_values
+from ierg_results.models import Region, Indicator
+from ierg_results.utils import get_values, calc_values, get_sources, set_quartiles
 
 
 def graph(request):
     region_id = request.GET.get('region', 0)
     indicator = request.GET.get('indicator', 0)
+    region = None
     if region_id != 'all':
         region = get_object_or_404(Region, id=region_id)
     target = get_object_or_404(Indicator, indicator=indicator).target
-
-    if region_id != 'all':
-        region_countries = Country.objects.filter(region=region).\
-            values_list('name', flat=True)
-        values = Response.objects.filter(question__identifier=indicator,
-            response_set__entity__name__in=region_countries).\
-            values('value', 'response_set__entity__name')
-    else:
-        values = Response.objects.filter(question__identifier=indicator).\
-            values('value', 'response_set__entity__name')
-
-    sources = []
-    for value in values:
-        loads_value = simplejson.loads(value['value'])
-        source = None
-        for i in xrange(1, 10):
-            source_i = loads_value.get('Source %i' % i, 0)
-            if source_i is 0:
-                break
-            elif source_i is not None:
-                source = source_i
-        if source is not None:
-            sources.append(source)
-    sources = list(set(sources))
-    for k, v in enumerate(sources):
-        sources[k] = {'id': k + 1, 'name': v}
+    values = get_values(region_id, region, indicator)
+    sources = get_sources(values)
 
     countries = []
     for value in values:
@@ -75,18 +51,11 @@ def graph(request):
 def aggregate(request):
     region_id = request.GET.get('region', 0)
     indicator = request.GET.get('indicator', 0)
+    region = None
     if region_id != 'all':
         region = get_object_or_404(Region, id=region_id)
     target = get_object_or_404(Indicator, indicator=indicator).target
-
-    if region_id != 'all':
-        region_countries = Country.objects.filter(region=region).\
-            values_list('name', flat=True)
-        values = Response.objects.filter(question__identifier=indicator,
-            response_set__entity__name__in=region_countries).values('value')
-    else:
-        values = Response.objects.filter(question__identifier=indicator).\
-            values('value')
+    values = get_values(region_id, region, indicator)
      
     sources = []
     score_items = []
@@ -126,18 +95,11 @@ def aggregate(request):
 def summary(request):
     region_id = request.GET.get('region', 0)
     indicator = request.GET.get('indicator', 0)
+    region = None
     if region_id != 'all':
         region = get_object_or_404(Region, id=region_id)
     target = get_object_or_404(Indicator, indicator=indicator).target
-
-    if region_id != 'all':
-        region_countries = Country.objects.filter(region=region).\
-            values_list('name', flat=True)
-        values = Response.objects.filter(question__identifier=indicator,
-            response_set__entity__name__in=region_countries).values('value')
-    else:
-        values = Response.objects.filter(question__identifier=indicator).\
-            values('value')
+    values = get_values(region_id, region, indicator)
 
     sources = []
     no_data = 0
@@ -194,19 +156,13 @@ def summary(request):
 def box(request):
     indicator = request.GET.get('indicator', 0)
     target = get_object_or_404(Indicator, indicator=indicator).target
-
     db_regions = Region.objects.all()
 
     regions = []
     for db_region in db_regions:
         region = {}
         region['name'] = db_region.name
-
-        region_countries = Country.objects.filter(region=db_region).\
-            values_list('name', flat=True)
-        values = Response.objects.filter(question__identifier=indicator,
-            response_set__entity__name__in=region_countries).\
-            values('value', 'response_set__entity__name')
+        values = get_values(None, db_region, indicator)
 
         all_value = []
         max_value = {'country': None, 'value': None}
@@ -232,43 +188,12 @@ def box(request):
         region['min_value'] = min_value
 
         all_value.sort()
-        l_25 = (len(all_value) - 1) * 0.25
-        l_50 = (len(all_value) - 1) * 0.50
-        l_75 = (len(all_value) - 1) * 0.75
-        if l_25 % 1 == 0:
-            region['q1'] = round(all_value[int(l_25)], 2)
-        else:
-            region['q1'] = round((all_value[int(l_25)] + all_value[int(l_25) + 1]) / 2, 2)
-        if l_50 % 1 == 0:
-            region['q2'] = round(all_value[int(l_50)], 2)
-        else:
-            region['q2'] = round((all_value[int(l_50)] + all_value[int(l_50) + 1]) / 2, 2)
-        if l_75 % 1 == 0:
-            region['q3'] = round(all_value[int(l_75)], 2)
-        else:
-            region['q3'] = round((all_value[int(l_75)] + all_value[int(l_75) + 1]) / 2, 2)
-
+        region = set_quartiles(all_value, region)
         region['num_countries'] = values.count()
         regions.append(region)
 
-    values = Response.objects.filter(question__identifier=indicator).\
-        values('value')
-
-    sources = []
-    for value in values:
-        loads_value = simplejson.loads(value['value'])
-        source = None
-        for i in xrange(1, 10):
-            source_i = loads_value.get('Source %i' % i, 0)
-            if source_i is 0:
-                break
-            elif source_i is not None:
-                source = source_i
-        if source is not None:
-            sources.append(source)
-    sources = list(set(sources))
-    for k, v in enumerate(sources):
-        sources[k] = {'id': k + 1, 'name': v}
+    values = get_values('all', db_region, indicator)
+    sources = get_sources(values)
 
     json = {}
     json['indicator'] = indicator
@@ -283,35 +208,12 @@ def box(request):
 def achieved(request):
     region_id = request.GET.get('region', 0)
     indicator = request.GET.get('indicator', 0)
+    region = None
     if region_id != 'all':
         region = get_object_or_404(Region, id=region_id)
     target = get_object_or_404(Indicator, indicator=indicator).target
-
-    if region_id != 'all':
-        region_countries = Country.objects.filter(region=region).\
-            values_list('name', flat=True)
-        values = Response.objects.filter(question__identifier=indicator,
-            response_set__entity__name__in=region_countries).\
-            values('value', 'response_set__entity__name')
-    else:
-        values = Response.objects.filter(question__identifier=indicator).\
-            values('value', 'response_set__entity__name')
-
-    sources = []
-    for value in values:
-        loads_value = simplejson.loads(value['value'])
-        source = None
-        for i in xrange(1, 10):
-            source_i = loads_value.get('Source %i' % i, 0)
-            if source_i is 0:
-                break
-            elif source_i is not None:
-                source = source_i
-        if source is not None:
-            sources.append(source)
-    sources = list(set(sources))
-    for k, v in enumerate(sources):
-        sources[k] = {'id': k + 1, 'name': v}
+    values = get_values(region_id, region, indicator)
+    sources = get_sources(values)
 
     countries = []
     for value in values:
