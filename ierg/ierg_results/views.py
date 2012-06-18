@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.utils import simplejson
 from scorecard_processor.models import Response
 from ierg_results.models import Region, Country, Indicator
+from ierg_results.utils import calc_values
 
 
 def graph(request):
@@ -49,7 +50,7 @@ def graph(request):
                 break
             elif source_i is not None:
                 source = source_i
-                value_item = loads_value.get('Value %i' % i, None)
+                value_item = calc_values(loads_value.get('Value %i' % i, None))
         source_id = None
         for source_item in sources:
             if source_item['name'] == source:
@@ -99,7 +100,7 @@ def aggregate(request):
                 break
             elif source_i is not None:
                 source = source_i
-                score_item = loads_value.get('Value %i' % i, None)
+                score_item = calc_values(loads_value.get('Value %i' % i, None))
         if source is not None:
             sources.append(source)
         if score_item is not None:
@@ -152,7 +153,7 @@ def summary(request):
                 break
             elif source_i is not None:
                 source = source_i
-                score_item = loads_value.get('Value %i' % i, None)
+                score_item = calc_values(loads_value.get('Value %i' % i, None))
         if source is not None:
             sources.append(source)
         if score_item is None:
@@ -214,7 +215,7 @@ def box(request):
             loads_value = simplejson.loads(value['value'])
             current_v = None
             for i in xrange(1, 10):
-                current_vi = loads_value.get('Value %i' % i, 0)
+                current_vi = calc_values(loads_value.get('Value %i' % i, 0))
                 if current_vi is 0:
                     break
                 elif current_vi is not None:
@@ -325,7 +326,7 @@ def achieved(request):
                 break
             elif source_i is not None:
                 source = source_i
-                score = loads_value.get('Value %i' % i, None)
+                score = calc_values(loads_value.get('Value %i' % i, None))
         country['score'] = score
         if score is None:
             country['rating'] = 'missing'
