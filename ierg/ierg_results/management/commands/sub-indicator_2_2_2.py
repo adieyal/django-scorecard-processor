@@ -12,7 +12,7 @@ class Command(Indicator):
         rating_column = 8
         value_column = xrange(9, 12)
 
-        value[column_names[rating_column]] = sheet.cell(row=i, column=rating_column).value
+        value['Yes/No'] = sheet.cell(row=i, column=rating_column).value
         for j in value_column:
             value[column_names[j]] = sheet.cell(row=i, column=j).value
 

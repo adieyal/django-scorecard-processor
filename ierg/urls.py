@@ -21,15 +21,14 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
     (r'^grappelli/', include('grappelli.urls')),
-    
-    (r'^graph/', graph),
-    (r'^aggregate/', aggregate),
-    (r'^summary/', summary),
-    (r'^box/', box),
-    (r'^achieved/', achieved),
-    (r'^scorecard/country/(?P<country_id>\d+)/json/', scorecard_country),
 
-    (r'^static/(?P<path>.*)$','django.views.static.serve',{'document_root': 'static'}),
+    (r'^indicators/(?P<indicator>[.\d]+)/graph/json/$', graph),
+    (r'^indicators/(?P<indicator>[.\d]+)/aggregate/json/$', aggregate),
+    (r'^indicators/(?P<indicator>[.\d]+)/summary/json/$', summary),
+    (r'^indicators/(?P<indicator>[.\d]+)/box/json/$', box),
+    (r'^indicators/(?P<indicator>[.\d]+)/achieved/json/$', achieved),
+    (r'^scorecard/country/(?P<country_id>\d+)/json/$', scorecard_country),
 
+    (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': 'static'}),
 )
 

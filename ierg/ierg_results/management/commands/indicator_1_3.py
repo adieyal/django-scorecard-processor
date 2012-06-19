@@ -16,7 +16,7 @@ class Command(IergCommand):
         value = {}
         rating_column = 1
 
-        value[column_names[rating_column]] = sheet.cell(row=i, column=rating_column).value
+        value['Yes/No'] = sheet.cell(row=i, column=rating_column).value
 
         return simplejson.dumps(value)
 

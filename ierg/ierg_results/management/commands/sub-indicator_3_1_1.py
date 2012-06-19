@@ -9,11 +9,9 @@ class Command(Indicator):
 
     def get_json(self, sheet, column_names, i):
         value = {}
-        value_column = xrange(3, 6)
+        rating_column = 3
 
-        for j in value_column:
-            value_index = column_names[j].replace('Source 1 and 2', 'Source 2')
-            value[value_index] = sheet.cell(row=i, column=j).value
+        value['Yes/No'] = sheet.cell(row=i, column=rating_column).value
 
         return simplejson.dumps(value)
 

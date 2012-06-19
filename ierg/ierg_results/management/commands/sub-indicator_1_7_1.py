@@ -14,7 +14,7 @@ class Command(Indicator):
         value_column_2 = 11
         value_column_3 = 12
 
-        value[column_names[rating_column]] = sheet.cell(row=i, column=rating_column).value
+        value['Yes/No'] = sheet.cell(row=i, column=rating_column).value
         for j in value_column:
             value[column_names[j]] = sheet.cell(row=i, column=j).value
         value[column_names[value_column_2]] = sheet.cell(row=i, column=value_column_2).value

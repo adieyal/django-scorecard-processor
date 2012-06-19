@@ -26,6 +26,8 @@ def calc_values(value):
             value = float(value.replace('<', '')) / 2
         elif '>' in value:
             value = (float(value.replace('>', '')) + 100) / 2
+        else:
+            value = None
     return value
 
 
@@ -33,13 +35,13 @@ def get_sources(values):
     sources = []
     for value in values:
         loads_value = simplejson.loads(value['value'])
+        keys = [key for key in loads_value.keys() if key.startswith('Source')]
+        keys.sort()
         source = None
-        for i in xrange(1, 10):
-            source_i = loads_value.get('Source %i' % i, 0)
-            if source_i is 0:
-                break
-            elif source_i is not None:
-                source = source_i
+        for key in keys:
+            source_key = loads_value.get(key)
+            if source_key is not None and source_key != '':
+                source = source_key
         if source is not None:
             sources.append(source)
     sources = list(set(sources))
@@ -72,14 +74,12 @@ def get_indicator_value(country, indicator_id):
         response_set__entity__name=country.name).value
     indicator_value = None
     if indicator_id == 1.1 or indicator_id == 1.2:
-        for i in xrange(1, 10):
-            indicator_value_i = value.get('Value %i' % i, 0)
-            if indicator_value_i is 0:
-                break
-            elif indicator_value_i is not None:
-                indicator_value = indicator_value_i
-    elif indicator_id == 8.1:
-        indicator_value = value.get('Yes/No Report available 2010 or later')
+        keys = [key for key in value.keys() if key.startswith('Value')]
+        keys.sort()
+        for key in keys:
+            indicator_value_key = value.get(key)
+            if indicator_value_key is not None and indicator_value_key != '':
+                indicator_value = indicator_value_key
     else:
         indicator_value = value.get('Yes/No')
     return indicator_value

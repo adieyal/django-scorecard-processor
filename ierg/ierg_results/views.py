@@ -7,9 +7,8 @@ from ierg_results.utils import get_values, calc_values, get_sources,\
                                set_quartiles, get_indicator_value
 
 
-def graph(request):
+def graph(request, indicator):
     region_id = request.GET.get('region', 0)
-    indicator = request.GET.get('indicator', 0)
     region = None
     if region_id != 'all':
         region = get_object_or_404(Region, id=region_id)
@@ -50,13 +49,11 @@ def graph(request):
     return HttpResponse(json, content_type='application/json')
 
 
-def aggregate(request):
+def aggregate(request, indicator):
     region_id = request.GET.get('region', 0)
-    indicator = request.GET.get('indicator', 0)
     region = None
     if region_id != 'all':
         region = get_object_or_404(Region, id=region_id)
-    target = get_object_or_404(Indicator, indicator=indicator).target
     values = get_values(region_id, region, indicator)
      
     sources = []
@@ -94,41 +91,27 @@ def aggregate(request):
     return HttpResponse(json, content_type='application/json')
 
 
-def summary(request):
+def summary(request, indicator):
     region_id = request.GET.get('region', 0)
-    indicator = request.GET.get('indicator', 0)
     region = None
     if region_id != 'all':
         region = get_object_or_404(Region, id=region_id)
     target = get_object_or_404(Indicator, indicator=indicator).target
     values = get_values(region_id, region, indicator)
+    sources = get_sources(values)
 
-    sources = []
     no_data = 0
     achieved = 0
     not_achieved = 0
     for value in values:
         loads_value = simplejson.loads(value['value'])
-        source = None
-        score_item = None
-        for i in xrange(1, 10):
-            source_i = loads_value.get('Source %i' % i, 0)
-            if source_i is 0:
-                break
-            elif source_i is not None:
-                source = source_i
-                score_item = calc_values(loads_value.get('Value %i' % i, None))
-        if source is not None:
-            sources.append(source)
-        if score_item is None:
-            no_data += 1
-        elif score_item >= float(target):
+        score = loads_value.get('Yes/No')
+        if score == 'Yes':
             achieved += 1
-        else:
+        elif score == 'No':
             not_achieved += 1
-    sources = list(set(sources))
-    for k, v in enumerate(sources):
-        sources[k] = {'id': k + 1, 'name': v}
+        else:
+            no_data += 1
 
     all_score_items = no_data + achieved + not_achieved
     no_data_value = round((float(no_data) / all_score_items) * 100)
@@ -155,8 +138,7 @@ def summary(request):
     return HttpResponse(json, content_type='application/json')
 
 
-def box(request):
-    indicator = request.GET.get('indicator', 0)
+def box(request, indicator):
     target = get_object_or_404(Indicator, indicator=indicator).target
     db_regions = Region.objects.all()
 
@@ -207,9 +189,8 @@ def box(request):
     return HttpResponse(json, content_type='application/json')
 
 
-def achieved(request):
+def achieved(request, indicator):
     region_id = request.GET.get('region', 0)
-    indicator = request.GET.get('indicator', 0)
     region = None
     if region_id != 'all':
         region = get_object_or_404(Region, id=region_id)
@@ -220,29 +201,35 @@ def achieved(request):
     countries = []
     for value in values:
         country = {}
-        loads_value = simplejson.loads(value['value'])
         country['name'] = value['response_set__entity__name']
+        loads_value = simplejson.loads(value['value'])
+        skeys = [key for key in loads_value.keys() if key.startswith('Source')]
+        skeys.sort()
         source = None
-        score = None
-        for i in xrange(1, 10):
-            source_i = loads_value.get('Source %i' % i, 0)
-            if source_i is 0:
-                break
-            elif source_i is not None:
-                source = source_i
-                score = calc_values(loads_value.get('Value %i' % i, None))
-        country['score'] = score
-        if score is None:
-            country['rating'] = 'missing'
-        elif score >= float(target):
-            country['rating'] = 'tick'
-        else:
-            country['rating'] = 'cross'
+        for key in skeys:
+            source_key = loads_value.get(key)
+            if source_key is not None and source_key != '':
+                source = source_key
         source_id = None
-        for source_item in sources:
-            if source_item['name'] == source:
-                source_id = source_item['id']
+        for sources_item in sources:
+            if sources_item['name'] == source:
+                source_id = sources_item['id']
         country['source'] = source_id
+        vkeys = [key for key in loads_value.keys() if key.startswith('Value')]
+        vkeys.sort()
+        score = None
+        for key in vkeys:
+            score_key = calc_values(loads_value.get(key))
+            if score_key is not None and score_key != '':
+                score = score_key
+        country['score'] = score
+        rating_column = loads_value.get('Yes/No')
+        if rating_column == 'Yes':
+            country['rating'] = 'tick'
+        elif rating_column == 'No':
+            country['rating'] = 'cross'
+        else:
+            country['rating'] = 'missing'
         countries.append(country)
 
     json = {}

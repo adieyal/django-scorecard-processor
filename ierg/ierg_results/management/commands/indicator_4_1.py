@@ -18,7 +18,7 @@ class Command(IergCommand):
         value_column = [2, 3, 6]
         value_column_2 = [4, 5, 6]
 
-        value[column_names[rating_column]] = sheet.cell(row=i, column=rating_column).value
+        value['Yes/No'] = sheet.cell(row=i, column=rating_column).value
         for j in value_column:
             value_index = column_names[j].replace('Source1/2', 'Source 1')
             value[value_index] = sheet.cell(row=i, column=j).value
