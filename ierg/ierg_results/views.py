@@ -18,22 +18,30 @@ def graph(request, indicator):
 
     countries = []
     for value in values:
+        country = {}
+        country['name'] = value['response_set__entity__name']
         loads_value = simplejson.loads(value['value'])
+        skeys = [key for key in loads_value.keys() if key.startswith('Source')]
+        skeys.sort()
         source = None
-        value_item = None
-        for i in xrange(1, 10):
-            source_i = loads_value.get('Source %i' % i, 0)
-            if source_i is 0:
-                break
-            elif source_i is not None:
-                source = source_i
-                value_item = calc_values(loads_value.get('Value %i' % i, None))
+        for key in skeys:
+            source_key = loads_value.get(key)
+            if source_key is not None and source_key != '':
+                source = source_key
         source_id = None
-        for source_item in sources:
-            if source_item['name'] == source:
-                source_id = source_item['id']
-        countries.append({'name': value['response_set__entity__name'],
-            'value': value_item, 'source': source_id})
+        for sources_item in sources:
+            if sources_item['name'] == source:
+                source_id = sources_item['id']
+        country['source'] = source_id
+        vkeys = [key for key in loads_value.keys() if key.startswith('Value')]
+        vkeys.sort()
+        score = None
+        for key in vkeys:
+            score_key = calc_values(loads_value.get(key))
+            if score_key is not None and score_key != '':
+                score = score_key
+        country['score'] = score
+        countries.append(country)
 
     json = {}
     if region_id != 'all':
@@ -55,28 +63,23 @@ def aggregate(request, indicator):
     if region_id != 'all':
         region = get_object_or_404(Region, id=region_id)
     values = get_values(region_id, region, indicator)
-     
-    sources = []
+    sources = get_sources(values)
+
     score_items = []
     for value in values:
         loads_value = simplejson.loads(value['value'])
-        source = None
+        vkeys = [key for key in loads_value.keys() if key.startswith('Value')]
+        vkeys.sort()
         score_item = None
-        for i in xrange(1, 10):
-            source_i = loads_value.get('Source %i' % i, 0)
-            if source_i is 0:
-                break
-            elif source_i is not None:
-                source = source_i
-                score_item = calc_values(loads_value.get('Value %i' % i, None))
-        if source is not None:
-            sources.append(source)
+        for key in vkeys:
+            score_key = calc_values(loads_value.get(key))
+            if score_key is not None and score_key != '':
+                score_item = score_key
         if score_item is not None:
             score_items.append(score_item)
-    sources = list(set(sources))
-    for k, v in enumerate(sources):
-        sources[k] = {'id': k + 1, 'name': v}
-    score = int(round(sum(score_items) / len(score_items)))
+    score = None
+    if len(score_items):
+        score = int(round(sum(score_items) / len(score_items)))
 
     json = {}
     if region_id != 'all':
@@ -153,13 +156,13 @@ def box(request, indicator):
         min_value = {'country': None, 'value': None}
         for value in values:
             loads_value = simplejson.loads(value['value'])
+            vkeys = [key for key in loads_value.keys() if key.startswith('Value')]
+            vkeys.sort()
             current_v = None
-            for i in xrange(1, 10):
-                current_vi = calc_values(loads_value.get('Value %i' % i, 0))
-                if current_vi is 0:
-                    break
-                elif current_vi is not None:
-                    current_v = current_vi
+            for key in vkeys:
+                current_vkey = calc_values(loads_value.get(key))
+                if current_vkey is not None and current_vkey != '':
+                    current_v = current_vkey
             if current_v is not None:
                 all_value.append(current_v)
                 if max_value['value'] is None or current_v > max_value['value']:
