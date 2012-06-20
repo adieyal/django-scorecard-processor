@@ -9,7 +9,7 @@ class Command(Indicator):
 
     def get_json(self, sheet, column_names, i):
         value = {}
-        rating_column = 3
+        rating_column = 2
 
         value['Yes/No'] = sheet.cell(row=i, column=rating_column).value
 

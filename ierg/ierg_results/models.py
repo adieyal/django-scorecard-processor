@@ -19,6 +19,7 @@ class Region(models.Model):
 
 class Country(models.Model):
     name = models.CharField(max_length=255)
+    flag = models.CharField(max_length=255, blank=True)
     region = models.ForeignKey(Region, related_name='countries')
 
     class Meta:

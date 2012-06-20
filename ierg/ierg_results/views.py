@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 from django.utils import simplejson
@@ -262,7 +263,10 @@ def scorecard_country(request, country_id):
 
     json = {}
     json['country_name'] = country.name
-    json['country_flag'] = country.name
+    if country.flag:
+        json['country_flag'] = settings.STATIC_URL + 'flags/' + country.flag
+    else:
+        json['country_flag'] = None
     json['indicators'] = indicators
     json = simplejson.dumps(json)
 

@@ -8,7 +8,8 @@ class RegionAdmin(admin.ModelAdmin):
 
 
 class CountryAdmin(admin.ModelAdmin):
-    list_display = ['__unicode__', 'region']
+    list_display = ['__unicode__', 'flag', 'region']
+    readonly_fields = ['flag']
 
 
 class IndicatorAdmin(admin.ModelAdmin):

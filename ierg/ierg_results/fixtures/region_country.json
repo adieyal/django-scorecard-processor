@@ -46,6 +46,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Algeria",
+            "flag": "",
             "region": 1
         }
     },
@@ -54,6 +55,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Angola",
+            "flag": "Angola.png",
             "region": 1
         }
     },
@@ -62,6 +64,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Benin",
+            "flag": "Benin.png",
             "region": 1
         }
     },
@@ -70,6 +73,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Botswana",
+            "flag": "Botswana.png",
             "region": 1
         }
     },
@@ -78,6 +82,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Burkina Faso",
+            "flag": "Burkina_Faso.png",
             "region": 1
         }
     },
@@ -86,6 +91,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Burundi",
+            "flag": "Burundi.png",
             "region": 1
         }
     },
@@ -94,6 +100,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Cameroon",
+            "flag": "Cameroon.png",
             "region": 1
         }
     },
@@ -102,6 +109,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Cape Verde",
+            "flag": "",
             "region": 1
         }
     },
@@ -110,6 +118,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Central African Republic",
+            "flag": "Central_African_Republic.png",
             "region": 1
         }
     },
@@ -118,6 +127,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Chad",
+            "flag": "Chad.png",
             "region": 1
         }
     },
@@ -126,6 +136,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Comoros",
+            "flag": "Comoros.png",
             "region": 1
         }
     },
@@ -134,6 +145,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Congo",
+            "flag": "congo.png",
             "region": 1
         }
     },
@@ -142,6 +154,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Côte d'Ivoire",
+            "flag": "cote_d'ivoire.jpg",
             "region": 1
         }
     },
@@ -150,6 +163,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Democratic Republic of the Congo",
+            "flag": "DRC.png",
             "region": 1
         }
     },
@@ -158,6 +172,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Equatorial Guinea",
+            "flag": "Equatorial_Guinea.png",
             "region": 1
         }
     },
@@ -166,6 +181,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Eritrea",
+            "flag": "Eritrea.png",
             "region": 1
         }
     },
@@ -174,6 +190,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Ethiopia",
+            "flag": "Ethiopia.png",
             "region": 1
         }
     },
@@ -182,6 +199,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Gabon",
+            "flag": "Gabon.png",
             "region": 1
         }
     },
@@ -190,6 +208,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Gambia",
+            "flag": "Gambia.png",
             "region": 1
         }
     },
@@ -198,6 +217,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Ghana",
+            "flag": "Ghana.png",
             "region": 1
         }
     },
@@ -206,6 +226,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Guinea",
+            "flag": "Guinea.png",
             "region": 1
         }
     },
@@ -214,6 +235,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Guinea-Bissau",
+            "flag": "Guinea_Bissau.png",
             "region": 1
         }
     },
@@ -222,6 +244,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Kenya",
+            "flag": "Kenya.png",
             "region": 1
         }
     },
@@ -230,6 +253,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Lesotho",
+            "flag": "Lesotho.png",
             "region": 1
         }
     },
@@ -238,6 +262,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Liberia",
+            "flag": "Liberia.png",
             "region": 1
         }
     },
@@ -246,6 +271,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Madagascar",
+            "flag": "Madagascar.png",
             "region": 1
         }
     },
@@ -254,6 +280,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Malawi",
+            "flag": "Malawi.png",
             "region": 1
         }
     },
@@ -262,6 +289,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Mali",
+            "flag": "Mali.png",
             "region": 1
         }
     },
@@ -270,6 +298,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Mauritania",
+            "flag": "Mauritania.png",
             "region": 1
         }
     },
@@ -278,6 +307,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Mauritius",
+            "flag": "",
             "region": 1
         }
     },
@@ -286,6 +316,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Mozambique",
+            "flag": "Mozambique.png",
             "region": 1
         }
     },
@@ -294,6 +325,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Namibia",
+            "flag": "",
             "region": 1
         }
     },
@@ -302,6 +334,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Niger",
+            "flag": "Niger.png",
             "region": 1
         }
     },
@@ -310,6 +343,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Nigeria",
+            "flag": "Nigeria.png",
             "region": 1
         }
     },
@@ -318,6 +352,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Rwanda",
+            "flag": "Rwanda.png",
             "region": 1
         }
     },
@@ -326,6 +361,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Sao Tome and Principe",
+            "flag": "sao_tome.jpg",
             "region": 1
         }
     },
@@ -334,6 +370,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Senegal",
+            "flag": "Senegal.png",
             "region": 1
         }
     },
@@ -342,6 +379,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Seychelles",
+            "flag": "",
             "region": 1
         }
     },
@@ -350,6 +388,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Sierra Leone",
+            "flag": "",
             "region": 1
         }
     },
@@ -358,6 +397,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "South Africa",
+            "flag": "South_Africa.png",
             "region": 1
         }
     },
@@ -366,6 +406,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Swaziland",
+            "flag": "Swaziland.png",
             "region": 1
         }
     },
@@ -374,6 +415,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Togo",
+            "flag": "Togo.png",
             "region": 1
         }
     },
@@ -382,6 +424,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Uganda",
+            "flag": "Uganda.png",
             "region": 1
         }
     },
@@ -390,6 +433,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "United Republic of Tanzania",
+            "flag": "Tanzania.png",
             "region": 1
         }
     },
@@ -398,6 +442,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Zambia",
+            "flag": "Zambia.png",
             "region": 1
         }
     },
@@ -406,6 +451,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Zimbabwe",
+            "flag": "zimbabwe.jpg",
             "region": 1
         }
     },
@@ -414,6 +460,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Antigua and Barbuda",
+            "flag": "",
             "region": 2
         }
     },
@@ -422,6 +469,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Argentina",
+            "flag": "",
             "region": 2
         }
     },
@@ -430,6 +478,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Bahamas",
+            "flag": "",
             "region": 2
         }
     },
@@ -438,6 +487,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Barbados",
+            "flag": "",
             "region": 2
         }
     },
@@ -446,6 +496,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Belize",
+            "flag": "",
             "region": 2
         }
     },
@@ -454,6 +505,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Bolivia (Plurinational State of)",
+            "flag": "Bolivia.png",
             "region": 2
         }
     },
@@ -462,6 +514,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Brazil",
+            "flag": "Brazil.png",
             "region": 2
         }
     },
@@ -470,6 +523,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Canada",
+            "flag": "",
             "region": 2
         }
     },
@@ -478,6 +532,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Chile",
+            "flag": "",
             "region": 2
         }
     },
@@ -486,6 +541,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Colombia",
+            "flag": "",
             "region": 2
         }
     },
@@ -494,6 +550,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Costa Rica",
+            "flag": "",
             "region": 2
         }
     },
@@ -502,6 +559,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Cuba",
+            "flag": "",
             "region": 2
         }
     },
@@ -510,6 +568,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Dominica",
+            "flag": "",
             "region": 2
         }
     },
@@ -518,6 +577,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Dominican Republic",
+            "flag": "",
             "region": 2
         }
     },
@@ -526,6 +586,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Ecuador",
+            "flag": "",
             "region": 2
         }
     },
@@ -534,6 +595,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "El Salvador",
+            "flag": "",
             "region": 2
         }
     },
@@ -542,6 +604,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Grenada",
+            "flag": "",
             "region": 2
         }
     },
@@ -550,6 +613,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Guatemala",
+            "flag": "Guatemala.png",
             "region": 2
         }
     },
@@ -558,6 +622,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Guyana",
+            "flag": "",
             "region": 2
         }
     },
@@ -566,6 +631,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Haiti",
+            "flag": "Haiti.png",
             "region": 2
         }
     },
@@ -574,6 +640,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Honduras",
+            "flag": "",
             "region": 2
         }
     },
@@ -582,6 +649,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Jamaica",
+            "flag": "",
             "region": 2
         }
     },
@@ -590,6 +658,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Mexico",
+            "flag": "Mexico.png",
             "region": 2
         }
     },
@@ -598,6 +667,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Nicaragua",
+            "flag": "",
             "region": 2
         }
     },
@@ -606,6 +676,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Panama",
+            "flag": "",
             "region": 2
         }
     },
@@ -614,6 +685,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Paraguay",
+            "flag": "",
             "region": 2
         }
     },
@@ -622,6 +694,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Peru",
+            "flag": "Peru.png",
             "region": 2
         }
     },
@@ -630,6 +703,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Puerto Rico",
+            "flag": "",
             "region": 2
         }
     },
@@ -638,6 +712,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Saint Kitts and Nevis",
+            "flag": "",
             "region": 2
         }
     },
@@ -646,6 +721,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Saint Lucia",
+            "flag": "",
             "region": 2
         }
     },
@@ -654,6 +730,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Saint Vincent and the Grenadines",
+            "flag": "",
             "region": 2
         }
     },
@@ -662,6 +739,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Suriname",
+            "flag": "",
             "region": 2
         }
     },
@@ -670,6 +748,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Trinidad and Tobago",
+            "flag": "",
             "region": 2
         }
     },
@@ -678,6 +757,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "United States of America",
+            "flag": "",
             "region": 2
         }
     },
@@ -686,6 +766,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Uruguay",
+            "flag": "",
             "region": 2
         }
     },
@@ -694,6 +775,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Venezuela (Bolivarian Republic of)",
+            "flag": "",
             "region": 2
         }
     },
@@ -702,6 +784,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Bangladesh",
+            "flag": "Bangladesh.png",
             "region": 3
         }
     },
@@ -710,6 +793,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Bhutan",
+            "flag": "",
             "region": 3
         }
     },
@@ -718,6 +802,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Democratic People's Republic of Korea",
+            "flag": "Korea.png",
             "region": 3
         }
     },
@@ -726,6 +811,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "India",
+            "flag": "India.png",
             "region": 3
         }
     },
@@ -734,6 +820,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Indonesia",
+            "flag": "Indonesia.png",
             "region": 3
         }
     },
@@ -742,6 +829,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Maldives",
+            "flag": "",
             "region": 3
         }
     },
@@ -750,6 +838,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Myanmar",
+            "flag": "Myanmar.png",
             "region": 3
         }
     },
@@ -758,6 +847,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Nepal",
+            "flag": "Nepal.png",
             "region": 3
         }
     },
@@ -766,6 +856,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Sri Lanka",
+            "flag": "",
             "region": 3
         }
     },
@@ -774,6 +865,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Thailand",
+            "flag": "",
             "region": 3
         }
     },
@@ -782,6 +874,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Timor-Leste",
+            "flag": "",
             "region": 3
         }
     },
@@ -790,6 +883,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Albania",
+            "flag": "",
             "region": 4
         }
     },
@@ -798,6 +892,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Andorra",
+            "flag": "",
             "region": 4
         }
     },
@@ -806,6 +901,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Armenia",
+            "flag": "",
             "region": 4
         }
     },
@@ -814,6 +910,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Austria",
+            "flag": "",
             "region": 4
         }
     },
@@ -822,6 +919,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Azerbaijan",
+            "flag": "Azerbaijan.png",
             "region": 4
         }
     },
@@ -830,6 +928,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Belarus",
+            "flag": "",
             "region": 4
         }
     },
@@ -838,6 +937,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Belgium",
+            "flag": "",
             "region": 4
         }
     },
@@ -846,6 +946,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Bosnia and Herzegovina",
+            "flag": "",
             "region": 4
         }
     },
@@ -854,6 +955,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Bulgaria",
+            "flag": "",
             "region": 4
         }
     },
@@ -862,6 +964,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Croatia",
+            "flag": "",
             "region": 4
         }
     },
@@ -870,6 +973,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Cyprus",
+            "flag": "",
             "region": 4
         }
     },
@@ -878,6 +982,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Czech Republic",
+            "flag": "",
             "region": 4
         }
     },
@@ -886,6 +991,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Denmark",
+            "flag": "",
             "region": 4
         }
     },
@@ -894,6 +1000,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Estonia",
+            "flag": "",
             "region": 4
         }
     },
@@ -902,6 +1009,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Finland",
+            "flag": "",
             "region": 4
         }
     },
@@ -910,6 +1018,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "France",
+            "flag": "",
             "region": 4
         }
     },
@@ -918,6 +1027,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Georgia",
+            "flag": "",
             "region": 4
         }
     },
@@ -926,6 +1036,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Germany",
+            "flag": "",
             "region": 4
         }
     },
@@ -934,6 +1045,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Greece",
+            "flag": "",
             "region": 4
         }
     },
@@ -942,6 +1054,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Hungary",
+            "flag": "",
             "region": 4
         }
     },
@@ -950,6 +1063,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Iceland",
+            "flag": "",
             "region": 4
         }
     },
@@ -958,6 +1072,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Ireland",
+            "flag": "",
             "region": 4
         }
     },
@@ -966,6 +1081,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Israel",
+            "flag": "",
             "region": 4
         }
     },
@@ -974,6 +1090,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Italy",
+            "flag": "",
             "region": 4
         }
     },
@@ -982,6 +1099,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Kazakhstan",
+            "flag": "",
             "region": 4
         }
     },
@@ -990,6 +1108,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Kyrgyzstan",
+            "flag": "Kyrgyzstan.png",
             "region": 4
         }
     },
@@ -998,6 +1117,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Latvia",
+            "flag": "",
             "region": 4
         }
     },
@@ -1006,6 +1126,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Lithuania",
+            "flag": "",
             "region": 4
         }
     },
@@ -1014,6 +1135,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Luxembourg",
+            "flag": "",
             "region": 4
         }
     },
@@ -1022,6 +1144,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Malta",
+            "flag": "",
             "region": 4
         }
     },
@@ -1030,6 +1153,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Monaco",
+            "flag": "",
             "region": 4
         }
     },
@@ -1038,6 +1162,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Montenegro",
+            "flag": "",
             "region": 4
         }
     },
@@ -1046,6 +1171,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Netherlands",
+            "flag": "",
             "region": 4
         }
     },
@@ -1054,6 +1180,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Norway",
+            "flag": "",
             "region": 4
         }
     },
@@ -1062,6 +1189,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Poland",
+            "flag": "",
             "region": 4
         }
     },
@@ -1070,6 +1198,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Portugal",
+            "flag": "",
             "region": 4
         }
     },
@@ -1078,6 +1207,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Republic of Moldova",
+            "flag": "",
             "region": 4
         }
     },
@@ -1086,6 +1216,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Romania",
+            "flag": "",
             "region": 4
         }
     },
@@ -1094,6 +1225,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Russian Federation",
+            "flag": "",
             "region": 4
         }
     },
@@ -1102,6 +1234,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "San Marino",
+            "flag": "",
             "region": 4
         }
     },
@@ -1110,6 +1243,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Serbia",
+            "flag": "",
             "region": 4
         }
     },
@@ -1118,6 +1252,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Slovakia",
+            "flag": "",
             "region": 4
         }
     },
@@ -1126,6 +1261,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Slovenia",
+            "flag": "",
             "region": 4
         }
     },
@@ -1134,6 +1270,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Spain",
+            "flag": "",
             "region": 4
         }
     },
@@ -1142,6 +1279,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Sweden",
+            "flag": "",
             "region": 4
         }
     },
@@ -1150,6 +1288,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Switzerland",
+            "flag": "",
             "region": 4
         }
     },
@@ -1158,6 +1297,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Tajikistan",
+            "flag": "Tajikistan.png",
             "region": 4
         }
     },
@@ -1166,6 +1306,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "the former Yugoslav Republic of Macedonia",
+            "flag": "",
             "region": 4
         }
     },
@@ -1174,6 +1315,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Turkey",
+            "flag": "",
             "region": 4
         }
     },
@@ -1182,6 +1324,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Turkmenistan",
+            "flag": "Turkmenistan.png",
             "region": 4
         }
     },
@@ -1190,6 +1333,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Ukraine",
+            "flag": "",
             "region": 4
         }
     },
@@ -1198,6 +1342,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "United Kingdom of Great Britain and Northern Ireland",
+            "flag": "",
             "region": 4
         }
     },
@@ -1206,6 +1351,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Uzbekistan",
+            "flag": "Uzbekistan.png",
             "region": 4
         }
     },
@@ -1214,6 +1360,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Afghanistan",
+            "flag": "Afghanistan.png",
             "region": 5
         }
     },
@@ -1222,6 +1369,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Bahrain",
+            "flag": "",
             "region": 5
         }
     },
@@ -1230,6 +1378,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Djibouti",
+            "flag": "Djibouti.png",
             "region": 5
         }
     },
@@ -1238,6 +1387,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Egypt",
+            "flag": "Egypt.png",
             "region": 5
         }
     },
@@ -1246,6 +1396,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Iran (Islamic Republic of)",
+            "flag": "",
             "region": 5
         }
     },
@@ -1254,6 +1405,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Iraq",
+            "flag": "Iraq.png",
             "region": 5
         }
     },
@@ -1262,6 +1414,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Jordan",
+            "flag": "",
             "region": 5
         }
     },
@@ -1270,6 +1423,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Kuwait",
+            "flag": "",
             "region": 5
         }
     },
@@ -1278,6 +1432,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Lebanon",
+            "flag": "",
             "region": 5
         }
     },
@@ -1286,6 +1441,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Libya",
+            "flag": "",
             "region": 5
         }
     },
@@ -1294,6 +1450,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Morocco",
+            "flag": "Morocco.png",
             "region": 5
         }
     },
@@ -1302,6 +1459,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Oman",
+            "flag": "",
             "region": 5
         }
     },
@@ -1310,6 +1468,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Pakistan",
+            "flag": "Pakistan.png",
             "region": 5
         }
     },
@@ -1318,6 +1477,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Qatar",
+            "flag": "",
             "region": 5
         }
     },
@@ -1326,6 +1486,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Saudi Arabia",
+            "flag": "",
             "region": 5
         }
     },
@@ -1334,6 +1495,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Somalia",
+            "flag": "Somalia.png",
             "region": 5
         }
     },
@@ -1342,6 +1504,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "South Sudan",
+            "flag": "South_Sudan.png",
             "region": 5
         }
     },
@@ -1350,6 +1513,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Sudan",
+            "flag": "Sudan.png",
             "region": 5
         }
     },
@@ -1358,6 +1522,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Syrian Arab Republic",
+            "flag": "",
             "region": 5
         }
     },
@@ -1366,6 +1531,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Tunisia",
+            "flag": "",
             "region": 5
         }
     },
@@ -1374,6 +1540,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "United Arab Emirates",
+            "flag": "",
             "region": 5
         }
     },
@@ -1382,6 +1549,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Yemen",
+            "flag": "Yemen.png",
             "region": 5
         }
     },
@@ -1390,6 +1558,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Australia",
+            "flag": "",
             "region": 6
         }
     },
@@ -1398,6 +1567,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Brunei Darussalam",
+            "flag": "",
             "region": 6
         }
     },
@@ -1406,6 +1576,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Cambodia",
+            "flag": "Cambodia.png",
             "region": 6
         }
     },
@@ -1414,6 +1585,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "China",
+            "flag": "China.png",
             "region": 6
         }
     },
@@ -1422,6 +1594,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Cook Islands",
+            "flag": "",
             "region": 6
         }
     },
@@ -1430,6 +1603,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Fiji",
+            "flag": "",
             "region": 6
         }
     },
@@ -1438,6 +1612,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Japan",
+            "flag": "",
             "region": 6
         }
     },
@@ -1446,6 +1621,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Kiribati",
+            "flag": "",
             "region": 6
         }
     },
@@ -1454,6 +1630,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Lao People's Democratic Republic",
+            "flag": "Laos.png",
             "region": 6
         }
     },
@@ -1462,6 +1639,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Malaysia",
+            "flag": "",
             "region": 6
         }
     },
@@ -1470,6 +1648,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Marshall Islands",
+            "flag": "",
             "region": 6
         }
     },
@@ -1478,6 +1657,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Micronesia (Federated States of)",
+            "flag": "",
             "region": 6
         }
     },
@@ -1486,6 +1666,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Mongolia",
+            "flag": "",
             "region": 6
         }
     },
@@ -1494,6 +1675,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Nauru",
+            "flag": "",
             "region": 6
         }
     },
@@ -1502,6 +1684,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "New Zealand",
+            "flag": "",
             "region": 6
         }
     },
@@ -1510,6 +1693,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Niue",
+            "flag": "",
             "region": 6
         }
     },
@@ -1518,6 +1702,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Palau",
+            "flag": "",
             "region": 6
         }
     },
@@ -1526,6 +1711,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Papua New Guinea",
+            "flag": "Papua_New_Guinea.png",
             "region": 6
         }
     },
@@ -1534,6 +1720,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Philippines",
+            "flag": "Philippines.png",
             "region": 6
         }
     },
@@ -1542,6 +1729,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Republic of Korea",
+            "flag": "",
             "region": 6
         }
     },
@@ -1550,6 +1738,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Samoa",
+            "flag": "",
             "region": 6
         }
     },
@@ -1558,6 +1747,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Singapore",
+            "flag": "",
             "region": 6
         }
     },
@@ -1566,6 +1756,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Solomon Islands",
+            "flag": "Soloman_Islands.png",
             "region": 6
         }
     },
@@ -1574,6 +1765,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Tokelau",
+            "flag": "",
             "region": 6
         }
     },
@@ -1582,6 +1774,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Tonga",
+            "flag": "",
             "region": 6
         }
     },
@@ -1590,6 +1783,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Tuvalu",
+            "flag": "",
             "region": 6
         }
     },
@@ -1598,6 +1792,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Vanuatu",
+            "flag": "",
             "region": 6
         }
     },
@@ -1606,6 +1801,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Viet Nam",
+            "flag": "Vietnam.png",
             "region": 6
         }
     }
