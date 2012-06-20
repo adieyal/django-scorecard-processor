@@ -388,7 +388,7 @@
         "model": "ierg_results.country", 
         "fields": {
             "name": "Sierra Leone",
-            "flag": "",
+            "flag": "Sierra_Leone.png",
             "region": 1
         }
     },
