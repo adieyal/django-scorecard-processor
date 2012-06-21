@@ -19,6 +19,7 @@ class Command(IergCommand):
         value_column_2 = 14
 
         value['Yes/No'] = sheet.cell(row=i, column=rating_column).value
+        value['Yes/No'] = 'No data' if value['Yes/No'] is None else value['Yes/No']
         for j in value_column:
             value[column_names[j]] = sheet.cell(row=i, column=j).value
         value[column_names[value_column_2]] = sheet.cell(row=i, column=value_column_2).value

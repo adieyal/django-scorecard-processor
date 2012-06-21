@@ -17,6 +17,7 @@ class Command(IergCommand):
         rating_column = 1
 
         value['Yes/No'] = sheet.cell(row=i, column=rating_column).value
+        value['Yes/No'] = 'No data' if value['Yes/No'] is None else value['Yes/No']
 
         return simplejson.dumps(value)
 
