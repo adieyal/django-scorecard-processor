@@ -33,7 +33,9 @@ class Country(models.Model):
 
 class Indicator(models.Model):
     indicator = models.CharField(max_length=10)
-    target = models.CharField(max_length=10)
+    target = models.CharField(max_length=10, blank=True)
+    parent = models.ForeignKey('Indicator', related_name='sub_indicators',
+        blank=True, null=True)
 
     class Meta:
         ordering = ['indicator']

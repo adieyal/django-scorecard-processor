@@ -13,7 +13,7 @@ class CountryAdmin(admin.ModelAdmin):
 
 
 class IndicatorAdmin(admin.ModelAdmin):
-    list_display = ['__unicode__', 'target']
+    list_display = ['__unicode__', 'target', 'parent']
 
 
 class ExcelFileAdmin(admin.ModelAdmin):
