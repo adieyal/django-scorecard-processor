@@ -1,7 +1,11 @@
 *pyc
+*~
 /test/
 pip-log.txt
 *swp
 */testing.db
 */debugging.log
 /data/
+.idea/*
+env/
+local_settings.py

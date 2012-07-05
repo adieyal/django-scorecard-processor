@@ -1,0 +1,461 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-30 13:08+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+
+#: settings.py:47
+msgid "English"
+msgstr ""
+
+#: settings.py:48
+msgid "Français"
+msgstr ""
+
+#: ihp_results/forms.py:59
+msgid "Currency"
+msgstr "Votre devise"
+
+#: ihp_results/forms.py:60
+msgid "Please select your currency"
+msgstr "S'il vous plaît choisir votre devise"
+
+#: ihp_results/forms.py:64 ihp_results/forms.py:177
+msgid "Baseline data"
+msgstr "Données de base"
+
+#: ihp_results/forms.py:68 ihp_results/forms.py:178
+msgid "Latest data"
+msgstr "Dernières données"
+
+#: ihp_results/plugins.py:26
+msgid "Yes"
+msgstr "Oui"
+
+#: ihp_results/plugins.py:27
+msgid "No"
+msgstr "Non"
+
+#: ihp_results/plugins.py:28
+msgid "Under development"
+msgstr "en cours de développement"
+
+#: ihp_results/plugins.py:38
+msgid "Financial support"
+msgstr "Soutien financier"
+
+#: ihp_results/plugins.py:39
+msgid "Technical assistance (non-financial)"
+msgstr "Assistance technique (non financier)"
+
+#: ihp_results/plugins.py:40
+msgid "Lobbying/advocacy - non-financial"
+msgstr "Lobbying - plaidoyer - non financier"
+
+#: ihp_results/plugins.py:41
+msgid "Other (please specify in Voluntary additional information)"
+msgstr ""
+"Autre (veuillez préciser dans l'informations complémentaires volontaires)"
+
+#: ihp_results/plugins.py:52
+msgid "Maternal Health"
+msgstr "Santé maternelle"
+
+#: ihp_results/plugins.py:53
+msgid "Child Health"
+msgstr "Santé infantile"
+
+#: ihp_results/plugins.py:54
+msgid "Malaria"
+msgstr "Paludisme"
+
+#: ihp_results/plugins.py:55
+msgid "HIV/AIDS"
+msgstr "VIH/SIDA"
+
+#: ihp_results/plugins.py:56
+msgid "TB"
+msgstr "Tuberculose"
+
+#: ihp_results/plugins.py:57
+msgid ""
+"Health Systems Strengthening (Governance, Financing, HRH, Information "
+"Systems, Medicines, service delivery)"
+msgstr ""
+"Renforcement des systèmes de santé (gouvernance, financement, Ressources "
+"humaines de la santé, systèmes d'information, médicaments, services de "
+"livraison)"
+
+#: ihp_results/plugins.py:58
+msgid "Nutrition"
+msgstr "Nutrition"
+
+#: ihp_results/plugins.py:59
+msgid "International NGO"
+msgstr "ONG internationale"
+
+#: ihp_results/plugins.py:60
+msgid "National NGO"
+msgstr "ONG nationale"
+
+#: ihp_results/plugins.py:61
+msgid "Faith Based Organisation"
+msgstr "Organisation à base religieuse"
+
+#: ihp_results/plugins.py:62
+msgid "Umbrella Organisation"
+msgstr "Organisation faîtière"
+
+#: ihp_results/plugins.py:63
+msgid "Professional Association"
+msgstr "Association professionnelle"
+
+#: ihp_results/plugins.py:75
+msgid "Joint Annual Reviews"
+msgstr "Revues conjointes annuelles"
+
+#: ihp_results/plugins.py:76
+msgid "Monthly/quarterly coordination meetings"
+msgstr "Réunions de coordination mensuelles / trimestrielles"
+
+#: ihp_results/plugins.py:77
+msgid "Thematic working groups"
+msgstr "Groupes de travail thématiques"
+
+#: ihp_results/plugins.py:78
+msgid "Budget development / resource allocation"
+msgstr "Développement des budgets / allocation des ressources"
+
+#: ihp_results/plugins.py:109
+msgid "Please choose a valid currency"
+msgstr "S'il vous plaît choisir une devise valide"
+
+#: ihp_results/plugins.py:110
+msgid "Please enter a numeric amount"
+msgstr "S'il vous plaît entrer un montant numérique"
+
+#: ihp_results/plugins.py:121
+msgid "US Dollar"
+msgstr ""
+
+#: ihp_results/plugins.py:122
+msgid "British Pound"
+msgstr ""
+
+#: ihp_results/plugins.py:123
+msgid "Euro"
+msgstr ""
+
+#: ihp_results/plugins.py:124
+msgid "Australian Dollar"
+msgstr ""
+
+#: ihp_results/plugins.py:125
+msgid "Swedish Krona"
+msgstr ""
+
+#: ihp_results/plugins.py:126
+msgid "CFA Franc BCEAO"
+msgstr ""
+
+#: ihp_results/plugins.py:127
+msgid "Burundi Franc"
+msgstr ""
+
+#: ihp_results/plugins.py:128
+msgid "Djibouti Franc"
+msgstr ""
+
+#: ihp_results/plugins.py:129
+msgid "Congolese Franc"
+msgstr ""
+
+#: ihp_results/plugins.py:130
+msgid "El Salvador Colon"
+msgstr ""
+
+#: ihp_results/plugins.py:131
+msgid "Ethiopian Birr"
+msgstr ""
+
+#: ihp_results/plugins.py:132
+msgid "Mauritanian Ouguiya"
+msgstr ""
+
+#: ihp_results/plugins.py:133
+msgid "Mozambique New Metical"
+msgstr ""
+
+#: ihp_results/plugins.py:134
+msgid "Nepal Rupee"
+msgstr ""
+
+#: ihp_results/plugins.py:135
+msgid "Nigerian Naira"
+msgstr ""
+
+#: ihp_results/plugins.py:136
+msgid "Rwandan Franc"
+msgstr ""
+
+#: ihp_results/plugins.py:137
+msgid "Sierra Leone Leone"
+msgstr ""
+
+#: ihp_results/plugins.py:138
+msgid "Sudanese Pound"
+msgstr ""
+
+#: ihp_results/plugins.py:139
+msgid "Uganda Shilling"
+msgstr ""
+
+#: ihp_results/templates/ihp_results/add_dsg_survey.html:3
+#, python-format
+msgid "Add a new response to %(survey_name)s for %(entity_name)s"
+msgstr "Ajouter une nouvelle réponse à %(survey_name)s pour %(entity_name)s"
+
+#: ihp_results/templates/ihp_results/add_dsg_survey.html:8
+msgid "New response to"
+msgstr "Nouvelle réponse à"
+
+#: ihp_results/templates/ihp_results/add_dsg_survey.html:8
+msgid "for"
+msgstr "pour"
+
+#: ihp_results/templates/ihp_results/add_dsg_survey.html:15
+msgid "Please select a country"
+msgstr "S'il vous plaît choisir un pays"
+
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:3
+#: ihp_results/templates/ihp_results/view_dsg_survey.html:3
+#, python-format
+msgid "Response to %(survey_name)s for %(entity_name)s"
+msgstr "Ajouter une nouvelle réponse à %(survey_name)s pour %(entity_name)s"
+
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:94
+msgid "Click to see definition"
+msgstr "Cliquez ici pour voir la définition"
+
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:173
+msgid ""
+"Download 2011 data <a target=\"_blank\" href=\"http://ihpresults.net/results/"
+"data/\">here</a>"
+msgstr ""
+"<a target=\"_blank\" href=\"http://ihpresults.net/results/data/"
+"\">Télécharger</a> les données 2011"
+
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:174
+msgid "Continue"
+msgstr "Continuer"
+
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:175
+msgid "Save and continue"
+msgstr "Enregistrer et continuer"
+
+#: ihp_results/templates/ihp_results/edit_dsg_survey.html:176
+msgid "Save and submit"
+msgstr "Enregistrer et soumettre"
+
+#: ihp_results/templates/ihp_results/view_dsg_survey.html:37
+msgid "Print this page"
+msgstr "Imprimer cette page"
+
+#: ihp_results/templates/scorecard_processor/_entity_responsesets.html:14
+msgid "view response"
+msgstr "Voir la réponse"
+
+#: templates/base.html:37
+msgid "Logged in as"
+msgstr "Connecté en tant que"
+
+#: templates/base.html:43
+msgid "Language"
+msgstr "Langue"
+
+#: templates/base.html:49
+msgid "Set"
+msgstr "Fixé"
+
+#: templates/index.html:7
+msgid ""
+"<h1>2012 IHP+Results Monitoring Process <small>Online Survey Tool</small></"
+"h1>\n"
+"<p>Welcome to the 3rd annual monitoring of the International Health "
+"Partnership (IHP+) Global Compact commitments, by IHP+Results. You can use "
+"this online survey tool to submit data to IHP+Results on your organisations "
+"performance. Alternatively you can use an Excel tool.  But there are certain "
+"advantages to completing the survey online:\n"
+"\n"
+"<ol>\n"
+"    <li>Your organisation’s data will be automatically saved within our "
+"database so you do not have to store and find multiple Excel files (ie we "
+"manage your version control!).</li>\n"
+"    <li>If you are managing or overseeing returns from many countries, you "
+"can access them all here, and switch between them without having to open "
+"different files.</li>\n"
+"    <li>Participants from the 2nd round of IHP+ monitoring (in 2010) can see "
+"their previously submitted data as reminder of how you tackled the exercise "
+"previously.</li>\n"
+"    <li>You will be prompted if you enter an unexpected piece of data (e.g. "
+"entering text into a numeric field).  This should promote consistency across "
+"all survey responses.</li>\n"
+"    <li>You can access key terms and definitions in the same space rather "
+"than having to look them up in a separate document.</li>\n"
+"</ol>\n"
+"\n"
+"\n"
+"<p>To use the survey tool you need to be registered.  Registration is "
+"managed by the IHP+Results team in conjunction with IHP+ focal points in all "
+"participating organisations.  Please contact your IHP+ focal point if you "
+"need to be registered to use this system.  You may already have been "
+"registered, in which you case you will have received an email from ‘IHP"
+"+Results Survey 2012’; please click on the link in that email and follow the "
+"on screen instructions to access the online survey.</p>\n"
+"\n"
+msgstr ""
+"<h1>2012 IHP+Results Monitoring Processssus de suivi d’IHP+Results "
+"2012<small>Outil d’enquête en ligne</small></h1>\n"
+"<p>Bienvenue au troisième suivi annuel des engagement pris dans le cadre du "
+"Pacte mondial du Partenariat international pour la santé (IHP+) par IHP"
+"+Results. Vous pouvez utiliser le présent outil d’enquête pour envoyer des "
+"données à IHP+Results au sujet de la performance de vos organisations. Vous "
+"pouvez également utiliser un outil Excel. Le fait de répondre à l’enquête en "
+"ligne comporte toutefois certains avantages :<ol>\n"
+"    <li>Les données de votre organisation seront enregistrées "
+"automatiquement dans notre base de données, ce qui vous évitera de devoir "
+"trier et retrouver divers fichiers Excel (nous gérons notamment le contrôle "
+"de votre version!).</li>    <li>Si vous gérez ou supervisez les retours de "
+"différents pays, vous pouvez accéder à ceux- ci ici et passer de l’un à "
+"l’autre sans devoir ouvrir des fichiers différents.</li>    <li>Les "
+"personnes qui ont participé au deuxième cycle de suivi de l'IHP+ (en 2010) "
+"peuvent accéder aux données brutes qu’ils ont déjà envoyées.</li>    "
+"<li>Vous serez averti si vous saisissez des données inattendues (saisir du "
+"texte dans un champ numérique). Cela favorise une certaine uniformité dans "
+"toutes les réponses de l'enquête.</li>    <li>Vous pouvez accéder à des "
+"termes et définitions clés dans le même espace au lieu de devoir les "
+"consulter dans un document distinct.</li></ol>\n"
+"\n"
+"\n"
+"<p>Vous devez être enregistré pour utiliser l’outil d’enquête. "
+"L’enregistrement est géré par l’équipe d’IHP+Results en collaboration avec "
+"des hauts fonctionnaires de l'IHP+ dans toutes les organisations "
+"participantes. Veuillez communiquer avec le haut fonctionnaire de l’IHP+ "
+"responsable si vous devez être enregistré pour utiliser ce système. Il est "
+"possible que vous soyez déjà enregistré. Dans ce cas, vous avez reçu un "
+"courriel de la part d’ « Enquête 2012 d’IHP+Results ». Veuillez cliquer sur "
+"le lien inclus dans ce courriel et suivez les instructions à l’écran pour "
+"accéder à l’enquête en ligne.</p>\n"
+"\n"
+
+#: templates/index.html:23
+msgid "Get started"
+msgstr "Commencer"
+
+#: templates/index.html:27
+msgid ""
+"\n"
+"    <p>More detailed documentation and guidance on the 2012 process is "
+"available at <a href=\"http://www.ihpresults.net/2012monitoring\" target="
+"\"_new\">http://www.ihpresults.net/2012monitoring</a>.</p> \n"
+"    <p>Here you will find:</p>\n"
+"    <ul>\n"
+"        <li>Overview Guidance</li>\n"
+"        <li>Detailed Key Terms and Definitions</li>\n"
+"        <li>Excel versions of the Survey Tools</li>\n"
+"    </ol>\n"
+"    "
+msgstr ""
+"\n"
+"    <p>Vous pouvez consulter des documents et des lignes directrices plus "
+"détaillés sur le processus2012 <a href=\"http://www.ihpresults."
+"net/2012monitoring\" target=\"_new\">http://www.ihpresults."
+"net/2012monitoring</a>.</p> \n"
+"    <p>Sur ce site Web, vous trouverez:</p>\n"
+"    <ul>\n"
+"        <li>des lignes directrices générales;</li>\n"
+"        <li>des termes clés et des définitions détaillés;</li>\n"
+"        <li>des versions Excel des outils d’enquête.</li>\n"
+"    </ol>\n"
+"    "
+
+#: templates/admin/base_site.html:4
+msgid "Django site admin"
+msgstr ""
+
+#: templates/admin/base_site.html:7
+msgid "Django administration"
+msgstr ""
+
+#: templates/registration/login.html:12
+msgid "Welcome"
+msgstr "Accueil"
+
+#: templates/registration/login.html:16
+msgid ""
+"To use the survey tool you need to be registered.  Registration is managed "
+"by the IHP+Results team in conjunction with IHP+ focal points in all "
+"participating organisations.  Please contact your IHP+ focal point if you "
+"need to be registered to use this system.  You may already have been "
+"registered, in which you case you will have received an email from ‘IHP"
+"+Results Survey 2012’; please click on the link in that email and follow the "
+"on screen instructions to access the online survey."
+msgstr ""
+"Vous devez être enregistré pour utiliser l’outil d’enquête. L’enregistrement "
+"est géré par l’équipe d’IHP+Results en collaboration avec des hauts "
+"fonctionnaires de l'IHP+ dans toutes les organisations participantes. "
+"Veuillez communiquer avec le haut fonctionnaire de l’IHP+ responsable si "
+"vous devez être enregistré pour utiliser ce système. Il est possible que "
+"vous soyez déjà enregistré. Dans ce cas, vous avez reçu un courriel de la "
+"part d’ « Enquête 2012 d’IHP+Results ». Veuillez cliquer sur le lien inclus "
+"dans ce courriel et suivez les instructions à l’écran pour accéder à "
+"l’enquête en ligne."
+
+#: templates/registration/login.html:22
+msgid "Log in"
+msgstr "Connectez-vous"
+
+#: templates/registration/login.html:23
+#, python-format
+msgid ""
+"Don't know your password? <a href=\"%(reset_url)s\">click to retrieve it</a>."
+msgstr ""
+"Je ne sais pas votre mot de passe? <a href \"%(reset_url)s\">cliquez dessus "
+"pour l'extraire</a>"
+
+#~ msgid "Survey Responses"
+#~ msgstr "Les réponses au sondage"
+
+#~ msgid "Thanks for your submission"
+#~ msgstr "Merci pour votre soumission"
+
+#~ msgid "You can add another response using this button:"
+#~ msgstr "Vous pouvez ajouter une autre réponse en cliquant ce bouton"
+
+#~ msgid "Associated users"
+#~ msgstr "Utilisateurs associés"
+
+#~ msgid "Edit responses"
+#~ msgstr "Modifier les réponses"
+
+#~ msgid "ordered by last update"
+#~ msgstr "ordonnée par dernière mise à jour"
+
+#~ msgid "Response to %(survey.i18n.name)s for %(entity.name)s"
+#~ msgstr "Ajouter une nouvelle réponse à %(survey_name)s pour %(entity_name)s"
+
+#~ msgid "Save"
+#~ msgstr "Enregistrer"

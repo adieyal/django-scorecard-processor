@@ -1,7 +1,7 @@
 from django.contrib import admin
 from models import  DataSeries, DataSeriesGroup, Entity, EntityType, Survey, \
-        Question, ResponseSet, Response, ResponseOverride, Scorecard, Operation, \
-        OperationArgument, Project, ReportRun, QuestionGroup, \
+        Question, ResponseSet, Response, ResponseOverride, Scorecard, \
+        Operation, OperationArgument, Project, ReportRun, QuestionGroup, \
         GlossaryDefinition, GlossaryTerm
 from django.forms.models import BaseInlineFormSet 
 
@@ -68,6 +68,7 @@ class ScorecardAdmin(admin.ModelAdmin):
     list_display = ('__unicode__','project','visible')
     model = Scorecard
 
+
 admin.site.register(Survey, SurveyAdmin)
 admin.site.register(ResponseSet, ResponseSetAdmin)
 admin.site.register(ResponseOverride, ResponseOverrideAdmin)
@@ -82,6 +83,7 @@ admin.site.register(GlossaryDefinition, GlossaryDefinitionAdmin)
 admin.site.register(Entity)
 admin.site.register(EntityType)
 admin.site.register(Project)
+
 
 from forms import ArgumentForm
 class OperationArgumentInline(admin.StackedInline):

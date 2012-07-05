@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Django settings for ihp project.
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -21,7 +21,6 @@ DATABASES = {
     }
 }
 
-AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend','ihp_results.backends.EmailModelBackend','guardian.backends.ObjectPermissionBackend',)
 #Guardian specific
 ANONYMOUS_USER_ID = -1
 
@@ -98,7 +97,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'ihp.urls'
+ROOT_URLCONF = 'ierg.urls'
 TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.auth.context_processors.auth",
     "django.core.context_processors.debug",
@@ -125,8 +124,6 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
 
-    'ihp_results',
-
     'scorecard_processor',
     'guardian',
 
@@ -140,4 +137,11 @@ INSTALLED_APPS = (
     #External deps
     'south',
     'bootstrap',
+    'ierg_results',
 )
+
+
+try:
+    from local_settings import *
+except ImportError:
+    pass

@@ -242,7 +242,7 @@ class ResponseSet(models.Model):
         return ('survey_response_edit',(str(self.entity.pk),str(self.pk)))
 
     def __unicode__(self):
-        return "ResponseSet %s for %s about %s" % (self.pk, self.survey, self.entity)
+        return u"ResponseSet %s for %s about %s" % (self.pk, self.survey, self.entity)
 
     def get_data_series(self):
         if not hasattr(self, '_data_series'):
@@ -401,8 +401,9 @@ def store_to_disk(sender, instance, **kwargs):
         tmpfile = os.fdopen(fd, 'w')
         instance.serialize(stream=tmpfile)
         tmpfile.close()
+        print path
         shutil.copy(path, '../data/%s.-.%s.-.%s.json' % (instance.entity.name, '.'.join([ds.name for ds in instance.get_data_series()]), instance.last_update))
         os.remove(path)
-    
+
 post_save.connect(invalidate_old_responses, sender=Response, dispatch_uid="scorecard_processor.invalidate_responses")
-post_save.connect(store_to_disk, sender=ResponseSet, dispatch_uid="scorecard_processor.store_to_disk")
+#post_save.connect(store_to_disk, sender=ResponseSet, dispatch_uid="scorecard_processor.store_to_disk")
