@@ -5,7 +5,7 @@ from ierg_results.management.commands.ierg_command import IergCommand
 class Command(IergCommand):
     SHEET_NAME = '4.3 RMNCH expenditure'
     SURVEY_NAME = 'RMNCH expenditure'
-    COLUM_NAME_ROW_STRING = "A4:I4"
+    COLUM_NAME_ROW_STRING = "A4:H4"
     START_LINE = 4
 
     IDENTIFIER = '4.3'

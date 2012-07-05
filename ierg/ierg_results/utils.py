@@ -20,12 +20,23 @@ def get_values(region_id, region, indicator):
 def calc_values(value):
     if isinstance(value, basestring):
         if '-' in value:
-            values = [float(value) for value in value.split('-')]
-            value = sum(values) / len(values)
+            values = [float(value) for value in value.split('-') if value.isdigit()]
+            if len(values):
+                value = sum(values) / len(values)
+            else:
+                value = None
         elif '<' in value:
-            value = float(value.replace('<', '')) / 2
+            value = value.replace('<', '')
+            if value.isdigit():
+                value = float(value) / 2
+            else:
+                value = None
         elif '>' in value:
-            value = (float(value.replace('>', '')) + 100) / 2
+            value = value.replace('>', '')
+            if value.isdigit():
+                value = (float(value) + 100) / 2
+            else:
+                value = None
         else:
             value = None
     return value

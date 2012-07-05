@@ -11,8 +11,8 @@ class Command(Indicator):
         value = {}
         rating_column = 2
         value_column = xrange(3, 6)
-        value_column_2 = 11
-        value_column_3 = 12
+        value_column_2 = 9
+        value_column_3 = 10
 
         value['Yes/No'] = sheet.cell(row=i, column=rating_column).value
         value['Yes/No'] = 'No data' if value['Yes/No'] is None else value['Yes/No']

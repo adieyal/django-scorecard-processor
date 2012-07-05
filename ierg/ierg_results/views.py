@@ -136,9 +136,9 @@ def summary(request, indicator):
         for value in values:
             loads_value = simplejson.loads(value['value'])
             score = loads_value.get('Yes/No')
-            if score == 'Yes':
+            if score.lower() == 'yes':
                 achieved += 1
-            elif score == 'No':
+            elif score.lower() == 'no':
                 not_achieved += 1
             else:
                 no_data += 1
@@ -272,9 +272,9 @@ def achieved(request, indicator):
                     score = score_key
             country['score'] = score
             rating_column = loads_value.get('Yes/No')
-            if rating_column == 'Yes':
+            if rating_column.lower() == 'yes':
                 country['rating'] = 'tick'
-            elif rating_column == 'No':
+            elif rating_column.lower() == 'no':
                 country['rating'] = 'cross'
             else:
                 country['rating'] = 'missing'

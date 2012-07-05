@@ -5,7 +5,7 @@ from ierg_results.management.commands.ierg_command import IergCommand
 class Command(IergCommand):
     SHEET_NAME = '4.1 Total Health Expenditure'
     SURVEY_NAME = 'Total Health Expenditure'
-    COLUM_NAME_ROW_STRING = "A4:G4"
+    COLUM_NAME_ROW_STRING = "A4:M4"
     START_LINE = 4
 
     IDENTIFIER = '4.1'
@@ -13,18 +13,19 @@ class Command(IergCommand):
 
 
     def get_json(self, sheet, column_names, i):
+        print column_names
         value = {}
         rating_column = 1
-        value_column = [2, 3, 6]
-        value_column_2 = [4, 5, 6]
+        value_column = [8, 9, 12]
+        value_column_2 = [10, 11, 12]
 
         value['Yes/No'] = sheet.cell(row=i, column=rating_column).value
         value['Yes/No'] = 'No data' if value['Yes/No'] is None else value['Yes/No']
         for j in value_column:
-            value_index = column_names[j].replace('Source1/2', 'Source 1')
+            value_index = column_names[j].replace('Source 3/4', 'Source 3')
             value[value_index] = sheet.cell(row=i, column=j).value
         for j in value_column_2:
-            value_index = column_names[j].replace('Source1/2', 'Source 2')
+            value_index = column_names[j].replace('Source 3/4', 'Source 4')
             value[value_index] = sheet.cell(row=i, column=j).value
 
         return simplejson.dumps(value)

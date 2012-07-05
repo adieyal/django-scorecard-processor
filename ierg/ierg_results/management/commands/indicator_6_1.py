@@ -15,12 +15,9 @@ class Command(IergCommand):
     def get_json(self, sheet, column_names, i):
         value = {}
         rating_column = 1
-        value_column = xrange(2, 5)
 
         value['Yes/No'] = sheet.cell(row=i, column=rating_column).value
         value['Yes/No'] = 'No data' if value['Yes/No'] is None else value['Yes/No']
-        for j in value_column:
-            value[column_names[j]] = sheet.cell(row=i, column=j).value
 
         return simplejson.dumps(value)
 
