@@ -4,10 +4,23 @@ TEMPLATE_DEBUG = DEBUG
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'testing.db',                      # Or path to database file if using
+        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'coia',                      # Or path to database file if using
+        'USER' : 'coia',
+        'PASSWORD' : 'A1aaaaa',
     }
 }
+
+
+MEDIA_ROOT = '/home/coia/webapps/static/media'
+
+# URL that handles the media served from MEDIA_ROOT. Make sure to use a
+# trailing slash if there is a path component (optional in other cases).
+# Examples: "http://media.lawrence.com", "http://example.com/media/"
+MEDIA_URL = '/uploads/'
+
+STATIC_URL = '/static/'
+STATIC_ROOT = '/home/coia/webapps/static/static'
 
 STATICFILES_DIRS = (
     'static/',
